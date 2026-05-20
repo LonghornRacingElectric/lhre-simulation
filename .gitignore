@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Local/editor state
+.DS_Store
+.idea/
+.vscode/
+
+# Generated simulation artifacts
+*.fmu
+*.mat
+*.npz
+*.csv
+*.h5
+*.html
+*.log
+
+# Large/generated outputs should be promoted intentionally when worth keeping.
+results/
+outputs/
+runs/
