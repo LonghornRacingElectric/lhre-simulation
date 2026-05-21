@@ -1,0 +1,27 @@
+study:
+  id: VDYN-016-standardsim-response-surface-doe
+  lane: vdyn
+  title: StandardSim-Baseline-Anchored Surrogate Response Surface DOE
+  owner: Vehicle Dynamics
+  status: active
+  decision_question: Which variables are likely to move the StandardSim response metrics that drivers will feel, before spending compute on compiled variant runs?
+  report_destination: reports/2026-vdyn-design-report.md#standardsim-response-surface-doe
+
+claim:
+  statement: Baseline StandardSim response metrics can be organized into an actionable surrogate DOE around the current baseline.
+  why_it_matters: EnvelopeSim explains capability, but StandardSim metrics explain driver-facing response: gain, rise time, overshoot, roll, and settling.
+  accepted_if: The study ranks candidate response sensitivities by cornering stiffness, relaxation, damping, LLTD, torsional stiffness, and toe factors while clearly reporting zero compiled StandardSim variants.
+  rejected_if: The response surface cannot identify the top variables to validate through compiled StandardSim runs, step/sine steer, and setup brackets.
+
+inputs:
+  standardsim_summary: ../VDYN-003-standardsim-baseline/outputs/summary.csv
+  cornering_stiffness: ../VDYN-008-tire-cornering-stiffness/outputs
+  relaxation_response: ../VDYN-009-tire-relaxation-response/outputs
+  torsional_stiffness: ../VDYN-013-torsional-stiffness-authority/outputs/torsional_stiffness_sweep.csv
+  static_alignment: ../VDYN-014-static-alignment-screening/outputs
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots
+  run_provenance: outputs/run_provenance.csv

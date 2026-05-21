@@ -1,0 +1,44 @@
+# Copy this into a new study folder before writing code or running sweeps.
+study:
+  id: ""
+  lane: ""  # vdyn | aero | chassis
+  title: ""
+  owner: ""
+  status: planned
+  decision_question: ""
+  report_destination: ""  # e.g. reports/2026-vdyn-design-report.md#baseline-envelope
+
+claim:
+  statement: ""
+  why_it_matters: ""
+  accepted_if: ""
+  rejected_if: ""
+
+inputs:
+  vehicle_config: vehicles/current/vehicle.yml
+  tire_file: vehicles/current/tires/16x7p5_10_12psi.tir
+  other_sources: []
+
+fixed_assumptions: []
+
+swept_variables: []
+
+metrics: []
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots
+  run_provenance: outputs/run_provenance.csv
+
+run_provenance_required_fields:
+  engine: EnvelopeSim, StandardSim, study_calculation, or surrogate name
+  compiled_models: Count of models actually compiled by this study
+  simulated_cases: Count of cases evaluated by the named engine/calculation
+  runtime_s: Wall-clock runtime for the study script
+  notes: Any caveat needed to prevent overclaiming
+
+correlation:
+  required_channels: []
+  test_procedure: ""
+  model_update_if_wrong: ""

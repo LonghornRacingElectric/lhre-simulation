@@ -1,0 +1,23 @@
+study:
+  id: AERO-003-vehicle-integration
+  lane: aero
+  title: Vehicle Integration
+  owner: LHRE Aero / Vehicle Dynamics
+  status: active
+  decision_question: What vehicle-level consequences must accompany aero claims?
+  report_destination: reports/2026-aero-design-report.md#vehicle-integration
+
+claim:
+  statement: Aero must be justified by force, drag power, vehicle envelope, and validation channels together.
+  why_it_matters: Judges will not reward downforce disconnected from drag, energy, platform, and correlation consequences.
+  accepted_if: Baseline aero force, drag power, and baseline envelope context can be connected from admitted studies.
+  rejected_if: Aero force cannot be linked to vehicle-level effects.
+
+inputs:
+  aero_summary: ../AERO-001-map-and-reference-audit/outputs/summary.csv
+  vdyn_metrics: ../../vdyn/VDYN-002-baseline-envelope/outputs/capability_metrics.csv
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots

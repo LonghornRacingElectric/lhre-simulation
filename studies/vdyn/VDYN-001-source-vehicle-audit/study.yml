@@ -1,0 +1,56 @@
+study:
+  id: VDYN-001-source-vehicle-audit
+  lane: vdyn
+  title: Source Vehicle Audit
+  owner: LHRE Vehicle Dynamics
+  status: active
+  decision_question: What exact vehicle definition is the dynamics report allowed to use as its source of truth?
+  report_destination: reports/2026-vdyn-design-report.md#source-vehicle-audit
+
+claim:
+  statement: The source vehicle YAML, tire file, mass properties, hardpoints, and aero ride-height references are coherent enough to begin vehicle dynamics studies.
+  why_it_matters: Baseline GGV, StandardSim, tire, setup, aero, and chassis claims are only meaningful if they start from an audited vehicle definition.
+  accepted_if: Mass, CG, wheelbase, track, tire metadata, and aero reference points can be computed from source files with no missing required fields.
+  rejected_if: Required fields are missing, tire metadata cannot be parsed, or aero reference points disagree with the intended lower-inboard hardpoint averages.
+
+inputs:
+  vehicle_config: ../../../vehicles/current/vehicle.yml
+  tire_file: ../../../vehicles/current/tires/16x7p5_10_12psi.tir
+  other_sources: []
+
+fixed_assumptions:
+  - Left-side suspension component masses are mirrored to right side with equal mass and mirrored y-coordinate.
+  - Wheelbase and track are computed from front/rear left wheel centers in the source YAML.
+  - Front and rear aero ride-height reference points are expected to equal the average of the corresponding lower inboard hardpoints.
+
+swept_variables: []
+
+metrics:
+  - total_mass_kg
+  - cg_x_m
+  - cg_y_m
+  - cg_z_m
+  - wheelbase_m
+  - front_track_m
+  - rear_track_m
+  - front_static_load_fraction
+  - tire_nominal_load_n
+  - tire_vertical_range_n
+  - tire_lateral_relaxation_coefficients
+  - aero_reference_error_m
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots
+
+correlation:
+  required_channels:
+    - corner_weights
+    - wheelbase
+    - track
+    - ride_heights
+    - static_alignment
+    - total_mass
+  test_procedure: Audit the built car before dynamic testing, then update the source YAML or document why design-intent values remain in the model.
+  model_update_if_wrong: Correct vehicle.yml mass properties, hardpoints, ride-height references, tire file, or alignment assumptions before running higher-level studies.

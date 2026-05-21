@@ -1,0 +1,24 @@
+study:
+  id: VDYN-008-tire-cornering-stiffness
+  lane: vdyn
+  title: Tire Cornering Stiffness
+  owner: LHRE Vehicle Dynamics
+  status: active
+  decision_question: How does the baseline tire file predict cornering stiffness across the vertical-load range the vehicle uses?
+  report_destination: reports/2026-vdyn-design-report.md#cornering-stiffness
+
+claim:
+  statement: Cornering stiffness is a primary driver-facing tire property and must be treated as a setup/correlation target.
+  why_it_matters: Peak lateral force defines envelope, but cornering stiffness defines steering response, yaw gain, phase, and driver confidence before the limit.
+  accepted_if: Cornering stiffness can be computed from the tire file across representative vertical loads and compared to vehicle load cases.
+  rejected_if: The tire file lacks the coefficients needed to calculate cornering stiffness.
+
+inputs:
+  tire_file: ../../../vehicles/current/tires/16x7p5_10_12psi.tir
+  vdyn_load_cases: ../VDYN-002-baseline-envelope/outputs/tire_load_range_check.csv
+  standardsim_transient_metrics: ../../../BobSim/_3_StandardSim/results/transient_eval_report_metrics.csv
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots

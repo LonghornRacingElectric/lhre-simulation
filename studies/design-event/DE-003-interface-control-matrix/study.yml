@@ -1,0 +1,22 @@
+study:
+  id: DE-003-interface-control-matrix
+  lane: design-event
+  title: Interface Control Matrix
+  owner: LHRE Systems
+  status: active
+  decision_question: Which subsystem interfaces carry the vehicle-level risk and therefore need explicit ownership?
+  report_destination: reports/2026-design-report-index.md#interface-control
+
+claim:
+  statement: The vehicle is controlled through named subsystem interfaces, not informal handoffs.
+  why_it_matters: FSAE design judging rewards cross-functional understanding; OEM-style reviews demand interface owners and measured exchange variables.
+  accepted_if: Every high-impact interface has an owner pair, exchanged variables, evidence, and validation method.
+  rejected_if: Any major report claim depends on an unnamed or unmeasurable interface.
+
+inputs:
+  requirements_traceability: ../DE-002-requirements-traceability/outputs/requirements_traceability.csv
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots

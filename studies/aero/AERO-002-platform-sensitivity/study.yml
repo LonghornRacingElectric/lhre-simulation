@@ -1,0 +1,22 @@
+study:
+  id: AERO-002-platform-sensitivity
+  lane: aero
+  title: Platform Sensitivity
+  owner: LHRE Aero / Vehicle Dynamics
+  status: active
+  decision_question: How sensitive are downforce, drag, and equivalent aero load location to ride height and rake across the audited map?
+  report_destination: reports/2026-aero-design-report.md#platform-sensitivity
+
+claim:
+  statement: Aero performance is platform-sensitive enough that suspension ride-height control must be part of the aero justification.
+  why_it_matters: A downforce number alone is incomplete if ride height and rake move force, drag, or balance materially.
+  accepted_if: The audited aero map shows nontrivial force or load-location variation across the ride-height grid.
+  rejected_if: The map is nearly flat or cannot be interpreted into platform trends.
+
+inputs:
+  aero_map_points: ../AERO-001-map-and-reference-audit/outputs/aero_map_points.csv
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots

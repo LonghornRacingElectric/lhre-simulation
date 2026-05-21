@@ -1,0 +1,23 @@
+study:
+  id: VDYN-010-tire-combined-slip-budget
+  lane: vdyn
+  title: Tire Combined Slip Budget
+  owner: LHRE Vehicle Dynamics
+  status: active
+  decision_question: How much tire utilization budget does the baseline envelope consume in representative combined acceleration/braking/cornering cases?
+  report_destination: reports/2026-vdyn-design-report.md#combined-slip-budget
+
+claim:
+  statement: Combined-slip utilization should be used to explain why acceleration, braking, and cornering cannot be optimized independently.
+  why_it_maters: Drivers experience combined events; setup and brake/power choices must preserve tire budget at the contact patch.
+  accepted_if: A utilization budget can be computed from admitted baseline envelope cases.
+  rejected_if: Baseline envelope or tire peak assumptions are unavailable.
+
+inputs:
+  baseline_envelope: ../VDYN-002-baseline-envelope/outputs/ggv_envelope.csv
+  baseline_metrics: ../VDYN-002-baseline-envelope/outputs/capability_metrics.csv
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots

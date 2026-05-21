@@ -1,0 +1,24 @@
+study:
+  id: CHASSIS-002-load-case-generation
+  lane: chassis
+  title: Load Case Generation
+  owner: LHRE Chassis / Vehicle Dynamics
+  status: active
+  decision_question: Which tire, brake, and aero loads should define first-pass chassis structural cases?
+  report_destination: reports/2026-chassis-design-report.md#load-case-generation
+
+claim:
+  statement: Chassis structural loads can be derived from admitted vehicle behavior studies.
+  why_it_matters: Load cases should come from vehicle behavior, not disconnected factors alone.
+  accepted_if: Tire, brake, and aero equivalent loads can be generated from VDYN-001, VDYN-002, and AERO-001.
+  rejected_if: Admitted vehicle behavior outputs are missing.
+
+inputs:
+  vdyn_source_summary: ../../vdyn/VDYN-001-source-vehicle-audit/outputs/summary.csv
+  vdyn_envelope_metrics: ../../vdyn/VDYN-002-baseline-envelope/outputs/capability_metrics.csv
+  aero_summary: ../../aero/AERO-001-map-and-reference-audit/outputs/summary.csv
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots

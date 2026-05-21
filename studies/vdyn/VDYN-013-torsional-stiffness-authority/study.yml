@@ -1,0 +1,23 @@
+study:
+  id: VDYN-013-torsional-stiffness-authority
+  lane: vdyn
+  title: Torsional Stiffness Authority
+  owner: LHRE Vehicle Dynamics / Chassis
+  status: active
+  decision_question: How stiff does the chassis need to be for suspension roll-stiffness tuning to remain meaningful?
+  report_destination: reports/2026-vdyn-design-report.md#torsional-stiffness
+
+claim:
+  statement: Chassis torsional stiffness matters because it can dilute setup authority and change how much roll stiffness reaches the contact patches.
+  why_it_matters: If chassis twist is comparable to suspension roll compliance, ARB and spring tuning authority is reduced.
+  accepted_if: The study can compare body torsional stiffness to full-vehicle roll stiffness and quantify effective roll authority.
+  rejected_if: Body stiffness or roll-stiffness metrics are missing.
+
+inputs:
+  vehicle_config: ../../../vehicles/current/vehicle.yml
+  four_post_metrics: ../../../BobSim/_3_StandardSim/results/four_post_eval_report_metrics.csv
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots

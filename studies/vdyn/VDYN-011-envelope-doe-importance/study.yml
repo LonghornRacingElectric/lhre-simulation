@@ -1,0 +1,24 @@
+study:
+  id: VDYN-011-envelope-doe-importance
+  lane: vdyn
+  title: Envelope DOE Importance
+  owner: LHRE Vehicle Dynamics
+  status: active
+  decision_question: Which vehicle-level parameters most affect the baseline GGV envelope?
+  report_destination: reports/2026-vdyn-design-report.md#vehicle-level-doe
+
+claim:
+  statement: A one-factor screening DOE identifies the dominant envelope variables and separates high-leverage design variables from low-leverage noise.
+  why_it_matters: Design effort and validation time should follow sensitivity, not intuition.
+  accepted_if: The DOE produces ranked sensitivity spans for lateral, acceleration, and braking capability.
+  rejected_if: Baseline vehicle parameters or EnvelopeSim cannot be evaluated.
+
+inputs:
+  vehicle_config: ../../../vehicles/current/vehicle.yml
+  tire_file: ../../../vehicles/current/tires/16x7p5_10_12psi.tir
+  upstream_study: ../VDYN-002-baseline-envelope/RESULTS.md
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots

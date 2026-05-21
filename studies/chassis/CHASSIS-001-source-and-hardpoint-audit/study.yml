@@ -1,0 +1,23 @@
+study:
+  id: CHASSIS-001-source-and-hardpoint-audit
+  lane: chassis
+  title: Source And Hardpoint Audit
+  owner: LHRE Chassis
+  status: active
+  decision_question: Are chassis hardpoints, mass properties, and references traceable to one audited source of truth?
+  report_destination: reports/2026-chassis-design-report.md#source-and-hardpoint-audit
+
+claim:
+  statement: The chassis report can use vehicle.yml as the geometric source of truth.
+  why_it_matters: Structural loads and stiffness claims need traceable hardpoints, not copied numbers.
+  accepted_if: Front and rear suspension hardpoints, wheel centers, mass rollup, and aero references are present.
+  rejected_if: Required hardpoints or mass properties are missing.
+
+inputs:
+  vehicle_config: ../../../vehicles/current/vehicle.yml
+  vdyn_source_audit: ../../vdyn/VDYN-001-source-vehicle-audit/outputs/summary.csv
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots

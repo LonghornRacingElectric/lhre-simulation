@@ -1,0 +1,23 @@
+study:
+  id: VDYN-005-setup-authority
+  lane: vdyn
+  title: Setup Authority
+  owner: LHRE Vehicle Dynamics
+  status: active
+  decision_question: Do current roll, ARB, response, and alignment-related metrics show useful setup authority and known gaps?
+  report_destination: reports/2026-vdyn-design-report.md#setup-authority
+
+claim:
+  statement: The car has useful setup knobs, but overshoot and ARB/alignment correlation remain open.
+  why_it_matters: A design report should prove the car can be tuned after build, not merely simulated once.
+  accepted_if: FourPost and transient metrics expose roll stiffness, LLTD, response overshoot, and correlation targets.
+  rejected_if: Setup-relevant metrics are missing.
+
+inputs:
+  four_post_metrics: ../../../BobSim/_3_StandardSim/results/four_post_eval_report_metrics.csv
+  transient_metrics: ../../../BobSim/_3_StandardSim/results/transient_eval_report_metrics.csv
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots

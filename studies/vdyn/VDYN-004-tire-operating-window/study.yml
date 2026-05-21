@@ -1,0 +1,24 @@
+study:
+  id: VDYN-004-tire-operating-window
+  lane: vdyn
+  title: Tire Operating Window
+  owner: LHRE Vehicle Dynamics
+  status: active
+  decision_question: What tire assumptions dominate current vehicle dynamics confidence?
+  report_destination: reports/2026-vdyn-design-report.md#tire-operating-window
+
+claim:
+  statement: Tire behavior is the dominant remaining uncertainty and must drive the first test plan.
+  why_it_matters: Peak mu, stiffness, pressure, temperature, camber, and relaxation determine whether the predicted envelope and response are accessible.
+  accepted_if: Tire metadata and baseline response outputs identify concrete tire parameters and correlation channels.
+  rejected_if: Tire source data or response metrics are unavailable.
+
+inputs:
+  tire_file: ../../../vehicles/current/tires/16x7p5_10_12psi.tir
+  vdyn_baseline_metrics: ../VDYN-002-baseline-envelope/outputs/capability_metrics.csv
+  standardsim_transient_metrics: ../../../BobSim/_3_StandardSim/results/transient_eval_report_metrics.csv
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots

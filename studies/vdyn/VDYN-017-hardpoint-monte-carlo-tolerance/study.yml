@@ -1,0 +1,41 @@
+study:
+  id: VDYN-017-hardpoint-monte-carlo-tolerance
+  lane: vdyn
+  title: Inboard Hardpoint Monte Carlo Tolerance
+  owner: Vehicle Dynamics / Chassis
+  status: active
+  decision_question: How tightly do frame-side suspension hardpoints need to be manufactured before geometry and aero-reference variation become meaningful?
+  report_destination: reports/2026-vdyn-design-report.md#hardpoint-monte-carlo-tolerance
+
+claim:
+  statement: Frame manufacturing tolerance can be linked statistically to suspension geometry and aero-reference risk.
+  why_it_matters: Chassis tolerance should protect the modeled hardpoints and aero platform, not only reflect what is easy to fixture or weld.
+  accepted_if: Monte Carlo perturbations of inboard hardpoints produce quantified 95th-percentile geometry and aero-reference diagnostics for candidate tolerance levels.
+  rejected_if: Hardpoint variation cannot be translated into roll-center, camber-gain, aero-reference, or inboard-span metrics.
+
+inputs:
+  vehicle_config: ../../../vehicles/current/vehicle.yml
+
+fixed_assumptions:
+  - Outboard joints and wheel centers are held fixed; the study isolates frame-side inboard hardpoint manufacturing variation.
+  - Left-side hardpoints are used as the source and interpreted symmetrically.
+  - Independent normal coordinate errors are applied to each inboard hardpoint coordinate as the combined machined-plus-welded process sigma.
+  - This study does not compile or run StandardSim variants; measured hardpoints must be pushed back through StandardSim before claiming dynamic-response deltas.
+
+swept_variables:
+  tolerance_sigma_mm: [0.5, 1.0, 1.5, 2.0, 3.0]
+  random_seed: 20260521
+  samples_per_tolerance: 5000
+
+metrics:
+  - front/rear roll-center height variation
+  - front/rear camber-gain variation
+  - aero ride-height reference z variation
+  - inboard hardpoint span variation
+  - geometry pass/fail by tolerance
+  - run provenance: compiled model count, simulated case count, runtime
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots

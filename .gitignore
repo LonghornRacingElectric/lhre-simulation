@@ -6,11 +6,13 @@ __pycache__/
 .mypy_cache/
 .venv/
 venv/
+.matplotlib-cache/
 
 # Local/editor state
 .DS_Store
 .idea/
 .vscode/
+/dyno_ttx25_mkii_n_vs_mmps.pdf
 
 # Generated simulation artifacts
 *.fmu

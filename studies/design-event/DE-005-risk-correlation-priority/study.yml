@@ -1,0 +1,28 @@
+study:
+  id: DE-005-risk-correlation-priority
+  lane: design-event
+  title: Risk And Correlation Priority
+  owner: LHRE Systems
+  status: active
+  decision_question: Which uncertain variables are most likely to change the vehicle conclusion, and what should be correlated first?
+  report_destination: reports/2026-design-report-index.md#risk-and-correlation-priority
+
+claim:
+  statement: The team knows which assumptions matter most and has ranked them for correlation.
+  why_it_matters: OEM-style analysis does not stop at sensitivity plots; it turns sensitivity, uncertainty, and detectability into a validation priority.
+  accepted_if: The dominant risk variables are ranked by severity, uncertainty, detectability, and assigned to correlation actions.
+  rejected_if: The package cannot distinguish high-impact assumptions from low-impact details.
+
+inputs:
+  vdyn_doe: ../../vdyn/VDYN-011-envelope-doe-importance/outputs
+  aero_doe: ../../vdyn/VDYN-012-aero-scaling-doe/outputs
+  torsional_stiffness: ../../vdyn/VDYN-013-torsional-stiffness-authority/outputs
+  static_alignment: ../../vdyn/VDYN-014-static-alignment-screening/outputs
+  envelopesim_interactions: ../../vdyn/VDYN-015-envelopesim-interaction-doe/outputs
+  standardsim_response_surface: ../../vdyn/VDYN-016-standardsim-response-surface-doe/outputs
+  hardpoint_tolerance: ../../vdyn/VDYN-017-hardpoint-monte-carlo-tolerance/outputs
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots

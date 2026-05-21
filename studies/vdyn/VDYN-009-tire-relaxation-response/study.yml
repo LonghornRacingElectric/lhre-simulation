@@ -1,0 +1,23 @@
+study:
+  id: VDYN-009-tire-relaxation-response
+  lane: vdyn
+  title: Tire Relaxation Response
+  owner: LHRE Vehicle Dynamics
+  status: active
+  decision_question: What response time and distance scale does the fitted lateral relaxation length imply at representative vehicle speeds?
+  report_destination: reports/2026-vdyn-design-report.md#relaxation-length
+
+claim:
+  statement: Lateral relaxation length must be treated as a transient response parameter that affects step/sine steer correlation.
+  why_it_matters: Cornering stiffness determines force buildup slope; relaxation length determines how quickly that force appears as the tire travels.
+  accepted_if: The fitted PTY coefficients can be converted into distance and time constants at representative speeds.
+  rejected_if: PTY coefficients are missing or zero.
+
+inputs:
+  tire_file: ../../../vehicles/current/tires/16x7p5_10_12psi.tir
+  standardsim_transient_metrics: ../../../BobSim/_3_StandardSim/results/transient_eval_report_metrics.csv
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots

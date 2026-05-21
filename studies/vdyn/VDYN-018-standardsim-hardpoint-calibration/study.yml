@@ -1,0 +1,46 @@
+study:
+  id: VDYN-018-standardsim-hardpoint-calibration
+  lane: vdyn
+  title: StandardSim Hardpoint Monte Carlo Calibration
+  owner: Vehicle Dynamics / Chassis
+  status: active
+  decision_question: Do compiled StandardSim hardpoint variants validate the simplified hardpoint Monte Carlo diagnostics used for large statistical tolerance sweeps?
+  report_destination: reports/2026-vdyn-design-report.md#standardsim-hardpoint-calibration
+
+claim:
+  statement: A small compiled StandardSim truth set can calibrate the simplified hardpoint Monte Carlo before it is used for 25000-case manufacturing tolerance statistics.
+  why_it_matters: StandardSim variants are expensive enough to run sparsely, but manufacturing tolerances need many samples.
+  accepted_if: The study compiles and runs a declared subset of hardpoint variants, records runtime/provenance, and reports the error between StandardSim metric deltas and simplified predictions.
+  rejected_if: StandardSim variants cannot be compiled, or the simplified prediction error is too large to justify a high-sample Monte Carlo extrapolation.
+
+inputs:
+  vehicle_config: ../../../vehicles/current/vehicle.yml
+  bobsim_dir: ../../../BobSim
+  baseline_standardsim_summary: ../VDYN-003-standardsim-baseline/outputs/summary.csv
+  geometry_monte_carlo_summary: ../VDYN-017-hardpoint-monte-carlo-tolerance/outputs/hardpoint_monte_carlo_summary.csv
+
+fixed_assumptions:
+  - The calibration subset uses perturbed inboard control-arm hardpoints and holds outboard joints/wheel centers fixed.
+  - The default truth-set size is 25 vehicle configurations at the selected hardpoint sigma.
+  - Compiled StandardSim model count is the number of case vehicle configurations that successfully complete VehicleSim compilation.
+  - TransientEval is the first calibration target because it produces driver-facing gain, rise-time, overshoot, and settling metrics.
+  - The large 25000-case Monte Carlo remains a simplified study unless its simplified metric mapping is calibrated by this truth subset.
+
+swept_variables:
+  tolerance_sigma_mm: 1.0
+  calibration_cases: 25
+  random_seed: 20260521
+  max_parallel_builds: 4
+
+metrics:
+  - compiled StandardSim model count
+  - StandardSim transient metric deltas versus baseline
+  - simplified hardpoint diagnostic deltas
+  - calibration error and correlation by metric
+  - runtime by case and total runtime
+
+outputs:
+  results_markdown: RESULTS.md
+  data_dir: outputs
+  figures_dir: plots
+  run_provenance: outputs/run_provenance.csv
