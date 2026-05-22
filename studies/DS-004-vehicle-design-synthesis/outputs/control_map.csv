@@ -1,0 +1,7 @@
+objective,primary_knobs,simulation_basis,design_use
+Increase high-speed lateral envelope,"downforce area, CG height, tire lateral capability",DS-001 lat 25 and area 25; DS-002 ay_max,"Aero and tire/load-transfer design problem, not a steering-rack problem."
+Tune steady-state understeer,"aero downforce scale/balance, CG x, roll stiffness distribution, static toe",DS-002 understeer gradient and sideslip gradient sensitivities,Use aero/CG/roll distribution for architecture; use toe for final trim.
+Reduce roll response,"CG z, springs, anti-roll bars, torsional stiffness",DS-002 roll gradient and DS-003 roll peak/gain,Springs/bars are legitimate roll-platform tools; torsion is a secondary preservation target.
+Shape driver steering feel and command authority,rack travel per revolution,DS-002 handwheel angle/torque and DS-003 gain metrics,Set rack travel to driver target after vehicle balance is known.
+Improve transient phase/lag,"sprung CG x, sprung mass, toe",DS-003 frequency phase/lag metrics,Use mass placement as the architecture lever; use toe carefully for track tuning.
+Improve acceleration/braking envelope,"drive power, drive force cap, brake force, brake distribution, CG height",DS-001 acceleration/braking sensitivities,Maintain brake-bias adjustability and validate power/traction limits.

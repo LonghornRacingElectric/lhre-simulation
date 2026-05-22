@@ -1,0 +1,25 @@
+metric,display_name,value,unit
+max_lateral_g__05mps,lat 5,1.6,g
+max_accel_g__05mps,accel 5,1.4349999999999998,g
+max_brake_g__05mps,brake 5,1.6800000000000002,g
+ggv_area_g2__05mps,area 5,6.750266666666667,g^2
+max_lateral_g__10mps,lat 10,1.6533333333333335,g
+max_accel_g__10mps,accel 10,1.4175,g
+max_brake_g__10mps,brake 10,1.76,g
+ggv_area_g2__10mps,area 10,7.203333333333334,g^2
+max_lateral_g__15mps,lat 15,1.76,g
+max_accel_g__15mps,accel 15,1.3825,g
+max_brake_g__15mps,brake 15,1.8800000000000001,g
+ggv_area_g2__15mps,area 15,7.963866666666668,g^2
+max_lateral_g__20mps,lat 20,1.9200000000000002,g
+max_accel_g__20mps,accel 20,1.33,g
+max_brake_g__20mps,brake 20,2.06,g
+ggv_area_g2__20mps,area 20,9.0212,g^2
+max_lateral_g__25mps,lat 25,2.08,g
+max_accel_g__25mps,accel 25,1.0675000000000001,g
+max_brake_g__25mps,brake 25,2.28,g
+ggv_area_g2__25mps,area 25,9.950933333333335,g^2
+mean_max_lateral_g,mean lat,1.8026666666666666,g
+mean_max_accel_g,mean accel,1.3265,g
+mean_max_brake_g,mean brake,1.932,g
+mean_ggv_area_g2,mean area,8.17792,g^2

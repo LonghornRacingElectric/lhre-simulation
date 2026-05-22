@@ -1,0 +1,15 @@
+item,value
+started_at_utc,2026-05-22T07:52:16+00:00
+engine,BobSim StandardSim SteadyStateEval
+engine_path,BobSim/_3_StandardSim/SteadyStateEval/steady_state_eval_sim.py
+setup_engine,BobSim StandardSim FourPostEval
+setup_engine_path,BobSim/_3_StandardSim/FourPostEval/four_post_eval_sim.py
+model,BobLib.Standards.VehicleSim
+fourpost_model,BobLib.Standards.FourPostSim
+fourpost_motion_ratio_front,1.0019028607858513
+fourpost_motion_ratio_rear,1.2546893558880008
+parameter_count,16
+response_metric_count,21
+ofat_case_count,33
+global_sample_count,0
+elapsed_seconds,2.423

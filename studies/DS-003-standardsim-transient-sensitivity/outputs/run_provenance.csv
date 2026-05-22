@@ -1,0 +1,12 @@
+item,value
+started_at_utc,2026-05-22T09:25:39+00:00
+engine,BobSim StandardSim TransientEval
+engine_path,BobSim/_3_StandardSim/TransientEval/transient_eval_sim.py
+model,BobLib.Standards.VehicleSim
+source_study,DS-002
+source_case_manifest,studies/DS-002-standardsim-steady-state-sensitivity/outputs/case_manifest.csv
+parameter_count,16
+response_metric_count,106
+active_response_metric_count,15
+case_count,33
+elapsed_seconds,3.323

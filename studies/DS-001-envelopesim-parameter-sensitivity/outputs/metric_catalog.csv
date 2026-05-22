@@ -1,0 +1,25 @@
+metric,display_name,unit,description
+max_lateral_g__05mps,lat 5,g,GGV-derived acceleration capability
+max_accel_g__05mps,accel 5,g,GGV-derived acceleration capability
+max_brake_g__05mps,brake 5,g,GGV-derived acceleration capability
+ggv_area_g2__05mps,area 5,g^2,GGV envelope area between accel and brake branches
+max_lateral_g__10mps,lat 10,g,GGV-derived acceleration capability
+max_accel_g__10mps,accel 10,g,GGV-derived acceleration capability
+max_brake_g__10mps,brake 10,g,GGV-derived acceleration capability
+ggv_area_g2__10mps,area 10,g^2,GGV envelope area between accel and brake branches
+max_lateral_g__15mps,lat 15,g,GGV-derived acceleration capability
+max_accel_g__15mps,accel 15,g,GGV-derived acceleration capability
+max_brake_g__15mps,brake 15,g,GGV-derived acceleration capability
+ggv_area_g2__15mps,area 15,g^2,GGV envelope area between accel and brake branches
+max_lateral_g__20mps,lat 20,g,GGV-derived acceleration capability
+max_accel_g__20mps,accel 20,g,GGV-derived acceleration capability
+max_brake_g__20mps,brake 20,g,GGV-derived acceleration capability
+ggv_area_g2__20mps,area 20,g^2,GGV envelope area between accel and brake branches
+max_lateral_g__25mps,lat 25,g,GGV-derived acceleration capability
+max_accel_g__25mps,accel 25,g,GGV-derived acceleration capability
+max_brake_g__25mps,brake 25,g,GGV-derived acceleration capability
+ggv_area_g2__25mps,area 25,g^2,GGV envelope area between accel and brake branches
+mean_max_lateral_g,mean lat,g,GGV-derived acceleration capability
+mean_max_accel_g,mean accel,g,GGV-derived acceleration capability
+mean_max_brake_g,mean brake,g,GGV-derived acceleration capability
+mean_ggv_area_g2,mean area,g^2,GGV envelope area between accel and brake branches

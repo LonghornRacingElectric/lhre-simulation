@@ -1,0 +1,27 @@
+item,value,unit,source
+generated_at_utc,2026-05-21T12:58:15+00:00,,study runner
+vehicle_name,DWBCStabar_DWBCStabar,,vehicles/current/vehicle.yml
+mass,261.07265114,kg,vehicle mass rollup
+cg_x,-0.8002708499132695,m,vehicle mass rollup
+cg_y,0.07683589394069432,m,vehicle mass rollup
+cg_height,0.27961567837774426,m,vehicle mass rollup
+wheelbase,1.5494,m,vehicle wheel centers
+track_front,1.212221534912,m,vehicle wheel centers
+track_rear,1.21222154,m,vehicle wheel centers
+front_static_frac,0.4834962889419973,fraction,CG over wheelbase
+lltd,0.52,front fraction,study assumption
+cl_a,2.3472166893424036,m^2,vehicle aero table
+cd_a,1.1725873922902494,m^2,vehicle aero table
+aero_balance_front,0.5,front fraction,study assumption
+max_drive_power,80000.0,W,study assumption
+max_drive_force,3735.0,N,study assumption
+max_brake_force,14000.0,N,study assumption
+drive_distribution_front,0.0,front fraction,study assumption
+brake_distribution_front,0.62,front fraction,study assumption
+tire_file,vehicles/current/tires/16x7p5_10_12psi.tir,,vehicle tire template
+tire_fz_ref,650.0,N,tire file
+tire_fz_min_valid,100.0,N,tire file
+tire_fz_max_valid,1800.0,N,tire file
+config_speeds,5.0 10.0 15.0 20.0 25.0,m/s,study config
+config_ay_points,61,count,study config
+config_ax_search_points,161,count,study config

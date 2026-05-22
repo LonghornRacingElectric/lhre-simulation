@@ -1,0 +1,31 @@
+study,study_label,metric,display_name,unit,top_parameter,top_parameter_name,direction,signed_effect_pct_span,response_low,response_baseline,response_high
+DS-001,EnvelopeSim,max_lateral_g__25mps,lat 25,g,downforce area,cl_a_m2,increases_with_parameter,20.512820512820504,1.866666666666667,2.08,2.2933333333333334
+DS-001,EnvelopeSim,max_accel_g__25mps,accel 25,g,max drive power,max_drive_power_w,increases_with_parameter,49.180327868852466,0.7525,1.0675000000000001,1.2775
+DS-001,EnvelopeSim,max_brake_g__25mps,brake 25,g,CG height,cg_height_m,decreases_with_parameter,-21.052631578947352,2.52,2.28,2.0400000000000005
+DS-001,EnvelopeSim,ggv_area_g2__25mps,area 25,g^2,downforce area,cl_a_m2,increases_with_parameter,36.750991531782624,8.173733333333333,9.950933333333335,11.830800000000002
+DS-001,EnvelopeSim,mean_max_lateral_g,mean lat,g,CG height,cg_height_m,decreases_with_parameter,-13.609467455621331,1.9200000000000004,1.8026666666666666,1.6746666666666665
+DS-001,EnvelopeSim,mean_max_accel_g,mean accel,g,max drive force,max_drive_force_n,increases_with_parameter,45.646437994722966,1.008,1.3265,1.6135000000000002
+DS-001,EnvelopeSim,mean_max_brake_g,mean brake,g,CG height,cg_height_m,decreases_with_parameter,-21.739130434782584,2.1479999999999997,1.932,1.7280000000000002
+DS-001,EnvelopeSim,mean_ggv_area_g2,mean area,g^2,CG height,cg_height_m,decreases_with_parameter,-33.14355402514739,9.573306666666667,8.17792,6.862853333333334
+DS-002,StandardSim SteadyStateEval,ay_max,ay_max,m/s^2,lateral tire friction scale,lateral_tire_mu_scale,increases_with_parameter,10.76192692360925,17.45516784589597,18.57517363325678,19.4542144582406
+DS-002,StandardSim SteadyStateEval,roadwheel_angle_gradient_deg_per_g,roadwheel_angle_gradient_deg_per_g,deg/g,rear static toe,rear_toe_deg,increases_with_parameter,6.827953946899313,4.70541095767856,4.24724515191211,4.995410900663033
+DS-002,StandardSim SteadyStateEval,handwheel_angle_gradient_deg_per_g,handwheel_angle_gradient_deg_per_g,deg/g,front rack travel per rev,front_rack_travel_per_rev_m,decreases_with_parameter,-30.202763911340476,20.46769240652482,17.43971064593472,15.200417773312244
+DS-002,StandardSim SteadyStateEval,sideslip_gradient_deg_per_g,sideslip_gradient_deg_per_g,deg/g,sprung CG x,sprung_cg_x_m,increases_with_parameter,74.49390164696386,0.31369886162312405,0.4999001665889719,0.6860940000549213
+DS-002,StandardSim SteadyStateEval,understeer_gradient_deg_per_g,understeer_gradient_deg_per_g,deg/g,aero downforce scale,aero_downforce_scale,increases_with_parameter,38.13410249521839,0.28669013332738946,0.3942444634100774,0.43703172108591215
+DS-002,StandardSim SteadyStateEval,roll_gradient_deg_per_g,roll_gradient_deg_per_g,deg/g,sprung CG z,sprung_cg_z_m,increases_with_parameter,19.739029099787686,0.8160130188390803,0.8936183079468291,0.9924045966857352
+DS-002,StandardSim SteadyStateEval,handwheel_torque_peak_abs,handwheel_torque_peak_abs,N*m,front rack travel per rev,front_rack_travel_per_rev_m,increases_with_parameter,30.781544701235422,15.90064466192588,18.78883108901611,21.68413710243099
+DS-003,StandardSim TransientEval,step.ay_peak,step.ay_peak,m/s^2,front static toe,front_toe_deg,increases_with_parameter,75.07316984308659,3.121979467567969,3.41297131998261,5.684205223314348
+DS-003,StandardSim TransientEval,step.ay_gain_dc,step.ay_gain_dc,(m/s^2)/rad,front rack travel per rev,front_rack_travel_per_rev_m,increases_with_parameter,29.91209709754911,28.546059937121843,33.5688993182276,38.587221695768584
+DS-003,StandardSim TransientEval,step.yaw_gain_dc,step.yaw_gain_dc,(rad/s)/rad,front rack travel per rev,front_rack_travel_per_rev_m,increases_with_parameter,29.916677900486793,1.88784787024443,2.2201117726911663,2.5520315583112336
+DS-003,StandardSim TransientEval,step.roll_peak,step.roll_peak,rad,front static toe,front_toe_deg,increases_with_parameter,57.12651853314469,0.0055866503595046,0.0047031622176516,0.0082734031954152
+DS-003,StandardSim TransientEval,step.roll_gain_dc,step.roll_gain_dc,rad/rad,rear static toe,rear_toe_deg,decreases_with_parameter,-190.03755557715374,0.0853047142449239,0.043904675310078356,0.001869342501564858
+DS-003,StandardSim TransientEval,step.settling_time_s,step.settling_time_s,s,front static toe,front_toe_deg,decreases_with_parameter,-16.588017904102866,1.429636955066837,1.308848740956301,1.212524891579381
+DS-003,StandardSim TransientEval,step.yaw_peak,step.yaw_peak,rad/s,front static toe,front_toe_deg,increases_with_parameter,70.19384161542749,0.2208545331118441,0.2249129445107707,0.3787295691543288
+DS-003,StandardSim TransientEval,frequency.ay_gain_peak,frequency.ay_gain_peak,(m/s^2)/rad,front rack travel per rev,front_rack_travel_per_rev_m,increases_with_parameter,29.91303316845439,29.50079084946116,34.69907452843634,39.88033652229903
+DS-003,StandardSim TransientEval,frequency.yaw_gain_peak,frequency.yaw_gain_peak,(rad/s)/rad,front rack travel per rev,front_rack_travel_per_rev_m,increases_with_parameter,29.910395938545335,1.9084830372692185,2.2444235084588327,2.579798995187046
+DS-003,StandardSim TransientEval,frequency.ay_phase_1hz,frequency.ay_phase_1hz,deg,sprung CG x,sprung_cg_x_m,increases_with_parameter,68.71158195952113,-7.700325138828902,-5.655653872255925,-3.8142358930469413
+DS-003,StandardSim TransientEval,frequency.yaw_phase_1hz,frequency.yaw_phase_1hz,deg,sprung mass,sprung_mass_kg,increases_with_parameter,7.666880128790161,-10.289231798667203,-9.88486163652351,-9.53137130609818
+DS-003,StandardSim TransientEval,frequency.ay_lag_1hz,frequency.ay_lag_1hz,s,sprung CG x,sprung_cg_x_m,decreases_with_parameter,-68.71158195952111,0.021389792052302504,0.01571014964515535,0.010595099702908171
+DS-003,StandardSim TransientEval,frequency.yaw_lag_1hz,frequency.yaw_lag_1hz,s,sprung mass,sprung_mass_kg,decreases_with_parameter,-7.666880128790156,0.02858119944074223,0.027457948990343085,0.026476031405828278
+DS-003,StandardSim TransientEval,frequency.yaw_to_ay_lag_1hz,frequency.yaw_to_ay_lag_1hz,s,sprung CG x,sprung_cg_x_m,decreases_with_parameter,-84.8446513192363,-0.0067516839520980615,-0.011747799345187736,-0.01671906334420612
+DS-003,StandardSim TransientEval,frequency.gain_variation_pct,frequency.gain_variation_pct,%,sprung CG x,sprung_cg_x_m,increases_with_parameter,23.318440026896955,2.888115194046911,3.3134910486690607,3.660769617027405

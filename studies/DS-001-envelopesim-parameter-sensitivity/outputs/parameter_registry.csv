@@ -1,0 +1,21 @@
+name,label,unit,baseline,low,high,group,description
+mass_kg,total mass,kg,261.07265114,234.965386026,287.17991625400003,chassis,Rolled-up vehicle mass including driver and mirrored corner masses.
+cg_height_m,CG height,m,0.27961567837774426,0.22961567837774427,0.33961567837774426,chassis,Mass-rollup CG height used for load transfer.
+front_static_frac,front static load fraction,fraction,0.4834962889419973,0.4234962889419973,0.5434962889419973,chassis,Static front axle weight fraction from longitudinal CG.
+wheelbase_m,wheelbase,m,1.5494,1.47193,1.6268700000000003,chassis,Front-to-rear wheel center spacing.
+track_front_m,front track,m,1.212221534912,1.13948824281728,1.2849548270067201,chassis,Front lateral wheel-center spacing.
+track_rear_m,rear track,m,1.21222154,1.1394882476,1.2849548324000002,chassis,Rear lateral wheel-center spacing.
+lltd,lateral load transfer distribution,front fraction,0.52,0.4,0.65,chassis balance,Front share of total lateral load transfer in EnvelopeSim.
+air_density_kg_m3,air density,kg/m^3,1.225,1.0,1.225,environment/aero,Atmospheric density multiplier on aero loads and drag.
+cl_a_m2,downforce area,m^2,2.3472166893424036,1.290969179138322,3.403464199546485,aero,Total downforce coefficient times reference area.
+cd_a_m2,drag area,m^2,1.1725873922902494,0.8208111746031745,1.582992979591837,aero,Drag coefficient times reference area.
+aero_balance_front,front aero balance,front fraction,0.5,0.42,0.58,aero balance,Front axle share of total downforce.
+max_drive_power_w,max drive power,W,80000.0,60000.0,100000.0,powertrain,Power cap used by EnvelopeSim's drive force limit.
+max_drive_force_n,max drive force,N,3735.0,2800.0,5000.0,powertrain,Low-speed drivetrain or traction force cap before tire limits.
+drive_distribution_front,front drive distribution,front fraction,0.0,0.0,0.5,powertrain architecture,Front share of drive force. Baseline 0 is RWD.
+max_brake_force_n,max brake force,N,14000.0,9000.0,18000.0,brakes,Brake system cap before tire limits.
+brake_distribution_front,front brake distribution,front fraction,0.62,0.54,0.7,brakes,Front share of brake force.
+longitudinal_mu_scale,longitudinal tire peak scale,scale,1.0,0.9,1.1,tires,Scale factor applied to longitudinal peak tire friction.
+longitudinal_load_sensitivity_scale,longitudinal tire load sensitivity scale,scale,1.0,0.5,1.5,tires,Scale factor applied to the longitudinal load-sensitivity term.
+lateral_mu_scale,lateral tire peak scale,scale,1.0,0.9,1.1,tires,Scale factor applied to lateral peak tire friction.
+lateral_load_sensitivity_scale,lateral tire load sensitivity scale,scale,1.0,0.5,1.5,tires,Scale factor applied to the lateral load-sensitivity term.

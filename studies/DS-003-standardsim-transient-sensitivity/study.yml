@@ -1,0 +1,39 @@
+id: DS-003
+title: StandardSim TransientEval Sensitivity
+status: active
+vehicle: vehicles/current/vehicle.yml
+engine: BobSim/_3_StandardSim/TransientEval/transient_eval_sim.py
+source_population: ../DS-002-standardsim-steady-state-sensitivity/work/population
+standard: TransientEval
+purpose: >
+  Reuse the DS-002 compiled StandardSim vehicle variants to measure which
+  vehicle-record parameters most strongly move transient response variables.
+
+principles:
+  - All response metrics come from BobSim StandardSim TransientEval.
+  - Each local parameter case reuses the compiled DS-002 VehicleSim executable.
+  - Each sensitivity is reported per transient response variable.
+  - Build artifacts remain under the ignored DS-002 work/ population.
+
+config:
+  model: BobLib.Standards.VehicleSim
+  standard: TransientEval
+  reuse_compiled_population: true
+  source_study: DS-002
+  max_workers_default: 1
+
+outputs:
+  - outputs/baseline_metrics.csv
+  - outputs/metric_catalog.csv
+  - outputs/ignored_metrics.csv
+  - outputs/transient_cases.csv
+  - outputs/metric_sensitivity_matrix.csv
+  - outputs/case_manifest.csv
+  - outputs/case_errors.csv
+  - outputs/run_provenance.csv
+  - plots/baseline_metrics.png
+  - plots/response_sensitivity_heatmap.png
+  - plots/top_local_sensitivities.png
+  - plots/responses/*.png
+  - RESULTS.md
+  - ../../reports/DS-003-standardsim-transient-sensitivity.md

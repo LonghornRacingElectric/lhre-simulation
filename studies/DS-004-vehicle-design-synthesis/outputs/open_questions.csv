@@ -1,0 +1,6 @@
+question,why_it_matters,next_study
+What aero balance gives the best understeer/phase tradeoff?,"Downforce area and downforce scale are high-value, but DS-002 varied scale rather than balance.",StandardSim aero balance and ride-height/downforce map sweep.
+What is the fine static toe window?,Toe strongly moves steady and transient metrics; +/-1 deg is intentionally broad.,"Small-range toe sweep around zero, likely +/-0.2 deg with both axles."
+How should camber be treated with tire data uncertainty?,"Static camber was not a top first-pass driver, but real tires may make camber window important.",Tire model validation plus camber/load sensitivity sweep.
+Where is the spring/bar optimum after aero platform constraints are imposed?,"Springs/bars affect roll and understeer, but need ride-height/aero constraints to become a design optimum.",Coupled ride/roll/aero-platform optimization using StandardSim and FourPost motion ratios.
+Can transient threshold metrics be made robust enough for optimization?,"Some rise/overshoot metrics are sign-sensitive in broad sweeps, so active DS-003 metrics avoided them.",Refine transient response metrics using absolute response or monotonic target definitions.

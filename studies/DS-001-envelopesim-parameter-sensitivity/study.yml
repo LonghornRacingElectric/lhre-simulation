@@ -1,0 +1,53 @@
+id: DS-001
+title: EnvelopeSim Parameter Sensitivity
+status: active
+vehicle: vehicles/current/vehicle.yml
+engine: BobSim/_2_EnvelopeSim/GGV/ggv_generation.py
+purpose: >
+  Establish where the current vehicle architecture sits in EnvelopeSim design
+  space by computing response sensitivities for meaningful EnvelopeSim
+  parameters.
+
+principles:
+  - All response metrics come from BobSim EnvelopeSim.
+  - Sensitivities are reported per response variable, not as one blended score.
+  - The current vehicle is the baseline target architecture.
+  - Assumptions that are not present in vehicles/current are explicit.
+
+baseline_assumptions:
+  lltd: 0.52
+  aero_balance_front: 0.50
+  max_drive_power_w: 80000
+  max_drive_force_n: 3735
+  max_brake_force_n: 14000
+  drive_distribution_front: 0.0
+  brake_distribution_front: 0.62
+  baseline_aero_map_point: first front/rear ride-height grid point
+
+config:
+  speeds_m_per_s: [5, 10, 15, 20, 25]
+  ay_max_g: 3.2
+  ay_points: 61
+  ax_search_min_g: -3.2
+  ax_search_max_g: 2.8
+  ax_search_points: 161
+  global_samples: 48
+  random_seed: 4107
+
+outputs:
+  - outputs/baseline_characterization.csv
+  - outputs/baseline_metrics.csv
+  - outputs/baseline_ggv.csv
+  - outputs/parameter_registry.csv
+  - outputs/ofat_cases.csv
+  - outputs/metric_sensitivity_matrix.csv
+  - outputs/global_samples.csv
+  - outputs/global_metrics.csv
+  - outputs/global_metric_correlations.csv
+  - plots/baseline_capability_by_speed.png
+  - plots/response_sensitivity_heatmap.png
+  - plots/top_local_sensitivities.png
+  - plots/global_correlation_heatmap.png
+  - RESULTS.md
+  - ../../reports/DS-001-envelopesim-parameter-sensitivity.md
+

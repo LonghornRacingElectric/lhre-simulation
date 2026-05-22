@@ -1,0 +1,44 @@
+id: DS-002
+title: StandardSim SteadyStateEval Sensitivity
+status: active
+vehicle: vehicles/current/vehicle.yml
+engine: BobSim/_3_StandardSim/SteadyStateEval/steady_state_eval_sim.py
+setup_engine: BobSim/_3_StandardSim/FourPostEval/four_post_eval_sim.py
+standard: SteadyStateEval
+purpose: >
+  Establish which StandardSim vehicle-record parameters most strongly move the
+  current vehicle's steady-state handling response variables.
+
+principles:
+  - All response metrics come from BobSim StandardSim.
+  - Each sensitivity is reported per response variable.
+  - Each local parameter case is compiled as its own Modelica variant.
+  - Spring-rate variants use FourPostSim motion ratios to update spring free length.
+  - Build artifacts are reproducible and ignored under study-local work/.
+
+config:
+  model: BobLib.Standards.VehicleSim
+  setup_model: BobLib.Standards.FourPostSim
+  standard: SteadyStateEval
+  compile_per_case: true
+  global_samples_default: 0
+  random_seed: 4107
+  max_workers_default: 1
+
+outputs:
+  - outputs/baseline_metrics.csv
+  - outputs/fourpost_eval_metrics.csv
+  - outputs/fourpost_spring_setup.csv
+  - outputs/parameter_registry.csv
+  - outputs/ofat_cases.csv
+  - outputs/metric_sensitivity_matrix.csv
+  - outputs/ignored_metrics.csv
+  - outputs/case_manifest.csv
+  - outputs/case_errors.csv
+  - outputs/run_provenance.csv
+  - plots/baseline_metrics.png
+  - plots/response_sensitivity_heatmap.png
+  - plots/top_local_sensitivities.png
+  - plots/responses/*.png
+  - RESULTS.md
+  - ../../reports/DS-002-standardsim-steady-state-sensitivity.md

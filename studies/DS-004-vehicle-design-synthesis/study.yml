@@ -1,0 +1,27 @@
+id: DS-004
+title: Vehicle Design Synthesis and Justification
+status: active
+vehicle: vehicles/current/vehicle.yml
+sources:
+  - DS-001 EnvelopeSim Parameter Sensitivity
+  - DS-002 StandardSim SteadyStateEval Sensitivity
+  - DS-003 StandardSim TransientEval Sensitivity
+purpose: >
+  Convert the first-pass simulation sensitivity studies into an evidence-backed
+  design justification for the current vehicle architecture.
+
+principles:
+  - Every stated response trend must trace to EnvelopeSim or StandardSim output.
+  - Design decisions distinguish architecture choices from tuning knobs.
+  - The current vehicle is treated as the design target unless a sensitivity
+    result indicates a high-value follow-up.
+
+outputs:
+  - outputs/source_top_sensitivities.csv
+  - outputs/architecture_layers.csv
+  - outputs/platform_summary.csv
+  - outputs/design_decisions.csv
+  - outputs/control_map.csv
+  - outputs/open_questions.csv
+  - RESULTS.md
+  - ../../reports/DS-004-vehicle-design-synthesis.md

@@ -1,0 +1,17 @@
+name,label,unit,baseline,low,high,group,description
+front_spring_rate_n_per_m,front spring rate,N/m,26269.02525,19701.768937499997,32836.2815625,ride/roll,Front shock spring table terminal rate. Spring free length is updated from baseline FourPost motion ratio to preserve the configured static spring length.
+rear_spring_rate_n_per_m,rear spring rate,N/m,43781.70875,32836.2815625,54727.135937499996,ride/roll,Rear shock spring table terminal rate. Spring free length is updated from baseline FourPost motion ratio to preserve the configured static spring length.
+front_stabar_rate_n_m_per_rad,front anti-roll bar rate,N*m/rad,258.942154,129.471077,388.413231,ride/roll,Front anti-roll bar torsional stiffness.
+rear_stabar_rate_n_m_per_rad,rear anti-roll bar rate,N*m/rad,535.362904,267.681452,803.0443559999999,ride/roll,Rear anti-roll bar torsional stiffness.
+front_toe_deg,front static toe,deg,0.0,-1.0,1.0,alignment,Front static toe angle in the BobLib partial wheel record.
+rear_toe_deg,rear static toe,deg,0.0,-1.0,1.0,alignment,Rear static toe angle in the BobLib partial wheel record.
+front_camber_deg,front static camber,deg,0.0,-2.5,0.5,alignment,Front static inclination angle in the BobLib partial wheel record.
+rear_camber_deg,rear static camber,deg,0.0,-2.5,0.5,alignment,Rear static inclination angle in the BobLib partial wheel record.
+sprung_mass_kg,sprung mass,kg,160.64,144.576,176.704,mass properties,Sprung mass before driver mass is combined.
+sprung_cg_x_m,sprung CG x,m,-0.92,-1.0,-0.8400000000000001,mass properties,Longitudinal sprung-mass CG coordinate.
+sprung_cg_z_m,sprung CG z,m,0.25,0.21,0.3,mass properties,Vertical sprung-mass CG coordinate.
+torsional_stiffness_n_m_per_rad,body torsional stiffness,N*m/rad,300000.0,100000.0,600000.0,structure,Body torsional stiffness used by the compliant chassis.
+aero_downforce_scale,aero downforce scale,scale,1.0,0.65,1.35,aero,Scale applied to downforce and pitch-moment aero tables.
+aero_drag_scale,aero drag scale,scale,1.0,0.75,1.25,aero,Scale applied to the drag aero table.
+lateral_tire_mu_scale,lateral tire friction scale,scale,1.0,0.9,1.1,tires,Scale applied to front and rear MF52 lateral friction multipliers.
+front_rack_travel_per_rev_m,front rack travel per rev,m/rev,0.0889,0.07556500000000001,0.102235,steering,Front steering rack travel per handwheel revolution.

@@ -1,0 +1,107 @@
+metric,source_group,source_metric,unit,description,active_in_current_report
+general.n_cases,general,n_cases,count,Number of simulation cases included in TransientEval run,0
+general.n_successful_cases,general,n_successful_cases,count,Number of successful simulation cases included in TransientEval run,0
+general.n_failed_cases,general,n_failed_cases,count,Number of failed simulation cases skipped by TransientEval,0
+general.representative_testVel_mps,general,representative_testVel_mps,m/s,Representative velocity used for the CSV summary rows and tables,0
+general.metric_target_velocity_mps,general,metric_target_velocity_mps,m/s,Target velocity used when selecting the representative summary row,0
+general.n_velocity_groups,general,n_velocity_groups,count,Number of velocity isolines included in the TransientEval run,0
+step.ay_peak,step,ay_peak,m/s^2,Peak absolute lateral acceleration during representative step steer response,1
+step.ay_ss,step,ay_ss,m/s^2,Steady-state lateral acceleration from representative step steer response,0
+step.ay_rise_time_s,step,ay_rise_time_s,s,Lateral acceleration 50 to 90 percent rise time,0
+step.ay_peak_response_time_s,step,ay_peak_response_time_s,s,Time from 50 percent input to peak lateral acceleration response,0
+step.ay_gain_dc,step,ay_gain_dc,(m/s^2)/rad,Steady-state lateral acceleration gain from handwheel angle,1
+step.ay_overshoot_pct,step,ay_overshoot_pct,%,Lateral acceleration overshoot in representative step steer response,0
+step.sideslip_ss,step,sideslip_ss,rad,Steady-state sideslip angle from representative step steer response,0
+step.sideslip_rise_time_s,step,sideslip_rise_time_s,s,Sideslip angle 50 to 90 percent rise time,0
+step.sideslip_gain_dc,step,sideslip_gain_dc,rad/rad,Steady-state sideslip gain from handwheel angle,0
+step.yaw_rise_time_s,step,yaw_rise_time_s,s,Yaw velocity 50 to 90 percent rise time,0
+step.yaw_peak_response_time_s,step,yaw_peak_response_time_s,s,Time from 50 percent input to peak yaw velocity response,0
+step.yaw_gain_dc,step,yaw_gain_dc,(rad/s)/rad,Steady-state yaw velocity gain from handwheel angle,1
+step.yaw_overshoot_rad_per_s,step,yaw_overshoot_rad_per_s,rad/s,Yaw velocity overshoot relative to final steady-state value,0
+step.yaw_overshoot_pct,step,yaw_overshoot_pct,%,Yaw velocity overshoot percentage relative to final steady-state value,0
+step.roll_peak,step,roll_peak,rad,Peak absolute roll angle during representative step steer response,1
+step.roll_ss,step,roll_ss,rad,Steady-state roll angle from representative step steer response,0
+step.roll_gain_dc,step,roll_gain_dc,rad/rad,Steady-state roll gain from handwheel angle,1
+step.roll_overshoot_rad,step,roll_overshoot_rad,rad,Roll angle overshoot relative to final steady-state value,0
+step.roll_overshoot_pct,step,roll_overshoot_pct,%,Roll angle overshoot percentage relative to final steady-state value,0
+step.settling_time_s,step,settling_time_s,s,Lateral acceleration settling time using 5 percent steady-state band,1
+step.yaw_peak,step,yaw_peak,rad/s,Peak absolute yaw velocity during representative step steer response,1
+step.yaw_ss,step,yaw_ss,rad/s,Steady-state yaw velocity from representative step steer response,0
+frequency.ay_gain_dc,frequency,ay_gain_dc,(m/s^2)/rad,Low-frequency lateral acceleration gain from handwheel angle,0
+frequency.yaw_gain_dc,frequency,yaw_gain_dc,(rad/s)/rad,Low-frequency yaw velocity gain from handwheel angle,0
+frequency.ay_gain_peak,frequency,ay_gain_peak,(m/s^2)/rad,Peak lateral acceleration frequency response gain,1
+frequency.ay_gain_peak_freq,frequency,ay_gain_peak_freq,Hz,Frequency at peak lateral acceleration gain,0
+frequency.yaw_gain_peak,frequency,yaw_gain_peak,(rad/s)/rad,Peak yaw velocity frequency response gain,1
+frequency.yaw_gain_peak_freq,frequency,yaw_gain_peak_freq,Hz,Frequency at peak yaw velocity gain,0
+frequency.bandwidth_hz,frequency,bandwidth_hz,Hz,Approximate -3 dB lateral acceleration bandwidth,0
+frequency.ay_phase_1hz,frequency,ay_phase_1hz,deg,Lateral acceleration phase relative to handwheel angle near 1 Hz,1
+frequency.ay_phase_0p5hz,frequency,ay_phase_0p5hz,deg,Lateral acceleration phase relative to handwheel angle near 0.5 Hz,0
+frequency.yaw_phase_1hz,frequency,yaw_phase_1hz,deg,Yaw velocity phase relative to handwheel angle near 1 Hz,1
+frequency.yaw_phase_0p5hz,frequency,yaw_phase_0p5hz,deg,Yaw velocity phase relative to handwheel angle near 0.5 Hz,0
+frequency.ay_lag_0p5hz,frequency,ay_lag_0p5hz,s,Equivalent lateral acceleration time lag near 0.5 Hz,0
+frequency.yaw_lag_0p5hz,frequency,yaw_lag_0p5hz,s,Equivalent yaw velocity time lag near 0.5 Hz,0
+frequency.yaw_to_ay_lag_0p5hz,frequency,yaw_to_ay_lag_0p5hz,s,Additional lateral acceleration lag relative to yaw velocity near 0.5 Hz,0
+frequency.ay_lag_1hz,frequency,ay_lag_1hz,s,Equivalent lateral acceleration time lag near 1 Hz,1
+frequency.yaw_lag_1hz,frequency,yaw_lag_1hz,s,Equivalent yaw velocity time lag near 1 Hz,1
+frequency.yaw_to_ay_lag_1hz,frequency,yaw_to_ay_lag_1hz,s,Additional lateral acceleration lag relative to yaw velocity near 1 Hz,1
+frequency.lag_steer_to_ay,frequency,lag_steer_to_ay,s,Handwheel angle to lateral acceleration lag,0
+frequency.lag_steer_to_yaw,frequency,lag_steer_to_yaw,s,Handwheel angle to yaw velocity lag,0
+frequency.yaw_to_ay_lag,frequency,yaw_to_ay_lag,s,Additional lateral acceleration lag relative to yaw velocity,0
+frequency.ay_phase_45_freq,frequency,ay_phase_45_freq,Hz,Frequency closest to -45 degree lateral acceleration phase,0
+frequency.yaw_phase_45_freq,frequency,yaw_phase_45_freq,Hz,Frequency closest to -45 degree yaw velocity phase,0
+frequency.ay_gain_slope,frequency,ay_gain_slope,dB/dec,Lateral acceleration gain slope versus log frequency,0
+frequency.yaw_gain_slope,frequency,yaw_gain_slope,dB/dec,Yaw velocity gain slope versus log frequency,0
+frequency.ay_phase_slope,frequency,ay_phase_slope,deg/dec,Lateral acceleration phase slope versus log frequency,0
+frequency.yaw_phase_slope,frequency,yaw_phase_slope,deg/dec,Yaw velocity phase slope versus log frequency,0
+frequency.gain_variation_pct,frequency,gain_variation_pct,%,Lateral acceleration gain variation over low-frequency sweep,1
+quality.ay_fit_error,quality,ay_fit_error,normalized error,Mean normalized sine-fit error for lateral acceleration frequency response,0
+quality.yaw_fit_error,quality,yaw_fit_error,normalized error,Mean normalized sine-fit error for yaw velocity frequency response,0
+trend.ay_peak_velocity_slope,trend,ay_peak_velocity_slope,m/s^2/(m/s),Linear slope of ay_peak versus velocity across velocity groups,0
+trend.ay_ss_velocity_slope,trend,ay_ss_velocity_slope,m/s^2/(m/s),Linear slope of ay_ss versus velocity across velocity groups,0
+trend.ay_rise_time_s_velocity_slope,trend,ay_rise_time_s_velocity_slope,s/(m/s),Linear slope of ay_rise_time_s versus velocity across velocity groups,0
+trend.ay_peak_response_time_s_velocity_slope,trend,ay_peak_response_time_s_velocity_slope,s/(m/s),Linear slope of ay_peak_response_time_s versus velocity across velocity groups,0
+trend.ay_gain_dc_velocity_slope,trend,ay_gain_dc_velocity_slope,(m/s^2)/rad/(m/s),Linear slope of ay_gain_dc versus velocity across velocity groups,0
+trend.ay_overshoot_pct_velocity_slope,trend,ay_overshoot_pct_velocity_slope,%/(m/s),Linear slope of ay_overshoot_pct versus velocity across velocity groups,0
+trend.sideslip_ss_velocity_slope,trend,sideslip_ss_velocity_slope,rad/(m/s),Linear slope of sideslip_ss versus velocity across velocity groups,0
+trend.sideslip_rise_time_s_velocity_slope,trend,sideslip_rise_time_s_velocity_slope,s/(m/s),Linear slope of sideslip_rise_time_s versus velocity across velocity groups,0
+trend.sideslip_gain_dc_velocity_slope,trend,sideslip_gain_dc_velocity_slope,rad/rad/(m/s),Linear slope of sideslip_gain_dc versus velocity across velocity groups,0
+trend.yaw_rise_time_s_velocity_slope,trend,yaw_rise_time_s_velocity_slope,s/(m/s),Linear slope of yaw_rise_time_s versus velocity across velocity groups,0
+trend.yaw_peak_response_time_s_velocity_slope,trend,yaw_peak_response_time_s_velocity_slope,s/(m/s),Linear slope of yaw_peak_response_time_s versus velocity across velocity groups,0
+trend.yaw_gain_dc_velocity_slope,trend,yaw_gain_dc_velocity_slope,(rad/s)/rad/(m/s),Linear slope of yaw_gain_dc versus velocity across velocity groups,0
+trend.yaw_overshoot_rad_per_s_velocity_slope,trend,yaw_overshoot_rad_per_s_velocity_slope,rad/s/(m/s),Linear slope of yaw_overshoot_rad_per_s versus velocity across velocity groups,0
+trend.yaw_overshoot_pct_velocity_slope,trend,yaw_overshoot_pct_velocity_slope,%/(m/s),Linear slope of yaw_overshoot_pct versus velocity across velocity groups,0
+trend.roll_peak_velocity_slope,trend,roll_peak_velocity_slope,rad/(m/s),Linear slope of roll_peak versus velocity across velocity groups,0
+trend.roll_ss_velocity_slope,trend,roll_ss_velocity_slope,rad/(m/s),Linear slope of roll_ss versus velocity across velocity groups,0
+trend.roll_gain_dc_velocity_slope,trend,roll_gain_dc_velocity_slope,rad/rad/(m/s),Linear slope of roll_gain_dc versus velocity across velocity groups,0
+trend.roll_overshoot_rad_velocity_slope,trend,roll_overshoot_rad_velocity_slope,rad/(m/s),Linear slope of roll_overshoot_rad versus velocity across velocity groups,0
+trend.roll_overshoot_pct_velocity_slope,trend,roll_overshoot_pct_velocity_slope,%/(m/s),Linear slope of roll_overshoot_pct versus velocity across velocity groups,0
+trend.settling_time_s_velocity_slope,trend,settling_time_s_velocity_slope,s/(m/s),Linear slope of settling_time_s versus velocity across velocity groups,0
+trend.yaw_peak_velocity_slope,trend,yaw_peak_velocity_slope,rad/s/(m/s),Linear slope of yaw_peak versus velocity across velocity groups,0
+trend.yaw_ss_velocity_slope,trend,yaw_ss_velocity_slope,rad/s/(m/s),Linear slope of yaw_ss versus velocity across velocity groups,0
+trend.ay_gain_peak_velocity_slope,trend,ay_gain_peak_velocity_slope,(m/s^2)/rad/(m/s),Linear slope of ay_gain_peak versus velocity across velocity groups,0
+trend.ay_gain_peak_freq_velocity_slope,trend,ay_gain_peak_freq_velocity_slope,Hz/(m/s),Linear slope of ay_gain_peak_freq versus velocity across velocity groups,0
+trend.yaw_gain_peak_velocity_slope,trend,yaw_gain_peak_velocity_slope,(rad/s)/rad/(m/s),Linear slope of yaw_gain_peak versus velocity across velocity groups,0
+trend.yaw_gain_peak_freq_velocity_slope,trend,yaw_gain_peak_freq_velocity_slope,Hz/(m/s),Linear slope of yaw_gain_peak_freq versus velocity across velocity groups,0
+trend.bandwidth_hz_velocity_slope,trend,bandwidth_hz_velocity_slope,Hz/(m/s),Linear slope of bandwidth_hz versus velocity across velocity groups,0
+trend.ay_phase_1hz_velocity_slope,trend,ay_phase_1hz_velocity_slope,deg/(m/s),Linear slope of ay_phase_1hz versus velocity across velocity groups,0
+trend.ay_phase_0p5hz_velocity_slope,trend,ay_phase_0p5hz_velocity_slope,deg/(m/s),Linear slope of ay_phase_0p5hz versus velocity across velocity groups,0
+trend.yaw_phase_1hz_velocity_slope,trend,yaw_phase_1hz_velocity_slope,deg/(m/s),Linear slope of yaw_phase_1hz versus velocity across velocity groups,0
+trend.yaw_phase_0p5hz_velocity_slope,trend,yaw_phase_0p5hz_velocity_slope,deg/(m/s),Linear slope of yaw_phase_0p5hz versus velocity across velocity groups,0
+trend.ay_lag_0p5hz_velocity_slope,trend,ay_lag_0p5hz_velocity_slope,s/(m/s),Linear slope of ay_lag_0p5hz versus velocity across velocity groups,0
+trend.yaw_lag_0p5hz_velocity_slope,trend,yaw_lag_0p5hz_velocity_slope,s/(m/s),Linear slope of yaw_lag_0p5hz versus velocity across velocity groups,0
+trend.yaw_to_ay_lag_0p5hz_velocity_slope,trend,yaw_to_ay_lag_0p5hz_velocity_slope,s/(m/s),Linear slope of yaw_to_ay_lag_0p5hz versus velocity across velocity groups,0
+trend.ay_lag_1hz_velocity_slope,trend,ay_lag_1hz_velocity_slope,s/(m/s),Linear slope of ay_lag_1hz versus velocity across velocity groups,0
+trend.yaw_lag_1hz_velocity_slope,trend,yaw_lag_1hz_velocity_slope,s/(m/s),Linear slope of yaw_lag_1hz versus velocity across velocity groups,0
+trend.yaw_to_ay_lag_1hz_velocity_slope,trend,yaw_to_ay_lag_1hz_velocity_slope,s/(m/s),Linear slope of yaw_to_ay_lag_1hz versus velocity across velocity groups,0
+trend.lag_steer_to_ay_velocity_slope,trend,lag_steer_to_ay_velocity_slope,s/(m/s),Linear slope of lag_steer_to_ay versus velocity across velocity groups,0
+trend.lag_steer_to_yaw_velocity_slope,trend,lag_steer_to_yaw_velocity_slope,s/(m/s),Linear slope of lag_steer_to_yaw versus velocity across velocity groups,0
+trend.yaw_to_ay_lag_velocity_slope,trend,yaw_to_ay_lag_velocity_slope,s/(m/s),Linear slope of yaw_to_ay_lag versus velocity across velocity groups,0
+trend.ay_phase_45_freq_velocity_slope,trend,ay_phase_45_freq_velocity_slope,Hz/(m/s),Linear slope of ay_phase_45_freq versus velocity across velocity groups,0
+trend.yaw_phase_45_freq_velocity_slope,trend,yaw_phase_45_freq_velocity_slope,Hz/(m/s),Linear slope of yaw_phase_45_freq versus velocity across velocity groups,0
+trend.ay_gain_slope_velocity_slope,trend,ay_gain_slope_velocity_slope,dB/dec/(m/s),Linear slope of ay_gain_slope versus velocity across velocity groups,0
+trend.yaw_gain_slope_velocity_slope,trend,yaw_gain_slope_velocity_slope,dB/dec/(m/s),Linear slope of yaw_gain_slope versus velocity across velocity groups,0
+trend.ay_phase_slope_velocity_slope,trend,ay_phase_slope_velocity_slope,deg/dec/(m/s),Linear slope of ay_phase_slope versus velocity across velocity groups,0
+trend.yaw_phase_slope_velocity_slope,trend,yaw_phase_slope_velocity_slope,deg/dec/(m/s),Linear slope of yaw_phase_slope versus velocity across velocity groups,0
+trend.gain_variation_pct_velocity_slope,trend,gain_variation_pct_velocity_slope,%/(m/s),Linear slope of gain_variation_pct versus velocity across velocity groups,0
+trend.ay_fit_error_velocity_slope,trend,ay_fit_error_velocity_slope,normalized error/(m/s),Linear slope of ay_fit_error versus velocity across velocity groups,0
+trend.yaw_fit_error_velocity_slope,trend,yaw_fit_error_velocity_slope,normalized error/(m/s),Linear slope of yaw_fit_error versus velocity across velocity groups,0

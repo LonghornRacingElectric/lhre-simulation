@@ -1,0 +1,3 @@
+# Compiled OpenModelica artifacts are large and reproducible from run.py.
+work/
+

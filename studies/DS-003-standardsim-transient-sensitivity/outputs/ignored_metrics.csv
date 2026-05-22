@@ -1,0 +1,92 @@
+metric,reason
+general.n_cases,"run metadata, not a transient design response"
+general.n_successful_cases,"run metadata, not a transient design response"
+general.n_failed_cases,"run metadata, not a transient design response"
+general.representative_testVel_mps,"run metadata, not a transient design response"
+general.metric_target_velocity_mps,"run metadata, not a transient design response"
+general.n_velocity_groups,"run metadata, not a transient design response"
+step.ay_ss,excluded from current findings/plots
+step.ay_rise_time_s,threshold timing metric can become sign-sensitive in some variants; retained as diagnostic
+step.ay_peak_response_time_s,threshold timing metric can become sign-sensitive in some variants; retained as diagnostic
+step.ay_overshoot_pct,overshoot metric can blow up when steady-state response is small; retained as diagnostic
+step.sideslip_ss,excluded from current findings/plots
+step.sideslip_rise_time_s,threshold timing metric can become sign-sensitive in some variants; retained as diagnostic
+step.sideslip_gain_dc,excluded from current findings/plots
+step.yaw_rise_time_s,threshold timing metric can become sign-sensitive in some variants; retained as diagnostic
+step.yaw_peak_response_time_s,threshold timing metric can become sign-sensitive in some variants; retained as diagnostic
+step.yaw_overshoot_rad_per_s,overshoot metric can blow up when steady-state response is small; retained as diagnostic
+step.yaw_overshoot_pct,overshoot metric can blow up when steady-state response is small; retained as diagnostic
+step.roll_ss,excluded from current findings/plots
+step.roll_overshoot_rad,overshoot metric can blow up when steady-state response is small; retained as diagnostic
+step.roll_overshoot_pct,overshoot metric can blow up when steady-state response is small; retained as diagnostic
+step.yaw_ss,excluded from current findings/plots
+frequency.ay_gain_dc,excluded from current findings/plots
+frequency.yaw_gain_dc,excluded from current findings/plots
+frequency.ay_gain_peak_freq,frequency locator retained for diagnostics; response magnitude/phase/lag is active
+frequency.yaw_gain_peak_freq,frequency locator retained for diagnostics; response magnitude/phase/lag is active
+frequency.bandwidth_hz,coarse frequency-grid locator; constant in this first TransientEval sweep
+frequency.ay_phase_0p5hz,excluded from current findings/plots
+frequency.yaw_phase_0p5hz,excluded from current findings/plots
+frequency.ay_lag_0p5hz,excluded from current findings/plots
+frequency.yaw_lag_0p5hz,excluded from current findings/plots
+frequency.yaw_to_ay_lag_0p5hz,excluded from current findings/plots
+frequency.lag_steer_to_ay,excluded from current findings/plots
+frequency.lag_steer_to_yaw,excluded from current findings/plots
+frequency.yaw_to_ay_lag,excluded from current findings/plots
+frequency.ay_phase_45_freq,frequency locator retained for diagnostics; response magnitude/phase/lag is active
+frequency.yaw_phase_45_freq,frequency locator retained for diagnostics; response magnitude/phase/lag is active
+frequency.ay_gain_slope,excluded from current findings/plots
+frequency.yaw_gain_slope,excluded from current findings/plots
+frequency.ay_phase_slope,excluded from current findings/plots
+frequency.yaw_phase_slope,excluded from current findings/plots
+quality.ay_fit_error,"fit quality diagnostic, not a design response"
+quality.yaw_fit_error,"fit quality diagnostic, not a design response"
+trend.ay_peak_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.ay_ss_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.ay_rise_time_s_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.ay_peak_response_time_s_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.ay_gain_dc_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.ay_overshoot_pct_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.sideslip_ss_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.sideslip_rise_time_s_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.sideslip_gain_dc_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_rise_time_s_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_peak_response_time_s_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_gain_dc_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_overshoot_rad_per_s_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_overshoot_pct_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.roll_peak_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.roll_ss_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.roll_gain_dc_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.roll_overshoot_rad_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.roll_overshoot_pct_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.settling_time_s_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_peak_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_ss_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.ay_gain_peak_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.ay_gain_peak_freq_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_gain_peak_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_gain_peak_freq_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.bandwidth_hz_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.ay_phase_1hz_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.ay_phase_0p5hz_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_phase_1hz_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_phase_0p5hz_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.ay_lag_0p5hz_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_lag_0p5hz_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_to_ay_lag_0p5hz_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.ay_lag_1hz_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_lag_1hz_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_to_ay_lag_1hz_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.lag_steer_to_ay_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.lag_steer_to_yaw_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_to_ay_lag_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.ay_phase_45_freq_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_phase_45_freq_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.ay_gain_slope_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_gain_slope_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.ay_phase_slope_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_phase_slope_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.gain_variation_pct_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.ay_fit_error_velocity_slope,velocity-slope diagnostic excluded from first-pass plots
+trend.yaw_fit_error_velocity_slope,velocity-slope diagnostic excluded from first-pass plots

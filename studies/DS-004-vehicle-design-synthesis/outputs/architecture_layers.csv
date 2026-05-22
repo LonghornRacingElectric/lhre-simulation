@@ -1,0 +1,5 @@
+layer,simulation_read,design_consequence
+1. Capability envelope,"EnvelopeSim shows high-speed lateral and GGV area are driven by downforce, CG height, total mass, tire scale, and longitudinal force limits.","Set mass, CG, aero area, tire selection, power limit, and brake capacity before tuning feel."
+2. Steady-state balance,"SteadyStateEval shows ay_max follows tire scale, while understeer/roll/sideslip follow aero load, CG placement, roll platform, and toe.",Use aero/CG/roll distribution to place the car in the right balance window.
+3. Transient response,"TransientEval shows rack travel, toe, CG x, and mass placement dominate gain, phase, lag, and initial yaw/ay response.",Tune driver command authority and response speed after the balance target is sane.
+4. Track trim,"Toe and brake bias are high-authority knobs, but broad sweeps show they can overpower interpretation if used too early.","Keep the baseline neutral/adjustable, then use small sweeps for final event-specific trim."

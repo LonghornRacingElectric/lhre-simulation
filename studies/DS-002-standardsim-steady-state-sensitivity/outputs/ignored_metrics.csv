@@ -1,0 +1,15 @@
+metric,reason
+metric_target_velocity_mps,"run metadata, not a design response"
+metric_source_velocity_mps,"run metadata, not a design response"
+ay_min,low-end lateral sweep coverage metric; ay_max is the active capability response
+roadwheel_angle_gradient_rad_per_mps2,velocity-slope _per_mps metric excluded from current findings/plots
+handwheel_angle_gradient_rad_per_mps2,velocity-slope _per_mps metric excluded from current findings/plots
+sideslip_gradient_rad_per_mps2,velocity-slope _per_mps metric excluded from current findings/plots
+understeer_gradient_rad_per_mps2,velocity-slope _per_mps metric excluded from current findings/plots
+handwheel_torque_min,raw torque extremum; handwheel_torque_peak_abs is the active steering-effort response
+handwheel_torque_max,raw torque extremum; handwheel_torque_peak_abs is the active steering-effort response
+roadwheel_angle_gradient_velocity_slope_deg_per_g_per_mps,velocity-slope _per_mps metric excluded from current findings/plots
+handwheel_angle_gradient_velocity_slope_deg_per_g_per_mps,velocity-slope _per_mps metric excluded from current findings/plots
+sideslip_gradient_velocity_slope_deg_per_g_per_mps,velocity-slope _per_mps metric excluded from current findings/plots
+understeer_gradient_velocity_slope_deg_per_g_per_mps,velocity-slope _per_mps metric excluded from current findings/plots
+roll_gradient_velocity_slope_deg_per_g_per_mps,velocity-slope _per_mps metric excluded from current findings/plots
