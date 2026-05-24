@@ -1,0 +1,26 @@
+id: DS-005
+title: Tire Selection
+status: active
+vehicle: vehicles/current/vehicle.yml
+sources:
+  - vehicles/current/tires/16x7p5_10_12psi.tir
+  - vehicles/current/tires/round_8_fabricated_longitudinal_um3/
+purpose: >
+  Compare available tire candidates for the current vehicle architecture using
+  EnvelopeSim first-pass capability metrics and, when requested, StandardSim
+  finalist checks.
+
+principles:
+  - Simulation-derived results come only from EnvelopeSim or StandardSim.
+  - Candidate ranking emphasizes lateral capability because Round 8
+    longitudinal coefficients are fabricated from the hybrid reference tire.
+  - Combined-slip claims are excluded for generated Round 8 candidates.
+
+outputs:
+  - outputs/candidate_registry.csv
+  - outputs/tire_characterization.csv
+  - outputs/envelope_metrics.csv
+  - outputs/candidate_scores.csv
+  - outputs/group_summary.csv
+  - RESULTS.md
+  - ../../reports/DS-005-tire-selection.md

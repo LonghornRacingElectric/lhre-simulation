@@ -1,0 +1,10 @@
+id: DS-006
+title: Integrated Tire Design
+status: active
+scope:
+  - Round 9 full-UM14 tire fits
+  - Current vehicle architecture
+  - EnvelopeSim GGV comparison
+  - StandardSim SteadyStateEval comparison
+primary_report: reports/DS-006-integrated-tire-design.md
+study_report: studies/DS-006-integrated-tire-design/RESULTS.md

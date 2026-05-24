@@ -857,7 +857,13 @@ def add_derived_metrics(metrics: dict[str, float]) -> None:
         metrics["handwheel_torque_peak_abs"] = max(torque_candidates)
 
 
-def run_standard_report(variant_dir: Path) -> Path:
+def run_standard_report(
+    variant_dir: Path,
+    *,
+    max_ay_mps2: float | None = None,
+    case_timeout_s: float = 60.0,
+    fail_fast: bool = True,
+) -> Path:
     build_dir = variant_dir / "build" / "SteadyStateEval"
     config_path, metrics_csv = build_report_config(
         variant_dir=variant_dir,
@@ -870,9 +876,26 @@ def run_standard_report(variant_dir: Path) -> Path:
     if not isinstance(config, dict):
         raise TypeError(f"Expected generated StandardSim config mapping: {config_path}")
 
+    simulation = config.setdefault("simulation", {})
+    if not isinstance(simulation, dict):
+        raise TypeError("Generated StandardSim simulation block must be a mapping.")
+
     execution = config.setdefault("execution", {})
     if not isinstance(execution, dict):
         raise TypeError("Generated StandardSim execution block must be a mapping.")
+
+    # Study sweeps should reject pathological maneuver/model combinations
+    # quickly. A clean SteadyStateEval candidate typically completes the whole
+    # four-speed report in about a minute; one bad velocity should not be able
+    # to consume the outer report timeout.
+    simulation["case_timeout_s"] = float(case_timeout_s)
+    execution["fail_fast"] = bool(fail_fast)
+
+    if max_ay_mps2 is not None:
+        sweep = config.setdefault("sweep", {})
+        if not isinstance(sweep, dict):
+            raise TypeError("Generated StandardSim sweep block must be a mapping.")
+        sweep["maxAy"] = float(max_ay_mps2)
 
     # Keep this study sandbox-friendly and deterministic. The compile/run loop
     # already gives us plenty of parallelism at the process level when needed.
@@ -893,7 +916,7 @@ def run_standard_report(variant_dir: Path) -> Path:
         cwd=str(BOBSIM_ROOT),
         capture_output=True,
         text=True,
-        timeout=900,
+        timeout=max(240, int(math.ceil(4.0 * float(case_timeout_s) + 60.0))),
     )
 
     report_log = variant_dir / "run_SteadyStateEval.log"

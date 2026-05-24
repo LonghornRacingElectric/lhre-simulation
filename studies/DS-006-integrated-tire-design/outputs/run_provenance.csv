@@ -1,0 +1,22 @@
+item,value
+generated_at_utc,2026-05-24T11:12:40+00:00
+vehicle,vehicles/current/vehicle.yml
+current_reference,vehicles/current/tires/16x7p5_10_12psi.tir
+round9_tire_dir,vehicles/current/tires/round_9_fitted_full_um14
+round9_cornering_archive,RunData_Cornering_Matlab_SI_Round9.zip
+round9_drive_archive,RunData_DriveBrake_Matlab_SI_Round9.zip
+round9_candidates,56
+transient_temperature_rows,42
+degradation_rows,56
+degradation_pressure_psi,12.0
+envelopesim_speeds_mps,5.0;10.0;15.0;20.0;25.0
+standardsim_skipped,False
+standardsim_limit,
+standardsim_workers,1
+standardsim_max_ay_mps2,8.0
+standardsim_case_timeout_s,75.0
+reuse,True
+mass_kg,261.07265114
+cg_z_m,0.27961567837774426
+reference_unloaded_radius_m,0.2032
+architecture_adjustment,tire radius/rim dimensions plus vehicle coordinate z shift by tire radius delta

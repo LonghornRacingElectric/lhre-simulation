@@ -1,0 +1,11 @@
+item,value
+generated_at_utc,2026-05-22T20:34:54+00:00
+vehicle,vehicles/current/vehicle.yml
+candidate_count_round8,32
+current_reference,vehicles/current/tires/16x7p5_10_12psi.tir
+round8_tire_dir,vehicles/current/tires/round_8_fabricated_longitudinal_um3
+envelopesim_speeds_mps,5.0;10.0;15.0;20.0;25.0
+mass_kg,261.07265114
+cg_height_m,0.27961567837774426
+cg_x_m,-0.8002708499132695
+standardsim_top_n,0

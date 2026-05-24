@@ -1,0 +1,17 @@
+item,value
+generated_at_utc,2026-05-24T13:26:01+00:00
+vehicle,vehicles/current/vehicle.yml
+run_guide,RunGuide_Round8.pdf
+cornering_archive,RunData_Cornering_Matlab_SI_10inch_Round8.zip
+round8_tire_dir,vehicles/current/tires/round_8_fabricated_longitudinal_um3
+lc0_setups,4
+lc0_vehicle_candidates,16
+comparison_setups,4
+degradation_pressure_psi,12.0
+nominal_speed_window_kph,34-47
+standardsim_skipped,False
+standardsim_limit,
+standardsim_workers,1
+standardsim_max_ay_mps2,8.0
+standardsim_case_timeout_s,75.0
+reuse,True
