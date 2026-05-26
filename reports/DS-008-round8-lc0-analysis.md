@@ -1,10 +1,10 @@
 # DS-008 Round 8 LC0 Tire Analysis
 
-Generated UTC: 2026-05-24T13:26:01+00:00
+Generated UTC: 2026-05-24T16:26:26+00:00
 
 ## Purpose
 
-This study extracts the Round 8 10 inch tire cornering archive and RunGuide matrix to characterize the Hoosier LC0 compound. It mirrors the DS-006 tire-data evidence style: initial/final 12 psi degradation, pressure response, transient temperature, matched compound comparison against the Round 8 R25B rows, and vehicle-level EnvelopeSim/StandardSim screening for the existing LC0 tire files.
+This study extracts the Round 8 10 inch tire cornering archive and RunGuide matrix to characterize the Hoosier LC0 compound. It mirrors the DS-006 tire-data evidence style: initial/final 12 psi degradation, pressure response, transient temperature, matched R20 comparison against the DS-006 Round 9 Hoosier R20 rows, and vehicle-level EnvelopeSim/StandardSim screening for the existing LC0 tire files.
 
 The RunGuide text labels the compound as `LCO`; the existing tire-fit archives and this report use `LC0`.
 
@@ -14,6 +14,7 @@ The RunGuide text labels the compound as `LCO`; the existing tire-fit archives a
 | --- | --- |
 | Run matrix | `RunGuide_Round8.pdf` |
 | Raw cornering channels | `RunData_Cornering_Matlab_SI_10inch_Round8.zip` |
+| R20 comparison rows | `studies/DS-006-integrated-tire-design/outputs/integrated_results.csv` |
 | Envelope limits | `BobSim/_2_EnvelopeSim/GGV/ggv_generation.py` via DS-006 helpers |
 | Steady-state vehicle response | `BobSim/_3_StandardSim/SteadyStateEval/steady_state_eval_sim.py` via DS-006 helpers |
 | LC0 vehicle tire files | `vehicles/current/tires/round_8_fabricated_longitudinal_um3` |
@@ -26,9 +27,9 @@ Vehicle-level results are screening evidence only. The Round 8 LC0 `.tir` files 
 | Item | Value |
 | --- | ---: |
 | Round 8 LC0 setups | 4 |
-| Round 8 R25B comparison setups | 4 |
-| Pressure-window rows | 40 |
-| Transient-temperature rows | 24 |
+| Matched Round 9 R20 comparison setups | 4 |
+| Pressure-window rows | 20 |
+| Transient-temperature rows | 12 |
 | LC0 vehicle candidates | 16 |
 | StandardSim errors | 0 |
 | StandardSim successful rows | 17 |
@@ -112,18 +113,35 @@ Degradation compares the initial 12 psi slip-angle sweep to the repeated final 1
 | 3 | Hoosier 43075 16x7.5-10 LC0 7in | 18 | 19 | 2.798 | 2.590 | -7.4% | 32.09 | 30.32 | -5.5% | -2.1 C |
 | 4 | Hoosier 43075 16x7.5-10 LC0 8in | 15 | 16 | 2.744 | 2.569 | -6.4% | 33.10 | 30.32 | -8.4% | -0.1 C |
 
-## LC0 Versus R25B
+## LC0 Versus R20
 
-R25B is included only as a same-round, same-size/rim reference. This is useful because it keeps the comparison inside the same test round and 10 inch archive.
+R20 is pulled from the DS-006 Round 9 Hoosier R20 study rows, matched by model, tire size, and rim width. This is a design-relevant cross-round comparison, not a same-round compound control; use it to compare LC0 against the current R20 decision set.
 
-| Matched setup | LC0 peak mu | R25B peak mu | LC0 delta | LC0 Ky | R25B Ky | LC0 Ky delta | LC0 degr | R25B degr |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 43075 16x7.5-10 8in | 2.569 | 2.877 | -10.7% | 30.32 | 34.33 | -11.7% | -6.4% | -0.1% |
-| 43075 16x7.5-10 7in | 2.590 | 2.838 | -8.7% | 30.32 | 33.15 | -8.5% | -7.4% | -0.0% |
-| 43070 16x6.0-10 6in | 2.634 | 2.749 | -4.2% | 30.40 | 29.60 | +2.7% | -1.2% | -2.3% |
-| 43070 16x6.0-10 7in | 2.678 | 2.804 | -4.5% | 32.33 | 32.46 | -0.4% | -1.2% | +1.1% |
+| Matched setup | LC0 peak mu | R20 peak mu | LC0 delta | LC0 Ky | R20 Ky | LC0 Ky delta | LC0 degr | R20 degr | R20 int |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 43070 16x6.0-10 6in | 2.634 | 2.476 | +6.4% | 30.40 | 29.38 | +3.5% | -1.2% | -0.5% | 0.748 |
+| 43070 16x6.0-10 7in | 2.678 | 2.438 | +9.9% | 32.33 | 30.54 | +5.9% | -1.2% | -1.0% | 0.708 |
+| 43075 16x7.5-10 7in | 2.590 | 2.560 | +1.2% | 30.32 | 33.51 | -9.5% | -7.4% | +1.6% | 0.740 |
+| 43075 16x7.5-10 8in | 2.569 | 2.530 | +1.6% | 30.32 | 34.20 | -11.3% | -6.4% | +0.6% | 0.725 |
 
-The 43075 LC0 rows are notably weaker than matched R25B after the test sequence (`~9-11%` lower peak mu and `~9-12%` lower Ky/Fz). The 43070 LC0 rows are closer to R25B and are much more stable over the initial/final repeat.
+Against matched R20, LC0 final 12 psi peak mu is `+1.2% to +9.9%` across the matched rows. The split is important: 43075 LC0 keeps similar peak mu but gives up `-11.3% to -9.5%` in Ky/Fz and has the stronger repeat-loss warning, while 43070 LC0 is the healthier R20 comparison with peak mu `+6.4% to +9.9%` and Ky/Fz `+3.5% to +5.9%` versus R20.
+
+## Lateral Friction Pressure Sensitivity
+
+The table reports $\partial \mu_y / \partial P$ as a linear-fit slope over the pressure series. LC0 uses observed raw `peak_mu_y_p95` from the Round 8 pressure windows, while R20 uses fitted `mu_y = abs(PDY1)` from the Round 9 UM14 tire files. The LC0 points mix run order (8 psi final, 10 psi initial, 12 psi final, 14 psi initial), so read those slopes as observed pressure-response evidence rather than a pure pressure-only causal derivative.
+
+| Source | Setup | dmu/dP | %/psi @12 | 8->14 delta | R2 | Points |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| LC0 | 43070 16x6.0-10 6in | -0.0692 1/psi | -2.63% | -13.7% | 0.981 | 4 |
+| R20 | 43070 16x6.0-10 6in | -0.0118 1/psi | -0.49% | -2.0% | 0.204 | 4 |
+| LC0 | 43070 16x6.0-10 7in | -0.0714 1/psi | -2.67% | -13.8% | 0.985 | 4 |
+| R20 | 43070 16x6.0-10 7in | -0.0035 1/psi | -0.15% | +0.0% | 0.076 | 4 |
+| LC0 | 43075 16x7.5-10 7in | -0.0877 1/psi | -3.38% | -16.0% | 0.934 | 4 |
+| R20 | 43075 16x7.5-10 7in | -0.0532 1/psi | -2.17% | -12.1% | 0.960 | 4 |
+| LC0 | 43075 16x7.5-10 8in | -0.0824 1/psi | -3.21% | -15.3% | 0.933 | 4 |
+| R20 | 43075 16x7.5-10 8in | -0.0389 1/psi | -1.60% | -8.8% | 0.929 | 4 |
+
+In slope form, LC0 observed pressure sensitivity spans `-0.0877 to -0.0692 1/psi`; the matched R20 fitted `abs(PDY1)` sensitivity spans `-0.0532 to -0.0035 1/psi`.
 
 ## LC0 Pressure Response
 
@@ -170,7 +188,7 @@ The 8 psi point comes from the final-run pressure block; the 10 and 14 psi point
 - LC0 43075 shows the largest initial-to-final deterioration: peak mu falls `-6.4%` on the 8 in rim and `-7.4%` on the 7 in rim.
 - LC0 43070 is much more stable: peak mu falls only `-1.2%` on both rim widths, with final 12 psi Ky/Fz equal to or better than the 43075 LC0 rows.
 - LC0 pressure response is strongest at 8 psi in the final-run block for all LC0 setups, but that point is confounded with run order and should be treated as observed data, not a pressure-only causal result.
-- The LC0 43075 final 12 psi rows are materially below matched R25B in both peak mu and Ky/Fz.
+- Against matched R20, LC0 is higher on final 12 psi peak mu in these rows, but 43075 LC0 is lower in Ky/Fz and has worse repeat degradation than R20.
 - Because Round 8 LC0 has no 10 inch drive/brake archive in this dataset, vehicle-level longitudinal/braking reads are lower-confidence than lateral and balance reads.
 
 ## Figure Gallery
@@ -191,9 +209,13 @@ The 8 psi point comes from the final-run pressure block; the 10 and 14 psi point
 
 ![LC0 initial-to-final 12 psi degradation](../studies/DS-008-round8-lc0-analysis/plots/lc0_degradation.png)
 
-### LC0 versus matched R25B final 12 psi behavior
+### LC0 versus matched R20 final 12 psi behavior
 
-![LC0 versus matched R25B final 12 psi behavior](../studies/DS-008-round8-lc0-analysis/plots/lc0_vs_r25b_final12.png)
+![LC0 versus matched R20 final 12 psi behavior](../studies/DS-008-round8-lc0-analysis/plots/lc0_vs_r20_final12.png)
+
+### Lateral friction pressure sensitivity
+
+![Lateral friction pressure sensitivity](../studies/DS-008-round8-lc0-analysis/plots/mu_pressure_sensitivity.png)
 
 ### LC0 measured pressure response
 
@@ -208,7 +230,8 @@ The 8 psi point comes from the final-run pressure block; the 10 and 14 psi point
 - `outputs/degradation_summary.csv`
 - `outputs/pressure_window_summary.csv`
 - `outputs/transient_temperature_summary.csv`
-- `outputs/compound_comparison.csv`
+- `outputs/r20_comparison.csv`
+- `outputs/pressure_mu_sensitivity.csv`
 - `outputs/lc0_ranked_summary.csv`
 - `outputs/vehicle_candidate_registry.csv`
 - `outputs/vehicle_tire_characterization.csv`
@@ -221,7 +244,8 @@ The 8 psi point comes from the final-run pressure block; the 10 and 14 psi point
 - `plots/lc0_vehicle_trade_space.png`
 - `plots/lc0_vehicle_pressure_response.png`
 - `plots/lc0_degradation.png`
-- `plots/lc0_vs_r25b_final12.png`
+- `plots/lc0_vs_r20_final12.png`
+- `plots/mu_pressure_sensitivity.png`
 - `plots/lc0_pressure_response.png`
 - `plots/lc0_transient_temperature.png`
 
@@ -229,5 +253,5 @@ The 8 psi point comes from the final-run pressure block; the 10 and 14 psi point
 
 | Item | Value |
 | --- | --- |
-| Elapsed time | 34.8 s |
-| Python | /tmp/lhre-sim-venv/bin/python |
+| Elapsed time | 0.0 s |
+| Python | /home/rhorvath2002/Documents/Github/lhre-simulation/.venv/bin/python |

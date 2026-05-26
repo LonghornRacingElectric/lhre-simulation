@@ -31,6 +31,7 @@ CORNERING_ARCHIVE = REPO_ROOT / "RunData_Cornering_Matlab_SI_10inch_Round8.zip"
 ROUND8_TIRE_DIR = REPO_ROOT / "vehicles" / "current" / "tires" / "round_8_fabricated_longitudinal_um3"
 ROUND8_TIRE_MANIFEST = ROUND8_TIRE_DIR / "manifest.csv"
 DS006_RUN = REPO_ROOT / "studies" / "DS-006-integrated-tire-design" / "run.py"
+DS006_INTEGRATED_RESULTS = REPO_ROOT / "studies" / "DS-006-integrated-tire-design" / "outputs" / "integrated_results.csv"
 CURRENT_TIRE = REPO_ROOT / "vehicles" / "current" / "tires" / "16x7p5_10_12psi.tir"
 
 KPA_PER_PSI = 6.894757293168361
@@ -40,6 +41,14 @@ NOMINAL_TEST_SPEED_KPH_MIN = 34.0
 NOMINAL_TEST_SPEED_KPH_MAX = 47.0
 STANDARD_STABLE_MAX_AY_MPS2 = 8.0
 STANDARD_CASE_TIMEOUT_S = 75.0
+R20_COMPARISON_PRESSURE_PSI = 12.0
+R20_HOOSIER_MODELS = {"43070", "43075", "43100", "43164"}
+PRESSURE_SENSITIVITY_WINDOWS = {
+    "final_run_8psi",
+    "initial_run_10psi",
+    "final_run_12psi",
+    "initial_run_14psi",
+}
 
 MPLCONFIGDIR = Path("/tmp/lhre-sim-matplotlib")
 MPLCONFIGDIR.mkdir(parents=True, exist_ok=True)
@@ -104,10 +113,6 @@ class TireSpec:
 
 
 ROUND8_SPECS = (
-    TireSpec("R25B", "43075", "16x7.5-10", 7.0, 1, 2, 4),
-    TireSpec("R25B", "43075", "16x7.5-10", 8.0, 5, 6, 7),
-    TireSpec("R25B", "43070", "16x6.0-10", 6.0, 8, 9, 10),
-    TireSpec("R25B", "43070", "16x6.0-10", 7.0, 11, 12, 13),
     TireSpec("LC0", "43075", "16x7.5-10", 8.0, 14, 15, 16),
     TireSpec("LC0", "43075", "16x7.5-10", 7.0, 17, 18, 19),
     TireSpec("LC0", "43070", "16x6.0-10", 6.0, 20, 21, 22),
@@ -136,6 +141,31 @@ def format_pct(value: Any, digits: int = 1, *, signed: bool = True) -> str:
         return "n/a"
     sign = "+" if signed else ""
     return f"{value_f:{sign}.{digits}f}%"
+
+
+def format_pct_span(values: list[Any], digits: int = 1, *, signed: bool = True) -> str:
+    finite_values = sorted(finite_float(value) for value in values if math.isfinite(finite_float(value)))
+    if not finite_values:
+        return "n/a"
+    if abs(finite_values[0] - finite_values[-1]) <= 1e-9:
+        return format_pct(finite_values[0], digits, signed=signed)
+    return f"{format_pct(finite_values[0], digits, signed=signed)} to {format_pct(finite_values[-1], digits, signed=signed)}"
+
+
+def format_signed_float(value: Any, digits: int = 4) -> str:
+    value_f = finite_float(value)
+    if not math.isfinite(value_f):
+        return "n/a"
+    return f"{value_f:+.{digits}f}"
+
+
+def format_signed_float_span(values: list[Any], digits: int = 4) -> str:
+    finite_values = sorted(finite_float(value) for value in values if math.isfinite(finite_float(value)))
+    if not finite_values:
+        return "n/a"
+    if abs(finite_values[0] - finite_values[-1]) <= 1e-12:
+        return format_signed_float(finite_values[0], digits)
+    return f"{format_signed_float(finite_values[0], digits)} to {format_signed_float(finite_values[-1], digits)}"
 
 
 def safe_percent_delta(final: Any, initial: Any) -> float:
@@ -437,16 +467,37 @@ def pressure_rows(cache: dict[int, dict[str, Any]]) -> list[dict[str, Any]]:
     return rows
 
 
-def compound_comparison_rows(deg_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def r20_pressure_source_rows() -> list[dict[str, str]]:
+    rows = []
+    for row in read_csv_rows(DS006_INTEGRATED_RESULTS):
+        if row.get("source") != "round9_fitted_full_um14":
+            continue
+        if row.get("brand") != "Hoosier" or row.get("model") not in R20_HOOSIER_MODELS:
+            continue
+        if "_r20_" not in row.get("candidate_id", "").lower():
+            continue
+        rows.append(row)
+    return rows
+
+
+def r20_comparison_source_rows() -> list[dict[str, str]]:
+    return [
+        row
+        for row in r20_pressure_source_rows()
+        if abs(finite_float(row.get("pressure_psi")) - R20_COMPARISON_PRESSURE_PSI) <= 1e-9
+    ]
+
+
+def r20_comparison_rows(deg_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     lookup = {
-        (row["compound"], row["model"], row["size"], float(row["rim_width_in"])): row
-        for row in deg_rows
+        (row["model"], row["tire_size"], float(row["rim_width_in"])): row
+        for row in r20_comparison_source_rows()
     }
     rows: list[dict[str, Any]] = []
     for lc0 in [row for row in deg_rows if row["compound"] == "LC0"]:
-        key = ("R25B", lc0["model"], lc0["size"], float(lc0["rim_width_in"]))
-        r25b = lookup.get(key)
-        if not r25b:
+        key = (str(lc0["model"]), str(lc0["size"]), float(lc0["rim_width_in"]))
+        r20 = lookup.get(key)
+        if not r20:
             continue
         rows.append(
             {
@@ -454,17 +505,148 @@ def compound_comparison_rows(deg_rows: list[dict[str, Any]]) -> list[dict[str, A
                 "size": lc0["size"],
                 "rim_width_in": lc0["rim_width_in"],
                 "setup": f"{lc0['model']} {lc0['size']} {float(lc0['rim_width_in']):g}in",
+                "r20_candidate_id": r20.get("candidate_id", ""),
+                "r20_label": r20.get("label", ""),
+                "r20_pressure_psi": finite_float(r20.get("pressure_psi")),
                 "lc0_final_peak_mu_y_p95": lc0["final_peak_mu_y_p95"],
-                "r25b_final_peak_mu_y_p95": r25b["final_peak_mu_y_p95"],
-                "lc0_vs_r25b_peak_mu_y_delta_pct": safe_percent_delta(lc0["final_peak_mu_y_p95"], r25b["final_peak_mu_y_p95"]),
+                "r20_final_peak_mu_y_p95": finite_float(r20.get("degradation_corner_final_peak_mu_y")),
+                "lc0_vs_r20_peak_mu_y_delta_pct": safe_percent_delta(
+                    lc0["final_peak_mu_y_p95"],
+                    r20.get("degradation_corner_final_peak_mu_y"),
+                ),
                 "lc0_final_ky_norm_per_rad": lc0["final_ky_norm_per_rad"],
-                "r25b_final_ky_norm_per_rad": r25b["final_ky_norm_per_rad"],
-                "lc0_vs_r25b_ky_delta_pct": safe_percent_delta(lc0["final_ky_norm_per_rad"], r25b["final_ky_norm_per_rad"]),
+                "r20_final_ky_norm_per_rad": finite_float(r20.get("degradation_corner_final_ky_norm_per_rad")),
+                "lc0_vs_r20_ky_delta_pct": safe_percent_delta(
+                    lc0["final_ky_norm_per_rad"],
+                    r20.get("degradation_corner_final_ky_norm_per_rad"),
+                ),
                 "lc0_peak_mu_y_degradation_pct": lc0["peak_mu_y_delta_pct"],
-                "r25b_peak_mu_y_degradation_pct": r25b["peak_mu_y_delta_pct"],
+                "r20_peak_mu_y_degradation_pct": finite_float(r20.get("degradation_corner_peak_mu_y_delta_pct")),
+                "r20_integrated_design_score": finite_float(r20.get("integrated_design_score")),
+                "r20_envelope_score": finite_float(r20.get("envelope_score")),
+                "r20_standardsim_score": finite_float(r20.get("standardsim_score")),
+                "r20_standardsim_quality_status": r20.get("standardsim_quality_status", ""),
             }
         )
-    return rows
+    return sorted(rows, key=lambda row: (str(row["model"]), str(row["size"]), float(row["rim_width_in"])))
+
+
+def linear_pressure_slope(points: list[tuple[float, float]]) -> dict[str, Any]:
+    clean = sorted(
+        [(finite_float(pressure), finite_float(mu)) for pressure, mu in points],
+        key=lambda item: item[0],
+    )
+    clean = [(pressure, mu) for pressure, mu in clean if math.isfinite(pressure) and math.isfinite(mu)]
+    if len(clean) < 2:
+        return {"point_count": len(clean), "dmu_dpressure_per_psi": math.nan}
+    pressures = np.asarray([point[0] for point in clean], dtype=float)
+    mus = np.asarray([point[1] for point in clean], dtype=float)
+    if np.unique(pressures).size < 2:
+        return {"point_count": len(clean), "dmu_dpressure_per_psi": math.nan}
+    try:
+        slope, intercept = np.polyfit(pressures, mus, 1)
+    except (np.linalg.LinAlgError, ValueError):
+        slope = intercept = math.nan
+    p_min = float(np.nanmin(pressures))
+    p_max = float(np.nanmax(pressures))
+    mu_min_pressure = float(mus[np.nanargmin(pressures)])
+    mu_max_pressure = float(mus[np.nanargmax(pressures)])
+    endpoint_slope = (mu_max_pressure - mu_min_pressure) / (p_max - p_min) if abs(p_max - p_min) > 1e-12 else math.nan
+    mu_at_12 = next((mu for pressure, mu in clean if abs(pressure - 12.0) <= 1e-9), math.nan)
+    pct_per_psi_at_12 = 100.0 * slope / abs(mu_at_12) if math.isfinite(slope) and math.isfinite(mu_at_12) and abs(mu_at_12) > 1e-12 else math.nan
+    if math.isfinite(slope) and math.isfinite(intercept):
+        predicted = slope * pressures + intercept
+        ss_res = float(np.nansum((mus - predicted) ** 2))
+        ss_tot = float(np.nansum((mus - float(np.nanmean(mus))) ** 2))
+        r2 = 1.0 - ss_res / ss_tot if ss_tot > 1e-12 else math.nan
+    else:
+        r2 = math.nan
+    return {
+        "point_count": len(clean),
+        "pressure_min_psi": p_min,
+        "pressure_max_psi": p_max,
+        "mu_at_min_pressure": mu_min_pressure,
+        "mu_at_max_pressure": mu_max_pressure,
+        "mu_at_12psi": mu_at_12,
+        "dmu_dpressure_per_psi": float(slope) if math.isfinite(finite_float(slope)) else math.nan,
+        "endpoint_dmu_dpressure_per_psi": endpoint_slope,
+        "pct_dmu_dpressure_per_psi_at_12psi": pct_per_psi_at_12,
+        "mu_delta_8_to_14": mu_max_pressure - mu_min_pressure,
+        "mu_delta_8_to_14_pct": safe_percent_delta(mu_max_pressure, mu_min_pressure),
+        "linear_fit_r2": r2,
+        "pressure_mu_points": ";".join(f"{pressure:g}:{mu:.6g}" for pressure, mu in clean),
+    }
+
+
+def pressure_mu_sensitivity_rows(
+    pressure_summary: list[dict[str, Any]],
+    comparison_rows: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    matched_keys = {
+        (str(row["model"]), str(row["size"]), float(row["rim_width_in"]))
+        for row in comparison_rows
+    }
+    rows: list[dict[str, Any]] = []
+
+    lc0_groups: dict[tuple[str, str, float], list[dict[str, Any]]] = {}
+    for row in pressure_summary:
+        key = (str(row.get("model")), str(row.get("size")), finite_float(row.get("rim_width_in")))
+        if key not in matched_keys:
+            continue
+        if row.get("compound") != "LC0" or row.get("status") != "ok":
+            continue
+        if row.get("window") not in PRESSURE_SENSITIVITY_WINDOWS:
+            continue
+        lc0_groups.setdefault(key, []).append(row)
+
+    for key, group_rows in lc0_groups.items():
+        sample = group_rows[0]
+        metrics = linear_pressure_slope(
+            [(finite_float(row.get("pressure_psi")), finite_float(row.get("peak_mu_y_p95"))) for row in group_rows]
+        )
+        rows.append(
+            {
+                "source": "LC0_raw_peak_mu_y_p95",
+                "compound": "LC0",
+                "model": key[0],
+                "size": key[1],
+                "rim_width_in": key[2],
+                "setup": f"{key[0]} {key[1]} {key[2]:g}in",
+                "label": sample.get("label", ""),
+                "mu_metric": "observed_peak_mu_y_p95",
+                "pressure_basis": "8psi final, 10psi initial, 12psi final, 14psi initial",
+                **metrics,
+            }
+        )
+
+    r20_groups: dict[tuple[str, str, float], list[dict[str, str]]] = {}
+    for row in r20_pressure_source_rows():
+        key = (str(row.get("model")), str(row.get("tire_size")), finite_float(row.get("rim_width_in")))
+        if key not in matched_keys:
+            continue
+        r20_groups.setdefault(key, []).append(row)
+
+    for key, group_rows in r20_groups.items():
+        sample = group_rows[0]
+        metrics = linear_pressure_slope(
+            [(finite_float(row.get("pressure_psi")), finite_float(row.get("mu_y"))) for row in group_rows]
+        )
+        rows.append(
+            {
+                "source": "R20_fitted_abs_PDY1",
+                "compound": "R20",
+                "model": key[0],
+                "size": key[1],
+                "rim_width_in": key[2],
+                "setup": f"{key[0]} {key[1]} {key[2]:g}in",
+                "label": sample.get("label", ""),
+                "mu_metric": "fitted_abs_PDY1_mu_y",
+                "pressure_basis": "Round 9 UM14 8,10,12,14 psi fitted tire files",
+                **metrics,
+            }
+        )
+
+    return sorted(rows, key=lambda row: (row["model"], float(row["rim_width_in"]), row["compound"]))
 
 
 def lc0_score_rows(deg_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -757,7 +939,7 @@ def plot_lc0_degradation(deg_rows: list[dict[str, Any]]) -> None:
     plt.close(fig)
 
 
-def plot_compound_comparison(rows: list[dict[str, Any]]) -> None:
+def plot_r20_comparison(rows: list[dict[str, Any]]) -> None:
     if not rows:
         return
     rows = sorted(rows, key=lambda row: (row["model"], float(row["rim_width_in"])))
@@ -765,11 +947,11 @@ def plot_compound_comparison(rows: list[dict[str, Any]]) -> None:
     x = np.arange(len(rows), dtype=float)
     width = 0.36
     fig, axes = plt.subplots(1, 2, figsize=(13.6, 5.8))
-    axes[0].bar(x - width / 2.0, [finite_float(row["r25b_final_peak_mu_y_p95"]) for row in rows], width, color="#94a3b8", label="R25B")
+    axes[0].bar(x - width / 2.0, [finite_float(row["r20_final_peak_mu_y_p95"]) for row in rows], width, color="#94a3b8", label="R20")
     axes[0].bar(x + width / 2.0, [finite_float(row["lc0_final_peak_mu_y_p95"]) for row in rows], width, color="#0f766e", label="LC0")
     axes[0].set_ylabel("Final 12 psi peak mu_y p95 [-]")
     axes[0].set_title("Final 12 psi Lateral Peak")
-    axes[1].bar(x - width / 2.0, [finite_float(row["r25b_final_ky_norm_per_rad"]) for row in rows], width, color="#94a3b8", label="R25B")
+    axes[1].bar(x - width / 2.0, [finite_float(row["r20_final_ky_norm_per_rad"]) for row in rows], width, color="#94a3b8", label="R20")
     axes[1].bar(x + width / 2.0, [finite_float(row["lc0_final_ky_norm_per_rad"]) for row in rows], width, color="#0f766e", label="LC0")
     axes[1].set_ylabel("Final 12 psi Ky/Fz [1/rad]")
     axes[1].set_title("Final 12 psi Cornering Stiffness")
@@ -778,9 +960,29 @@ def plot_compound_comparison(rows: list[dict[str, Any]]) -> None:
         ax.set_xticklabels(labels, rotation=28, ha="right")
         ax.grid(True, axis="y", linestyle="--", alpha=0.3)
         ax.legend(frameon=False)
-    fig.suptitle("Round 8 LC0 Versus R25B Matched Tire/Rim Setups")
+    fig.suptitle("Round 8 LC0 Versus Round 9 R20 Matched Tire/Rim Setups")
     fig.tight_layout()
-    fig.savefig(PLOT_DIR / "lc0_vs_r25b_final12.png", dpi=220)
+    fig.savefig(PLOT_DIR / "lc0_vs_r20_final12.png", dpi=220)
+    plt.close(fig)
+
+
+def plot_pressure_mu_sensitivity(rows: list[dict[str, Any]]) -> None:
+    if not rows:
+        return
+    ordered = sorted(rows, key=lambda row: (row["model"], float(row["rim_width_in"]), row["compound"]))
+    y = np.arange(len(ordered), dtype=float)
+    colors = ["#0f766e" if row["compound"] == "LC0" else "#64748b" for row in ordered]
+    labels = [f"{row['compound']} {row['setup']}" for row in ordered]
+    fig, ax = plt.subplots(figsize=(10.8, 5.8))
+    ax.barh(y, [finite_float(row["dmu_dpressure_per_psi"]) for row in ordered], color=colors, alpha=0.88)
+    ax.axvline(0.0, color="#111827", linewidth=1.0, alpha=0.72)
+    ax.set_yticks(y)
+    ax.set_yticklabels(labels)
+    ax.set_xlabel("Linear fit dmu_y / dP [1/psi]")
+    ax.set_title("Pressure Sensitivity Of Lateral Friction")
+    ax.grid(True, axis="x", linestyle="--", alpha=0.3)
+    fig.tight_layout()
+    fig.savefig(PLOT_DIR / "mu_pressure_sensitivity.png", dpi=220)
     plt.close(fig)
 
 
@@ -1009,11 +1211,13 @@ def plot_outputs(
     pressure_summary: list[dict[str, Any]],
     temp_rows: list[dict[str, Any]],
     comparison_rows: list[dict[str, Any]],
+    pressure_sensitivity_rows: list[dict[str, Any]],
     vehicle_rows: list[dict[str, Any]],
 ) -> None:
     PLOT_DIR.mkdir(parents=True, exist_ok=True)
     plot_lc0_degradation(deg_rows)
-    plot_compound_comparison(comparison_rows)
+    plot_r20_comparison(comparison_rows)
+    plot_pressure_mu_sensitivity(pressure_sensitivity_rows)
     plot_pressure_response(pressure_summary)
     plot_transient_temperature(temp_rows)
     plot_vehicle_rank(vehicle_rows)
@@ -1036,6 +1240,7 @@ def write_report(
     pressure_summary: list[dict[str, Any]],
     temp_rows: list[dict[str, Any]],
     comparison_rows: list[dict[str, Any]],
+    pressure_sensitivity_rows: list[dict[str, Any]],
     lc0_ranked: list[dict[str, Any]],
     vehicle_rows: list[dict[str, Any]],
     standardsim_errors: list[dict[str, Any]],
@@ -1086,6 +1291,10 @@ def write_report(
     best_stiffness = top_row(lc0_deg, "final_ky_norm_per_rad")
     worst_degradation = top_row(lc0_deg, "peak_mu_y_delta_pct", reverse=False)
     best_degradation = top_row(lc0_deg, "peak_mu_y_delta_pct")
+    r20_43075_rows = [row for row in comparison_rows if row["model"] == "43075"]
+    r20_43070_rows = [row for row in comparison_rows if row["model"] == "43070"]
+    lc0_pressure_slopes = [row for row in pressure_sensitivity_rows if row.get("compound") == "LC0"]
+    r20_pressure_slopes = [row for row in pressure_sensitivity_rows if row.get("compound") == "R20"]
 
     lines: list[str] = []
     lines.append("# DS-008 Round 8 LC0 Tire Analysis")
@@ -1097,9 +1306,9 @@ def write_report(
     lines.append(
         "This study extracts the Round 8 10 inch tire cornering archive and RunGuide matrix to "
         "characterize the Hoosier LC0 compound. It mirrors the DS-006 tire-data evidence style: "
-        "initial/final 12 psi degradation, pressure response, transient temperature, matched "
-        "compound comparison against the Round 8 R25B rows, and vehicle-level EnvelopeSim/StandardSim "
-        "screening for the existing LC0 tire files."
+        "initial/final 12 psi degradation, pressure response, transient temperature, matched R20 "
+        "comparison against the DS-006 Round 9 Hoosier R20 rows, and vehicle-level "
+        "EnvelopeSim/StandardSim screening for the existing LC0 tire files."
     )
     lines.append("")
     lines.append("The RunGuide text labels the compound as `LCO`; the existing tire-fit archives and this report use `LC0`.")
@@ -1110,6 +1319,7 @@ def write_report(
     lines.append(table_line(["---", "---"]))
     lines.append(table_line(["Run matrix", "`RunGuide_Round8.pdf`"]))
     lines.append(table_line(["Raw cornering channels", "`RunData_Cornering_Matlab_SI_10inch_Round8.zip`"]))
+    lines.append(table_line(["R20 comparison rows", "`studies/DS-006-integrated-tire-design/outputs/integrated_results.csv`"]))
     lines.append(table_line(["Envelope limits", "`BobSim/_2_EnvelopeSim/GGV/ggv_generation.py` via DS-006 helpers"]))
     lines.append(table_line(["Steady-state vehicle response", "`BobSim/_3_StandardSim/SteadyStateEval/steady_state_eval_sim.py` via DS-006 helpers"]))
     lines.append(table_line(["LC0 vehicle tire files", "`vehicles/current/tires/round_8_fabricated_longitudinal_um3`"]))
@@ -1127,7 +1337,7 @@ def write_report(
     lines.append(table_line(["Item", "Value"]))
     lines.append(table_line(["---", "---:"]))
     lines.append(table_line(["Round 8 LC0 setups", str(len(lc0_deg))]))
-    lines.append(table_line(["Round 8 R25B comparison setups", str(len([row for row in deg_rows if row['compound'] == 'R25B']))]))
+    lines.append(table_line(["Matched Round 9 R20 comparison setups", str(len(comparison_rows))]))
     lines.append(table_line(["Pressure-window rows", str(len(pressure_summary))]))
     lines.append(table_line(["Transient-temperature rows", str(len(temp_rows))]))
     lines.append(table_line(["LC0 vehicle candidates", str(len(vehicle_candidates))]))
@@ -1321,37 +1531,83 @@ def write_report(
             )
         )
     lines.append("")
-    lines.append("## LC0 Versus R25B")
+    lines.append("## LC0 Versus R20")
     lines.append("")
     lines.append(
-        "R25B is included only as a same-round, same-size/rim reference. This is useful because it keeps "
-        "the comparison inside the same test round and 10 inch archive."
+        "R20 is pulled from the DS-006 Round 9 Hoosier R20 study rows, matched by model, tire size, "
+        "and rim width. This is a design-relevant cross-round comparison, not a same-round compound "
+        "control; use it to compare LC0 against the current R20 decision set."
     )
     lines.append("")
-    lines.append(table_line(["Matched setup", "LC0 peak mu", "R25B peak mu", "LC0 delta", "LC0 Ky", "R25B Ky", "LC0 Ky delta", "LC0 degr", "R25B degr"]))
-    lines.append(table_line(["---", "---:", "---:", "---:", "---:", "---:", "---:", "---:", "---:"]))
+    lines.append(table_line(["Matched setup", "LC0 peak mu", "R20 peak mu", "LC0 delta", "LC0 Ky", "R20 Ky", "LC0 Ky delta", "LC0 degr", "R20 degr", "R20 int"]))
+    lines.append(table_line(["---", "---:", "---:", "---:", "---:", "---:", "---:", "---:", "---:", "---:"]))
     for row in comparison_rows:
         lines.append(
             table_line(
                 [
                     row["setup"],
                     format_float(row["lc0_final_peak_mu_y_p95"], 3),
-                    format_float(row["r25b_final_peak_mu_y_p95"], 3),
-                    format_pct(row["lc0_vs_r25b_peak_mu_y_delta_pct"]),
+                    format_float(row["r20_final_peak_mu_y_p95"], 3),
+                    format_pct(row["lc0_vs_r20_peak_mu_y_delta_pct"]),
                     format_float(row["lc0_final_ky_norm_per_rad"], 2),
-                    format_float(row["r25b_final_ky_norm_per_rad"], 2),
-                    format_pct(row["lc0_vs_r25b_ky_delta_pct"]),
+                    format_float(row["r20_final_ky_norm_per_rad"], 2),
+                    format_pct(row["lc0_vs_r20_ky_delta_pct"]),
                     format_pct(row["lc0_peak_mu_y_degradation_pct"]),
-                    format_pct(row["r25b_peak_mu_y_degradation_pct"]),
+                    format_pct(row["r20_peak_mu_y_degradation_pct"]),
+                    format_float(row["r20_integrated_design_score"], 3),
                 ]
             )
         )
     lines.append("")
+    if comparison_rows:
+        lines.append(
+            "Against matched R20, LC0 final 12 psi peak mu is "
+            f"`{format_pct_span([row['lc0_vs_r20_peak_mu_y_delta_pct'] for row in comparison_rows])}` "
+            "across the matched rows. The split is important: 43075 LC0 keeps similar peak mu but gives up "
+            f"`{format_pct_span([row['lc0_vs_r20_ky_delta_pct'] for row in r20_43075_rows])}` in Ky/Fz and "
+            "has the stronger repeat-loss warning, while 43070 LC0 is the healthier R20 comparison with peak "
+            f"mu `{format_pct_span([row['lc0_vs_r20_peak_mu_y_delta_pct'] for row in r20_43070_rows])}` and "
+            f"Ky/Fz `{format_pct_span([row['lc0_vs_r20_ky_delta_pct'] for row in r20_43070_rows])}` versus R20."
+        )
+    else:
+        lines.append("No matched R20 rows were found in the DS-006 integrated output.")
+    lines.append("")
+    lines.append("## Lateral Friction Pressure Sensitivity")
+    lines.append("")
     lines.append(
-        "The 43075 LC0 rows are notably weaker than matched R25B after the test sequence "
-        "(`~9-11%` lower peak mu and `~9-12%` lower Ky/Fz). The 43070 LC0 rows are closer to R25B "
-        "and are much more stable over the initial/final repeat."
+        r"The table reports $\partial \mu_y / \partial P$ as a linear-fit slope over the pressure series. "
+        "LC0 uses observed raw `peak_mu_y_p95` from the Round 8 pressure windows, while R20 uses fitted "
+        "`mu_y = abs(PDY1)` from the Round 9 UM14 tire files. The LC0 points mix run order "
+        "(8 psi final, 10 psi initial, 12 psi final, 14 psi initial), so read those slopes as observed "
+        "pressure-response evidence rather than a pure pressure-only causal derivative."
     )
+    lines.append("")
+    if pressure_sensitivity_rows:
+        lines.append(table_line(["Source", "Setup", "dmu/dP", "%/psi @12", "8->14 delta", "R2", "Points"]))
+        lines.append(table_line(["---", "---", "---:", "---:", "---:", "---:", "---:"]))
+        for row in pressure_sensitivity_rows:
+            lines.append(
+                table_line(
+                    [
+                        row["compound"],
+                        row["setup"],
+                        f"{format_signed_float(row['dmu_dpressure_per_psi'], 4)} 1/psi",
+                        format_pct(row["pct_dmu_dpressure_per_psi_at_12psi"], 2),
+                        format_pct(row["mu_delta_8_to_14_pct"], 1),
+                        format_float(row["linear_fit_r2"], 3),
+                        row["point_count"],
+                    ]
+                )
+            )
+        lines.append("")
+        lines.append(
+            "In slope form, LC0 observed pressure sensitivity spans "
+            f"`{format_signed_float_span([row['dmu_dpressure_per_psi'] for row in lc0_pressure_slopes], 4)} 1/psi`; "
+            "the matched R20 fitted `abs(PDY1)` sensitivity spans "
+            f"`{format_signed_float_span([row['dmu_dpressure_per_psi'] for row in r20_pressure_slopes], 4)} 1/psi`."
+        )
+    else:
+        lines.append("No pressure-sensitivity rows were generated.")
     lines.append("")
     lines.append("## LC0 Pressure Response")
     lines.append("")
@@ -1418,7 +1674,7 @@ def write_report(
     lines.append("- LC0 43075 shows the largest initial-to-final deterioration: peak mu falls `-6.4%` on the 8 in rim and `-7.4%` on the 7 in rim.")
     lines.append("- LC0 43070 is much more stable: peak mu falls only `-1.2%` on both rim widths, with final 12 psi Ky/Fz equal to or better than the 43075 LC0 rows.")
     lines.append("- LC0 pressure response is strongest at 8 psi in the final-run block for all LC0 setups, but that point is confounded with run order and should be treated as observed data, not a pressure-only causal result.")
-    lines.append("- The LC0 43075 final 12 psi rows are materially below matched R25B in both peak mu and Ky/Fz.")
+    lines.append("- Against matched R20, LC0 is higher on final 12 psi peak mu in these rows, but 43075 LC0 is lower in Ky/Fz and has worse repeat degradation than R20.")
     lines.append("- Because Round 8 LC0 has no 10 inch drive/brake archive in this dataset, vehicle-level longitudinal/braking reads are lower-confidence than lateral and balance reads.")
     lines.append("")
     lines.append("## Figure Gallery")
@@ -1428,7 +1684,8 @@ def write_report(
         ("LC0 vehicle trade space", "lc0_vehicle_trade_space.png"),
         ("LC0 vehicle pressure response", "lc0_vehicle_pressure_response.png"),
         ("LC0 initial-to-final 12 psi degradation", "lc0_degradation.png"),
-        ("LC0 versus matched R25B final 12 psi behavior", "lc0_vs_r25b_final12.png"),
+        ("LC0 versus matched R20 final 12 psi behavior", "lc0_vs_r20_final12.png"),
+        ("Lateral friction pressure sensitivity", "mu_pressure_sensitivity.png"),
         ("LC0 measured pressure response", "lc0_pressure_response.png"),
         ("LC0 transient temperature evidence", "lc0_transient_temperature.png"),
     ]:
@@ -1442,7 +1699,8 @@ def write_report(
         "outputs/degradation_summary.csv",
         "outputs/pressure_window_summary.csv",
         "outputs/transient_temperature_summary.csv",
-        "outputs/compound_comparison.csv",
+        "outputs/r20_comparison.csv",
+        "outputs/pressure_mu_sensitivity.csv",
         "outputs/lc0_ranked_summary.csv",
         "outputs/vehicle_candidate_registry.csv",
         "outputs/vehicle_tire_characterization.csv",
@@ -1455,7 +1713,8 @@ def write_report(
         "plots/lc0_vehicle_trade_space.png",
         "plots/lc0_vehicle_pressure_response.png",
         "plots/lc0_degradation.png",
-        "plots/lc0_vs_r25b_final12.png",
+        "plots/lc0_vs_r20_final12.png",
+        "plots/mu_pressure_sensitivity.png",
         "plots/lc0_pressure_response.png",
         "plots/lc0_transient_temperature.png",
     ]:
@@ -1540,7 +1799,8 @@ def main() -> None:
     deg_rows = degradation_rows(cache)
     pressure_summary = pressure_rows(cache)
     temp_rows = transient_temperature_rows(cache)
-    comparison_rows = compound_comparison_rows(deg_rows)
+    comparison_rows = r20_comparison_rows(deg_rows)
+    pressure_sensitivity = pressure_mu_sensitivity_rows(pressure_summary, comparison_rows)
     lc0_ranked = lc0_score_rows(deg_rows)
 
     ds006 = load_ds006_module()
@@ -1566,12 +1826,13 @@ def main() -> None:
     vehicle_rows = vehicle_result["rows"]
     print(f"  LC0 vehicle candidates: {len(vehicle_candidates) - 1}", flush=True)
     print(f"  StandardSim errors: {len(vehicle_standardsim_errors)}", flush=True)
-    plot_outputs(deg_rows, pressure_summary, temp_rows, comparison_rows, vehicle_rows)
+    plot_outputs(deg_rows, pressure_summary, temp_rows, comparison_rows, pressure_sensitivity, vehicle_rows)
 
     write_csv(OUTPUT_DIR / "degradation_summary.csv", deg_rows)
     write_csv(OUTPUT_DIR / "pressure_window_summary.csv", pressure_summary)
     write_csv(OUTPUT_DIR / "transient_temperature_summary.csv", temp_rows)
-    write_csv(OUTPUT_DIR / "compound_comparison.csv", comparison_rows)
+    write_csv(OUTPUT_DIR / "r20_comparison.csv", comparison_rows)
+    write_csv(OUTPUT_DIR / "pressure_mu_sensitivity.csv", pressure_sensitivity)
     write_csv(OUTPUT_DIR / "lc0_ranked_summary.csv", lc0_ranked)
     write_csv(
         OUTPUT_DIR / "vehicle_candidate_registry.csv",
@@ -1610,7 +1871,10 @@ def main() -> None:
             {"item": "round8_tire_dir", "value": str(ROUND8_TIRE_DIR.relative_to(REPO_ROOT))},
             {"item": "lc0_setups", "value": sum(1 for spec in ROUND8_SPECS if spec.compound == "LC0")},
             {"item": "lc0_vehicle_candidates", "value": len(vehicle_candidates) - 1},
-            {"item": "comparison_setups", "value": sum(1 for spec in ROUND8_SPECS if spec.compound == "R25B")},
+            {"item": "comparison_source", "value": str(DS006_INTEGRATED_RESULTS.relative_to(REPO_ROOT))},
+            {"item": "comparison_compound", "value": "R20"},
+            {"item": "comparison_setups", "value": len(comparison_rows)},
+            {"item": "pressure_mu_sensitivity_rows", "value": len(pressure_sensitivity)},
             {"item": "degradation_pressure_psi", "value": DEGRADATION_PRESSURE_PSI},
             {"item": "nominal_speed_window_kph", "value": f"{NOMINAL_TEST_SPEED_KPH_MIN:g}-{NOMINAL_TEST_SPEED_KPH_MAX:g}"},
             {"item": "standardsim_skipped", "value": args.skip_standardsim},
@@ -1630,6 +1894,7 @@ def main() -> None:
         pressure_summary=pressure_summary,
         temp_rows=temp_rows,
         comparison_rows=comparison_rows,
+        pressure_sensitivity_rows=pressure_sensitivity,
         lc0_ranked=lc0_ranked,
         vehicle_rows=vehicle_rows,
         standardsim_errors=vehicle_standardsim_errors,
