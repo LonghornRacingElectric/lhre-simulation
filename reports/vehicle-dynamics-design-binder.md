@@ -8,7 +8,7 @@ The vehicle dynamics design process was built around measurable vehicle response
 
 This workflow informed the physical design of the tire package, suspension layout, steering system, roll platform, and setup range. Track testing and driver feedback are then used to correlate the model and refine setup decisions. The intent is not only to explain what the car did after testing, but to choose better setup directions before valuable track time is spent.
 
-The current vehicle dynamics recommendation is to use the Hoosier 43075 16x7.5-10 R20 tire on a 7 inch rim at 8 psi as the baseline tire package. In the corrected integrated tire study, this package ranked first overall, ranked second in EnvelopeSim capability, ranked third in the StandardSim stable handling window, and preserved the current zero-radius-delta 10 inch vehicle architecture.
+The current vehicle dynamics recommendation is to use the Hoosier 43075 16x7.5-10 R20 tire on a 7 inch rim. In the corrected integrated tire study, the 7 inch / 8 psi case ranked first overall, ranked second in EnvelopeSim capability, ranked third in the StandardSim stable handling window, and preserved the current zero-radius-delta 10 inch vehicle architecture. In-person running then showed significantly longer relaxation/drivability delay and visible sidewall deformation at 8 psi, so the interim operating target was increased to **11 psi cold / 12 psi hot** until ISO data closes the loop.
 
 ## Design Objective
 
@@ -44,7 +44,7 @@ vehicle goals -> vehicle inputs -> simulation -> setup decisions -> track data a
 
 ## Baseline Vehicle Position
 
-The current vehicle is a low-CG, aero-forward, rear-drive formula-style car. The baseline model used for the design studies is summarized below.
+The current vehicle is a low-CG, aero-forward, rear-drive formula-style car. The baseline model used for the design studies is the as-built `vehicle.yml` and is summarized below.
 
 | Parameter | Value |
 | --- | ---: |
@@ -99,9 +99,9 @@ The selection criteria included:
 - Saturation behavior near the limit.
 - Vehicle architecture impact from tire radius and rim package.
 
-The selected tire is the Hoosier 43075 16x7.5-10 R20, paired with a 7 inch rim at an 8 psi baseline pressure. This package was selected because it produced the strongest integrated vehicle-level result while preserving the current zero-radius-delta architecture.
+The selected tire is the Hoosier 43075 16x7.5-10 R20 on a 7 inch rim. The 8 psi case produced the strongest integrated vehicle-level simulation result while preserving the current zero-radius-delta architecture, but it is no longer the final track-pressure recommendation by itself because in-person running showed excessive relaxation/drivability delay and visible sidewall deformation at that pressure. The current trackside target is **11 psi cold / 12 psi hot** pending ISO confirmation.
 
-| Metric | Hoosier 43075 16x7.5-10 R20, 7 in / 8 psi |
+| Metric | Hoosier 43075 16x7.5-10 R20, 7 in / 8 psi simulation case |
 | --- | ---: |
 | Integrated rank | 1 |
 | EnvelopeSim rank | 2 |
@@ -118,7 +118,7 @@ Against the current reference tire, the selected package improved mean EnvelopeS
 
 The tire selection was not made from an isolated peak-force plot. DS-006 treated tire outside diameter as a real architecture input: tire radius, rim geometry, vertical stiffness, vertical damping, and chassis layout height were updated in StandardSim, while EnvelopeSim adjusted CG height by the tire-radius delta. Larger-diameter candidates were therefore evaluated honestly as vehicle architecture alternatives rather than free tire swaps.
 
-The main tire-fit caveat is longitudinal and combined-slip provenance. The selected Hoosier 43075 uses scaled 18 inch Hoosier longitudinal and combined-slip terms in the Round 9 fit set. That is acceptable for vehicle-level screening, but braking, drive, and combined-slip behavior still need track validation before the tire choice is treated as fully correlated.
+The main tire-fit caveats are longitudinal/combined-slip provenance and pressure-dependent relaxation response. The selected Hoosier 43075 uses scaled 18 inch Hoosier longitudinal and combined-slip terms in the Round 9 fit set. The 8 psi relaxation behavior proved too slow in person and came with visible sidewall deformation, so the final pressure window should be validated around the interim **11 psi cold / 12 psi hot** target rather than argued from the 8 psi score alone.
 
 ## Performance Envelope and Balance Strategy
 
@@ -225,11 +225,11 @@ The design target is moderate, consistent feedback rather than maximum steering 
 
 ## Build Implementation
 
-The build implementation focused on making the simulated setup space physically achievable on the car. Important implemented or model-defined features include:
+The build implementation focused on making the simulated setup space physically achievable on the car. The current `vehicle.yml` is the as-built reference for this package. Important implemented or model-defined features include:
 
-- Hoosier 43075 16x7.5-10 R20 tire package with 7 inch rim and 8 psi baseline pressure.
-- 8 inch rim at 8 psi retained as a validation alternate if the wider wheel package is acceptable.
-- 7 inch rim at 10 psi retained as the first pressure and rotation trim with direct transient-temperature coverage.
+- Hoosier 43075 16x7.5-10 R20 tire package with 7 inch rim; 8 psi retained as the simulation-screening reference, with the current trackside target set to 11 psi cold / 12 psi hot after in-person relaxation/drivability feedback and visible sidewall deformation.
+- 8 inch rim retained as a wider-rim simulation alternate if the package is acceptable; its pressure still needs the same increased-pressure track correction.
+- 7 inch rim at 10 psi retained as the nearest documented DS-006 higher-pressure comparison row with direct transient-temperature coverage.
 - Front and rear anti-roll bars represented as explicit roll-platform setup levers.
 - Suspension hardpoints defined in the full vehicle model from kinematic and packaging constraints.
 - Motion ratios evaluated so spring and damper behavior are interpreted at the wheel.
@@ -241,7 +241,7 @@ Adjustability was included only where it produces useful, understandable setup a
 
 ## Validation and Refinement Plan
 
-Validation is planned around comparing simulation predictions to controlled track tests and driver feedback.
+Validation is planned around comparing simulation predictions to controlled track tests and driver feedback. The ISO steady-state and transient tests are still pending; the known pre-ISO refinement is that 8 psi was too slow in relaxation/drivability response, showed visible sidewall deformation, and the target was increased to 11 psi cold / 12 psi hot.
 
 The primary validation tests are:
 
@@ -263,13 +263,13 @@ Track data and driver feedback are used together. Data identifies what the car d
 
 The main outcome of the vehicle dynamics process was a clearer connection between design choices, setup changes, driver feedback, and measured vehicle response.
 
-The current understanding is that vehicle balance and response are driven by the interaction of tire behavior, aero balance, mass properties, suspension kinematics, roll stiffness distribution, steering geometry, brake and drive limits, and driver input. No single subsystem determines the car's behavior independently.
+The current understanding is that vehicle balance and response are driven by the interaction of tire behavior, aero balance, mass properties, suspension kinematics, roll stiffness distribution, steering geometry, brake and drive limits, and driver input. No single subsystem determines the car's behavior independently. The pressure change after in-person running is a useful example: the best simulated 8 psi score did not automatically make the best track-feel setup because relaxation response and visible sidewall deformation mattered on the actual car; the interim target is now 11 psi cold / 12 psi hot.
 
 The most important design conclusions are:
 
 - Low mass, low CG height, tire capability, downforce, and usable longitudinal force define the vehicle's first-order performance envelope.
 - Tire selection must include load range, pressure response, degradation, cornering stiffness, combined-slip behavior, and vehicle architecture impact.
-- The selected Hoosier 43075 16x7.5-10 R20 package is the best current-architecture tire choice in the corrected integrated study.
+- The selected Hoosier 43075 16x7.5-10 R20 package is the best current-architecture tire choice in the corrected integrated study, but the operating pressure should be the interim 11 psi cold / 12 psi hot target unless ISO data later says otherwise.
 - Springs and anti-roll bars are important platform and balance tools, but they are not substitutes for tire, aero, and CG work.
 - Rack travel is the main steering gain and driver-interface lever.
 - Toe is powerful enough that it should be used carefully as a late-stage trim variable.
@@ -280,7 +280,7 @@ The most important design conclusions are:
 Future vehicle dynamics work should focus on:
 
 - Deeper tire model correlation from track data.
-- Direct validation of the selected 8 psi tire thermal behavior.
+- Direct validation of the 11 psi cold / 12 psi hot tire window that replaced the 8 psi in-person setup.
 - More complete transient response validation from instrumented track tests.
 - Improved damper characterization and cross-coupling measurement.
 - Finer toe, camber, and pressure sweeps around the baseline setup.

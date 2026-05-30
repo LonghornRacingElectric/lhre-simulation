@@ -1,10 +1,10 @@
 item,value,units,source
 Vehicle,DWBCStabar_DWBCStabar,,vehicle.yml
 Architecture,"front bellcrank_stabar, rear bellcrank_stabar",,vehicle.yml
-Projected vehicle mass,261.07265114,kg,vehicle.yml mass rollup
-Projected CG x,-0.8002708499132694,m,vehicle.yml mass rollup
-Projected CG z,0.2796156783777442,m,vehicle.yml mass rollup
-Projected front static load,0.48349628894199737,fraction,vehicle.yml mass rollup
+As-built/configured vehicle mass,261.07265114,kg,as-built vehicle.yml mass rollup
+As-built/configured CG x,-0.8002708499132694,m,as-built vehicle.yml mass rollup
+As-built/configured CG z,0.2796156783777442,m,as-built vehicle.yml mass rollup
+As-built/configured front static load,0.48349628894199737,fraction,as-built vehicle.yml mass rollup
 Sprung mass,160.64,kg,vehicle.yml
 Driver mass,65.770912,kg,vehicle.yml
 Sprung CG x,-0.92,m,vehicle.yml

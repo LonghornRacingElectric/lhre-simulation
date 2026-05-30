@@ -6,14 +6,17 @@ Generated: 2026-05-24
 
 Selected tire family: **Hoosier 43075 16x7.5-10 R20**.
 
-Primary simulated setup: **7 in rim, 8 psi**.
+Primary simulated screening setup: **7 in rim, 8 psi**.
+
+Current trackside pressure read: at 8 psi, the tire showed significantly longer relaxation/drivability delay and visible sidewall deformation during in-person running, so the interim operating target was increased to **11 psi cold / 12 psi hot**. Until the ISO test set is complete, treat 8 psi as the simulation-screening winner and use 11 cold / 12 hot as the active refinement direction.
 
 Validation setups:
 
-- **8 in rim, 8 psi** if the wider wheel package is acceptable.
-- **7 in rim, 10 psi** as the first pressure/rotation trim with direct transient-temperature coverage.
+- **8 in rim, 8 psi** as a wider-rim simulation comparison if the wheel package is acceptable, not as a final pressure recommendation.
+- **7 in rim, 10 psi** as the nearest documented higher-pressure DS-006 comparison row with direct transient-temperature coverage.
+- **7 in rim, 11 psi cold / 12 psi hot** as the current trackside target pending ISO confirmation.
 
-The selected tire is not being chosen because it is common. In the corrected DS-006 run, the **Hoosier 43075 7 in / 8 psi** is the integrated leader across all scoreable candidates, while also preserving the current zero-radius-delta vehicle package.
+The selected tire is not being chosen because it is common. In the corrected DS-006 run, the **Hoosier 43075 7 in / 8 psi** is the integrated simulation leader across all scoreable candidates, while also preserving the current zero-radius-delta vehicle package. The later in-person pressure finding moves the setup recommendation upward in pressure, not away from the 43075 family.
 
 | Evidence | Value |
 | --- | ---: |
@@ -30,7 +33,7 @@ The selected tire is not being chosen because it is common. In the corrected DS-
 | Initial/final 12 psi lateral peak-mu change | +1.6% |
 | Initial/final 12 psi cornering-stiffness change | +1.3% |
 
-The short decision is: **select Hoosier 43075 16x7.5-10 R20 on the 7 in rim at 8 psi as the baseline, then validate 8 psi thermal behavior and the 8 in rim response trade.**
+The short decision is: **select Hoosier 43075 16x7.5-10 R20 on the 7 in rim; use 8 psi as the simulation-screening reference, but run the car at 11 psi cold / 12 psi hot until ISO, tire-temperature, and driver-response data close the loop.**
 
 ## Source Evidence
 
@@ -100,10 +103,10 @@ This does not disqualify larger tires. It means they are vehicle-architecture st
 
 | Decision lens | Winner | Integrated | Radius delta | Interpretation |
 | --- | --- | ---: | ---: | --- |
-| Integrated all-tire leader | Hoosier 43075 16x7.5-10 7 in / 8 psi | 0.895 | 0.0 mm | Selected tire and setup. |
+| Integrated all-tire leader | Hoosier 43075 16x7.5-10 7 in / 8 psi | 0.895 | 0.0 mm | Selected tire family and simulation-screening setup; pressure raised after in-person relaxation and sidewall-deformation finding. |
 | EnvelopeSim capability leader | Goodyear D2704 20.0x7.0-13 7 in / 8 psi | 0.877 integrated | +50.8 mm | Best raw envelope, but requires a 13 in architecture path. |
 | Best 18 in OD package | Hoosier 43100 18.0x6.0-10 7 in / 8 psi | 0.836 | +25.4 mm | Strong architecture-study alternate. |
-| Best zero-radius-delta alternate | Hoosier 43075 16x7.5-10 8 in / 8 psi | 0.849 | 0.0 mm | Wider-rim response option. |
+| Best zero-radius-delta alternate | Hoosier 43075 16x7.5-10 8 in / 8 psi | 0.849 | 0.0 mm | Wider-rim simulation response option; pressure still needs the increased-pressure track correction. |
 | Best 43075 relaxation case | Hoosier 43075 16x7.5-10 8 in / 14 psi | 0.692 | 0.0 mm | Fastest fitted response, lower capability. |
 
 The 43075 wins the unconstrained integrated score and the current-architecture score. That is the clean selection argument.
@@ -199,18 +202,18 @@ The 43075 owns four of the top six current-package rows and the top two overall.
 
 | Setup | Integrated | Envelope | StandardSim | Mean lat | Std ay diag | US grad | Roll grad | Sigma alpha | Use |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| 7 in / 8 psi | 0.895 | 0.868 | 0.947 | 1.919 g | 1.658 g | 0.390 | 0.934 | 0.410 m | Baseline selection. |
-| 8 in / 8 psi | 0.849 | 0.831 | 0.881 | 1.891 g | 1.651 g | 0.454 | 0.937 | 0.294 m | Wider-rim response alternate. |
-| 7 in / 10 psi | 0.773 | 0.702 | 0.903 | 1.833 g | 1.617 g | 0.307 | 0.935 | 0.361 m | First pressure validation setup. |
+| 7 in / 8 psi | 0.895 | 0.868 | 0.947 | 1.919 g | 1.658 g | 0.390 | 0.934 | 0.410 m | Simulation-screening winner; in-person relaxation was too long and sidewalls deformed visibly. |
+| 8 in / 8 psi | 0.849 | 0.831 | 0.881 | 1.891 g | 1.651 g | 0.454 | 0.937 | 0.294 m | Wider-rim simulation alternate; pressure still needs track correction. |
+| 7 in / 10 psi | 0.773 | 0.702 | 0.903 | 1.833 g | 1.617 g | 0.307 | 0.935 | 0.361 m | Nearest documented DS-006 higher-pressure comparison row. |
 | 8 in / 10 psi | 0.754 | 0.691 | 0.870 | 1.824 g | 1.609 g | 0.407 | 0.937 | 0.267 m | Response-biased alternate. |
 | 7 in / 12 psi | 0.740 | 0.652 | 0.904 | 1.795 g | 1.583 g | 0.376 | 0.933 | 0.310 m | Higher-pressure reference point. |
 | 8 in / 14 psi | 0.692 | 0.588 | 0.886 | 1.777 g | 1.532 g | 0.519 | 0.931 | 0.212 m | Fastest 43075 relaxation, lower score. |
 
 Setup interpretation:
 
-- **7 in / 8 psi** has the best simulated vehicle score and best 43075 EnvelopeSim capability.
+- **7 in / 8 psi** has the best simulated vehicle score and best 43075 EnvelopeSim capability, but in-person running showed the relaxation/drivability response was too slow and the sidewalls were visibly deforming.
 - **8 in / 8 psi** gives up `5.2%` integrated score but cuts fitted relaxation length by about `28%`.
-- **7 in / 10 psi** is a lower-capability but still clean pressure trim with direct transient-temperature coverage.
+- **7 in / 10 psi** is a lower-capability but still clean pressure trim with direct transient-temperature coverage, so it is the nearest documented comparison point to the current **11 psi cold / 12 psi hot** target.
 
 ## Against Current Reference
 
@@ -229,7 +232,7 @@ This is a clean improvement: more envelope, slightly less understeer, lower stee
 
 ## Temperature Evidence
 
-Transient temperature data is available for the 10, 12, and 14 psi transient pressure windows. The selected 8 psi cases do not have direct transient temperature rows in DS-006, so 8 psi thermal behavior must be validated on track.
+Transient temperature data is available for the 10, 12, and 14 psi transient pressure windows. The selected 8 psi simulation cases do not have direct transient temperature rows in DS-006, and in-person running already showed excessive relaxation/drivability delay plus visible sidewall deformation at 8 psi, so 8 psi should not be treated as a final track pressure without new validation.
 
 Available 43075 temperature rows:
 
@@ -242,7 +245,7 @@ Available 43075 temperature rows:
 | 8 in / 12 psi | 30.70 C | 32.33 C | +4.15 C | -2.97 C |
 | 8 in / 14 psi | 31.16 C | 32.18 C | +0.19 C | -1.46 C |
 
-The measured temperature window is mild and does not show an obvious 43075 red flag. The missing 8 psi temperature row is the key validation gap.
+The measured temperature window is mild and does not show an obvious 43075 red flag. The key validation gap is now the final pressure window: ISO and tire-temperature data need to confirm whether the interim **11 psi cold / 12 psi hot** target fixes the in-person relaxation and sidewall-deflection issue without giving up too much capability.
 
 ## Degradation Evidence
 
@@ -271,10 +274,10 @@ The selected 16 in 43075 does not have direct drive/brake degradation evidence b
 
 Select **Hoosier 43075 16x7.5-10 R20**.
 
-Use **7 in / 8 psi** as the baseline simulated design point.
+Use **7 in / 8 psi** as the baseline simulated design point only.
 
-Validate **8 psi thermal behavior** early.
+Do not present **8 psi** as the final track setup unless later ISO and tire-temperature data overturn the in-person relaxation and visible-sidewall-deformation finding.
 
-Keep **8 in / 8 psi** alive as the wider-rim response option.
+Keep **8 in / 8 psi** alive only as a wider-rim simulation comparison, then pair any wider-rim decision with the validated higher-pressure window.
 
-Use **7 in / 10 psi** as the first pressure trim if 8 psi temperature or drivability is not acceptable.
+Use **11 psi cold / 12 psi hot** as the current trackside target. Keep **7 in / 10 psi** as the nearest documented DS-006 comparison row until the ISO test notes are added.

@@ -1,10 +1,10 @@
 # DS-009 FSAE Vehicle Dynamics Design Notebook
 
-Generated UTC: 2026-05-30T10:55:05+00:00
+Generated UTC: 2026-05-30T11:24:09+00:00
 
 ## Executive Summary
 
-The current design package is defensible as a full vehicle-dynamics argument, not just a collection of plots. The baseline vehicle is a 261.1 kg projected mass car with 0.280 m projected CG height, 1.549 m wheelbase, 52.1% front LLTD, rear-only drive, and both-axle braking. The baseline reports predict 1.77 g reference cornering, 1.83 g reference acceleration, 2.44 g reference braking, 19.10 m/s^2 StandardSim lateral limit, near-neutral steady-state understeer gradient, and measurable transient phase/lag at 1 Hz.
+The current design package is defensible as a full vehicle-dynamics argument, not just a collection of plots. The current `vehicle.yml` is treated as the as-built baseline: a 261.1 kg configured mass car with 0.280 m configured CG height, 1.549 m wheelbase, 52.1% front LLTD, rear-only drive, and both-axle braking. The baseline reports predict 1.77 g reference cornering, 1.83 g reference acceleration, 2.44 g reference braking, 19.10 m/s^2 StandardSim lateral limit, near-neutral steady-state understeer gradient, and measurable transient phase/lag at 1 Hz.
 
 The primary design conclusion is that the car should be protected around tire quality, low CG, low mass, aero load, and clean roll-platform control. Setup knobs such as camber, rear bar, aero/load state, and spring/bar package then become targeted tools for balance, driver feel, and robustness rather than ad hoc fixes.
 
@@ -136,7 +136,7 @@ flowchart LR
     BAL_TEST["ISO 4138<br/>balance correlation"]
     DRV_TEST["ISO 7401<br/>step and FRF"]
     TUNE_TEST["Setup A/B tests"]
-    CORR_TEST["Update model<br/>from track data"]
+    CORR_TEST["Revise model<br/>from track data"]
   end
 
   LAT --> LAT_SIM --> LAT_TEST
@@ -172,7 +172,7 @@ flowchart LR
     N1["Do not claim<br/>closed-loop stability"]
     N2["Do not call OAT<br/>a global optimum"]
     N3["Do not overfit chassis<br/>before tire data"]
-    N4["Re-measure installed<br/>rates and motion ratios"]
+    N4["Confirm installed<br/>rates and motion ratios"]
   end
 
   A1 --> G1 --> N1
@@ -187,7 +187,7 @@ Detailed assumption register: `studies/DS-009-fsae-design-notebook/outputs/assum
 
 | Layer | What it answers | What it should not be used for |
 | --- | --- | --- |
-| Vehicle YAML | Baseline geometry, masses, tire package, spring/bar rates, steering, aero maps. | It is not evidence by itself; it is the configuration being tested. |
+| Vehicle YAML | As-built baseline geometry, masses, tire package, spring/bar rates, steering, aero maps. | It is not evidence by itself; it is the configuration being tested. |
 | EnvelopeSim GGV | First-order acceleration envelope: cornering, braking, drive, combined area, and speed trend. | It does not replace full-vehicle stability or transient response analysis. |
 | EnvelopeSim YMD | Local yaw moment authority, trim behavior, and speed sweep of yaw/lateral authority. | It does not prove closed-loop dynamic stability by itself. |
 | FourPostEval | Motion ratios, roll stiffness, LLTD, and kinematic platform behavior. | It does not directly rank lap time. |
@@ -246,14 +246,16 @@ flowchart LR
 
 ## Baseline Vehicle
 
+The current `vehicle.yml` is the as-built vehicle reference for this notebook. Static scales, alignment, ride-height, and CG checks are still useful correlation inputs, but they are confirmations or documented updates to this as-built model rather than a separate pre-build baseline.
+
 | Item | Value | Units | Source |
 | --- | --- | --- | --- |
 | Vehicle | DWBCStabar_DWBCStabar |  | vehicle.yml |
 | Architecture | front bellcrank_stabar, rear bellcrank_stabar |  | vehicle.yml |
-| Projected vehicle mass | 261.0727 | kg | vehicle.yml mass rollup |
-| Projected CG x | -0.80027 | m | vehicle.yml mass rollup |
-| Projected CG z | 0.27962 | m | vehicle.yml mass rollup |
-| Projected front static load | 0.48350 | fraction | vehicle.yml mass rollup |
+| As-built/configured vehicle mass | 261.0727 | kg | as-built vehicle.yml mass rollup |
+| As-built/configured CG x | -0.80027 | m | as-built vehicle.yml mass rollup |
+| As-built/configured CG z | 0.27962 | m | as-built vehicle.yml mass rollup |
+| As-built/configured front static load | 0.48350 | fraction | as-built vehicle.yml mass rollup |
 | Sprung mass | 160.6400 | kg | vehicle.yml |
 | Driver mass | 65.7709 | kg | vehicle.yml |
 | Sprung CG x | -0.92000 | m | vehicle.yml |
@@ -407,6 +409,8 @@ The steady-state read is:
 
 This is the correct role of transient analysis in the design notebook: it checks whether the near-neutral steady-state car is likely to feel understandable in time, not only in final equilibrium.
 
+The first in-person pressure check already found an important refinement: at 8 psi, the car showed significantly longer relaxation/drivability delay than desired and visible sidewall deformation, so the interim operating target was increased to 11 psi cold / 12 psi hot. The 8 psi result remains useful simulation-screening evidence, but it should not be presented as a final track setup unless ISO and tire-temperature data support returning to it.
+
 ## Stage 6: Refined Trade Spaces
 
 The refined response-surface workflow selects paired variables from the StandardSens tornado effects. These are the pairs currently selected for deeper study:
@@ -492,7 +496,7 @@ Detailed risk controls: `studies/DS-009-fsae-design-notebook/outputs/risk_regist
 ```mermaid
 %%{init: {"flowchart": {"curve": "linear", "nodeSpacing": 35, "rankSpacing": 55}} }%%
 flowchart LR
-  S0["Static scales/alignment<br/>update mass and setup"]
+  S0["Static scales/alignment<br/>confirm as-built model"]
   S1["Accel/brake<br/>validate longitudinal envelope"]
   S2["ISO 4138 slow ramps<br/>validate SteadyStateEval"]
   S3["ISO 7401 step/FRF<br/>validate TransientEval"]
@@ -515,6 +519,7 @@ The design is justified as follows:
 5. StandardSim confirms the baseline is near neutral in steady state with quantifiable steering and roll gradients.
 6. StandardSens and Pearson/tornado views identify which inputs move each response, separating setup authority from architecture constraints.
 7. Refined response surfaces turn top one-factor effects into two-factor trade spaces, which is the correct basis for a defensible design region.
+8. The tire-pressure loop is already behaving like a proper refinement loop: 8 psi looked attractive in simulation, then in-person relaxation response and visible sidewall deformation drove the setup to an interim 11 psi cold / 12 psi hot target pending ISO confirmation.
 
 This is a strong FSAE design notebook because it does not ask judges to trust a single plot. It shows traceability from configuration, to model, to metric, to sensitivity, to design decision, to validation plan.
 
@@ -523,8 +528,8 @@ This is a strong FSAE design notebook because it does not ask judges to trust a 
 ```mermaid
 %%{init: {"flowchart": {"curve": "linear", "nodeSpacing": 45, "rankSpacing": 55}} }%%
 flowchart TB
-  Build["Built car"] --> Measure["Measure mass, alignment,<br/>ride heights"]
-  Measure --> Update["Update vehicle.yml"]
+  Build["As-built vehicle.yml"] --> Confirm["Confirm mass, alignment,<br/>ride heights"]
+  Confirm --> Update["Update only if measured<br/>deltas require it"]
   Update --> Rerun["Rerun baseline and<br/>sensitivities"]
   Rerun --> Compare["Compare sim to<br/>track data"]
   Compare --> Decision{"Correlation acceptable?"}
@@ -534,7 +539,7 @@ flowchart TB
   Setup --> Endurance["Endurance robustness check"]
 ```
 
-The physical correlation plan is anchored to two open-loop ISO-style tests. ISO 4138 slow ramp-steers are the direct steady-state match for `SteadyStateEval`; ISO 7401 handwheel-angle step tests and handwheel-angle FRFs are the direct transient match for `TransientEval`.
+The physical correlation plan is currently waiting on the ISO tests. It is anchored to two open-loop ISO-style tests: ISO 4138 slow ramp-steers are the direct steady-state match for `SteadyStateEval`; ISO 7401 handwheel-angle step tests and handwheel-angle FRFs are the direct transient match for `TransientEval`.
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "linear", "nodeSpacing": 45, "rankSpacing": 60}} }%%
