@@ -1,0 +1,19 @@
+metric,metric_label,input,n_valid_points,baseline,max_abs_change,max_abs_change_pct,direction_low_to_high,lowest_input_response,highest_input_response
+track_combined_performance_index,Track combined index,tire.mu_scale,4,1.0,0.052996405848072414,5.299640584807241,increases with input,0.9470035941519276,1.040183425318712
+track_combined_performance_index,Track combined index,rear.stabar.rate_n_m_per_rad,4,1.0,0.051882885052327965,5.188288505232796,decreases with input,0.9783495361504306,0.948117114947672
+track_combined_performance_index,Track combined index,aero.downforce_scale,4,1.0,0.02784822624794936,2.784822624794936,increases with input,0.9721517737520506,1.0247339665269124
+ggv_volume_g2_mps,GGV volume,tire.mu_scale,4,187.878375,33.11240625000002,17.624383993101933,increases with input,154.76596874999998,212.0011875
+ggv_volume_g2_mps,GGV volume,rear.stabar.rate_n_m_per_rad,4,187.878375,18.59287500000002,9.896229409052543,decreases with input,182.69746875,169.28549999999998
+ggv_volume_g2_mps,GGV volume,sprung_mass.cg_m.z,4,187.878375,18.280125000000027,9.729765333556896,decreases with input,205.35103125,169.59824999999998
+ggv_cornering_ref_g,Reference cornering,rear.stabar.rate_n_m_per_rad,4,1.74375,0.22499999999999987,12.903225806451605,decreases with input,1.63125,1.51875
+ggv_cornering_ref_g,Reference cornering,tire.mu_scale,4,1.74375,0.16875000000000018,9.67741935483872,increases with input,1.575,1.9125
+ggv_cornering_ref_g,Reference cornering,aero.downforce_scale,4,1.74375,0.11250000000000004,6.451612903225809,increases with input,1.63125,1.85625
+ggv_accel_ref_g,Reference acceleration,tire.mu_scale,4,1.834,0.3500000000000003,19.08396946564887,increases with input,1.4839999999999998,2.016
+ggv_accel_ref_g,Reference acceleration,power.max_drive_power_kw,4,1.834,0.3500000000000003,19.08396946564887,increases with input,1.4839999999999998,1.834
+ggv_accel_ref_g,Reference acceleration,tire.load_sensitivity_scale,4,1.834,0.22400000000000042,12.21374045801529,decreases with input,2.016,1.6099999999999997
+ggv_braking_ref_g,Reference braking,tire.mu_scale,4,2.4320000000000004,0.43199999999999994,17.76315789473684,increases with input,2.0000000000000004,2.496
+ggv_braking_ref_g,Reference braking,tire.load_sensitivity_scale,4,2.4320000000000004,0.3520000000000003,14.473684210526326,decreases with input,2.384,2.08
+ggv_braking_ref_g,Reference braking,sprung_mass.cg_m.z,4,2.4320000000000004,0.19200000000000017,7.894736842105269,decreases with input,2.3680000000000003,2.24
+ymd_max_abs_yaw_moment_nm,YMD max abs yaw moment,tire.cornering_stiffness_scale,4,4146.788722795103,492.2690218603793,11.871090011274315,increases with input,3654.519700934724,4496.5873020708095
+ymd_max_abs_yaw_moment_nm,YMD max abs yaw moment,tire.mu_scale,4,4146.788722795103,354.17351463736804,8.540910528922264,increases with input,3792.615208157735,4420.26498948596
+ymd_max_abs_yaw_moment_nm,YMD max abs yaw moment,sprung_mass.mass_kg,4,4146.788722795103,173.2514506156199,4.1779666676348395,increases with input,3973.5372721794834,4311.685114349539

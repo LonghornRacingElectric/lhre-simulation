@@ -1,0 +1,21 @@
+response,value,units,design_read,source
+GGV volume,188.867302734375,g^2*m/s,Envelope area integrated over 5-25 m/s,GGV
+Reference cornering,1.771875,g,Lateral limit at 15 m/s,GGV
+Reference acceleration,1.834,g,Straight-line acceleration at 15 m/s,GGV
+Reference braking,2.436,g,Straight-line braking at 15 m/s,GGV
+Mean cornering,1.7876953125,g,Speed-averaged lateral limit,GGV
+YMD peak abs yaw moment,4154.783118765321,N*m,Maximum yaw authority in the local YMD map,YMD
+YMD steer Mz gradient,722.0472889377522,N*m/deg,Local Mz authority from steer near the origin,YMD
+YMD beta Mz gradient,-37.77627523735136,N*m/deg,Local Mz restoring trend from sideslip near the origin,YMD
+Steady-state lateral limit,19.10425883664929,m/s^2,Measured ramp lateral limit,SteadyStateEval
+Steady-state understeer gradient,0.0257422511654662,deg/g,Linear steer-excess balance metric,SteadyStateEval
+Steady-state handwheel gradient,16.52389302635628,deg/g,Driver steering angle demand,SteadyStateEval
+Steady-state roll gradient,0.8919217956640342,deg/g,Roll platform response,SteadyStateEval
+Peak handwheel torque,-21.46504147604816,N*m,Signed peak steering effort,SteadyStateEval
+Transient ay phase at 1 Hz,-5.667050622611328,deg,Lateral response phase lag at 1 Hz,TransientEval
+Transient yaw phase at 1 Hz,-9.888578301265852,deg,Yaw response phase lag at 1 Hz,TransientEval
+Transient ay lag at 1 Hz,0.0157418072850314,s,Equivalent lateral acceleration lag,TransientEval
+Transient yaw lag at 1 Hz,0.0274682730590718,s,Equivalent yaw-rate lag,TransientEval
+Front LLTD,52.056906032777206,%,Roll-stiffness/load-transfer distribution,FourPostEval
+Front total roll stiffness,1184.1373686084837,N*m/deg,Elastic spring plus ARB roll stiffness,FourPostEval
+Rear total roll stiffness,1091.8670531562348,N*m/deg,Elastic spring plus ARB roll stiffness,FourPostEval

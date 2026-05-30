@@ -1,0 +1,7 @@
+review_question,evidence,status
+Can every major vehicle-dynamics claim be traced to a file?,Evidence index plus generated CSV output tables.,yes
+Are architecture and setup decisions separated?,EnvelopeSens handles architecture; StandardSens/refined surfaces handle setup response.,yes
+Are assumptions and model limitations stated?,Assumption register and risk register.,yes
+Are near-zero balance metrics interpreted carefully?,Notebook shows near-zero balance sensitivities in native units instead of foregrounding percent spans.,yes
+Is there a physical validation plan?,Validation matrix and track correlation plan.,yes
+Can the notebook be regenerated after new simulation results?,Generator script and regeneration commands.,yes

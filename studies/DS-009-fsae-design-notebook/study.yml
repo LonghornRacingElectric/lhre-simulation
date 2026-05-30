@@ -1,0 +1,29 @@
+id: DS-009
+title: FSAE Vehicle Dynamics Design Notebook
+owner: BobSim
+type: design_synthesis
+generated_from: BobSim/tools/generate_fsae_design_notebook.py
+outputs:
+  - RESULTS.md
+  - outputs/evidence_index.csv
+  - outputs/baseline_vehicle.csv
+  - outputs/baseline_response.csv
+  - outputs/requirements_traceability.csv
+  - outputs/assumption_register.csv
+  - outputs/risk_register.csv
+  - outputs/validation_matrix.csv
+  - outputs/design_review_checklist.csv
+  - outputs/design_decision_matrix.csv
+  - outputs/envelope_sensitivity_takeaways.csv
+  - outputs/standard_sensitivity_takeaways.csv
+  - outputs/refined_surface_selected_parameters.csv
+  - outputs/refined_response_surface_takeaways.csv
+  - plots/baseline_capability_summary.png
+  - plots/baseline_platform_summary.png
+  - plots/design_lever_map.png
+  - plots/yaw_transient_summary.png
+  - plots/architecture_design_effects.png
+  - plots/envelope_sensitivity_top_drivers.png
+  - plots/standard_sensitivity_top_drivers.png
+  - plots/refined_trade_spaces.png
+  - plots/refined_design_region.png

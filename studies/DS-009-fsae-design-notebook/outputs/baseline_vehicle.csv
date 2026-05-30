@@ -1,0 +1,27 @@
+item,value,units,source
+Vehicle,DWBCStabar_DWBCStabar,,vehicle.yml
+Architecture,"front bellcrank_stabar, rear bellcrank_stabar",,vehicle.yml
+Projected vehicle mass,261.07265114,kg,vehicle.yml mass rollup
+Projected CG x,-0.8002708499132694,m,vehicle.yml mass rollup
+Projected CG z,0.2796156783777442,m,vehicle.yml mass rollup
+Projected front static load,0.48349628894199737,fraction,vehicle.yml mass rollup
+Sprung mass,160.64,kg,vehicle.yml
+Driver mass,65.770912,kg,vehicle.yml
+Sprung CG x,-0.92,m,vehicle.yml
+Sprung CG z,0.25,m,vehicle.yml
+Driver CG x,-0.541837,m,vehicle.yml
+Driver CG z,0.395782,m,vehicle.yml
+Wheelbase,1.5494,m,vehicle.yml
+Front track,1.212221534912,m,vehicle.yml
+Rear track,1.21222154,m,vehicle.yml
+Tire template,16x7p5_10_12psi,,vehicle.yml
+Front static toe,0,deg,vehicle.yml
+Rear static toe,0,deg,vehicle.yml
+Front static camber,0,deg,vehicle.yml
+Rear static camber,0,deg,vehicle.yml
+Front spring rate,26269.02525,N/m,vehicle.yml
+Rear spring rate,43781.70875,N/m,vehicle.yml
+Front anti-roll bar rate,257.62483055,N*m/rad,vehicle.yml
+Rear anti-roll bar rate,535.473018735,N*m/rad,vehicle.yml
+Body torsional stiffness,300000,N*m/rad,vehicle.yml
+Rack travel per rev,0.0889,m/rev,vehicle.yml

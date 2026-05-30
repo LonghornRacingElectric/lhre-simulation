@@ -1,0 +1,17 @@
+artifact,status,path,role
+GGV report,present,BobSim/_2_EnvelopeSim/results/ggv_report.pdf,Baseline acceleration envelope
+GGV metrics CSV,present,BobSim/_2_EnvelopeSim/results/ggv_report_metrics.csv,Baseline envelope metrics
+YMD report,present,BobSim/_2_EnvelopeSim/results/ymd_report.pdf,Yaw moment diagram and speed sweep
+YMD metrics CSV,present,BobSim/_2_EnvelopeSim/results/ymd_report_metrics.csv,Yaw authority metrics
+FourPost report,present,BobSim/_3_StandardSim/results/four_post_eval_report.pdf,"Kinematics, motion ratios, LLTD, roll platform"
+FourPost metrics CSV,present,BobSim/_3_StandardSim/results/four_post_eval_report_metrics.csv,Roll stiffness and kinematic metrics
+SteadyStateEval report,present,BobSim/_3_StandardSim/results/steady_state_eval_report.pdf,ISO 4138-style very slow ramp-steer response
+SteadyStateEval metrics CSV,present,BobSim/_3_StandardSim/results/steady_state_eval_report_metrics.csv,ISO 4138-style steady-state response metrics
+TransientEval report,present,BobSim/_3_StandardSim/results/transient_eval_report.pdf,ISO 7401-style handwheel step and FRF response
+TransientEval metrics CSV,present,BobSim/_3_StandardSim/results/transient_eval_report_metrics.csv,ISO 7401-style transient response metrics
+EnvelopeSens report,present,BobSim/_4_OptSim/results/envelope_sensitivity_report.pdf,Architecture-envelope tornadoes and Pearson table
+EnvelopeSens results CSV,present,BobSim/_4_OptSim/results/envelope_sensitivity_results.csv,Envelope sensitivity data
+StandardSens report,present,BobSim/_4_OptSim/results/standard_sensitivity_report.pdf,StandardSim tornadoes and Pearson table
+StandardSens results CSV,present,BobSim/_4_OptSim/results/standard_sensitivity_results.csv,StandardSim sensitivity data
+Refined response-surface report,missing,BobSim/_4_OptSim/results/refined_response_surface_report.pdf,Refined trade-space surfaces
+Refined response-surface CSV,present,BobSim/_4_OptSim/results/refined_response_surface_results.csv,Refined response-surface data

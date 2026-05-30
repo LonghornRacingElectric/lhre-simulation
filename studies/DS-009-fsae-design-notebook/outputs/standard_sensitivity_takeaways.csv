@@ -1,0 +1,16 @@
+metric,metric_label,input,n_valid_points,baseline,max_abs_change,max_abs_change_pct,direction_low_to_high,lowest_input_response,highest_input_response
+limit_ay_mps2,Steady-state lateral limit,front.wheel.camber_deg,4,19.10425883664929,2.7269853162285287,14.274227226219978,increases with input,16.37727352042076,18.38819094482957
+limit_ay_mps2,Steady-state lateral limit,aero.load_scale,4,19.10425883664929,1.5871355706901689,8.30775788927982,increases with input,17.51712326595912,20.34171039701821
+limit_ay_mps2,Steady-state lateral limit,rear.stabar.rate_n_m_per_rad,3,19.10425883664929,1.2515234675085587,6.551018169350057,increases with input,17.85273536914073,19.5418783989652
+understeer_gradient_deg_per_g,Understeer gradient,rear.wheel.camber_deg,4,0.0257422511654662,0.2520094751107332,978.9721710462117,increases with input,-0.226267223945267,-0.0187732010643954
+understeer_gradient_deg_per_g,Understeer gradient,rear.stabar.rate_n_m_per_rad,3,0.0257422511654662,0.1301615493384904,505.6339031961004,decreases with input,0.0246845396585053,-0.1044192981730242
+understeer_gradient_deg_per_g,Understeer gradient,front.wheel.camber_deg,4,0.0257422511654662,0.09180341743098029,356.6254436757909,decreases with input,0.1175456685964465,0.0872067495458235
+handwheel_angle_gradient_deg_per_g,Handwheel angle gradient,front.wheel.camber_deg,4,16.52389302635628,0.3208105195113582,1.941494773656864,decreases with input,16.844703545867638,16.789584878203602
+handwheel_angle_gradient_deg_per_g,Handwheel angle gradient,rear.wheel.camber_deg,4,16.52389302635628,0.2964723362610755,1.7942039190655017,increases with input,16.227420690095204,16.432289468917038
+handwheel_angle_gradient_deg_per_g,Handwheel angle gradient,aero.load_scale,4,16.52389302635628,0.22360726439921663,1.353235971950157,increases with input,16.419244878060116,16.747500290755497
+roll_gradient_deg_per_g,Roll gradient,sprung_mass.cg_m.z,4,0.8919217956640342,0.10233107520290985,11.473099513923701,increases with input,0.7895907204611243,0.9929908856628604
+roll_gradient_deg_per_g,Roll gradient,sprung_mass.mass_kg,4,0.8919217956640342,0.06255508488958061,7.013516789665227,increases with input,0.8325328898392952,0.9544768805536148
+roll_gradient_deg_per_g,Roll gradient,rear.stabar.rate_n_m_per_rad,3,0.8919217956640342,0.05903589036433099,6.618953662902572,decreases with input,0.9509576860283652,0.840196276684863
+peak_handwheel_torque_Nm,Peak handwheel torque,front.wheel.camber_deg,4,-21.46504147604816,4.64027628747262,21.617830520618785,decreases with input,-16.82476518857554,-20.40817222103463
+peak_handwheel_torque_Nm,Peak handwheel torque,aero.load_scale,4,-21.46504147604816,1.3823171712012616,6.439853250429192,decreases with input,-20.0827243048469,-22.81445639556242
+peak_handwheel_torque_Nm,Peak handwheel torque,sprung_mass.cg_m.x,4,-21.46504147604816,0.9471763478762085,4.4126462505703445,decreases with input,-20.54215843909965,-22.41221782392437
