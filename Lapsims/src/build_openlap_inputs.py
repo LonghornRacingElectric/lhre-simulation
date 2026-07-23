@@ -22,6 +22,18 @@ G_OPENLAP = 9.81
 TIRE_MU_SCALE = 0.6225437130779028
 
 
+def deterministic_savemat(path: Path, payload: dict) -> None:
+    """Write a MATLAB v5 file with a stable descriptive header."""
+
+    savemat(path, payload, do_compression=True)
+    header = (
+        b"MATLAB 5.0 MAT-file, Platform: OpenLAP-compatible, "
+        b"Created by LHRe Lapsims"
+    )
+    with path.open("r+b") as stream:
+        stream.write(header.ljust(116, b" "))
+
+
 def parse_args() -> argparse.Namespace:
     script_root = Path(__file__).resolve().parents[1]
     repo_root = script_root.parent
@@ -304,7 +316,7 @@ def main() -> None:
         "direction": "Forward",
         "mirror": "Off",
     }
-    savemat(
+    deterministic_savemat(
         inputs_dir / "OpenTRACK_FSAE_Michigan_Endurance_2014.mat",
         {
             "info": info,
@@ -323,7 +335,6 @@ def main() -> None:
             "Z": track["z_m"].to_numpy()[:, None],
             "arrow": np.empty((0, 1)),
         },
-        do_compression=True,
     )
 
     # This is a native OpenLAP vehicle structure. OpenLAP uses negative CL, CD,
@@ -337,7 +348,7 @@ def main() -> None:
     steering_matrix = 2.0 * np.array(
         [[cf, cf + cr], [cf * a, cf * a + cr * b]], dtype=float
     )
-    savemat(
+    deterministic_savemat(
         inputs_dir / "OpenVEHICLE_LHRe_Matched_Baseline.mat",
         {
             "name": vehicle_config["name"],
@@ -391,7 +402,6 @@ def main() -> None:
             "beta": 1.0,
             "phi": 1.0,
         },
-        do_compression=True,
     )
 
     manifest = {

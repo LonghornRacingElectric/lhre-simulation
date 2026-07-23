@@ -1,0 +1,19 @@
+{
+  "solver": "OpenLAP equations, contained Python forward/backward port",
+  "lap_time_s": 52.238323789110694,
+  "track_length_m": 791.0000000000001,
+  "segments": 7910,
+  "minimum_speed_mps": 1.277555430876719,
+  "maximum_speed_mps": 32.776851809256854,
+  "distance_weighted_average_speed_mps": 15.142139766836996,
+  "maximum_lateral_accel_mps2": 17.274123030736465,
+  "maximum_longitudinal_accel_mps2": 8.221675014878826,
+  "maximum_longitudinal_decel_mps2": -24.769824125850164,
+  "iterations": 2,
+  "converged": true,
+  "final_max_speed_change_mps": 0.0,
+  "canonical_time_formula": "2*dx[0]/speed[0] + sum(dx[1:] / speed[1:]), matching OpenLAP.m standing-start integration",
+  "event_slug": "autocross",
+  "event_name": "FSAE Autocross Nebraska 2013",
+  "track_configuration": "Open Circuit"
+}

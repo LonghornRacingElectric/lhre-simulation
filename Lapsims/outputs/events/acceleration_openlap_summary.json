@@ -1,0 +1,19 @@
+{
+  "solver": "OpenLAP equations, contained Python forward/backward port",
+  "lap_time_s": 4.253775200437397,
+  "track_length_m": 74.99999999999997,
+  "segments": 750,
+  "minimum_speed_mps": 1.277555430876719,
+  "maximum_speed_mps": 34.06162133545672,
+  "distance_weighted_average_speed_mps": 17.63139716275746,
+  "maximum_lateral_accel_mps2": 0.0,
+  "maximum_longitudinal_accel_mps2": 8.223325217574029,
+  "maximum_longitudinal_decel_mps2": 5.649620327454507,
+  "iterations": 2,
+  "converged": true,
+  "final_max_speed_change_mps": 0.0,
+  "canonical_time_formula": "2*dx[0]/speed[0] + sum(dx[1:] / speed[1:]), matching OpenLAP.m standing-start integration",
+  "event_slug": "acceleration",
+  "event_name": "FSAE Acceleration 75m",
+  "track_configuration": "Open Circuit"
+}

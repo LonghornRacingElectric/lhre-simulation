@@ -1,0 +1,19 @@
+{
+  "solver": "OpenLAP equations, contained Python forward/backward port",
+  "lap_time_s": 4.800187743025538,
+  "track_length_m": 57.33406592801317,
+  "segments": 574,
+  "minimum_speed_mps": 11.944129896026888,
+  "maximum_speed_mps": 11.944129896026888,
+  "distance_weighted_average_speed_mps": 11.944129896026888,
+  "maximum_lateral_accel_mps2": 15.634217969661728,
+  "maximum_longitudinal_accel_mps2": 0.0,
+  "maximum_longitudinal_decel_mps2": 0.0,
+  "iterations": 1,
+  "converged": true,
+  "final_max_speed_change_mps": 0.0,
+  "canonical_time_formula": "sum(dx / speed), matching OpenLAP.m for a closed track",
+  "event_slug": "skidpad",
+  "event_name": "FSAE Skidpad 9.125m Radius",
+  "track_configuration": "Closed Circuit"
+}

@@ -2,8 +2,8 @@
 
 The equations and sign conventions follow OpenLAP.m and OpenVEHICLE.m from
 Michael Halkiopoulos's OpenLAP Lap Time Simulator. The velocity-envelope
-iteration is an equivalent forward/backward implementation suitable for a
-closed course and makes the model executable without a MATLAB installation.
+iteration is an equivalent forward/backward implementation suitable for open
+and closed courses and makes the model executable without MATLAB.
 
 SPDX-License-Identifier: GPL-3.0-or-later
 """
@@ -334,6 +334,163 @@ def solve_closed_track(
     return result, summary
 
 
+def solve_open_track(
+    vehicle: Vehicle,
+    track: pd.DataFrame,
+    tolerance: float = 1e-9,
+    max_iterations: int = 2000,
+) -> tuple[pd.DataFrame, dict]:
+    """Solve an open course represented by one row per segment endpoint.
+
+    Native OpenLAP stores an additional zero-speed point at x=0. The CSV
+    representation omits that synthetic point, so endpoint zero is the end of
+    the first segment. OpenLAP's standing-start integration is retained by
+    assigning 2*dx/v to that first segment.
+    """
+
+    dx = track["dx_m"].to_numpy(dtype=float)
+    curvature = track["curvature_1pm"].to_numpy(dtype=float)
+    count = len(track)
+    if count == 0:
+        raise ValueError("Open track has no segments")
+    if np.any(dx <= 0.0):
+        raise ValueError("Open-track segment lengths must be positive")
+
+    lateral_limit = np.array(
+        [lateral_speed_limit(vehicle, value) for value in curvature], dtype=float
+    )
+    speed = lateral_limit.copy()
+
+    start_acceleration = max(0.0, acceleration(vehicle, curvature[0], 0.0))
+    standing_start_limit = math.sqrt(2.0 * start_acceleration * dx[0])
+    speed[0] = min(speed[0], standing_start_limit)
+
+    converged = False
+    max_change = math.inf
+    for iteration in range(1, max_iterations + 1):
+        old_speed = speed.copy()
+
+        speed[0] = min(speed[0], standing_start_limit, lateral_limit[0])
+        for index in range(count - 1):
+            next_index = index + 1
+            ax = acceleration(vehicle, curvature[index], speed[index])
+            proposed_sq = speed[index] ** 2 + 2.0 * ax * dx[next_index]
+            proposed = math.sqrt(max(0.0, proposed_sq))
+            if proposed < speed[next_index]:
+                speed[next_index] = proposed
+
+        for index in range(count - 1, 0, -1):
+            previous_index = index - 1
+            proposed = speed[index]
+            for _ in range(12):
+                decel = deceleration(vehicle, curvature[previous_index], proposed)
+                updated = math.sqrt(
+                    max(0.0, speed[index] ** 2 + 2.0 * decel * dx[index])
+                )
+                updated = min(updated, lateral_limit[previous_index])
+                if abs(updated - proposed) < 1e-11:
+                    proposed = updated
+                    break
+                proposed = updated
+            if proposed < speed[previous_index]:
+                speed[previous_index] = proposed
+
+        speed = np.minimum(speed, lateral_limit)
+        speed[0] = min(speed[0], standing_start_limit)
+        max_change = float(np.max(np.abs(speed - old_speed)))
+        if max_change < tolerance:
+            converged = True
+            break
+
+    longitudinal_accel = np.empty_like(speed)
+    longitudinal_accel[0] = speed[0] ** 2 / (2.0 * dx[0])
+    longitudinal_accel[1:] = np.divide(
+        speed[1:] ** 2 - speed[:-1] ** 2,
+        2.0 * dx[1:],
+        out=np.zeros(count - 1),
+        where=dx[1:] > 0,
+    )
+    lateral_accel = speed**2 * curvature
+    time_in_segment = np.divide(
+        dx,
+        speed,
+        out=np.full_like(dx, np.inf),
+        where=speed > 0,
+    )
+    time_in_segment[0] *= 2.0
+    elapsed_time = np.cumsum(time_in_segment)
+    downforce = np.empty(count)
+    drag = np.empty(count)
+    total_load = np.empty(count)
+    mu_x = np.empty(count)
+    mu_y = np.empty(count)
+    tractive_force = np.empty(count)
+    for index, value in enumerate(speed):
+        downforce[index], drag[index], total_load[index] = aero_and_loads(
+            vehicle, value
+        )
+        mu_x[index] = load_sensitive_mu(
+            vehicle.mu_x,
+            vehicle.sens_x,
+            vehicle.ref_mass_x,
+            total_load[index] / 4.0,
+        )
+        mu_y[index] = load_sensitive_mu(
+            vehicle.mu_y,
+            vehicle.sens_y,
+            vehicle.ref_mass_y,
+            total_load[index] / 4.0,
+        )
+        tractive_force[index] = engine_force(vehicle, value)
+
+    result = track.copy()
+    result["lateral_speed_limit_mps"] = lateral_limit
+    result["speed_mps"] = speed
+    result["time_in_segment_s"] = time_in_segment
+    result["elapsed_time_s"] = elapsed_time
+    result["longitudinal_accel_mps2"] = longitudinal_accel
+    result["lateral_accel_mps2"] = lateral_accel
+    result["downforce_n"] = downforce
+    result["drag_n"] = drag
+    result["total_normal_load_n"] = total_load
+    result["mu_x_per_tire"] = mu_x
+    result["mu_y_per_tire"] = mu_y
+    result["available_tractive_force_n"] = tractive_force
+
+    summary = {
+        "solver": "OpenLAP equations, contained Python forward/backward port",
+        "lap_time_s": float(time_in_segment.sum()),
+        "track_length_m": float(dx.sum()),
+        "segments": count,
+        "minimum_speed_mps": float(speed.min()),
+        "maximum_speed_mps": float(speed.max()),
+        "distance_weighted_average_speed_mps": float(
+            dx.sum() / time_in_segment.sum()
+        ),
+        "maximum_lateral_accel_mps2": float(np.max(np.abs(lateral_accel))),
+        "maximum_longitudinal_accel_mps2": float(longitudinal_accel.max()),
+        "maximum_longitudinal_decel_mps2": float(longitudinal_accel.min()),
+        "iterations": iteration,
+        "converged": converged,
+        "final_max_speed_change_mps": max_change,
+        "canonical_time_formula": (
+            "2*dx[0]/speed[0] + sum(dx[1:] / speed[1:]), matching "
+            "OpenLAP.m standing-start integration"
+        ),
+    }
+    return result, summary
+
+
+def solve_track(
+    vehicle: Vehicle,
+    track: pd.DataFrame,
+    is_closed: bool,
+) -> tuple[pd.DataFrame, dict]:
+    if is_closed:
+        return solve_closed_track(vehicle, track)
+    return solve_open_track(vehicle, track)
+
+
 def parse_args() -> argparse.Namespace:
     root = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser()
@@ -348,6 +505,11 @@ def parse_args() -> argparse.Namespace:
         default=root / "inputs" / "michigan_openlap_track.csv",
     )
     parser.add_argument("--output-root", type=Path, default=root / "outputs")
+    parser.add_argument(
+        "--configuration",
+        choices=("open", "closed"),
+        default="closed",
+    )
     return parser.parse_args()
 
 
@@ -357,7 +519,11 @@ def main() -> None:
     output_root.mkdir(parents=True, exist_ok=True)
     vehicle = load_vehicle(args.vehicle.resolve())
     track = pd.read_csv(args.track.resolve())
-    result, summary = solve_closed_track(vehicle, track)
+    result, summary = solve_track(
+        vehicle,
+        track,
+        is_closed=args.configuration == "closed",
+    )
     result.to_csv(output_root / "openlap_trace.csv", index=False)
     (output_root / "openlap_summary.json").write_text(
         json.dumps(summary, indent=2), encoding="utf-8"

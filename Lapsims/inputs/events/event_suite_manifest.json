@@ -1,0 +1,59 @@
+﻿{
+    "VehiclePath":  "C:\\Users\\Abishek\\Desktop\\Aero Sweeps\\Project\\Vehicle\\FSAE Aero.OLVeh",
+    "VehicleSha256":  "AAB24C167190423B9C50C48E49C9BE8B4770274026A4E46E57AE97C047C08178",
+    "Solver":  "OptimumLap 1.5.5 native OptimumLap_Simple.Solver",
+    "Events":  [
+                   {
+                       "Slug":  "acceleration",
+                       "TrackFile":  "FSAE Acceleration 75m.OLTra",
+                       "SourcePath":  "C:\\Users\\Abishek\\Desktop\\Aero Sweeps\\proof_sweep\\tracks\\FSAE Acceleration 75m.OLTra",
+                       "SourceSha256":  "B1CD9E6D24204680A0F01C2E8189EAB7ECA61A464EC63B20CE4C2B04FB1D0876",
+                       "Name":  "FSAE Acceleration 75m",
+                       "Configuration":  "Open Circuit",
+                       "IsClosed":  false,
+                       "TrackLength_m":  75,
+                       "SegmentSize_m":  0.1,
+                       "SegmentCount":  750,
+                       "OptimumLapTime_s":  4.1521454142885954
+                   },
+                   {
+                       "Slug":  "autocross",
+                       "TrackFile":  "FSAE Autocross Nebraska 2013.OLTra",
+                       "SourcePath":  "C:\\Users\\Abishek\\Desktop\\Aero Sweeps\\proof_sweep\\tracks\\FSAE Autocross Nebraska 2013.OLTra",
+                       "SourceSha256":  "F836095FF3ED602904105AC91487B53969E8BAA25B9F26A255F6C3C73E7F8F6E",
+                       "Name":  "FSAE Autocross Nebraska 2013",
+                       "Configuration":  "Open Circuit",
+                       "IsClosed":  false,
+                       "TrackLength_m":  791,
+                       "SegmentSize_m":  0.1,
+                       "SegmentCount":  7910,
+                       "OptimumLapTime_s":  52.364208425303971
+                   },
+                   {
+                       "Slug":  "skidpad",
+                       "TrackFile":  "FSAE Skidpad 9.125m Radius.OLTra",
+                       "SourcePath":  "C:\\Users\\Abishek\\Desktop\\Aero Sweeps\\proof_sweep\\tracks\\FSAE Skidpad 9.125m Radius.OLTra",
+                       "SourceSha256":  "887D5F259EB8FD543C495B594246C77CC88D5D75E337A247291D4E4A3F9A3611",
+                       "Name":  "FSAE Skidpad 9.125m Radius",
+                       "Configuration":  "Closed Circuit",
+                       "IsClosed":  true,
+                       "TrackLength_m":  57.334065928013722,
+                       "SegmentSize_m":  0.1,
+                       "SegmentCount":  574,
+                       "OptimumLapTime_s":  4.799999994549272
+                   },
+                   {
+                       "Slug":  "michigan_endurance",
+                       "TrackFile":  "FSAE Michigan Endurance 2014.OLTra",
+                       "SourcePath":  "C:\\Users\\Abishek\\Desktop\\Aero Sweeps\\proof_sweep\\tracks\\FSAE Michigan Endurance 2014.OLTra",
+                       "SourceSha256":  "C776E927D9D470514F69D88450102042E0D3FCA49407E9AEA8F18715724460C6",
+                       "Name":  "FSAE Michigan Endurance 2014",
+                       "Configuration":  "Closed Circuit",
+                       "IsClosed":  true,
+                       "TrackLength_m":  1069.968773,
+                       "SegmentSize_m":  0.25,
+                       "SegmentCount":  4280,
+                       "OptimumLapTime_s":  58.769287098438063
+                   }
+               ]
+}

@@ -1,4 +1,5 @@
 outputs/*_trace.csv
+outputs/events/*_trace.csv
 .work/
 __pycache__/
 *.pyc

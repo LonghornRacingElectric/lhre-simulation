@@ -37,6 +37,35 @@ interpreted as a vehicle-model discrepancy by itself.
 
 ![Matched speed comparison](outputs/optimumlap_vs_openlap_speed.png)
 
+## Dynamic-event correlation
+
+The same vehicle was also run on the exact acceleration, autocross, and
+skidpad tracks used by the prior OptimumLap study. Each conversion preserves
+the native OptimumLap segment endpoints and signed curvature with zero
+distance-mesh error.
+
+| Event | OptimumLap reported | OpenLAP reported | Raw difference | Difference using the same OpenLAP time formula | Speed RMSE |
+|---|---:|---:|---:|---:|---:|
+| Acceleration, 75 m | 4.152145 s | 4.253775 s | +2.4476% | -0.0304% | 0.15790 m/s |
+| Autocross, Nebraska 2013 | 52.364208 s | 52.238324 s | -0.2404% | -0.1562% | 0.04743 m/s |
+| Skidpad, 9.125 m radius | 4.800000 s | 4.800188 s | +0.0039% | +0.0038% | 0.00046 m/s |
+| Endurance, Michigan 2014 | 58.769287 s | 58.459772 s | -0.5267% | +0.0456% | 0.09828 m/s |
+
+Acceleration has the largest raw-time difference because the two programs
+report the standing-start interval differently. The OptimumLap acceleration
+speed trace evaluates to 4.255071 s when OpenLAP's standing-start formula is
+applied, versus 4.253775 s for OpenLAP. The common-formula comparison is
+therefore the useful model-correlation result. Its speed-profile correlation
+is 0.999995; autocross and Michigan are 0.999969 and 0.999936 respectively.
+Skidpad is constant speed, so its direct speed difference of 0.0038% is used
+instead of a Pearson coefficient.
+
+All four events pass the committed checks: same-formula time within 0.5%,
+speed RMSE below 0.30 m/s, varying-profile correlation above 0.99, constant
+speed within 0.5%, and raw reported time within 3%.
+
+![All-event correlation](outputs/events/optimumlap_vs_openlap_all_events.png)
+
 ## Matched inputs
 
 The conversion uses the current repository vehicle and tire data, cross-checked
@@ -93,10 +122,12 @@ The upstream repository is cloned unchanged at
 MATLAB is not installed on this machine. `src/openlap_solver.py` is therefore
 a contained, GPL-licensed execution port of the point-mass, aero,
 load-sensitive tire, friction-ellipse, and power-limit equations in
-`OpenLAP.m` and `OpenVEHICLE.m`. It uses a closed-track forward/backward
-velocity-envelope iteration and OpenLAP's own `sum(dx / speed)` lap-time
-formula. The upstream MATLAB source remains untouched and is the reference
-implementation.
+`OpenLAP.m` and `OpenVEHICLE.m`. It uses forward/backward velocity-envelope
+iterations for both open and closed courses. Closed tracks use OpenLAP's
+`sum(dx / speed)` time formula. Open tracks include the synthetic zero-speed
+start point used by OpenLAP and its doubled-first-segment standing-start
+integration. The upstream MATLAB source remains untouched and is the
+reference implementation.
 
 No battery, SOC, voltage, thermal, or SOC-dependent torque behavior has been
 added in this baseline.
@@ -109,34 +140,41 @@ From this directory:
 powershell -NoProfile -ExecutionPolicy Bypass -File .\run_baseline.ps1
 ```
 
-The runner:
+For the complete four-event correlation suite:
 
-1. reads the native OptimumLap vehicle and Michigan track,
-2. runs the native OptimumLap 1.5.5 solver,
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\run_event_suite.ps1
+```
+
+The event runner:
+
+1. reads the native OptimumLap vehicle and all four source tracks,
+2. runs the native OptimumLap 1.5.5 solver on every event,
 3. builds matched OpenLAP CSV, JSON, and MAT inputs,
-4. runs the OpenLAP-equation port,
-5. creates comparison tables and the speed plot, and
+4. runs the OpenLAP-equation port with open/closed-course handling,
+5. creates per-event results, comparison tables, and plots, and
 6. runs the regression tests.
 
-The current test suite has five passing checks covering mass parity, exact
-track conversion, readable MAT structures, exact tire load-sensitivity
-mapping, solver convergence, and comparison tolerances.
+The current test suite has ten passing checks covering mass parity, exact
+track conversion, readable native MAT structures, exact tire load-sensitivity
+mapping, open/closed solver convergence, skidpad calibration, and all
+correlation tolerances.
 
 ## Important files
 
 - `inputs/openlap_vehicle.json` — documented vehicle model used by the port
-- `inputs/michigan_openlap_track.csv` — converted track mesh
+- `inputs/events/` — converted event CSV/MAT tracks and source manifests
 - `inputs/OpenVEHICLE_LHRe_Matched_Baseline.mat` — native OpenLAP vehicle file
-- `inputs/OpenTRACK_FSAE_Michigan_Endurance_2014.mat` — native OpenLAP track
-- `outputs/comparison_summary.json` — complete numerical comparison
+- `outputs/events/event_correlation_summary.json` — all checks and metrics
+- `outputs/events/event_correlation_summary.csv` — compact comparison table
+- `outputs/events/optimumlap_vs_openlap_all_events.png` — event speed plots
 - `outputs/input_equivalence.csv` — parameter-by-parameter parity table
 - `outputs/tire_load_sensitivity_validation.csv` — tire curve validation
-- `outputs/optimumlap_vs_openlap_speed.png` — speed trace comparison
 - `src/openlap_solver.py` — OpenLAP-equation execution port
-- `tools/export_optimumlap_baseline.ps1` — native OptimumLap reader/runner
+- `tools/export_optimumlap_event_suite.ps1` — native event reader/runner
 
-The parent `lhre-simulation` checkout was at commit
-`a8f78f76db505e3310cc0e0767aaa63ce35086be` for this comparison.
+Exact source paths and SHA-256 hashes for the OptimumLap vehicle and event
+tracks are stored in the input manifests.
 
 ## Current limitations
 
