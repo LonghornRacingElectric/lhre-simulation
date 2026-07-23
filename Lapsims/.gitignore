@@ -1,0 +1,4 @@
+outputs/*_trace.csv
+.work/
+__pycache__/
+*.pyc

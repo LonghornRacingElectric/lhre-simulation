@@ -1,0 +1,14 @@
+Parameter,Unit,OptimumLap,OpenLAP,OpenLAP_minus_OptimumLap
+Mass,kg,261.07265114,261.07265114,0.0
+Rear static/driven fraction,-,0.5165037110580025,0.5165037110580026,1.1102230246251565e-16
+Tire radius,m,0.2045,0.2045,0.0
+Lift coefficient (downforce-positive reporting),-,2.26,2.26,0.0
+Drag coefficient (drag-positive reporting),-,1.26,1.26,0.0
+Reference area,m^2,0.984,0.984,0.0
+Air density,kg/m^3,1.225,1.225,0.0
+Longitudinal mu at reference load,-,1.6173629636829736,1.6173629636829736,0.0
+Lateral mu at reference load,-,1.495816906597931,1.495816906597931,0.0
+Top speed,m/s,42.0539983361957,42.0539983361957,0.0
+Maximum power,kW,80.0,80.0,0.0
+Track length,m,1069.968773,1069.968773,0.0
+Track segments,count,4280.0,4280.0,0.0

@@ -1,0 +1,548 @@
+﻿{
+    "Vehicle":  {
+                    "SourcePath":  "C:\\Users\\Abishek\\Desktop\\Aero Sweeps\\Project\\Vehicle\\FSAE Aero.OLVeh",
+                    "SourceSha256":  "AAB24C167190423B9C50C48E49C9BE8B4770274026A4E46E57AE97C047C08178",
+                    "OptimumLapVersion":  "1.5.5.0",
+                    "Runtime":  {
+                                    "AeroEfficiency":  1.7936507936507935,
+                                    "AeroFactor":  1,
+                                    "AirDensity":  1.225,
+                                    "AllValuesValid":  true,
+                                    "BatchRunCheckVehicle":  false,
+                                    "ColorRGB":  "-16777216",
+                                    "Comments":  "BobSim 16x7p5_10_12psi.tir load-sensitive point-mass tire model. TTC mu curve scaled by 0.622543713 to produce 4.800 s skidpad at Cl=2.26, Cd=1.26, A=0.984 m^2. MF5.2 PDX1/PDX2/PDY1/PDY2 shape preserved. Updated 2026-07-18.",
+                                    "Constdrag1":  false,
+                                    "Constdrag2":  false,
+                                    "CreatedBy":  null,
+                                    "DragCoefficient":  1.26,
+                                    "DragLift":  true,
+                                    "DriveEfficiency":  1,
+                                    "EngineEfficiency":  0.96,
+                                    "EngineSpeed":  [
+                                                        0.10471975511965977,
+                                                        52.359877559829883,
+                                                        104.71975511965977,
+                                                        157.07963267948966,
+                                                        209.43951023931953,
+                                                        261.79938779914943,
+                                                        314.15926535897933,
+                                                        363.63636363636363,
+                                                        418.87902047863906,
+                                                        471.238898038469,
+                                                        523.59877559829886,
+                                                        575.95865315812864,
+                                                        628.31853071795865,
+                                                        680.67840827778855
+                                                    ],
+                                    "FinalDriveRatio":  3.31,
+                                    "FinalGearRevLimit":  680.67840827778855,
+                                    "FrontArea":  0.984,
+                                    "FuelEnergyDensity":  47200000,
+                                    "GearRatios":  1,
+                                    "GearShiftPoints":  {
+
+                                                        },
+                                    "GripFactor":  1,
+                                    "IsitAeroEff":  false,
+                                    "IsMemoryMapped":  false,
+                                    "LatFriction":  1.495816906597931,
+                                    "LatFrictionSensitivity":  0.0032266225227153382,
+                                    "LiftCoefficient":  2.26,
+                                    "LoadedFromResults":  false,
+                                    "LongFriction":  1.6173629636829736,
+                                    "LongFrictionSensitivity":  0.0058122692280025093,
+                                    "Mass":  261.07265114,
+                                    "MassLatFriction":  265.12621537426134,
+                                    "MassLongFriction":  265.12621537426134,
+                                    "ModifiedBy":  null,
+                                    "Name":  "FSAE Aero",
+                                    "Power":  [
+                                                  23.038346126325148,
+                                                  11519.173063162574,
+                                                  23038.346126325148,
+                                                  34557.519189487728,
+                                                  46076.6922526503,
+                                                  57595.865315812873,
+                                                  69115.038378975456,
+                                                  80000,
+                                                  80000,
+                                                  80000,
+                                                  80000,
+                                                  80000,
+                                                  80000,
+                                                  80000
+                                              ],
+                                    "PowerFactor":  1,
+                                    "RawAeroEfficiency":  0,
+                                    "RawAeroFactor":  0,
+                                    "RawAirDensity":  0,
+                                    "RawDragCoefficient":  0,
+                                    "RawDriveEfficiency":  0,
+                                    "RawEngineEfficiency":  0,
+                                    "RawFinalDriveRatio":  0,
+                                    "RawFrontArea":  0,
+                                    "RawFuelEnergyDensity":  0,
+                                    "RawGripFactor":  0,
+                                    "RawLatFriction":  0,
+                                    "RawLatFrictionSensitivity":  0.0032266225227153382,
+                                    "RawLiftCoefficient":  0,
+                                    "RawLongFriction":  0,
+                                    "RawLongFrictionSensitivity":  0.0058122692280025093,
+                                    "RawMass":  0,
+                                    "RawMassLatFriction":  265.12621537426134,
+                                    "RawMassLongFriction":  265.12621537426134,
+                                    "RawPowerFactor":  0,
+                                    "RawRevLimit":  0,
+                                    "RawShiftPoints":  {
+
+                                                       },
+                                    "RawTireRadius":  0,
+                                    "RawTireRollingDrag":  0,
+                                    "RawWeightOnDrivenWheel":  0,
+                                    "ShiftSpeeds":  0,
+                                    "TireRadius":  0.2045,
+                                    "TireRollingDrag":  0,
+                                    "TopSpeed":  42.0539983361957,
+                                    "Torque":  [
+                                                   220,
+                                                   220,
+                                                   220,
+                                                   220,
+                                                   220,
+                                                   220,
+                                                   220,
+                                                   220,
+                                                   190.98593171027443,
+                                                   169.765272631355,
+                                                   152.78874536821954,
+                                                   138.89885942565414,
+                                                   127.32395447351627,
+                                                   117.52980412939964
+                                               ],
+                                    "TransmissionType":  "Sequential Gearbox",
+                                    "Type":  "FSAE",
+                                    "UpdatedSinceOpen":  false,
+                                    "ValidforLoad":  true,
+                                    "WeightOnDrivenWheel":  0.51650371105800252,
+                                    "ZeroToSixty":  0
+                                },
+                    "ParameterDictionary":  {
+                                                "accelerationtimefordistance":  {
+                                                                                    "Name":  "accelerationtimefordistance",
+                                                                                    "FullName":  "Acceleration Time For Distance [100 m]",
+                                                                                    "Unit":  "",
+                                                                                    "OutputType":  5,
+                                                                                    "Value":  4.8016369734770326,
+                                                                                    "Values":  {
+
+                                                                                               }
+                                                                                },
+                                                "accelerationtimetospeed":  {
+                                                                                "Name":  "accelerationtimetospeed",
+                                                                                "FullName":  "Acceleration Time To Speed [27.778 km/h]",
+                                                                                "Unit":  "",
+                                                                                "OutputType":  5,
+                                                                                "Value":  0,
+                                                                                "Values":  {
+
+                                                                                           }
+                                                                            },
+                                                "aeroefficiency":  {
+                                                                       "Name":  "aeroefficiency",
+                                                                       "FullName":  "Aero Efficiency",
+                                                                       "Unit":  "",
+                                                                       "OutputType":  4,
+                                                                       "Value":  1.7936507936507935,
+                                                                       "Values":  {
+
+                                                                                  }
+                                                                   },
+                                                "aerofactor":  {
+                                                                   "Name":  "aerofactor",
+                                                                   "FullName":  "Aero Scaling Factor",
+                                                                   "Unit":  "",
+                                                                   "OutputType":  4,
+                                                                   "Value":  1,
+                                                                   "Values":  {
+
+                                                                              }
+                                                               },
+                                                "airdensity":  {
+                                                                   "Name":  "airdensity",
+                                                                   "FullName":  "Air Density",
+                                                                   "Unit":  "",
+                                                                   "OutputType":  4,
+                                                                   "Value":  1.225,
+                                                                   "Values":  {
+
+                                                                              }
+                                                               },
+                                                "decelerationdistanceforspeed":  {
+                                                                                     "Name":  "decelerationdistanceforspeed",
+                                                                                     "FullName":  "Deceleration Distance For Speed [27.778 km/h]",
+                                                                                     "Unit":  "",
+                                                                                     "OutputType":  5,
+                                                                                     "Value":  0,
+                                                                                     "Values":  {
+
+                                                                                                }
+                                                                                 },
+                                                "decelerationtimeforspeed":  {
+                                                                                 "Name":  "decelerationtimeforspeed",
+                                                                                 "FullName":  "Deceleration Time For Speed [27.778 km/h]",
+                                                                                 "Unit":  "",
+                                                                                 "OutputType":  5,
+                                                                                 "Value":  0,
+                                                                                 "Values":  {
+
+                                                                                            }
+                                                                             },
+                                                "dragcoefficient":  {
+                                                                        "Name":  "dragcoefficient",
+                                                                        "FullName":  "Drag Coefficient",
+                                                                        "Unit":  "",
+                                                                        "OutputType":  4,
+                                                                        "Value":  1.26,
+                                                                        "Values":  {
+
+                                                                                   }
+                                                                    },
+                                                "driveefficiency":  {
+                                                                        "Name":  "driveefficiency",
+                                                                        "FullName":  "Drivetrain Efficiency",
+                                                                        "Unit":  "",
+                                                                        "OutputType":  4,
+                                                                        "Value":  1,
+                                                                        "Values":  {
+
+                                                                                   }
+                                                                    },
+                                                "engineefficiency":  {
+                                                                         "Name":  "engineefficiency",
+                                                                         "FullName":  "Engine Thermal Efficiency",
+                                                                         "Unit":  "",
+                                                                         "OutputType":  4,
+                                                                         "Value":  0.96,
+                                                                         "Values":  {
+
+                                                                                    }
+                                                                     },
+                                                "finaldriveratio":  {
+                                                                        "Name":  "finaldriveratio",
+                                                                        "FullName":  "Final Drive Ratio",
+                                                                        "Unit":  "",
+                                                                        "OutputType":  4,
+                                                                        "Value":  3.31,
+                                                                        "Values":  {
+
+                                                                                   }
+                                                                    },
+                                                "frontarea":  {
+                                                                  "Name":  "frontarea",
+                                                                  "FullName":  "Frontal Area",
+                                                                  "Unit":  "",
+                                                                  "OutputType":  4,
+                                                                  "Value":  0.984,
+                                                                  "Values":  {
+
+                                                                             }
+                                                              },
+                                                "fuelenergydensity":  {
+                                                                          "Name":  "fuelenergydensity",
+                                                                          "FullName":  "Fuel Energy Density",
+                                                                          "Unit":  "",
+                                                                          "OutputType":  4,
+                                                                          "Value":  47200000,
+                                                                          "Values":  {
+
+                                                                                     }
+                                                                      },
+                                                "gearratiodata":  {
+                                                                      "Name":  "gearratiodata",
+                                                                      "FullName":  "Gear Ratio Data",
+                                                                      "Unit":  "",
+                                                                      "OutputType":  4,
+                                                                      "Value":  0,
+                                                                      "Values":  1
+                                                                  },
+                                                "gearshiftpoints":  {
+                                                                        "Name":  "gearshiftpoints",
+                                                                        "FullName":  "Gear Shift Points",
+                                                                        "Unit":  "",
+                                                                        "OutputType":  4,
+                                                                        "Value":  0,
+                                                                        "Values":  {
+
+                                                                                   }
+                                                                    },
+                                                "gripfactor":  {
+                                                                   "Name":  "gripfactor",
+                                                                   "FullName":  "Grip Scaling Factor",
+                                                                   "Unit":  "",
+                                                                   "OutputType":  4,
+                                                                   "Value":  1,
+                                                                   "Values":  {
+
+                                                                              }
+                                                               },
+                                                "latfriction":  {
+                                                                    "Name":  "latfriction",
+                                                                    "FullName":  "Lateral Friction",
+                                                                    "Unit":  "",
+                                                                    "OutputType":  4,
+                                                                    "Value":  1.495816906597931,
+                                                                    "Values":  {
+
+                                                                               }
+                                                                },
+                                                "liftcoefficient":  {
+                                                                        "Name":  "liftcoefficient",
+                                                                        "FullName":  "Downforce Coefficient",
+                                                                        "Unit":  "",
+                                                                        "OutputType":  4,
+                                                                        "Value":  2.26,
+                                                                        "Values":  {
+
+                                                                                   }
+                                                                    },
+                                                "longfriction":  {
+                                                                     "Name":  "longfriction",
+                                                                     "FullName":  "Longitudinal Friction",
+                                                                     "Unit":  "",
+                                                                     "OutputType":  4,
+                                                                     "Value":  1.6173629636829736,
+                                                                     "Values":  {
+
+                                                                                }
+                                                                 },
+                                                "mass":  {
+                                                             "Name":  "mass",
+                                                             "FullName":  "Vehicle Mass",
+                                                             "Unit":  "",
+                                                             "OutputType":  4,
+                                                             "Value":  261.07265114,
+                                                             "Values":  {
+
+                                                                        }
+                                                         },
+                                                "masslatfriction":  {
+                                                                        "Name":  "masslatfriction",
+                                                                        "FullName":  "Mass Lateral Friction",
+                                                                        "Unit":  "",
+                                                                        "OutputType":  4,
+                                                                        "Value":  265.12621537426134,
+                                                                        "Values":  {
+
+                                                                                   }
+                                                                    },
+                                                "masslongfriction":  {
+                                                                         "Name":  "masslongfriction",
+                                                                         "FullName":  "Mass Longitudinal Friction",
+                                                                         "Unit":  "",
+                                                                         "OutputType":  4,
+                                                                         "Value":  265.12621537426134,
+                                                                         "Values":  {
+
+                                                                                    }
+                                                                     },
+                                                "powerfactor":  {
+                                                                    "Name":  "powerfactor",
+                                                                    "FullName":  "Power Scaling Factor",
+                                                                    "Unit":  "",
+                                                                    "OutputType":  4,
+                                                                    "Value":  1,
+                                                                    "Values":  {
+
+                                                                               }
+                                                                },
+                                                "revlimit":  {
+                                                                 "Name":  "revlimit",
+                                                                 "FullName":  "Rev Limit",
+                                                                 "Unit":  "",
+                                                                 "OutputType":  4,
+                                                                 "Value":  680.67840827778855,
+                                                                 "Values":  {
+
+                                                                            }
+                                                             },
+                                                "rpmdata":  {
+                                                                "Name":  "rpmdata",
+                                                                "FullName":  "RPM Data",
+                                                                "Unit":  "",
+                                                                "OutputType":  4,
+                                                                "Value":  0,
+                                                                "Values":  [
+                                                                               0.10471975511965977,
+                                                                               52.359877559829883,
+                                                                               104.71975511965977,
+                                                                               157.07963267948966,
+                                                                               209.43951023931953,
+                                                                               261.79938779914943,
+                                                                               314.15926535897933,
+                                                                               363.63636363636363,
+                                                                               418.87902047863906,
+                                                                               471.238898038469,
+                                                                               523.59877559829886,
+                                                                               575.95865315812864,
+                                                                               628.31853071795865,
+                                                                               680.67840827778855
+                                                                           ]
+                                                            },
+                                                "sensitivitylatfriction":  {
+                                                                               "Name":  "sensitivitylatfriction",
+                                                                               "FullName":  "Load Sensitivity Lateral Friction",
+                                                                               "Unit":  "",
+                                                                               "OutputType":  4,
+                                                                               "Value":  0.0032266225227153382,
+                                                                               "Values":  {
+
+                                                                                          }
+                                                                           },
+                                                "sensitivitylongfriction":  {
+                                                                                "Name":  "sensitivitylongfriction",
+                                                                                "FullName":  "Load Sensitivity Longitudinal Friction",
+                                                                                "Unit":  "",
+                                                                                "OutputType":  4,
+                                                                                "Value":  0.0058122692280025093,
+                                                                                "Values":  {
+
+                                                                                           }
+                                                                            },
+                                                "shiftPoint1to2":  {
+                                                                       "Name":  "shiftPoint1to2",
+                                                                       "FullName":  "Shift Point [1 to 2]",
+                                                                       "Unit":  "",
+                                                                       "OutputType":  5,
+                                                                       "Value":  1103.4792307567195,
+                                                                       "Values":  {
+
+                                                                                  }
+                                                                   },
+                                                "shiftPoint2to3":  {
+                                                                       "Name":  "shiftPoint2to3",
+                                                                       "FullName":  "Shift Point [2 to 3]",
+                                                                       "Unit":  "",
+                                                                       "OutputType":  5,
+                                                                       "Value":  1126.6005979501665,
+                                                                       "Values":  {
+
+                                                                                  }
+                                                                   },
+                                                "shiftPoint3to4":  {
+                                                                       "Name":  "shiftPoint3to4",
+                                                                       "FullName":  "Shift Point [3 to 4]",
+                                                                       "Unit":  "",
+                                                                       "OutputType":  5,
+                                                                       "Value":  1129.753511658364,
+                                                                       "Values":  {
+
+                                                                                  }
+                                                                   },
+                                                "shiftSpeed1to2":  {
+                                                                       "Name":  "shiftSpeed1to2",
+                                                                       "FullName":  "Shift Speed [1 to 2]",
+                                                                       "Unit":  "",
+                                                                       "OutputType":  5,
+                                                                       "Value":  12.84473178658615,
+                                                                       "Values":  {
+
+                                                                                  }
+                                                                   },
+                                                "shiftSpeed2to3":  {
+                                                                       "Name":  "shiftSpeed2to3",
+                                                                       "FullName":  "Shift Speed [2 to 3]",
+                                                                       "Unit":  "",
+                                                                       "OutputType":  5,
+                                                                       "Value":  15.736643272954705,
+                                                                       "Values":  {
+
+                                                                                  }
+                                                                   },
+                                                "shiftSpeed3to4":  {
+                                                                       "Name":  "shiftSpeed3to4",
+                                                                       "FullName":  "Shift Speed [3 to 4]",
+                                                                       "Unit":  "",
+                                                                       "OutputType":  5,
+                                                                       "Value":  19.725854965463498,
+                                                                       "Values":  {
+
+                                                                                  }
+                                                                   },
+                                                "tireradius":  {
+                                                                   "Name":  "tireradius",
+                                                                   "FullName":  "Tire Rolling Radius",
+                                                                   "Unit":  "",
+                                                                   "OutputType":  4,
+                                                                   "Value":  0.2045,
+                                                                   "Values":  {
+
+                                                                              }
+                                                               },
+                                                "tirerollingdrag":  {
+                                                                        "Name":  "tirerollingdrag",
+                                                                        "FullName":  "Tire Rolling Drag",
+                                                                        "Unit":  "",
+                                                                        "OutputType":  4,
+                                                                        "Value":  0,
+                                                                        "Values":  {
+
+                                                                                   }
+                                                                    },
+                                                "topSpeed":  {
+                                                                 "Name":  "topSpeed",
+                                                                 "FullName":  "Top Speed",
+                                                                 "Unit":  "",
+                                                                 "OutputType":  5,
+                                                                 "Value":  42.0539983361957,
+                                                                 "Values":  {
+
+                                                                            }
+                                                             },
+                                                "torquedata":  {
+                                                                   "Name":  "torquedata",
+                                                                   "FullName":  "Torque Data",
+                                                                   "Unit":  "",
+                                                                   "OutputType":  4,
+                                                                   "Value":  0,
+                                                                   "Values":  [
+                                                                                  220,
+                                                                                  220,
+                                                                                  220,
+                                                                                  220,
+                                                                                  220,
+                                                                                  220,
+                                                                                  220,
+                                                                                  220,
+                                                                                  190.98593171027443,
+                                                                                  169.765272631355,
+                                                                                  152.78874536821954,
+                                                                                  138.89885942565414,
+                                                                                  127.32395447351627,
+                                                                                  117.52980412939964
+                                                                              ]
+                                                               },
+                                                "weightdrivenwheel":  {
+                                                                          "Name":  "weightdrivenwheel",
+                                                                          "FullName":  "Percent Weight on Driven Wheel",
+                                                                          "Unit":  "",
+                                                                          "OutputType":  4,
+                                                                          "Value":  0.51650371105800252,
+                                                                          "Values":  {
+
+                                                                                     }
+                                                                      }
+                                            }
+                },
+    "Track":  {
+                  "SourcePath":  "C:\\Users\\Abishek\\Desktop\\Aero Sweeps\\proof_sweep\\tracks\\FSAE Michigan Endurance 2014.OLTra",
+                  "SourceSha256":  "C776E927D9D470514F69D88450102042E0D3FCA49407E9AEA8F18715724460C6",
+                  "Name":  "FSAE Michigan Endurance 2014",
+                  "Type":  "Autocross",
+                  "Configuration":  "Closed Circuit",
+                  "Direction":  "Forward Direction",
+                  "IsClosed":  true,
+                  "TotalLength_m":  1069.968773,
+                  "SegmentSize_m":  0.25,
+                  "SegmentCount":  4280
+              }
+}

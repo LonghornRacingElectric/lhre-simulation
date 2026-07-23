@@ -1,0 +1,26 @@
+{
+  "track": {
+    "name": "FSAE Michigan Endurance 2014",
+    "length_m": 1069.968773,
+    "segments": 4280,
+    "mesh_min_m": 0.218773000000056,
+    "mesh_max_m": 0.25,
+    "maximum_abs_curvature_1pm": 0.18516761384859698
+  },
+  "vehicle": {
+    "mass_kg": 261.07265114,
+    "rear_static_fraction": 0.5165037110580026,
+    "maximum_power_kw": 80.0,
+    "cl": 2.26,
+    "cd": 1.26,
+    "reference_area_m2": 0.984,
+    "mu_x": 1.6173629636829736,
+    "mu_y": 1.495816906597931
+  },
+  "files": {
+    "track_csv": "inputs/michigan_openlap_track.csv",
+    "track_mat": "inputs/OpenTRACK_FSAE_Michigan_Endurance_2014.mat",
+    "vehicle_json": "inputs/openlap_vehicle.json",
+    "vehicle_mat": "inputs/OpenVEHICLE_LHRe_Matched_Baseline.mat"
+  }
+}

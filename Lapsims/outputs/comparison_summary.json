@@ -1,0 +1,38 @@
+{
+  "optimumlap": {
+    "solver": "OptimumLap native OptimumLap_Simple.Solver",
+    "lap_time_s": 58.76928709843806,
+    "minimum_speed_mps": 9.07219875488455,
+    "maximum_speed_mps": 37.909980532139336,
+    "maximum_lateral_accel_mps2": 20.44758845610827,
+    "maximum_longitudinal_accel_mps2": 8.314901455673997,
+    "maximum_longitudinal_decel_mps2": -26.253685969308588
+  },
+  "openlap": {
+    "solver": "OpenLAP equations, contained Python forward/backward port",
+    "lap_time_s": 58.459772032127205,
+    "minimum_speed_mps": 9.074748345631074,
+    "maximum_speed_mps": 37.808386963710774,
+    "maximum_lateral_accel_mps2": 20.3275480146896,
+    "maximum_longitudinal_accel_mps2": 8.222915592853724,
+    "maximum_longitudinal_decel_mps2": -26.287240275964905
+  },
+  "difference_openlap_minus_optimumlap": {
+    "lap_time_s": -0.30951506631085834,
+    "lap_time_percent": -0.5266612572523182,
+    "speed_rmse_mps": 0.09828270713826386,
+    "speed_mae_mps": 0.07544088588752013,
+    "maximum_absolute_speed_delta_mps": 0.31335379087897053,
+    "speed_profile_correlation": 0.9999363377298478,
+    "same_openlap_time_formula_delta_s": 0.026631026320515616,
+    "same_openlap_time_formula_delta_percent": 0.045575209311218105,
+    "optimumlap_speed_profile_with_openlap_time_formula_s": 58.43314100580669,
+    "openlap_speed_profile_with_openlap_time_formula_s": 58.459772032127205,
+    "optimumlap_reported_minus_openlap_formula_s": 0.33614609263137396
+  },
+  "mesh_validation": {
+    "track_length_m": 1069.968773,
+    "segments": 4280,
+    "maximum_absolute_distance_delta_m": 0.0
+  }
+}
