@@ -129,8 +129,154 @@ start point used by OpenLAP and its doubled-first-segment standing-start
 integration. The upstream MATLAB source remains untouched and is the
 reference implementation.
 
-No battery, SOC, voltage, thermal, or SOC-dependent torque behavior has been
-added in this baseline.
+The correlated baseline remains unchanged and has no battery state. A separate,
+opt-in endurance runner now adds chronological SOC/SOE, voltage sag, motor
+voltage/current limits, losses, and an accumulator-terminal 80 kW limit without
+changing the legacy solver or its regression outputs.
+
+## Battery-aware endurance
+
+Run the default 21-lap, standing-start Michigan endurance sweep (4p through
+7p):
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\run_endurance.ps1
+```
+
+Run pack-size and mass sensitivity cases:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\run_endurance.ps1 `
+  --parallel-counts 4 5 6 7
+```
+
+Each parallel-count case changes pack capacity, resistance, current capability,
+and vehicle mass. The mass delta includes cell mass times the configured pack
+mass multiplier; the existing 5p car mass remains the zero-delta baseline.
+
+`src/powertrain_model.py` solves maximum feasible torque against phase current,
+motor speed/power, field-weakening voltage demand, pack voltage sag, minimum
+terminal voltage, bus current, and the 80 kW accumulator-terminal rule limit
+simultaneously. `src/endurance_solver.py` first builds the lateral/mechanical
+braking envelope, then traverses all laps once in chronological order. Battery
+energy is consumed only during that chronological pass, never during envelope
+convergence.
+
+The trace logs SOC, SOE, OCV, terminal voltage/current/power, motor
+requested/available/used torque, phase current, losses, and the active limiter
+at every segment. Summary checks assert the 80 kW limit, monotonic SOC, pack
+energy balance, and terminal-to-shaft loss balance. Regen-enabled runs replace
+the monotonic-SOC assertion with signed coulomb-counting and SOC-bound checks.
+Each case also writes the speed-by-SOC maximum-torque surface used by the
+endurance solver.
+
+The committed `130s5p P30B` input is explicitly provisional. EMRAX 228 HV
+limits and electrical constants come from the manufacturer v1.6 datasheet:
+220 N-m, 124 kW, 6500 RPM, 0.94 N-m/Arms, 235 Arms, 15.48 mOhm phase
+resistance, 225.5 uH phase inductance, 0.07348 Vrms/RPM induced voltage, and
+10 pole pairs. Because the sheet publishes only one phase inductance, the
+surface-PMSM model provisionally sets `Lq = Ld`. The general-purpose input
+retains its earlier effective resistance so old sweep outputs remain
+reproducible. The cell trade study below instead constructs every pack from
+the sourced cell record and uses P30B's conservative 30 A continuous rating,
+17 mOhm typical DCIR, 3.0 Ah capacity, and 47 g mass.
+
+## Battery cell trade study
+
+Run the complete 22 km battery-cell/topology analysis:
+
+```powershell
+python .\tools\run_battery_trade_study.py `
+  --output-root .\outputs\battery_trade_study_20260725_final
+```
+
+After the final native-mesh refinements, build and render the eight cell
+workbooks with a Node environment that provides `@oai/artifact-tool`:
+
+```powershell
+node .\tools\build_battery_trade_workbooks.mjs
+```
+
+The runner reads `inputs/battery_trade_study/cells.json` and evaluates a
+declared study grid: series counts from 110s through 140s in five-cell
+increments, and parallel counts from the first topology providing 9 Ah
+through 6p. It then admits configurations that meet all of these
+pre-simulation screens:
+
+- maximum charged voltage strictly below 600 V,
+- modeled usable chemical energy no greater than 8.0 kWh,
+- at least 9 Ah pack capacity, and
+- cylindrical cell envelope no larger than the current 130s5p P30B pack.
+
+Every accepted topology runs the complete 22 km Michigan endurance distance.
+The accumulator-terminal power ceiling is tuned, never above 80 kW, to finish
+with 0.500 kWh usable chemical energy remaining. Packs that still have extra
+reserve at 80 kW are retained and labeled as power-cap-saturated rather than
+being given an artificial higher power limit.
+
+The screening sweep uses a reduced track mesh and two torque-interpolation
+feasibility corrections. The best result for every cell, the baseline, and
+leading Pareto cases are rerun on the native 0.25 m track mesh with the full
+feasibility correction. Exact-distance aggregation solves the partial final
+segment in time, so reported metrics end at 22,000.000 m rather than at the
+end of the repeated lap.
+
+Reported metrics include total/equivalent-lap time, fastest and slowest
+completed laps, average/peak motor and battery power, peak/RMS cell current,
+gross discharge, recovered and net terminal energy, chemical and shaft energy,
+total/regen I2R heat, battery and powertrain efficiency, reserve, and an
+adiabatic cell-temperature-rise estimate. The thermal estimate uses
+1000 J/kg-K for all cells and is an upper-bound comparison, not a
+cooling-system prediction.
+
+For cells that publish ACIR but not DCIR, the input estimates room-temperature
+DCIR as 2.047 times ACIR. That factor is the mean of the published P30B and
+P50B DCIR/ACIR ratios. Those resistance results are intentionally marked
+provisional pending same-fixture pulse testing. The shortlist entry
+`Tenpower 18650 4000mAh` is excluded because it does not identify an exact
+cell model or datasheet.
+
+## Endurance-only regeneration study
+
+The consolidated decision report, including methodology, validation, pack
+rankings, dynamic-event scores, and reproduction commands, is
+[Battery Regen Pack Analysis](reports/battery_regen_pack_analysis_20260725.md).
+
+The telemetry utility repairs the known six-heading/eight-data-column car-1001
+CSV export, checks the energy counters, and calculates time-weighted
+regenerative power:
+
+```powershell
+python .\tools\analyze_regen_telemetry.py `
+  C:\Users\Abishek\Downloads\car-1001-joined-endurance.csv `
+  --active-threshold-kw 1.0
+```
+
+`inputs/battery_trade_study/endurance_regen_telemetry_policy.json` records the
+source hash, sign convention, selector, measured 8.574267 kW active RMS,
+3.121302 kW whole-event-equivalent RMS, and 22.23 kW peak.
+`endurance_regen_simulation_calibration.json` maps that RMS to one fixed
+10.059 kW terminal command on the native Michigan P30B reference. The command,
+not a separately retuned result, is then held constant across pack candidates;
+physical braking-source, motor/inverter, tire, terminal-voltage, current, and
+SOC-headroom limits may reduce achieved RMS.
+
+Run the versioned full pack rerun:
+
+```powershell
+python .\tools\run_battery_trade_study.py `
+  --regen-policy `
+    .\inputs\battery_trade_study\endurance_regen_telemetry_policy.json `
+  --regen-command-power-kw 10.059 `
+  --output-root `
+    .\outputs\battery_trade_study_regen_endurance_only_20260725
+```
+
+Regeneration is opt-in and is called only by chronological endurance. The
+acceleration, skidpad, and autocross solvers remain unchanged. Negative
+terminal current raises SOC; pack heating remains positive `I^2 R` in both
+directions. Mechanical brakes supply any remainder, so the braking-speed
+envelope remains achievable.
 
 ## Reproduce
 
@@ -171,6 +317,16 @@ correlation tolerances.
 - `outputs/input_equivalence.csv` — parameter-by-parameter parity table
 - `outputs/tire_load_sensitivity_validation.csv` — tire curve validation
 - `src/openlap_solver.py` — OpenLAP-equation execution port
+- `src/powertrain_model.py` — coupled accumulator/inverter/EMRAX model
+- `src/endurance_solver.py` — chronological multi-lap battery-state runner
+- `src/run_endurance.py` — CLI and pack-size/mass sweep
+- `inputs/powertrain_130s5p_p30b_provisional.json` — replaceable model inputs
+- `inputs/battery_trade_study/cells.json` — sourced cell shortlist and assumptions
+- `src/battery_trade_study.py` — topology policy and exact-distance metrics
+- `tools/run_battery_trade_study.py` — full constrained cell trade study
+- `tools/refine_battery_trade_categories.py` — native-mesh recommendation audit
+- `tools/validate_battery_trade_study.py` — result and constraint validator
+- `tools/build_battery_trade_workbooks.mjs` — eight four-sheet Excel deliverables
 - `tools/export_optimumlap_event_suite.ps1` — native event reader/runner
 
 Exact source paths and SHA-256 hashes for the OptimumLap vehicle and event
@@ -186,4 +342,13 @@ tracks are stored in the input manifests.
   zero.
 - The OpenLAP number is from the equation port, not a native MATLAB execution.
   The generated MAT files make a later native cross-check straightforward.
-- Battery and SOC behavior are intentionally deferred.
+- Battery OCV/resistance, inverter loss, and temperature inputs are provisional
+  until replaced by the validated Battery architecture model.
+- Endurance regeneration is modeled, but candidate cell records do not yet
+  contain cell-specific charge-current limits. The measured terminal command,
+  inverter current, maximum cell voltage, and SOC headroom provide the active
+  charge constraints.
+- Thermal state evolution/derating and the driver-change stop are not yet
+  modeled.
+- Zero-command motor iron and inverter parasitic losses are included during
+  coasting, but there is no accessory low-voltage load model.

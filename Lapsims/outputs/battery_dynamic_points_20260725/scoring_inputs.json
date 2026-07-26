@@ -1,0 +1,88 @@
+{
+  "official_rules_source": "https://www.fsaeonline.com/cdsweb/gen/DownloadDocument.aspx?DocumentID=278fd4d7-aa27-4e33-bc4a-090148e662a0",
+  "rules_version": "Formula SAE Rules 2026 Version 1.0",
+  "time_score_rules": {
+    "acceleration": {
+      "slug": "acceleration",
+      "display_name": "Acceleration",
+      "maximum_points": 100.0,
+      "performance_points": 95.5,
+      "completion_points": 4.5,
+      "tmin_s": 3.697,
+      "tmax_factor": 1.5,
+      "tmax_s": 5.5455000000000005,
+      "time_ratio_exponent": 1.0
+    },
+    "skidpad": {
+      "slug": "skidpad",
+      "display_name": "Skidpad",
+      "maximum_points": 75.0,
+      "performance_points": 71.5,
+      "completion_points": 3.5,
+      "tmin_s": 4.782,
+      "tmax_factor": 1.25,
+      "tmax_s": 5.9775,
+      "time_ratio_exponent": 2.0
+    },
+    "autocross": {
+      "slug": "autocross",
+      "display_name": "Autocross",
+      "maximum_points": 125.0,
+      "performance_points": 118.5,
+      "completion_points": 6.5,
+      "tmin_s": 43.937,
+      "tmax_factor": 1.45,
+      "tmax_s": 63.70864999999999,
+      "time_ratio_exponent": 1.0
+    },
+    "endurance": {
+      "slug": "endurance",
+      "display_name": "Endurance",
+      "maximum_points": 275.0,
+      "performance_points": 250.0,
+      "completion_points": 25.0,
+      "tmin_s": 1312.281,
+      "tmax_factor": 1.45,
+      "tmax_s": 1902.8074499999998,
+      "time_ratio_exponent": 1.0
+    }
+  },
+  "event_winner_anchor_policy": "For every event and sprint model, the P30B baseline simulation maps to that event's Tmin and every candidate retains its simulated time ratio to the same-mode baseline. Endurance uses the same P30B time-ratio policy.",
+  "primary_model": {
+    "name": "pack_aware_full_soc_80kw_terminal",
+    "terminal_power_limit_kw": 80.0,
+    "soc": "full SOC",
+    "soc_interpretation": "Best-case short-event power; SOC and temperature are not integrated during the sprint.",
+    "pack_constraints": "series/parallel voltage, DC resistance, continuous cell current, inverter bus current, motor limits, and losses"
+  },
+  "mass_isolated_model": {
+    "name": "mass_isolated_common_80kw_curve",
+    "tractive_curve": "inputs/openlap_vehicle.json",
+    "changed_input": "vehicle mass only",
+    "subtotal_interpretation": "Only the 300-point sprint subtotal is cleanly mass-isolated. The explicitly named hybrid totals retain pack-specific endurance and efficiency."
+  },
+  "efficiency_normalization": {
+    "tmin_average_lap_s": 59.649,
+    "minimum_adjusted_energy_per_lap_kg_co2": 0.084,
+    "ef_min": 0.289,
+    "ef_max": 0.797,
+    "winner_average_lap_s": 65.192,
+    "winner_total_energy_kwh": 3.263,
+    "winner_lap_count": 22,
+    "ev_conversion_kg_co2_per_kwh": 0.65,
+    "maximum_points": 100.0,
+    "description": "Inherited ratio-normalized model from the prior vehicle-mass study; not a fresh competition energy-meter reconstruction.",
+    "formula": "projected_lap=65.192*(candidate_avg_lap/baseline_avg_lap); projected_kWh_per_lap=(3.263/22)*(candidate_terminal_energy/baseline_terminal_energy); EF=(59.649*0.0840)/(projected_lap*projected_kWh_per_lap*0.65); score=clamp(100*(EF-0.289)/(0.797-0.289),0,100)"
+  },
+  "maximum_points": {
+    "nonenergy_short_events": 300.0,
+    "performance_excluding_efficiency": 575.0,
+    "full_dynamic_including_efficiency": 675.0
+  },
+  "input_paths": {
+    "candidates": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\all_configuration_results.csv",
+    "cells": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\battery_trade_study\\cells.json",
+    "vehicle": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\openlap_vehicle.json",
+    "powertrain": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\powertrain_130s5p_p30b_provisional.json"
+  }
+}

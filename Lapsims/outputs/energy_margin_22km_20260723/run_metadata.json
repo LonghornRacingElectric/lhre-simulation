@@ -1,0 +1,8 @@
+{
+  "target_distance_km": 22.0,
+  "target_remaining_usable_chemical_energy_kwh": 0.5,
+  "baseline_parallel_count": 5,
+  "baseline_nominal_pack_energy_kwh": 7.02,
+  "equivalent_laps": 20.561347728229446,
+  "method": "Power limit tuned against remaining model chemical energy above 5% minimum SOC at exactly 22 km. Final results use the full 0.25 m track mesh."
+}

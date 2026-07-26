@@ -1,0 +1,84 @@
+{
+  "name": "Provisional LHRe 130s5p P30B / EMRAX 228 HV powertrain",
+  "status": "Replace pack curves and inverter settings with the validated battery architecture model before design decisions.",
+  "sources": {
+    "emrax_228": "https://emrax.com/wp-content/uploads/2025/03/EMRAX_228_datasheet_v1.6.pdf",
+    "molicel_p30b": "https://www.molicel.com/product/inr-18650-p30b/ (current product page: 3.0 Ah, 3.6 V nominal, 36 A discharge, 47 g)",
+    "pack_topology": "Existing local Orion powertrain analysis; confirm with Battery.",
+    "ocv_curve": "Provisional smooth NMC approximation anchored at public 2.5 V minimum, 3.6 V nominal, and 4.2 V charge voltage.",
+    "cell_resistance": "Provisional effective value carried from the existing local 0.1876946944 ohm 130s5p pack estimate.",
+    "motor_inductance_note": "EMRAX v1.6 publishes one 225.5 uH phase inductance. This surface-PMSM implementation provisionally sets Lq equal to Ld.",
+    "pack_mass_sweep": "The 5p vehicle is the zero-delta baseline. Other parallel counts apply cell-count delta times the provisional 1.25 pack mass multiplier.",
+    "inverter_and_iron_loss": "Explicit engineering placeholders carried from the existing local Orion envelope; replace with controller map."
+  },
+  "terminal_power_limit_w": 80000.0,
+  "pack": {
+    "series_cells": 130,
+    "parallel_cells": 5,
+    "base_series_cells": 130,
+    "base_parallel_cells": 5,
+    "cell_capacity_ah": 3.0,
+    "cell_mass_kg": 0.047,
+    "base_cell_mass_kg": 0.047,
+    "pack_mass_multiplier": 1.25,
+    "initial_soc": 1.0,
+    "minimum_soc": 0.05,
+    "minimum_cell_voltage_v": 2.5,
+    "maximum_cell_discharge_current_a": 36.0,
+    "cell_temperature_c": 25.0,
+    "resistance_reference_temperature_c": 25.0,
+    "resistance_temperature_coefficient_per_c": 0.0,
+    "cell_ocv_curve": [
+      [0.0, 2.5],
+      [0.05, 3.18],
+      [0.1, 3.32],
+      [0.2, 3.45],
+      [0.3, 3.55],
+      [0.4, 3.62],
+      [0.5, 3.7],
+      [0.6, 3.78],
+      [0.7, 3.85],
+      [0.8, 3.93],
+      [0.9, 4.02],
+      [1.0, 4.2]
+    ],
+    "cell_resistance_curve_ohm": [
+      [0.0, 0.007219026706530276],
+      [0.05, 0.007219026706530276],
+      [0.5, 0.007219026706530276],
+      [1.0, 0.007219026706530276]
+    ]
+  },
+  "motor": {
+    "peak_torque_nm": 220.0,
+    "peak_power_w": 124000.0,
+    "maximum_speed_rpm": 6500.0,
+    "torque_constant_nm_per_arms": 0.94,
+    "maximum_phase_current_arms": 235.0,
+    "phase_resistance_ohm_at_reference_c": 0.01548,
+    "resistance_reference_temperature_c": 25.0,
+    "winding_temperature_c": 100.0,
+    "copper_temperature_coefficient_per_c": 0.00393,
+    "ld_h": 0.0002255,
+    "lq_h": 0.0002255,
+    "pole_pairs": 10,
+    "induced_voltage_ll_rms_per_rpm": 0.07348,
+    "iron_loss_c0_w": 0.0,
+    "iron_loss_c1_w_per_radps": 2.4596831559914123,
+    "iron_loss_c2_w_per_radps2": 0.011456226181542628
+  },
+  "inverter": {
+    "voltage_utilization_vll_rms_per_vdc": 0.779696801233676,
+    "maximum_bus_current_a": 250.0,
+    "base_loss_w": 300.0,
+    "conduction_loss_fraction": 0.01,
+    "switching_frequency_hz": 10000.0,
+    "equivalent_switch_time_s": 1.8e-07
+  },
+  "drivetrain": {
+    "final_drive_ratio": 3.31,
+    "gear_ratio": 1.0,
+    "tire_radius_m": 0.2045,
+    "mechanical_efficiency": 0.975
+  }
+}

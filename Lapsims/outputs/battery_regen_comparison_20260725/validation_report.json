@@ -1,0 +1,43 @@
+{
+  "all_checks_passed": true,
+  "checks": {
+    "candidate_count_matches": true,
+    "candidate_ids_unique": true,
+    "all_core_benefit_metrics_finite": true,
+    "all_delta_arithmetic_exact": true,
+    "all_benefit_signs_consistent": true
+  },
+  "row_count": 128,
+  "expected_candidate_count": 128,
+  "duplicate_candidate_count": 0,
+  "non_finite_counts": {
+    "sustainable_power_gain_kw": 0,
+    "endurance_time_reduction_s": 0,
+    "gross_discharge_change_kwh": 0,
+    "recovered_energy_gain_kwh": 0,
+    "net_terminal_energy_reduction_kwh": 0,
+    "total_pack_heat_change_kwh": 0,
+    "regen_pack_heat_increase_kwh": 0,
+    "final_reserve_change_kwh": 0,
+    "active_rms_change_kw": 0
+  },
+  "delta_checks": {
+    "sustainable_power_kw": true,
+    "endurance_time_s": true,
+    "gross_discharge_kwh": true,
+    "recovered_energy_kwh": true,
+    "net_terminal_energy_kwh": true,
+    "total_pack_heat_kwh": true,
+    "regen_pack_heat_kwh": true,
+    "final_reserve_kwh": true,
+    "active_rms_kw": true,
+    "overall_rank": true,
+    "cell_rank": true
+  },
+  "benefit_checks": {
+    "sustainable_power_gain": true,
+    "endurance_time_reduction": true,
+    "net_terminal_energy_reduction": true,
+    "rank_improvement": true
+  }
+}

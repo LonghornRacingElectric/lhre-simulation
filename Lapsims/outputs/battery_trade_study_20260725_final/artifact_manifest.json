@@ -1,0 +1,186 @@
+{
+  "generated_at": "2026-07-25",
+  "study": "OpenLAP 22 km battery cell and pack trade study",
+  "files": [
+    {
+      "archive_path": "results/battery_trade_study_report.md",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\battery_trade_study_report.md",
+      "size_bytes": 9177,
+      "sha256": "9205cf6cc21edd82bdc45aea9149ac7dc425fa98d2c4ea97b73fa6f914cf282a"
+    },
+    {
+      "archive_path": "results/headline_summary.json",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\headline_summary.json",
+      "size_bytes": 18224,
+      "sha256": "95b90ce4bb1fb9056c7185eb1cd1f4606cb0e2b4298e7a1d7437c2ad0c5c37e1"
+    },
+    {
+      "archive_path": "results/validation_report.json",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\validation_report.json",
+      "size_bytes": 1067,
+      "sha256": "777ee2e00c07be4c9cb95afcbf68140f12277d6927cbbdced40b159eaf497ff6"
+    },
+    {
+      "archive_path": "results/study_inputs.json",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\study_inputs.json",
+      "size_bytes": 589,
+      "sha256": "8620aef1718218d75ab38bd53db04d979fcff803fc54b8b9fd166950ef460023"
+    },
+    {
+      "archive_path": "results/all_configuration_results.csv",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\all_configuration_results.csv",
+      "size_bytes": 141382,
+      "sha256": "05e69012592e7c0278dc023e9ff280eeeb89a0aad0f6baeb8bba22027bff9537"
+    },
+    {
+      "archive_path": "results/ranked_constraint_valid_results.csv",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\ranked_constraint_valid_results.csv",
+      "size_bytes": 141382,
+      "sha256": "05e69012592e7c0278dc023e9ff280eeeb89a0aad0f6baeb8bba22027bff9537"
+    },
+    {
+      "archive_path": "results/native_refined_results.csv",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\native_refined_results.csv",
+      "size_bytes": 22779,
+      "sha256": "dcfb24c6b02ca9f150cd3226f68f3b46e1eab1e75ef10f0f5a71d50d55b29f41"
+    },
+    {
+      "archive_path": "results/generated_pack_configurations.csv",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\generated_pack_configurations.csv",
+      "size_bytes": 44677,
+      "sha256": "a02ac3f5169784d00e21f053840ed1f42775a07c53a8c5347972b9f386a79331"
+    },
+    {
+      "archive_path": "results/rejected_pack_configurations.csv",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\rejected_pack_configurations.csv",
+      "size_bytes": 55348,
+      "sha256": "2bddb26b6df0ce2085431835b75799b2a56678b084f0cbcdcc95e916057ea449"
+    },
+    {
+      "archive_path": "results/pareto_frontier.csv",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\pareto_frontier.csv",
+      "size_bytes": 83696,
+      "sha256": "d3390a9cb0c95df845b39b7596581debe014149770d1b891ba3da3a0b2108edd"
+    },
+    {
+      "archive_path": "results/sensitivity_cases.csv",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\sensitivity_cases.csv",
+      "size_bytes": 8767,
+      "sha256": "f9a7b02952fac7157f87618995553cb17e4ce9268f491ff155291ef1b2134b23"
+    },
+    {
+      "archive_path": "results/sensitivity_summary.json",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\sensitivity_summary.json",
+      "size_bytes": 641,
+      "sha256": "4d5f810f3315a6e20381e26ca54c5cdfdcde9856fa6de1572aaba9036943cc42"
+    },
+    {
+      "archive_path": "results/plots/time_vs_pack_heat.png",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\plots\\time_vs_pack_heat.png",
+      "size_bytes": 149304,
+      "sha256": "b1262287e0ee75a06d80712cd81da09065f74fe43ce978922102276eae4013bf"
+    },
+    {
+      "archive_path": "results/plots/time_vs_pack_mass.png",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\plots\\time_vs_pack_mass.png",
+      "size_bytes": 179598,
+      "sha256": "6263b50686806cd12491b326f72188900def73ab0bd77dff1150defbb1d91007"
+    },
+    {
+      "archive_path": "results/plots/time_vs_pack_resistance.png",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\plots\\time_vs_pack_resistance.png",
+      "size_bytes": 151811,
+      "sha256": "6630dd9e8c88158770b42cfea722b5044de447e0c6135ec16d840a69c2510cc4"
+    },
+    {
+      "archive_path": "results/plots/time_vs_usable_energy.png",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\plots\\time_vs_usable_energy.png",
+      "size_bytes": 117657,
+      "sha256": "7d7ca65bf0ff04b3188e1ab03996bc34fa5b3a49a53ff84ee48e7303d0cf2bbb"
+    },
+    {
+      "archive_path": "workbooks/ampace_jp30_battery_trade_study.xlsx",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\workbooks\\ampace_jp30_battery_trade_study.xlsx",
+      "size_bytes": 35600,
+      "sha256": "a2f8662ab4f06bb162d0a8d44dac6bff0cf907092561d498cd3c1c2f83f23db3"
+    },
+    {
+      "archive_path": "workbooks/ampace_jp50_battery_trade_study.xlsx",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\workbooks\\ampace_jp50_battery_trade_study.xlsx",
+      "size_bytes": 32413,
+      "sha256": "2050e16ef7a6ee0c013db38556d95e4f0d17a35230847684d2c1134e32ef820a"
+    },
+    {
+      "archive_path": "workbooks/molicel_p30b_battery_trade_study.xlsx",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\workbooks\\molicel_p30b_battery_trade_study.xlsx",
+      "size_bytes": 35673,
+      "sha256": "273dabbc091cdccfa9dbe60dc7c7419fefe59df9002708ee6ccc741d7cb8df88"
+    },
+    {
+      "archive_path": "workbooks/molicel_p50b_battery_trade_study.xlsx",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\workbooks\\molicel_p50b_battery_trade_study.xlsx",
+      "size_bytes": 32434,
+      "sha256": "4b8cb1bb1edab0329094bd6b2309a49be7ee7b5c8c816213a424d01301a4dab4"
+    },
+    {
+      "archive_path": "workbooks/reliance_rs50_battery_trade_study.xlsx",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\workbooks\\reliance_rs50_battery_trade_study.xlsx",
+      "size_bytes": 32509,
+      "sha256": "7e921ce320719a188cde013ff8c0456e0c30ff15706e701897651ad85f3ee790"
+    },
+    {
+      "archive_path": "workbooks/tenpower_30xg_battery_trade_study.xlsx",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\workbooks\\tenpower_30xg_battery_trade_study.xlsx",
+      "size_bytes": 35648,
+      "sha256": "2b4251905cbd032e8c38776c01b1be92b119e03865aeae210ca743bd04a9f573"
+    },
+    {
+      "archive_path": "workbooks/tenpower_50xg_battery_trade_study.xlsx",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\workbooks\\tenpower_50xg_battery_trade_study.xlsx",
+      "size_bytes": 32411,
+      "sha256": "fdf432d27c6bced7ef265fffc5d49273945dde13cd53829fc828c38b6ee127d4"
+    },
+    {
+      "archive_path": "workbooks/tenpower_60xg_battery_trade_study.xlsx",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\workbooks\\tenpower_60xg_battery_trade_study.xlsx",
+      "size_bytes": 29268,
+      "sha256": "d7f4eab627d29e90c893af1711e33344c4c3dd538d9a70c6d4eb520996ddb017"
+    },
+    {
+      "archive_path": "workbooks/workbook_build_qa.json",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\workbooks\\workbook_build_qa.json",
+      "size_bytes": 37180,
+      "sha256": "0e332a330c66f1dd42ba8087f65121107800e74b2417d58daaca0901190594e7"
+    },
+    {
+      "archive_path": "inputs/cells_and_sources.json",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\battery_trade_study\\cells.json",
+      "size_bytes": 8109,
+      "sha256": "72a35e4af2fec164569935c2a8a2be7a95f3beaa6f0029a5f7f4140a750fee13"
+    },
+    {
+      "archive_path": "inputs/openlap_vehicle.json",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\openlap_vehicle.json",
+      "size_bytes": 4159,
+      "sha256": "00d1eb80494a36cf010df6292861e2dc404505b689c5648aea9500bcbc830b3f"
+    },
+    {
+      "archive_path": "inputs/powertrain_130s5p_p30b_provisional.json",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\powertrain_130s5p_p30b_provisional.json",
+      "size_bytes": 3273,
+      "sha256": "56c8c47de139dd2ec4b44f7dd2d33c7dd6297d3e229dccd78e93981eccd9be10"
+    },
+    {
+      "archive_path": "inputs/michigan_openlap_track.csv",
+      "source_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\michigan_openlap_track.csv",
+      "size_bytes": 368708,
+      "sha256": "4ceef3949341337c46bc578de70d0a056c53f7dc0e94087719a0029de2978971"
+    },
+    {
+      "archive_path": "inputs/aryan_trade_study_prompt.txt",
+      "source_path": "C:\\Users\\Abishek\\.codex\\attachments\\6928d693-6e9b-470b-a177-60ac75f1d4f5\\pasted-text.txt",
+      "size_bytes": 5337,
+      "sha256": "7690abefbaa905af6a05a1d62eb3eb6c1ef4c9bb3522a61915e67aa22296c857"
+    }
+  ]
+}

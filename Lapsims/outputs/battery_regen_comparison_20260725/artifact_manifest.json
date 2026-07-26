@@ -1,0 +1,61 @@
+{
+  "scenario_name": "regen_endurance_only_vs_no_regen",
+  "candidate_count": 128,
+  "artifacts": [
+    {
+      "path": "battery_regen_comparison.csv",
+      "sha256": "9e64460235f8470af838fa1c79544d2648dd312a96ab09890ff5f9e2a0765e4e",
+      "bytes": 103182
+    },
+    {
+      "path": "top_rank_changes.csv",
+      "sha256": "0899a78dd3cea99f406dc68929b586733669e771c89c40e71cd87770f1b454a0",
+      "bytes": 103182
+    },
+    {
+      "path": "headline_summary.json",
+      "sha256": "a95eefa8024b6c7fc5487a463861b969a0f17359f4cff3205b6eb6766b9dec9d",
+      "bytes": 3645
+    },
+    {
+      "path": "validation_report.json",
+      "sha256": "5621d41d40e0f52f809c1f48e47109645e12a9eb9a0dbdd2eeb15c770d53b1de",
+      "bytes": 1279
+    },
+    {
+      "path": "comparison_inputs.json",
+      "sha256": "4786866cc27c93f9e57ec80ab50ded32c7ca5c5e10701c95555ba6e157f3c53f",
+      "bytes": 4302
+    },
+    {
+      "path": "battery_regen_comparison_report.md",
+      "sha256": "0b6f60ad7c31b5289a81ef27a07dd298e7591b004ba4d5a49e5cb86c28efa515",
+      "bytes": 5964
+    },
+    {
+      "path": "plots/sustainable_power_gain_vs_pack_mass.png",
+      "sha256": "38e72d144d2194b884a3ffe0c79bdf9ab129357412cc269a3ab5936df6686045",
+      "bytes": 103040
+    },
+    {
+      "path": "plots/endurance_time_reduction_vs_pack_mass.png",
+      "sha256": "1b9e98563bb0ccc8586674fc8855111dba8e27b275d4d36645721a8194c18598",
+      "bytes": 103613
+    },
+    {
+      "path": "plots/recovered_vs_net_energy_reduction.png",
+      "sha256": "045ea23c570c2b98983cc94384b25d1b25c7e85aa9ad6141b21d37fc5384d1cf",
+      "bytes": 106890
+    },
+    {
+      "path": "plots/regen_heat_vs_total_heat_change.png",
+      "sha256": "615f65f75c0cf04717ef2399a54c2314cafa9483deac3edce0ce632b74303c19",
+      "bytes": 97956
+    },
+    {
+      "path": "plots/largest_rank_changes.png",
+      "sha256": "a3363fce67908c4db44041cc41d11f966e8e94cedba31970eca4c6733e88276d",
+      "bytes": 127690
+    }
+  ]
+}

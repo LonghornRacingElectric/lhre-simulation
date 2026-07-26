@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "calibration_id": "michigan_native_p30b_active_rms_command_v1",
+  "telemetry_policy": {
+    "path": "inputs/battery_trade_study/endurance_regen_telemetry_policy.json",
+    "sha256": "2e01020aa9486a4205633fad4a58221ea01e7e44ee78a6405995a1aa9ff3dbdc",
+    "active_rms_target_kw": 8.574267142409962,
+    "active_power_threshold_kw": 1.0,
+    "measured_peak_kw": 22.23
+  },
+  "simulation_reference": {
+    "vehicle": "inputs/openlap_vehicle.json",
+    "track": "inputs/michigan_openlap_track.csv",
+    "distance_km": 22.0,
+    "cell_id": "molicel_p30b",
+    "topology": "130s5p",
+    "discharge_terminal_power_limit_kw": 26.078125,
+    "track_mesh": "native_0p25m",
+    "torque_surface_soc_count": 9,
+    "torque_surface_speed_count": 41,
+    "torque_surface_verification_iterations": 12
+  },
+  "calibration_points": [
+    {
+      "instantaneous_command_kw": 9.8,
+      "achieved_active_rms_kw": 8.394791913357258,
+      "achieved_whole_event_rms_kw": 4.097357381168051,
+      "recovered_terminal_energy_kwh": 0.6671479803960879
+    },
+    {
+      "instantaneous_command_kw": 10.075,
+      "achieved_active_rms_kw": 8.585412048046875,
+      "achieved_whole_event_rms_kw": 4.190388343465548,
+      "recovered_terminal_energy_kwh": 0.6808484967477173
+    }
+  ],
+  "selected_policy": {
+    "method": "linear interpolation between native-mesh calibration points",
+    "frozen_instantaneous_command_kw": 10.059,
+    "expected_reference_active_rms_kw": 8.574326818556073,
+    "expected_reference_error_kw": 0.00005967614611135308,
+    "application": "Hold this command fixed for every pack configuration. Physical source, motor, inverter, tire, pack-voltage, and SOC-headroom limits may lower a candidate's achieved RMS.",
+    "instantaneous_peak_check": "10.059 kW is below the measured 22.23 kW peak."
+  }
+}

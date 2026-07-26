@@ -1,0 +1,29 @@
+{
+  "all_checks_passed": true,
+  "checks": {
+    "all_source_candidates_present_once": true,
+    "all_sprint_invariant_columns_exact": true,
+    "raw_endurance_time_matches_battery_results": true,
+    "net_terminal_energy_matches_battery_results": true,
+    "endurance_power_limit_matches_battery_results": true,
+    "baseline_endurance_maps_to_tmin": true,
+    "baseline_efficiency_maps_to_maximum": true,
+    "pack_aware_performance_total_arithmetic": true,
+    "pack_aware_full_total_arithmetic": true,
+    "mass_isolated_hybrid_total_arithmetic": true,
+    "full_dynamic_scores_in_0_to_675": true,
+    "terminal_discharge_energy_kwh_matches_battery_results": true,
+    "terminal_regenerated_energy_kwh_matches_battery_results": true,
+    "pack_resistive_heat_kwh_matches_battery_results": true,
+    "regen_pack_resistive_heat_kwh_matches_battery_results": true,
+    "regen_active_rms_terminal_power_kw_matches_battery_results": true,
+    "regen_whole_event_rms_terminal_power_kw_matches_battery_results": true,
+    "regen_active_rms_error_kw_matches_battery_results": true,
+    "peak_pack_charge_current_a_matches_battery_results": true,
+    "maximum_terminal_voltage_v_matches_battery_results": true,
+    "adiabatic_cell_temperature_rise_c_matches_battery_results": true,
+    "sprint_long_file_is_byte_identical": true
+  },
+  "candidate_count": 128,
+  "sprint_invariant_column_count": 51
+}

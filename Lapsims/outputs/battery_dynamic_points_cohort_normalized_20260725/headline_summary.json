@@ -1,0 +1,261 @@
+{
+  "candidate_count": 128,
+  "scoring_basis": "fastest raw simulated configuration defines Tmin separately for every timed event and sprint mode",
+  "maximum_points": {
+    "nonenergy_sprint": 300.0,
+    "performance_excluding_efficiency": 575.0,
+    "full_dynamic_including_efficiency": 675.0
+  },
+  "recommended_internal_design_total": "fully cohort-normalized timed events plus cohort-normalized strict-eligibility EV efficiency",
+  "efficiency_policy": {
+    "recommended": "Strict-eligibility cohort efficiency using cohort Tmin, Emin, EFmin, and EFmax.",
+    "comparison": "The inherited competition-calibrated efficiency projection and its total remain unchanged under explicit names."
+  },
+  "cohort_anchors": {
+    "sprint_modes": {
+      "pack_aware": {
+        "acceleration": {
+          "slug": "acceleration",
+          "display_name": "Acceleration",
+          "maximum_points": 100.0,
+          "performance_points": 95.5,
+          "completion_points": 4.5,
+          "tmin_s": 4.250933535449968,
+          "tmax_factor": 1.5,
+          "tmax_s": 6.376400303174952,
+          "time_ratio_exponent": 1.0,
+          "source_raw_time_column": "pack_aware_acceleration_raw_time_s",
+          "fastest_candidate_ids": [
+            "tenpower_30xg_130s4p"
+          ]
+        },
+        "skidpad": {
+          "slug": "skidpad",
+          "display_name": "Skidpad",
+          "maximum_points": 75.0,
+          "performance_points": 71.5,
+          "completion_points": 3.5,
+          "tmin_s": 4.758553193051323,
+          "tmax_factor": 1.25,
+          "tmax_s": 5.948191491314154,
+          "time_ratio_exponent": 2.0,
+          "source_raw_time_column": "pack_aware_skidpad_raw_time_s",
+          "fastest_candidate_ids": [
+            "reliance_rs50_110s2p"
+          ]
+        },
+        "autocross": {
+          "slug": "autocross",
+          "display_name": "Autocross",
+          "maximum_points": 125.0,
+          "performance_points": 118.5,
+          "completion_points": 6.5,
+          "tmin_s": 51.88432241379922,
+          "tmax_factor": 1.45,
+          "tmax_s": 75.23226750000886,
+          "time_ratio_exponent": 1.0,
+          "source_raw_time_column": "pack_aware_autocross_raw_time_s",
+          "fastest_candidate_ids": [
+            "tenpower_30xg_115s3p"
+          ]
+        }
+      },
+      "mass_isolated": {
+        "acceleration": {
+          "slug": "acceleration",
+          "display_name": "Acceleration",
+          "maximum_points": 100.0,
+          "performance_points": 95.5,
+          "completion_points": 4.5,
+          "tmin_s": 4.205352467457964,
+          "tmax_factor": 1.5,
+          "tmax_s": 6.308028701186947,
+          "time_ratio_exponent": 1.0,
+          "source_raw_time_column": "mass_isolated_acceleration_raw_time_s",
+          "fastest_candidate_ids": [
+            "reliance_rs50_110s2p"
+          ]
+        },
+        "skidpad": {
+          "slug": "skidpad",
+          "display_name": "Skidpad",
+          "maximum_points": 75.0,
+          "performance_points": 71.5,
+          "completion_points": 3.5,
+          "tmin_s": 4.758553193051323,
+          "tmax_factor": 1.25,
+          "tmax_s": 5.948191491314154,
+          "time_ratio_exponent": 2.0,
+          "source_raw_time_column": "mass_isolated_skidpad_raw_time_s",
+          "fastest_candidate_ids": [
+            "reliance_rs50_110s2p"
+          ]
+        },
+        "autocross": {
+          "slug": "autocross",
+          "display_name": "Autocross",
+          "maximum_points": 125.0,
+          "performance_points": 118.5,
+          "completion_points": 6.5,
+          "tmin_s": 51.70409358243788,
+          "tmax_factor": 1.45,
+          "tmax_s": 74.97093569453492,
+          "time_ratio_exponent": 1.0,
+          "source_raw_time_column": "mass_isolated_autocross_raw_time_s",
+          "fastest_candidate_ids": [
+            "reliance_rs50_110s2p"
+          ]
+        }
+      }
+    },
+    "endurance": {
+      "slug": "endurance",
+      "display_name": "Endurance",
+      "maximum_points": 275.0,
+      "performance_points": 250.0,
+      "completion_points": 25.0,
+      "tmin_s": 1236.396184147111,
+      "tmax_factor": 1.45,
+      "tmax_s": 1792.7744670133109,
+      "time_ratio_exponent": 1.0,
+      "source_raw_time_column": "raw_endurance_time_s",
+      "fastest_candidate_ids": [
+        "tenpower_60xg_125s3p"
+      ]
+    },
+    "efficiency": {
+      "formula": "EF=(eligible_Tmin/T)*(eligible_Emin/E)",
+      "points_formula": "clip(100*(EF-EFmin)/(EFmax-EFmin),0,100); ineligible=0",
+      "overall_fastest_endurance_time_s": 1236.396184147111,
+      "endurance_time_eligibility_factor": 1.45,
+      "endurance_time_limit_s": 1792.7744670133109,
+      "energy_limit_derivation": "20.02 kgCO2/100km * 22km / 100 / 0.65 kgCO2/kWh",
+      "energy_limit_kwh": 6.776,
+      "eligible_tmin_s": 1244.122620288108,
+      "eligible_emin_kwh": 2.9031450202692963,
+      "efmin": 0.29547948339670405,
+      "efmax": 0.8294889816473378,
+      "eligible_count": 124,
+      "energy_ineligible_count": 4,
+      "time_ineligible_count": 0,
+      "overall_fastest_candidate_ids": [
+        "tenpower_60xg_125s3p"
+      ],
+      "eligible_tmin_candidate_ids": [
+        "tenpower_60xg_120s3p"
+      ],
+      "eligible_emin_candidate_ids": [
+        "molicel_p30b_110s3p"
+      ],
+      "efmax_candidate_ids": [
+        "molicel_p30b_110s3p"
+      ],
+      "energy_ineligible_candidate_ids": [
+        "tenpower_60xg_125s3p",
+        "reliance_rs50_110s4p",
+        "ampace_jp50_110s4p",
+        "tenpower_50xg_110s4p"
+      ],
+      "time_ineligible_candidate_ids": []
+    }
+  },
+  "recommended_pack_aware_best_fully_cohort_normalized": {
+    "candidate_id": "molicel_p50b_140s3p",
+    "cell_id": "molicel_p50b",
+    "series_cells": 140,
+    "parallel_cells": 3,
+    "pack_mass_kg": 37.275,
+    "vehicle_mass_kg": 260.16015114,
+    "acceleration_points": 99.15866873316415,
+    "skidpad_points": 71.72259049746975,
+    "autocross_points": 122.53367569174394,
+    "endurance_points": 267.40071525627144,
+    "terminal_energy_kwh": 6.416368726755676,
+    "cohort_efficiency_eligible": true,
+    "inherited_competition_efficiency_points": 94.33057363124465,
+    "cohort_efficiency_points": 29.121618626881638,
+    "performance_points_excluding_efficiency": 560.8156501786493,
+    "full_dynamic_points_with_inherited_efficiency": 655.146223809894,
+    "full_dynamic_rank_with_inherited_efficiency": 2,
+    "fully_cohort_normalized_full_dynamic_points": 589.937268805531,
+    "fully_cohort_normalized_full_dynamic_rank": 1
+  },
+  "pack_aware_best_full_dynamic": {
+    "candidate_id": "molicel_p50b_135s3p",
+    "cell_id": "molicel_p50b",
+    "series_cells": 135,
+    "parallel_cells": 3,
+    "pack_mass_kg": 35.94375,
+    "vehicle_mass_kg": 258.82890114,
+    "acceleration_points": 99.36552867435718,
+    "skidpad_points": 71.94662715774481,
+    "autocross_points": 122.78957317216178,
+    "endurance_points": 262.9185550573942,
+    "terminal_energy_kwh": 6.187148549553465,
+    "cohort_efficiency_eligible": true,
+    "inherited_competition_efficiency_points": 99.05207183666184,
+    "cohort_efficiency_points": 31.75849146626212,
+    "performance_points_excluding_efficiency": 557.020284061658,
+    "full_dynamic_points_with_inherited_efficiency": 656.0723558983199,
+    "full_dynamic_rank_with_inherited_efficiency": 1,
+    "fully_cohort_normalized_full_dynamic_points": 588.7787755279202,
+    "fully_cohort_normalized_full_dynamic_rank": 2
+  },
+  "pack_aware_best_performance_excluding_efficiency": {
+    "candidate_id": "reliance_rs50_110s4p",
+    "cell_id": "reliance_rs50",
+    "series_cells": 110,
+    "parallel_cells": 4,
+    "pack_mass_kg": 36.85,
+    "vehicle_mass_kg": 259.73515114,
+    "acceleration_points": 97.23424573985227,
+    "skidpad_points": 71.79400062472676,
+    "autocross_points": 122.44811312373255,
+    "endurance_points": 274.2436510458044,
+    "terminal_energy_kwh": 6.933241796625216,
+    "cohort_efficiency_eligible": false,
+    "inherited_competition_efficiency_points": 84.25722495596487,
+    "cohort_efficiency_points": 0.0,
+    "performance_points_excluding_efficiency": 565.720010534116,
+    "full_dynamic_points_with_inherited_efficiency": 649.9772354900808,
+    "full_dynamic_rank_with_inherited_efficiency": 5,
+    "fully_cohort_normalized_full_dynamic_points": 565.720010534116,
+    "fully_cohort_normalized_full_dynamic_rank": 61
+  },
+  "mass_isolated_best_full_dynamic": {
+    "candidate_id": "tenpower_60xg_110s3p",
+    "pack_mass_kg": 31.35,
+    "performance_points_excluding_efficiency": 555.986989892227,
+    "full_dynamic_points": 655.986989892227,
+    "full_dynamic_rank": 1
+  },
+  "recommended_mass_isolated_best_fully_cohort_normalized": {
+    "candidate_id": "tenpower_60xg_110s3p",
+    "pack_mass_kg": 31.35,
+    "performance_points_excluding_efficiency": 555.986989892227,
+    "cohort_efficiency_points": 33.51700272732105,
+    "fully_cohort_normalized_full_dynamic_points": 589.5039926195481,
+    "fully_cohort_normalized_full_dynamic_rank": 1
+  },
+  "baseline": {
+    "candidate_id": "molicel_p30b_130s5p",
+    "cell_id": "molicel_p30b",
+    "series_cells": 130,
+    "parallel_cells": 5,
+    "pack_mass_kg": 38.1875,
+    "vehicle_mass_kg": 261.07265114,
+    "acceleration_points": 97.77515485061072,
+    "skidpad_points": 71.56962451637906,
+    "autocross_points": 122.25816002762389,
+    "endurance_points": 252.8298488444714,
+    "terminal_energy_kwh": 6.069867533316428,
+    "cohort_efficiency_eligible": true,
+    "inherited_competition_efficiency_points": 100.0,
+    "cohort_efficiency_points": 32.312525442389386,
+    "performance_points_excluding_efficiency": 544.4327882390851,
+    "full_dynamic_points_with_inherited_efficiency": 644.4327882390851,
+    "full_dynamic_rank_with_inherited_efficiency": 23,
+    "fully_cohort_normalized_full_dynamic_points": 576.7453136814745,
+    "fully_cohort_normalized_full_dynamic_rank": 34
+  }
+}

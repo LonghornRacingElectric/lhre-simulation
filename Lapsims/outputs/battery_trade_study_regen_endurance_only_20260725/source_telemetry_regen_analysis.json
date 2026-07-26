@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "source": {
+    "path": "C:\\Users\\Abishek\\Downloads\\car-1001-joined-endurance.csv",
+    "file_name": "car-1001-joined-endurance.csv",
+    "size_bytes": 160019,
+    "sha256": "49e34e23dd77cdd30aceb4dfb0172dd966d438f4aeb795c5fbeb01123a8c6882"
+  },
+  "parser": {
+    "original_header": [
+      "time_s",
+      "voltage_v",
+      "power_kw",
+      "max_cell_temp_c",
+      "net_energy_kwh",
+      "current_a"
+    ],
+    "repaired_header": [
+      "time_s",
+      "voltage_v",
+      "power_kw",
+      "max_cell_temp_c",
+      "net_energy_kwh",
+      "current_a",
+      "outgoing_energy_kwh",
+      "incoming_energy_kwh"
+    ],
+    "original_header_column_count": 6,
+    "data_column_count": 8,
+    "header_repaired": true,
+    "repair_interpretation": "Appended outgoing_energy_kwh and incoming_energy_kwh to the known six-column export header."
+  },
+  "time_weighting": {
+    "method": "left_sample_zero_order_hold",
+    "interpretation": "Each power sample applies from its timestamp until the next timestamp; the final sample has zero duration."
+  },
+  "event": {
+    "sample_count": 3629,
+    "interval_count": 3628,
+    "start_time_s": 0.0,
+    "end_time_s": 1814.007,
+    "duration_s": 1814.007,
+    "median_interval_s": 0.5029999999999291,
+    "minimum_interval_s": 0.4919999999999618,
+    "maximum_interval_s": 0.5090000000000146
+  },
+  "all_negative_power": {
+    "selector": "power_kw < 0",
+    "threshold_kw": 0.0,
+    "active_interval_count": 618,
+    "active_duration_s": 308.95299999999855,
+    "duty_cycle_fraction": 0.1703152192907737,
+    "conditional_active_rms_kw": 7.566627386854125,
+    "whole_event_equivalent_rms_kw": 3.1226914705023514,
+    "peak_negative_power_kw": -22.23,
+    "peak_regen_magnitude_kw": 22.23,
+    "integrated_recovered_energy_kwh": 0.4780725666666669
+  },
+  "active_negative_power": {
+    "selector": "power_kw < -1",
+    "threshold_kw": -1.0,
+    "active_interval_count": 481,
+    "active_duration_s": 240.389999999999,
+    "duty_cycle_fraction": 0.13251878300359315,
+    "conditional_active_rms_kw": 8.574267142409962,
+    "whole_event_equivalent_rms_kw": 3.1213015628622487,
+    "peak_negative_power_kw": -22.23,
+    "peak_regen_magnitude_kw": 22.23,
+    "integrated_recovered_energy_kwh": 0.47099489722222265
+  },
+  "final_energy_counters": {
+    "net_energy_kwh": 4.1438,
+    "outgoing_energy_kwh": 4.6298,
+    "incoming_energy_kwh": 0.486,
+    "outgoing_minus_incoming_kwh": 4.143800000000001,
+    "counter_balance_residual_kwh": -8.881784197001252e-16
+  }
+}
