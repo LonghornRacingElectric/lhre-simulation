@@ -1,0 +1,45 @@
+{
+  "distance_km": 22.0,
+  "reserve_target_kwh": 0.5,
+  "reserve_tolerance_kwh": 0.01,
+  "power_cap_kw": 80.0,
+  "series_counts": [
+    110,
+    115,
+    120,
+    125,
+    130,
+    135,
+    140
+  ],
+  "screening_downsample_factor": 8,
+  "screening_surface": [
+    7,
+    25
+  ],
+  "refinement_surface": [
+    9,
+    41
+  ],
+  "specific_heat_j_per_kgk": 1000.0,
+  "candidate_count": 128,
+  "rejected_count": 131,
+  "source_cell_file": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\battery_trade_study\\cells.json",
+  "source_vehicle_file": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\openlap_vehicle.json",
+  "source_track_file": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\michigan_openlap_track.csv",
+  "source_powertrain_file": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\powertrain_130s5p_p30b_provisional.json",
+  "regeneration": {
+    "enabled": true,
+    "scope": "endurance only",
+    "policy_path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\battery_trade_study\\endurance_regen_telemetry_policy.json",
+    "policy_sha256": "2e01020aa9486a4205633fad4a58221ea01e7e44ee78a6405995a1aa9ff3dbdc",
+    "policy_id": "lhre_endurance_terminal_regen_active_rms_v1",
+    "active_rms_target_kw": 8.574267142409962,
+    "active_selector": "power_kw < -1.0",
+    "active_power_threshold_kw": 1.0,
+    "measured_peak_kw": 22.23,
+    "frozen_command_power_kw": 10.059,
+    "command_calibration": "Frozen on the native Michigan 22 km P30B 130s5p baseline at 26.078125 kW discharge ceiling. Linear interpolation between 9.800 and 10.075 kW command points set 10.059 kW for the 8.574267 kW active RMS target using the same 1 kW selector.",
+    "candidate_policy": "Hold the calibrated command fixed for every pack; report each pack's achieved RMS after voltage, SOC, inverter, motor, tire, and braking-source limits."
+  }
+}

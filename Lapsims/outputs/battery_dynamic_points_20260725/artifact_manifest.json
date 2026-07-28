@@ -1,0 +1,18 @@
+{
+  "output_directory": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_dynamic_points_20260725",
+  "artifacts": [
+    "artifact_manifest.json",
+    "battery_dynamic_event_results_long.csv",
+    "battery_dynamic_points_report.md",
+    "battery_dynamic_points_summary.csv",
+    "headline_summary.json",
+    "inherited_endurance_efficiency_scores.csv",
+    "plots\\event_points_vs_pack_mass.png",
+    "plots\\full_dynamic_points_vs_pack_mass.png",
+    "plots\\nonenergy_points_vs_pack_mass.png",
+    "plots\\raw_event_time_penalty_vs_pack_mass.png",
+    "plots\\top15_dynamic_points_stacked.png",
+    "scoring_inputs.json",
+    "validation_report.json"
+  ]
+}

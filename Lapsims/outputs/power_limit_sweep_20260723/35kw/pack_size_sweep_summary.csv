@@ -1,0 +1,2 @@
+case,completed,vehicle_mass_kg,capacity_ah,pack_resistance_ohm,elapsed_time_s,final_soc,terminal_energy_kwh,maximum_terminal_power_w,completed_laps,distance_m,minimum_terminal_voltage_v
+130s5p,False,261.07265114,15.0,0.18769469436978717,1227.1950271576038,0.05,6.701115241596025,34999.99999974969,20,21772.652981505114,396.846854321936

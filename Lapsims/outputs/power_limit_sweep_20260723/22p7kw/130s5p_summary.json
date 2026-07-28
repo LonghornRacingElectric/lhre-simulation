@@ -1,0 +1,219 @@
+{
+  "solver": "Chronological OpenLAP point-mass endurance with coupled accumulator/inverter/EMRAX torque limit",
+  "completed": true,
+  "stop_reason": "completed_requested_laps",
+  "requested_laps": 21,
+  "completed_laps": 21,
+  "segments_simulated": 89880,
+  "distance_m": 22469.34423300001,
+  "elapsed_time_s": 1318.358975183377,
+  "vehicle_mass_kg": 261.07265114,
+  "pack_series_cells": 130,
+  "pack_parallel_cells": 5,
+  "pack_capacity_ah": 15.0,
+  "pack_resistance_at_initial_soc_ohm": 0.18769469436978717,
+  "initial_soc": 1.0,
+  "final_soc": 0.22629927422128956,
+  "initial_soe": 1.0,
+  "final_soe": 0.16779887260187962,
+  "terminal_energy_kwh": 5.628908393187354,
+  "chemical_energy_kwh": 5.7260304551550245,
+  "pack_resistive_loss_kwh": 0.09712206196765628,
+  "motor_loss_kwh": 0.5581978332113523,
+  "inverter_loss_kwh": 0.18758863290129327,
+  "drivetrain_loss_kwh": 0.12207804817686874,
+  "maximum_terminal_power_w": 22699.999999675223,
+  "maximum_terminal_power_residual_w": 0.0,
+  "minimum_terminal_voltage_v": 442.2872735401421,
+  "maximum_bus_current_a": 51.32409594283384,
+  "checks": {
+    "terminal_power_never_exceeds_limit": true,
+    "terminal_power_matches_voltage_times_current": true,
+    "soc_monotonic_nonincreasing": true,
+    "pack_energy_balance_error_wh": 1.4281908988778014e-11,
+    "pack_energy_balance_relative": 2.4942076540861413e-15,
+    "powertrain_chain_balance_error_wh": 2.674482857401017e-11,
+    "powertrain_chain_balance_relative": 4.751334842538801e-15
+  },
+  "active_limiter_counts": {
+    "terminal_power_80kw": 57389,
+    "braking_envelope": 18473,
+    "tire_traction": 14018
+  },
+  "per_lap": [
+    {
+      "lap": 1,
+      "completed": true,
+      "lap_time_s": 63.89534182720906,
+      "start_soc": 1.0,
+      "end_soc": 0.9657949880370913,
+      "terminal_energy_wh": 274.21301665964415
+    },
+    {
+      "lap": 2,
+      "completed": true,
+      "lap_time_s": 62.728543800156636,
+      "start_soc": 0.9657949880370913,
+      "end_soc": 0.9318682249629432,
+      "terminal_energy_wh": 267.8530045874536
+    },
+    {
+      "lap": 3,
+      "completed": true,
+      "lap_time_s": 62.72752836213007,
+      "start_soc": 0.9318682249629432,
+      "end_soc": 0.8974133434821367,
+      "terminal_energy_wh": 267.83118239781743
+    },
+    {
+      "lap": 4,
+      "completed": true,
+      "lap_time_s": 62.72676352952959,
+      "start_soc": 0.8974133434821367,
+      "end_soc": 0.8625658784961894,
+      "terminal_energy_wh": 267.81531858942753
+    },
+    {
+      "lap": 5,
+      "completed": true,
+      "lap_time_s": 62.72624109828985,
+      "start_soc": 0.8625658784961894,
+      "end_soc": 0.8274357075428369,
+      "terminal_energy_wh": 267.7966260333001
+    },
+    {
+      "lap": 6,
+      "completed": true,
+      "lap_time_s": 62.725716182398685,
+      "start_soc": 0.8274357075428369,
+      "end_soc": 0.792015497222704,
+      "terminal_energy_wh": 267.78585743029726
+    },
+    {
+      "lap": 7,
+      "completed": true,
+      "lap_time_s": 62.725224408936015,
+      "start_soc": 0.792015497222704,
+      "end_soc": 0.7563204974201467,
+      "terminal_energy_wh": 267.7757971746364
+    },
+    {
+      "lap": 8,
+      "completed": true,
+      "lap_time_s": 62.72474931827145,
+      "start_soc": 0.7563204974201467,
+      "end_soc": 0.7203543662398513,
+      "terminal_energy_wh": 267.7660473504345
+    },
+    {
+      "lap": 9,
+      "completed": true,
+      "lap_time_s": 62.72427461531714,
+      "start_soc": 0.7203543662398513,
+      "end_soc": 0.6841141184377217,
+      "terminal_energy_wh": 267.75633903038306
+    },
+    {
+      "lap": 10,
+      "completed": true,
+      "lap_time_s": 62.723841061538224,
+      "start_soc": 0.6841141184377217,
+      "end_soc": 0.6476200788910814,
+      "terminal_energy_wh": 267.74745205629597
+    },
+    {
+      "lap": 11,
+      "completed": true,
+      "lap_time_s": 62.72341568136278,
+      "start_soc": 0.6476200788910814,
+      "end_soc": 0.6108725108435593,
+      "terminal_energy_wh": 267.7387285181285
+    },
+    {
+      "lap": 12,
+      "completed": true,
+      "lap_time_s": 62.72297486383093,
+      "start_soc": 0.6108725108435593,
+      "end_soc": 0.5738566124270014,
+      "terminal_energy_wh": 267.72963943371315
+    },
+    {
+      "lap": 13,
+      "completed": true,
+      "lap_time_s": 62.722484488926284,
+      "start_soc": 0.5738566124270014,
+      "end_soc": 0.5365392442601781,
+      "terminal_energy_wh": 267.71958665131797
+    },
+    {
+      "lap": 14,
+      "completed": true,
+      "lap_time_s": 62.72198662167716,
+      "start_soc": 0.5365392442601781,
+      "end_soc": 0.4989111120805619,
+      "terminal_energy_wh": 267.70937775882066
+    },
+    {
+      "lap": 15,
+      "completed": true,
+      "lap_time_s": 62.721484375405566,
+      "start_soc": 0.4989111120805619,
+      "end_soc": 0.4609641957134104,
+      "terminal_energy_wh": 267.69907947678666
+    },
+    {
+      "lap": 16,
+      "completed": true,
+      "lap_time_s": 62.72097758308507,
+      "start_soc": 0.4609641957134104,
+      "end_soc": 0.4226901206429063,
+      "terminal_energy_wh": 267.6886934828176
+    },
+    {
+      "lap": 17,
+      "completed": true,
+      "lap_time_s": 62.72047018287651,
+      "start_soc": 0.4226901206429063,
+      "end_soc": 0.3840837645183596,
+      "terminal_energy_wh": 267.6783277328959
+    },
+    {
+      "lap": 18,
+      "completed": true,
+      "lap_time_s": 62.720005745738035,
+      "start_soc": 0.3840837645183596,
+      "end_soc": 0.34516859131772293,
+      "terminal_energy_wh": 267.66881595385803
+    },
+    {
+      "lap": 19,
+      "completed": true,
+      "lap_time_s": 62.719550594649945,
+      "start_soc": 0.34516859131772293,
+      "end_soc": 0.30594462534530037,
+      "terminal_energy_wh": 267.65949016408285
+    },
+    {
+      "lap": 20,
+      "completed": true,
+      "lap_time_s": 62.71903049017078,
+      "start_soc": 0.30594462534530037,
+      "end_soc": 0.26635437625955616,
+      "terminal_energy_wh": 267.648708350961
+    },
+    {
+      "lap": 21,
+      "completed": true,
+      "lap_time_s": 62.718370351877184,
+      "start_soc": 0.26635437625955616,
+      "end_soc": 0.22629927422128956,
+      "terminal_energy_wh": 267.6273043542815
+    }
+  ],
+  "limitations": [
+    "No regeneration; mechanical braking only.",
+    "Cell and motor temperatures are fixed configuration inputs.",
+    "No driver-change stop or thermal derating.",
+    "Default OCV/resistance and inverter-loss values are provisional until replaced by the validated battery architecture model."
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "output_directory": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_dynamic_points_regen_endurance_only_20260725",
+  "scenario_name": "regen_endurance_only",
+  "source_summary_sha256": "0c676be85cf74d82a77d9c02aa153c328c2e720be012de0820181b81e86b2ce1",
+  "source_sprint_long_sha256": "83aab2a3c86d3111579b932bf0050d0d3139f81eadb3ff51de02d7bcaf0f86cd",
+  "battery_results_sha256": "e45e611f5fcebc99c0920d1339422ecd777b808eaa75661230ea06778e23ecbb",
+  "validation_passed": true,
+  "files": [
+    "battery_dynamic_event_results_long.csv",
+    "battery_dynamic_points_report.md",
+    "battery_dynamic_points_summary.csv",
+    "endurance_efficiency_delta.csv",
+    "headline_summary.json",
+    "inherited_endurance_efficiency_scores.csv",
+    "plots\\event_points_vs_pack_mass.png",
+    "plots\\full_dynamic_points_vs_pack_mass.png",
+    "plots\\nonenergy_points_vs_pack_mass.png",
+    "plots\\raw_event_time_penalty_vs_pack_mass.png",
+    "plots\\top15_dynamic_points_stacked.png",
+    "scoring_inputs.json",
+    "validation_report.json"
+  ]
+}

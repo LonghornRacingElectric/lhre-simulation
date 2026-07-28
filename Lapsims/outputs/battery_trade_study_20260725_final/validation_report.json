@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "failed_checks": [],
+  "checks": {
+    "all_generated_topologies_simulated_once": true,
+    "all_voltage_constraints_pass": true,
+    "all_energy_constraints_pass": true,
+    "all_packaging_constraints_pass": true,
+    "all_requested_power_caps_pass": true,
+    "valid_metrics_are_finite": true,
+    "valid_rows_end_at_exact_distance": true,
+    "valid_rows_respect_cell_current": true,
+    "equal_reserve_rows_within_tolerance": true,
+    "saturated_rows_are_at_80kw": true,
+    "improvement_sign_and_formula_pass": true,
+    "baseline_is_native_mesh": true,
+    "every_cell_has_native_mesh_finalist": true,
+    "all_report_recommendations_are_native_mesh": true,
+    "pareto_file_matches_recomputation": true,
+    "ranked_file_matches_valid_rows": true,
+    "six_local_sensitivity_cases_present": true,
+    "valid_configuration_count": 128,
+    "equal_reserve_count": 128,
+    "power_cap_saturated_count": 0,
+    "native_refinement_count": 19,
+    "maximum_absolute_equal_reserve_error_kwh": 0.0058603414642933
+  }
+}

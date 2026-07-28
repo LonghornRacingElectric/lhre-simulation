@@ -1,0 +1,124 @@
+{
+  "candidate_count": 128,
+  "aggregates": {
+    "sustainable_power_gain_kw": {
+      "minimum": 1.84375,
+      "median": 4.359375,
+      "maximum": 13.625
+    },
+    "endurance_time_reduction_s": {
+      "minimum": 17.40502373473896,
+      "median": 37.36697176356472,
+      "maximum": 61.69265809834428
+    },
+    "gross_discharge_change_kwh": {
+      "minimum": 0.3225652752908217,
+      "median": 0.47577768467331216,
+      "maximum": 0.6737364978921923
+    },
+    "recovered_energy_gain_kwh": {
+      "minimum": 0.3732302579281052,
+      "median": 0.5697243320954586,
+      "maximum": 0.8295509258516703
+    },
+    "net_terminal_energy_reduction_kwh": {
+      "minimum": 0.028507988252896688,
+      "median": 0.08130262620177264,
+      "maximum": 0.2433954448685105
+    },
+    "total_pack_heat_change_kwh": {
+      "minimum": 0.0318279182002503,
+      "median": 0.0823076562954701,
+      "maximum": 0.236029287478838
+    },
+    "regen_pack_heat_increase_kwh": {
+      "minimum": 0.0076971162962791,
+      "median": 0.01035120308778325,
+      "maximum": 0.015676075850628
+    },
+    "final_reserve_change_kwh": {
+      "minimum": -0.008914758355671959,
+      "median": 0.00020994351737946282,
+      "maximum": 0.009932493554155097
+    },
+    "active_rms_change_kw": {
+      "minimum": 8.040459512894822,
+      "median": 8.650635713948695,
+      "maximum": 8.893430906645259
+    },
+    "overall_rank_improvement": {
+      "minimum": -7.0,
+      "median": 0.0,
+      "maximum": 5.0
+    },
+    "cell_rank_improvement": {
+      "minimum": -0.0,
+      "median": 0.0,
+      "maximum": -0.0
+    }
+  },
+  "leaders": {
+    "sustainable_power_gain": {
+      "candidate_id": "reliance_rs50_110s4p",
+      "cell_id": "reliance_rs50",
+      "value": 13.625
+    },
+    "endurance_time_reduction": {
+      "candidate_id": "tenpower_30xg_110s3p",
+      "cell_id": "tenpower_30xg",
+      "value": 61.69265809834428
+    },
+    "net_terminal_energy_reduction": {
+      "candidate_id": "tenpower_60xg_125s3p",
+      "cell_id": "tenpower_60xg",
+      "value": 0.2433954448685105
+    },
+    "overall_rank_improvement": {
+      "candidate_id": "ampace_jp30_125s5p",
+      "cell_id": "ampace_jp30",
+      "value": 5.0
+    }
+  },
+  "regen_top_five": [
+    {
+      "candidate_id": "reliance_rs50_110s4p",
+      "regen_overall_rank": 1.0,
+      "prior_overall_rank": 2.0,
+      "rank_improvement": 1.0,
+      "sustainable_power_gain_kw": 13.625,
+      "endurance_time_reduction_s": 21.532021897962977
+    },
+    {
+      "candidate_id": "tenpower_60xg_125s3p",
+      "regen_overall_rank": 2.0,
+      "prior_overall_rank": 1.0,
+      "rank_improvement": -1.0,
+      "sustainable_power_gain_kw": 12.46875,
+      "endurance_time_reduction_s": 19.551226867676178
+    },
+    {
+      "candidate_id": "ampace_jp50_110s4p",
+      "regen_overall_rank": 3.0,
+      "prior_overall_rank": 3.0,
+      "rank_improvement": -0.0,
+      "sustainable_power_gain_kw": 13.3828125,
+      "endurance_time_reduction_s": 21.73873478904352
+    },
+    {
+      "candidate_id": "tenpower_50xg_110s4p",
+      "regen_overall_rank": 4.0,
+      "prior_overall_rank": 4.0,
+      "rank_improvement": -0.0,
+      "sustainable_power_gain_kw": 13.171875,
+      "endurance_time_reduction_s": 21.73626917447359
+    },
+    {
+      "candidate_id": "tenpower_60xg_120s3p",
+      "regen_overall_rank": 5.0,
+      "prior_overall_rank": 5.0,
+      "rank_improvement": -0.0,
+      "sustainable_power_gain_kw": 10.27734375,
+      "endurance_time_reduction_s": 22.194228136863785
+    }
+  ]
+}

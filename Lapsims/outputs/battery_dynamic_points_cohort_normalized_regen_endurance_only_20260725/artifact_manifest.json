@@ -1,0 +1,23 @@
+{
+  "output_directory": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_dynamic_points_cohort_normalized_regen_endurance_only_20260725",
+  "source_summary_csv": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_dynamic_points_regen_endurance_only_20260725\\battery_dynamic_points_summary.csv",
+  "source_summary_sha256": "76af65e15390be81610462a2906703c484db43dff5b246fb00394e59a4851d2e",
+  "battery_results_csv": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_regen_endurance_only_20260725\\all_configuration_results.csv",
+  "battery_results_sha256": "e45e611f5fcebc99c0920d1339422ecd777b808eaa75661230ea06778e23ecbb",
+  "validation_passed": true,
+  "files": [
+    "battery_cohort_event_results_long.csv",
+    "battery_cohort_points_report.md",
+    "battery_cohort_points_summary.csv",
+    "cohort_efficiency_scores.csv",
+    "cohort_scoring_inputs.json",
+    "headline_summary.json",
+    "inherited_efficiency_scores.csv",
+    "plots\\cohort_efficiency_eligibility_and_points.png",
+    "plots\\cohort_event_points_vs_pack_mass.png",
+    "plots\\cohort_full_dynamic_points_vs_pack_mass.png",
+    "plots\\pack_aware_sprint_point_loss_vs_pack_mass.png",
+    "plots\\top15_cohort_dynamic_points_stacked.png",
+    "validation_report.json"
+  ]
+}

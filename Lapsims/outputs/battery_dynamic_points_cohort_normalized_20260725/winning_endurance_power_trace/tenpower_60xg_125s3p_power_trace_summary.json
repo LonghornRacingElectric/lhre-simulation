@@ -1,0 +1,44 @@
+{
+  "candidate_id": "tenpower_60xg_125s3p",
+  "configuration": {
+    "cell": "Tenpower INR21700-60XG",
+    "series_cells": 125,
+    "parallel_cells": 3,
+    "pack_mass_kg": 35.625,
+    "vehicle_mass_kg": 258.51015114
+  },
+  "trace_definition": "Battery-terminal power = terminal voltage times bus current. Positive values are energy leaving the accumulator; regeneration is not modeled.",
+  "simulation": {
+    "track": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\michigan_openlap_track.csv",
+    "target_distance_km": 22.0,
+    "native_track_spacing_m": 0.25,
+    "requested_laps": 21,
+    "completed_full_laps_before_target": 20,
+    "elapsed_time_s": 1236.396184147111,
+    "terminal_power_limit_kw": 35.203125,
+    "average_battery_terminal_power_kw": 20.194015640255863,
+    "peak_battery_terminal_power_kw": 35.2031249966388,
+    "terminal_energy_kwh": 6.935501077838729,
+    "final_soc": 0.11752423020379532,
+    "remaining_usable_chemical_kwh": 0.4969801313895456,
+    "trace_rows": 88003,
+    "solver_stop_reason": "completed_requested_laps"
+  },
+  "validation": {
+    "all_checks_passed": true,
+    "checks": {
+      "elapsed_time_s_matches_source": true,
+      "terminal_energy_kwh_matches_source": true,
+      "peak_battery_terminal_power_kw_matches_source": true,
+      "final_soc_matches_source": true,
+      "trace_ends_at_22_km": true,
+      "terminal_power_matches_voltage_times_current": true,
+      "terminal_power_respects_limit": true,
+      "energy_integral_matches_metric": true
+    }
+  },
+  "artifacts": {
+    "plot": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_dynamic_points_cohort_normalized_20260725\\winning_endurance_power_trace\\tenpower_60xg_125s3p_battery_terminal_power_vs_time.png",
+    "trace_csv": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_dynamic_points_cohort_normalized_20260725\\winning_endurance_power_trace\\tenpower_60xg_125s3p_power_trace.csv"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "policy_id": "lhre_endurance_terminal_regen_active_rms_v1",
+  "status": "measured_telemetry_calibration_input",
+  "scope": "Regenerative braking in chronological endurance simulations only",
+  "source": {
+    "description": "User-provided joined endurance accumulator telemetry for car 1001",
+    "file_name": "car-1001-joined-endurance.csv",
+    "original_local_path_at_analysis": "C:\\Users\\Abishek\\Downloads\\car-1001-joined-endurance.csv",
+    "size_bytes": 160019,
+    "sha256": "49e34e23dd77cdd30aceb4dfb0172dd966d438f4aeb795c5fbeb01123a8c6882",
+    "source_data_committed_here": false
+  },
+  "source_schema": {
+    "malformation": "The CSV header contains six names while every data row contains eight values.",
+    "original_header": [
+      "time_s",
+      "voltage_v",
+      "power_kw",
+      "max_cell_temp_c",
+      "net_energy_kwh",
+      "current_a"
+    ],
+    "repaired_header": [
+      "time_s",
+      "voltage_v",
+      "power_kw",
+      "max_cell_temp_c",
+      "net_energy_kwh",
+      "current_a",
+      "outgoing_energy_kwh",
+      "incoming_energy_kwh"
+    ],
+    "repair_basis": "The final counters satisfy net_energy_kwh = outgoing_energy_kwh - incoming_energy_kwh."
+  },
+  "sign_convention": {
+    "terminal_power": "Positive power is accumulator discharge; negative power is energy entering the accumulator.",
+    "regen_magnitude": "Reported regenerative-power magnitudes are the positive magnitude of negative source power."
+  },
+  "chosen_target": {
+    "metric": "conditional_active_terminal_regen_rms",
+    "target_kw": 8.574267142409962,
+    "rounded_target_kw": 8.574,
+    "units": "kW at the accumulator terminals",
+    "active_selector": "power_kw < -1.0",
+    "active_threshold_kw_signed": -1.0,
+    "active_threshold_magnitude_kw": 1.0,
+    "threshold_comparison": "strictly_less_than",
+    "time_weighting": "left-sample zero-order hold over each timestamp interval",
+    "rms_denominator": "Only time intervals satisfying power_kw < -1.0 kW"
+  },
+  "measured_support": {
+    "sample_count": 3629,
+    "interval_count": 3628,
+    "event_duration_s": 1814.007,
+    "median_interval_s": 0.5029999999999291,
+    "all_negative_power": {
+      "active_duration_s": 308.95299999999855,
+      "duty_cycle_fraction": 0.1703152192907737,
+      "conditional_active_rms_kw": 7.566627386854125,
+      "whole_event_equivalent_rms_kw": 3.1226914705023514,
+      "peak_regen_magnitude_kw": 22.23,
+      "integrated_recovered_energy_kwh": 0.4780725666666669
+    },
+    "below_negative_one_kw": {
+      "active_duration_s": 240.389999999999,
+      "duty_cycle_fraction": 0.13251878300359315,
+      "conditional_active_rms_kw": 8.574267142409962,
+      "whole_event_equivalent_rms_kw": 3.1213015628622487,
+      "peak_regen_magnitude_kw": 22.23,
+      "integrated_recovered_energy_kwh": 0.47099489722222265
+    },
+    "final_energy_counters": {
+      "net_energy_kwh": 4.1438,
+      "outgoing_energy_kwh": 4.6298,
+      "incoming_energy_kwh": 0.486,
+      "counter_balance_residual_kwh": -8.881784197001252e-16
+    }
+  },
+  "modeling_interpretation": {
+    "use": "Calibrate or constrain the time-weighted conditional RMS of simulated negative accumulator-terminal power during active regenerative intervals.",
+    "cap_policy": "The modeled conditional active RMS should not exceed 8.574267142409962 kW when this measured behavior is used as a cap.",
+    "not_an_instantaneous_limit": "The RMS target must not be applied as a per-sample power clamp. Instantaneous motor, inverter, accumulator charge-current, terminal-voltage, SOC, and charge-power constraints remain separate.",
+    "whole_event_reporting": "Also report whole-event-equivalent RMS, active duration, duty cycle, peak power, and integrated recovered energy so RMS cannot obscure the braking duty cycle.",
+    "comparison_policy": "For an unbiased pack comparison, calibrate a braking command scale on the baseline vehicle and hold that command policy fixed across candidate packs; report achieved RMS after each pack's physical charge-acceptance constraints.",
+    "regen_off_behavior": "A disabled or zero-target regeneration policy must preserve the existing mechanical-braking-only endurance result."
+  },
+  "reproduction": {
+    "utility": "tools/analyze_regen_telemetry.py",
+    "command": "python tools/analyze_regen_telemetry.py C:\\Users\\Abishek\\Downloads\\car-1001-joined-endurance.csv --active-threshold-kw 1.0"
+  }
+}

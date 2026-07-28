@@ -1,0 +1,28 @@
+{
+  "distance_km": 22.0,
+  "reserve_target_kwh": 0.5,
+  "reserve_tolerance_kwh": 0.01,
+  "power_cap_kw": 80.0,
+  "series_counts": [
+    110,
+    115,
+    120,
+    125,
+    130,
+    135,
+    140
+  ],
+  "screening_downsample_factor": 8,
+  "screening_surface": [
+    7,
+    25
+  ],
+  "refinement_surface": [
+    9,
+    41
+  ],
+  "specific_heat_j_per_kgk": 1000.0,
+  "candidate_count": 128,
+  "rejected_count": 131,
+  "source_cell_file": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\battery_trade_study\\cells.json"
+}

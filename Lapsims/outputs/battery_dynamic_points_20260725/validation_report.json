@@ -1,0 +1,19 @@
+{
+  "all_checks_passed": true,
+  "checks": {
+    "all_input_candidates_present": true,
+    "two_modes_three_events_per_candidate": true,
+    "all_event_solvers_converged": true,
+    "all_scores_finite": true,
+    "full_dynamic_scores_in_0_to_675": true,
+    "p30b_pack_aware_acceleration_regression": true,
+    "p30b_pack_aware_autocross_regression": true,
+    "p30b_pack_aware_skidpad_regression": true,
+    "p30b_is_max_score_for_both_sprint_models": true,
+    "baseline_endurance_maps_to_tmin": true,
+    "baseline_efficiency_maps_to_100_points": true,
+    "mass_isolated_nonenergy_points_nonincreasing_with_mass": true
+  },
+  "candidate_count": 128,
+  "long_result_count": 768
+}

@@ -1,0 +1,17 @@
+{
+  "local_finite_difference": {
+    "reference_candidate_id": "reliance_rs50_110s4p",
+    "seconds_per_usable_kwh_local": -10.723002779245096,
+    "seconds_per_pack_kg_local": 0.8747585633446533,
+    "seconds_per_pack_mohm_local": 0.04214961450364845,
+    "seconds_per_cell_dcir_mohm_local": 1.217070118792849
+  },
+  "cross_configuration_linear_fit": {
+    "seconds_per_usable_kwh": -44.50398612047082,
+    "seconds_per_pack_kg": -0.9049803227019394,
+    "seconds_per_pack_mohm": 0.004435032358193467,
+    "seconds_per_10_pack_mohm": 0.04435032358193467,
+    "r_squared": 0.9381521718857664,
+    "sample_count": 128
+  }
+}

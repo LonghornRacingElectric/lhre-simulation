@@ -1,0 +1,124 @@
+{
+  "scenario_name": "regen_endurance_only_vs_no_regen",
+  "prior_results_csv": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_20260725_final\\all_configuration_results.csv",
+  "prior_results_sha256": "05e69012592e7c0278dc023e9ff280eeeb89a0aad0f6baeb8bba22027bff9537",
+  "regen_results_csv": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\battery_trade_study_regen_endurance_only_20260725\\all_configuration_results.csv",
+  "regen_results_sha256": "e45e611f5fcebc99c0920d1339422ecd777b808eaa75661230ea06778e23ecbb",
+  "candidate_count": 128,
+  "join_key": "candidate_id",
+  "delta_convention": "delta_* = regen - prior",
+  "benefit_conventions": {
+    "sustainable_power_gain_kw": "regen - prior",
+    "endurance_time_reduction_s": "prior - regen",
+    "gross_discharge_change_kwh": "regen - prior",
+    "recovered_energy_gain_kwh": "regen - prior",
+    "net_terminal_energy_reduction_kwh": "prior - regen",
+    "total_pack_heat_change_kwh": "regen - prior",
+    "regen_pack_heat_increase_kwh": "regen - prior",
+    "final_reserve_change_kwh": "regen - prior",
+    "active_rms_change_kw": "regen - prior",
+    "overall_rank_improvement": "prior - regen",
+    "cell_rank_improvement": "prior - regen"
+  },
+  "metric_sources": {
+    "prior": {
+      "sustainable_power_kw": {
+        "source_column": "power_limit_kw",
+        "fallback": false
+      },
+      "endurance_time_s": {
+        "source_column": "elapsed_time_s",
+        "fallback": false
+      },
+      "gross_discharge_kwh": {
+        "source_column": "terminal_energy_kwh",
+        "fallback": true,
+        "reason": "No-regen gross discharge equals net terminal energy"
+      },
+      "recovered_energy_kwh": {
+        "source_column": null,
+        "fallback": true,
+        "constant": 0.0,
+        "reason": "No-regen source has no regenerative contribution"
+      },
+      "net_terminal_energy_kwh": {
+        "source_column": "terminal_energy_kwh",
+        "fallback": false
+      },
+      "total_pack_heat_kwh": {
+        "source_column": "pack_resistive_heat_kwh",
+        "fallback": false
+      },
+      "regen_pack_heat_kwh": {
+        "source_column": null,
+        "fallback": true,
+        "constant": 0.0,
+        "reason": "No-regen source has no regenerative contribution"
+      },
+      "final_reserve_kwh": {
+        "source_column": "remaining_usable_chemical_kwh",
+        "fallback": false
+      },
+      "active_rms_kw": {
+        "source_column": null,
+        "fallback": true,
+        "constant": 0.0,
+        "reason": "No-regen source has no regenerative contribution"
+      },
+      "overall_rank": {
+        "source_column": "overall_rank",
+        "fallback": false
+      },
+      "cell_rank": {
+        "source_column": "cell_rank",
+        "fallback": false
+      }
+    },
+    "regen": {
+      "sustainable_power_kw": {
+        "source_column": "power_limit_kw",
+        "fallback": false
+      },
+      "endurance_time_s": {
+        "source_column": "elapsed_time_s",
+        "fallback": false
+      },
+      "gross_discharge_kwh": {
+        "source_column": "terminal_discharge_energy_kwh",
+        "fallback": false
+      },
+      "recovered_energy_kwh": {
+        "source_column": "terminal_regenerated_energy_kwh",
+        "fallback": false
+      },
+      "net_terminal_energy_kwh": {
+        "source_column": "terminal_energy_kwh",
+        "fallback": false
+      },
+      "total_pack_heat_kwh": {
+        "source_column": "pack_resistive_heat_kwh",
+        "fallback": false
+      },
+      "regen_pack_heat_kwh": {
+        "source_column": "regen_pack_resistive_heat_kwh",
+        "fallback": false
+      },
+      "final_reserve_kwh": {
+        "source_column": "remaining_usable_chemical_kwh",
+        "fallback": false
+      },
+      "active_rms_kw": {
+        "source_column": "regen_active_rms_terminal_power_kw",
+        "fallback": false
+      },
+      "overall_rank": {
+        "source_column": "overall_rank",
+        "fallback": false
+      },
+      "cell_rank": {
+        "source_column": "cell_rank",
+        "fallback": false
+      }
+    }
+  }
+}
