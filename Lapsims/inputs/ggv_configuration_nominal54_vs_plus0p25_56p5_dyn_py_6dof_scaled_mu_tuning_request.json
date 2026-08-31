@@ -1,0 +1,24 @@
+{
+  "schema": "lapsims.dyn-py-configuration-tuning-request.v1",
+  "study": "Nominal 54% rear versus +0.25 in / 56.5% rear vehicle configuration",
+  "sweep_axis": "configuration",
+  "reference_case": "config_nominal_54",
+  "model_dof": 6,
+  "aero_balance_front": 0.5,
+  "tire_mu_scale": 0.6225437130779028,
+  "drive_model": "RWD with equal rear-wheel force split; no LSD model",
+  "mass_policy": "Use the current vehicle.yml nominal sprung, unsprung, and total masses for both cases; no mass override.",
+  "comparison_interpretation": "Categorical two-configuration comparison; CG height and longitudinal static balance change together, so this is not a one-axis sensitivity.",
+  "cases": [
+    {
+      "name": "config_nominal_54",
+      "cg_height_in": 11.5,
+      "rear_static_weight_fraction": 0.54
+    },
+    {
+      "name": "config_plus0p25_56p5",
+      "cg_height_in": 11.75,
+      "rear_static_weight_fraction": 0.565
+    }
+  ]
+}

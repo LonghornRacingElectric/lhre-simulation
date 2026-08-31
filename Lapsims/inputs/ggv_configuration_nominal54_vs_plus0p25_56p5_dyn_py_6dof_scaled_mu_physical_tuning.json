@@ -1,0 +1,548 @@
+{
+  "schema": "lapsims.dyn-py-configuration-physical-tuning.v1",
+  "sweep_axis": "configuration",
+  "study": "dyn_py physical setup tuning for 2 explicit vehicle configurations at tire mu scale 0.622543713077903",
+  "vehicle_yaml": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\vehicle.yml",
+  "aero_balance_front": 0.5,
+  "drive_model": "RWD with equal rear-wheel force split; no LSD model",
+  "configuration_definition": {
+    "schema": "lapsims.dyn-py-configuration-tuning-request.v1",
+    "study": "Nominal 54% rear versus +0.25 in / 56.5% rear vehicle configuration",
+    "sweep_axis": "configuration",
+    "reference_case": "config_nominal_54",
+    "model_dof": 6,
+    "aero_balance_front": 0.5,
+    "tire_mu_scale": 0.6225437130779028,
+    "drive_model": "RWD with equal rear-wheel force split; no LSD model",
+    "mass_policy": "Use the current vehicle.yml nominal sprung, unsprung, and total masses for both cases; no mass override.",
+    "comparison_interpretation": "Categorical two-configuration comparison; CG height and longitudinal static balance change together, so this is not a one-axis sensitivity.",
+    "cases": [
+      {
+        "name": "config_nominal_54",
+        "cg_height_in": 11.5,
+        "rear_static_weight_fraction": 0.54
+      },
+      {
+        "name": "config_plus0p25_56p5",
+        "cg_height_in": 11.75,
+        "rear_static_weight_fraction": 0.565
+      }
+    ]
+  },
+  "configuration_reference_case": "config_nominal_54",
+  "mass_sweep_assumptions": null,
+  "longitudinal_cg_sweep_assumptions": null,
+  "configuration_comparison_assumptions": {
+    "varied_per_case": "total CG height and longitudinal total-CG position/static rear-weight fraction",
+    "mass_rule": "nominal vehicle.yml sprung and total mass when sprung_mass_kg is omitted; otherwise use the explicit per-case sprung mass with fixed unsprung masses",
+    "cg_x_rule": "translate total CG along the fixed wheelbase to achieve each declared static rear fraction",
+    "held_fixed": "CG y, inertia tensors about the CG (except established mass scaling when explicitly requested), global axle/contact locations, total aero load and 50/50 aero balance, powertrain, tire model, tire-mu scale, and tracks",
+    "retuned_per_case": "front/rear ARB distribution at fixed total ARB stiffness and one fixed front brake fraction",
+    "interpretation": "categorical configuration comparison; not a one-variable CG height or longitudinal-CG sensitivity"
+  },
+  "tire": {
+    "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\tire_templates\\16x7p5_10_12psi.tir",
+    "sha256": "328b9666c71a164685d7429ef00517fbe0a6f15d3f5d031714bae4ce642bc7b1",
+    "mu_scale": 0.622543713077903,
+    "coefficients": {
+      "fz_ref_n": 650.0,
+      "fz_min_n": 100.0,
+      "fz_max_n": 1800.0,
+      "pdx1": 2.597991,
+      "pdx2": -0.618826,
+      "pdy1": -2.40275,
+      "pdy2": 0.343535,
+      "pkx1": 55.079922,
+      "pkx2": -1.7e-05,
+      "pkx3": -0.16185,
+      "pky1": -53.2421,
+      "pky2": 2.38205,
+      "mu_floor": 0.8
+    }
+  },
+  "roll_tuning_method": {
+    "target_speed_mps": 11.8,
+    "objective": "maximize the EnvelopeSim reduced-QSS sustainable body-ax=0 pure-lateral endpoint while RWD force balances aero drag",
+    "endpoint_solver": "_2_EnvelopeSim.GGV.ggv_generation.solve_lateral_limit with descending interval scan, branch-local continuation seeds, and adjacent-point-seeded boundary refinement",
+    "cold_monotonic_binary_assumption": false,
+    "tire_fit_normal_load_bounds_enforced": false,
+    "front_antiroll_fraction_bounds": [
+      0.0,
+      1.0
+    ],
+    "held_fixed": "four wheel spring rates and total front-plus-rear ARB stiffness",
+    "spring_roll_stiffness_nm_per_rad": [
+      19805.295373212437,
+      20497.240462677426
+    ],
+    "baseline_antiroll_stiffness_nm_per_rad": [
+      23628.29453934531,
+      21919.64693525105
+    ],
+    "total_antiroll_stiffness_nm_per_rad": 45547.94147459636,
+    "total_elastic_roll_stiffness_nm_per_rad": 85850.47731048623,
+    "achievable_front_elastic_fraction": [
+      0.23069522725639308,
+      0.761244886402352
+    ],
+    "racing_feasibility_bounds": {
+      "maximum_absolute_sideslip_rad": 0.25,
+      "maximum_absolute_steering_rad": 0.5,
+      "minimum_normal_load_n": 0.0
+    },
+    "tire_fit_normal_load_range_n": [
+      100.0,
+      1800.0
+    ],
+    "active_constraint_flag_tolerances": {
+      "sideslip_or_steering_rad": 0.0001,
+      "wheel_lift_boundary_n": 0.1
+    },
+    "hardware_achievability_scope": "continuous nonnegative front/rear ARB stiffness only; no discrete installed blade/bar adjustment ranges supplied",
+    "robustness_speeds_mps": [
+      8.0,
+      11.8,
+      18.0,
+      25.0
+    ]
+  },
+  "brake_bias_method": {
+    "objective": "maximize distance-weighted exact reduced-QSS straight-braking limit over one common prior speed distribution",
+    "front_fraction_bounds": [
+      0.5,
+      0.98
+    ],
+    "hardware_achievability_scope": "not assessed because balance-bar/caliper adjustment limits were not supplied",
+    "representative_distribution": {
+      "common_to_all_models_and_heights": true,
+      "source_case_dir": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_cg_smoke_midpoint_cop\\baseline",
+      "source_files": [
+        "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_cg_smoke_midpoint_cop\\baseline\\autocross_trace.csv",
+        "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_cg_smoke_midpoint_cop\\baseline\\michigan_endurance_trace.csv"
+      ],
+      "events": [
+        "autocross",
+        "michigan_endurance"
+      ],
+      "row_filter": "longitudinal_accel_mps2 < -0.1",
+      "weighting": "braking distance dx_m",
+      "speed_bin_width_mps": 0.5,
+      "speed_bin_rule": "floor(speed / 0.5)",
+      "representative_speed": "distance-weighted mean observed speed within each bin",
+      "event_filtered_rows": {
+        "autocross": 3226,
+        "michigan_endurance": 1608
+      },
+      "event_braking_distance_m": {
+        "autocross": 322.6,
+        "michigan_endurance": 402.0
+      },
+      "filtered_rows": 4834,
+      "braking_distance_m": 724.5999999999999,
+      "speed_bin_count": 57,
+      "minimum_representative_speed_mps": 8.905265332165985,
+      "maximum_representative_speed_mps": 36.74973809592033,
+      "distance_weighted_mean_speed_mps": 17.84758256310727
+    }
+  },
+  "models": {
+    "dyn_py_6dof_qss": {
+      "model_dof": 6,
+      "runner_sweep_json": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu.json",
+      "cases": [
+        {
+          "name": "config_nominal_54",
+          "model_dof": 6,
+          "cg_height_in": 11.5,
+          "cg_height_m": 0.29209999999999997,
+          "sprung_mass_kg": 230.72288407999997,
+          "total_mass_kg": 261.07265114,
+          "rear_static_weight_fraction": 0.54,
+          "front_static_weight_fraction": 0.45999999999999996,
+          "cg_x_m": -0.8366760000000001,
+          "tire_mu_scale": 0.622543713077903,
+          "front_antiroll_stiffness_fraction": 0.6515279307018157,
+          "front_antiroll_stiffness_nm_per_rad": 29675.756056671173,
+          "rear_antiroll_stiffness_nm_per_rad": 15872.185417925186,
+          "total_antiroll_stiffness_nm_per_rad": 45547.94147459636,
+          "total_antiroll_stiffness_preservation_error_nm_per_rad": 0.0,
+          "front_elastic_roll_stiffness_fraction": 0.5763631488143134,
+          "pure_lateral_limit_mps2": 14.415175388911514,
+          "pure_lateral_limit_g": 1.4699388056993483,
+          "pure_lateral_limit_trim": {
+            "racing_feasible": true,
+            "solver_success": true,
+            "residual_norm": 2.8814627501782417e-11,
+            "minimum_normal_load_n": 100.01068613039938,
+            "maximum_normal_load_n": 1170.6800744009347,
+            "normal_loads_n": [
+              100.01068613039938,
+              1170.6800744009347,
+              343.0258049516091,
+              1132.7003970371534
+            ],
+            "below_tir_minimum_load": false,
+            "above_tir_maximum_load": false,
+            "tir_valid_load_min_n": 100.0,
+            "tir_valid_load_max_n": 1800.0,
+            "beta_rad": -0.24999998723463776,
+            "steering_rad": 0.022685320734637984,
+            "total_wheel_torque_nm": 28.658657955779614,
+            "active_constraints": [
+              "sideslip_bound"
+            ],
+            "active_constraint_flags": {
+              "sideslip_bound_active": true,
+              "sideslip_bound_abs_rad": 0.25,
+              "steering_bound_active": false,
+              "steering_bound_abs_rad": 0.5,
+              "wheel_lift_boundary_active": false,
+              "wheel_lift_boundary_threshold_n": 0.1
+            }
+          },
+          "search_bounds_front_arb_fraction": [
+            0.0,
+            1.0
+          ],
+          "roll_optimization_at_search_bound": false,
+          "arb_setup_hardware_achievable_under_model": true,
+          "arb_setup_hardware_achievability_note": "achievable in the continuous nonnegative-ARB model; discrete installed blade/bar adjustment ranges were not supplied",
+          "roll_coarse_search": [
+            {
+              "front_arb_fraction": 0.0,
+              "lateral_limit_g": 1.267435302734375
+            },
+            {
+              "front_arb_fraction": 0.2,
+              "lateral_limit_g": 1.353720703125
+            },
+            {
+              "front_arb_fraction": 0.35,
+              "lateral_limit_g": 1.387606201171875
+            },
+            {
+              "front_arb_fraction": 0.425,
+              "lateral_limit_g": 1.403792724609375
+            },
+            {
+              "front_arb_fraction": 0.5,
+              "lateral_limit_g": 1.4192236328125
+            },
+            {
+              "front_arb_fraction": 0.575,
+              "lateral_limit_g": 1.4348565673828126
+            },
+            {
+              "front_arb_fraction": 0.65,
+              "lateral_limit_g": 1.4699267578125
+            },
+            {
+              "front_arb_fraction": 0.8,
+              "lateral_limit_g": 1.2820233154296876
+            },
+            {
+              "front_arb_fraction": 1.0,
+              "lateral_limit_g": 1.0927398681640628
+            }
+          ],
+          "roll_local_validation": [
+            {
+              "front_arb_fraction": 0.6495279307018157,
+              "lateral_limit_g": 1.469922730922699
+            },
+            {
+              "front_arb_fraction": 0.6505279307018157,
+              "lateral_limit_g": 1.4699312579631805
+            },
+            {
+              "front_arb_fraction": 0.6515279307018157,
+              "lateral_limit_g": 1.4699388056993483
+            },
+            {
+              "front_arb_fraction": 0.6525279307018157,
+              "lateral_limit_g": 1.4674679815769196
+            },
+            {
+              "front_arb_fraction": 0.6535279307018157,
+              "lateral_limit_g": 1.465763237476349
+            }
+          ],
+          "robustness_lateral_limit_g_by_speed_mps": {
+            "8.0": 1.3822679805755613,
+            "11.8": 1.4699388027191163,
+            "18.0": 1.5346441173553467,
+            "25.0": 1.6014869117736816
+          },
+          "exact_endpoint_definition": "EnvelopeSim solve_lateral_limit sustainable body-ax=0 endpoint with descending interval scan, branch-local continuation seeds, and adjacent-point-seeded boundary refinement",
+          "brake_distribution_front": 0.6996272063175089,
+          "weighted_pure_braking_limit_mps2": 17.252698747914227,
+          "weighted_pure_braking_limit_g": 1.759285663087214,
+          "minimum_bin_braking_limit_g": 1.561509653925896,
+          "maximum_bin_braking_limit_g": 2.2555173635482793,
+          "search_bounds_front_brake_fraction": [
+            0.5,
+            0.98
+          ],
+          "brake_optimization_at_search_bound": false,
+          "brake_bias_within_search_bounds": true,
+          "brake_bias_hardware_achievability": "not assessed; physical balance-bar/caliper adjustment limits were not supplied",
+          "representative_speed_center_fraction": 0.6986272063175089,
+          "brake_coarse_search": [
+            {
+              "front_brake_fraction": 0.5,
+              "weighted_limit_g": 1.352684480164086
+            },
+            {
+              "front_brake_fraction": 0.6736272063175088,
+              "weighted_limit_g": 1.70559698106372
+            },
+            {
+              "front_brake_fraction": 0.6986272063175089,
+              "weighted_limit_g": 1.750956785849962
+            },
+            {
+              "front_brake_fraction": 0.7236272063175089,
+              "weighted_limit_g": 1.6933122073751838
+            },
+            {
+              "front_brake_fraction": 0.98,
+              "weighted_limit_g": 1.2038205781431777
+            }
+          ],
+          "brake_refined_search": [
+            {
+              "front_brake_fraction": 0.6946272063175088,
+              "weighted_limit_g": 1.7543324687752875
+            },
+            {
+              "front_brake_fraction": 0.6966272063175089,
+              "weighted_limit_g": 1.7566498027646078
+            },
+            {
+              "front_brake_fraction": 0.6986272063175089,
+              "weighted_limit_g": 1.7579332672608616
+            },
+            {
+              "front_brake_fraction": 0.7006272063175089,
+              "weighted_limit_g": 1.7584546470601785
+            },
+            {
+              "front_brake_fraction": 0.7026272063175089,
+              "weighted_limit_g": 1.7570917414320855
+            }
+          ],
+          "brake_local_validation": [
+            {
+              "front_brake_fraction": 0.6996272063175089,
+              "weighted_limit_g": 1.759285663087214
+            },
+            {
+              "front_brake_fraction": 0.7006272063175089,
+              "weighted_limit_g": 1.7592797774520503
+            },
+            {
+              "front_brake_fraction": 0.7016272063175089,
+              "weighted_limit_g": 1.7588648190027814
+            }
+          ],
+          "solver": "BobSim reduced-QSS solve_ax_limit at ay=0 for every weighted speed bin; fixed front fraction shared across all bins"
+        },
+        {
+          "name": "config_plus0p25_56p5",
+          "model_dof": 6,
+          "cg_height_in": 11.75,
+          "cg_height_m": 0.29845,
+          "sprung_mass_kg": 230.72288407999997,
+          "total_mass_kg": 261.07265114,
+          "rear_static_weight_fraction": 0.565,
+          "front_static_weight_fraction": 0.435,
+          "cg_x_m": -0.8754109999999999,
+          "tire_mu_scale": 0.622543713077903,
+          "front_antiroll_stiffness_fraction": 0.5948513562400668,
+          "front_antiroll_stiffness_nm_per_rad": 27094.254760106833,
+          "rear_antiroll_stiffness_nm_per_rad": 18453.686714489526,
+          "total_antiroll_stiffness_nm_per_rad": 45547.94147459636,
+          "total_antiroll_stiffness_preservation_error_nm_per_rad": 0.0,
+          "front_elastic_roll_stiffness_fraction": 0.5462934115520719,
+          "pure_lateral_limit_mps2": 13.964471988346666,
+          "pure_lateral_limit_g": 1.4239798492193223,
+          "pure_lateral_limit_trim": {
+            "racing_feasible": false,
+            "solver_success": true,
+            "residual_norm": 3.856421756769732e-11,
+            "minimum_normal_load_n": 99.99999706358845,
+            "maximum_normal_load_n": 1187.206263107347,
+            "normal_loads_n": [
+              99.99999706358845,
+              1106.6140812568747,
+              352.60277737655275,
+              1187.206263107347
+            ],
+            "below_tir_minimum_load": true,
+            "above_tir_maximum_load": false,
+            "tir_valid_load_min_n": 100.0,
+            "tir_valid_load_max_n": 1800.0,
+            "beta_rad": -0.12867933191302283,
+            "steering_rad": -0.050852642706685464,
+            "total_wheel_torque_nm": 4.963181876162621,
+            "active_constraints": [],
+            "active_constraint_flags": {
+              "sideslip_bound_active": false,
+              "sideslip_bound_abs_rad": 0.25,
+              "steering_bound_active": false,
+              "steering_bound_abs_rad": 0.5,
+              "wheel_lift_boundary_active": false,
+              "wheel_lift_boundary_threshold_n": 0.1
+            }
+          },
+          "search_bounds_front_arb_fraction": [
+            0.0,
+            1.0
+          ],
+          "roll_optimization_at_search_bound": false,
+          "arb_setup_hardware_achievable_under_model": true,
+          "arb_setup_hardware_achievability_note": "achievable in the continuous nonnegative-ARB model; discrete installed blade/bar adjustment ranges were not supplied",
+          "roll_coarse_search": [
+            {
+              "front_arb_fraction": 0.0,
+              "lateral_limit_g": 1.2978369140625001
+            },
+            {
+              "front_arb_fraction": 0.2,
+              "lateral_limit_g": 1.3427416992187502
+            },
+            {
+              "front_arb_fraction": 0.35,
+              "lateral_limit_g": 1.3752642822265626
+            },
+            {
+              "front_arb_fraction": 0.425,
+              "lateral_limit_g": 1.3907708740234377
+            },
+            {
+              "front_arb_fraction": 0.5,
+              "lateral_limit_g": 1.4055468750000002
+            },
+            {
+              "front_arb_fraction": 0.575,
+              "lateral_limit_g": 1.4199603271484378
+            },
+            {
+              "front_arb_fraction": 0.65,
+              "lateral_limit_g": 1.3593670654296874
+            },
+            {
+              "front_arb_fraction": 0.8,
+              "lateral_limit_g": 1.1765863037109376
+            },
+            {
+              "front_arb_fraction": 1.0,
+              "lateral_limit_g": 1.003656005859375
+            }
+          ],
+          "roll_local_validation": [
+            {
+              "front_arb_fraction": 0.5928513562400668,
+              "lateral_limit_g": 1.4235843342542653
+            },
+            {
+              "front_arb_fraction": 0.5938513562400668,
+              "lateral_limit_g": 1.4237915712594986
+            },
+            {
+              "front_arb_fraction": 0.5948513562400668,
+              "lateral_limit_g": 1.4239798492193223
+            },
+            {
+              "front_arb_fraction": 0.5958513562400668,
+              "lateral_limit_g": 1.4230773681402207
+            },
+            {
+              "front_arb_fraction": 0.5968513562400668,
+              "lateral_limit_g": 1.4218776845932006
+            }
+          ],
+          "robustness_lateral_limit_g_by_speed_mps": {
+            "8.0": 1.363998136520386,
+            "11.8": 1.4239798450469972,
+            "18.0": 1.5022030448913575,
+            "25.0": 1.5652555561065673
+          },
+          "exact_endpoint_definition": "EnvelopeSim solve_lateral_limit sustainable body-ax=0 endpoint with descending interval scan, branch-local continuation seeds, and adjacent-point-seeded boundary refinement",
+          "brake_distribution_front": 0.688123642530445,
+          "weighted_pure_braking_limit_mps2": 17.415114452619054,
+          "weighted_pure_braking_limit_g": 1.7758474558201889,
+          "minimum_bin_braking_limit_g": 1.5795932225883007,
+          "maximum_bin_braking_limit_g": 2.2844709753990173,
+          "search_bounds_front_brake_fraction": [
+            0.5,
+            0.98
+          ],
+          "brake_optimization_at_search_bound": false,
+          "brake_bias_within_search_bounds": true,
+          "brake_bias_hardware_achievability": "not assessed; physical balance-bar/caliper adjustment limits were not supplied",
+          "representative_speed_center_fraction": 0.688123642530445,
+          "brake_coarse_search": [
+            {
+              "front_brake_fraction": 0.5,
+              "weighted_limit_g": 1.387006508557138
+            },
+            {
+              "front_brake_fraction": 0.663123642530445,
+              "weighted_limit_g": 1.7234507730051267
+            },
+            {
+              "front_brake_fraction": 0.688123642530445,
+              "weighted_limit_g": 1.7688797359600803
+            },
+            {
+              "front_brake_fraction": 0.713123642530445,
+              "weighted_limit_g": 1.7012504048680457
+            },
+            {
+              "front_brake_fraction": 0.98,
+              "weighted_limit_g": 1.183354074870096
+            }
+          ],
+          "brake_refined_search": [
+            {
+              "front_brake_fraction": 0.684123642530445,
+              "weighted_limit_g": 1.7719044084669708
+            },
+            {
+              "front_brake_fraction": 0.686123642530445,
+              "weighted_limit_g": 1.7741004525422395
+            },
+            {
+              "front_brake_fraction": 0.688123642530445,
+              "weighted_limit_g": 1.7748756541066197
+            },
+            {
+              "front_brake_fraction": 0.690123642530445,
+              "weighted_limit_g": 1.7732759056324432
+            },
+            {
+              "front_brake_fraction": 0.692123642530445,
+              "weighted_limit_g": 1.7681570021924549
+            }
+          ],
+          "brake_local_validation": [
+            {
+              "front_brake_fraction": 0.687123642530445,
+              "weighted_limit_g": 1.7755966777456997
+            },
+            {
+              "front_brake_fraction": 0.688123642530445,
+              "weighted_limit_g": 1.7758474558201889
+            },
+            {
+              "front_brake_fraction": 0.689123642530445,
+              "weighted_limit_g": 1.775531516883655
+            }
+          ],
+          "solver": "BobSim reduced-QSS solve_ax_limit at ay=0 for every weighted speed bin; fixed front fraction shared across all bins"
+        }
+      ]
+    }
+  }
+}

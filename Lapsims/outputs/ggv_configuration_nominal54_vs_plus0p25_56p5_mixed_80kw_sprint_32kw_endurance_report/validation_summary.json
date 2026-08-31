@@ -1,0 +1,85 @@
+{
+  "status": "passed",
+  "case_count": 2,
+  "event_row_count": 8,
+  "expected_configuration_order": [
+    "config_nominal_54",
+    "config_plus0p25_56p5"
+  ],
+  "all_sprint_rows_from_fresh_80kw_root": true,
+  "all_endurance_rows_from_fresh_32kw_root": true,
+  "all_selected_solves_converged": true,
+  "all_selected_speed_cap_segments_zero": true,
+  "all_selected_ggv_paths_and_hashes_verified": true,
+  "all_80kw_32kw_controlled_metadata_match": true,
+  "one_common_2026_real_plus_two_sim_scoring_field": true,
+  "only_exact_common_tmin_ties_receive_maximum": true,
+  "config_1_total_delta_exactly_zero": true,
+  "maximum_timed_event_points": 575.0,
+  "efficiency_points_included": false,
+  "best_observed_configuration": "config_nominal_54",
+  "best_observed_timed_event_points": 465.3206272371559,
+  "event_scoring": {
+    "acceleration": {
+      "real_field_fastest_time_s": 3.697,
+      "simulated_fastest_time_s": 3.8186350353811616,
+      "common_field_tmin_s": 3.697,
+      "common_field_tmax_s": 5.5455000000000005,
+      "common_field_tmin_source": "2026_real_field",
+      "exact_fastest_simulation_case_ids": [
+        "config_plus0p25_56p5"
+      ],
+      "simulated_maximum_score_count": 0,
+      "real_field_valid_result_count": 34
+    },
+    "skidpad": {
+      "real_field_fastest_time_s": 4.782,
+      "simulated_fastest_time_s": 5.027785601458863,
+      "common_field_tmin_s": 4.782,
+      "common_field_tmax_s": 5.9775,
+      "common_field_tmin_source": "2026_real_field",
+      "exact_fastest_simulation_case_ids": [
+        "config_nominal_54"
+      ],
+      "simulated_maximum_score_count": 0,
+      "real_field_valid_result_count": 38
+    },
+    "autocross": {
+      "real_field_fastest_time_s": 43.937,
+      "simulated_fastest_time_s": 55.35580486230231,
+      "common_field_tmin_s": 43.937,
+      "common_field_tmax_s": 63.70864999999999,
+      "common_field_tmin_source": "2026_real_field",
+      "exact_fastest_simulation_case_ids": [
+        "config_nominal_54"
+      ],
+      "simulated_maximum_score_count": 0,
+      "real_field_valid_result_count": 34
+    },
+    "michigan_endurance": {
+      "real_field_fastest_time_s": 1312.281,
+      "simulated_fastest_time_s": 1311.4262167515856,
+      "common_field_tmin_s": 1311.4262167515856,
+      "common_field_tmax_s": 1901.568014289799,
+      "common_field_tmin_source": "simulation:config_nominal_54",
+      "exact_fastest_simulation_case_ids": [
+        "config_nominal_54"
+      ],
+      "simulated_maximum_score_count": 1,
+      "real_field_valid_result_count": 23
+    }
+  },
+  "provenance_schema": "lapsims.two-config-mixed-power-report.v1",
+  "provenance_sha256": "2650ff1fd883653044bfe78584e5698f00e4c9e5170c12363730c8bff4ca559b",
+  "artifacts": [
+    "two_config_case_points.csv",
+    "two_config_event_deltas_vs_config1.csv",
+    "two_config_event_points_delta_vs_config1.png",
+    "two_config_event_results.csv",
+    "two_config_mixed_power_report.md",
+    "two_config_provenance.json",
+    "two_config_raw_time_delta_vs_config1.png",
+    "two_config_tuning_validity.csv",
+    "validation_summary.json"
+  ]
+}

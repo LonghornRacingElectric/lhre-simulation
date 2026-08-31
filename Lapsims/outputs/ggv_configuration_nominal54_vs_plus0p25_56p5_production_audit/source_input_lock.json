@@ -1,0 +1,325 @@
+{
+  "schema": "lapsims.two-config-cg-production-lock.v1",
+  "created_utc": "2026-08-25T20:01:21.819581+00:00",
+  "pinned_bobsim_root": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a",
+  "pinned_bobsim_commit": "9e1af8a797e663377b7efdce10dd49ac8648bc64",
+  "critical_bobsim_hashes": {
+    "vehicle.yml": "ef2daaf81289e59d063d33e3f140a498f7d39ce3515efc2e5809d297d5d8adab",
+    "_0_Utils/tire_templates/16x7p5_10_12psi.tir": "328b9666c71a164685d7429ef00517fbe0a6f15d3f5d031714bae4ce642bc7b1",
+    "_3_StandardSim/generated_results/four_post_eval_report_metrics.csv": "ab42f195305c605c19bf1390c795054c68de697aa63f687ae6365a1fe74fec87",
+    "_2_EnvelopeSim/GGV/ggv_generation.py": "fabddc7d17831eee74ef7c7055750384d93efb0e411abe91f4459da8c69ec349"
+  },
+  "planned_roots": {
+    "80kw": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw",
+    "32kw": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw"
+  },
+  "design": {
+    "sweep_axis": "configuration",
+    "model_dof": 6,
+    "tire_mu_scale": 0.6225437130779028,
+    "aero_balance_front": 0.5,
+    "sprung_mass_kg": 230.72288408,
+    "total_mass_kg": 261.07265114,
+    "drive": "RWD",
+    "limited_slip_differential_model": false,
+    "cases": [
+      {
+        "name": "config_nominal_54",
+        "cg_height_in": 11.5,
+        "rear_static_weight_fraction": 0.54,
+        "front_antiroll_stiffness_fraction": 0.6515279307018157,
+        "brake_distribution_front": 0.6996272063175089
+      },
+      {
+        "name": "config_plus0p25_56p5",
+        "cg_height_in": 11.75,
+        "rear_static_weight_fraction": 0.565,
+        "front_antiroll_stiffness_fraction": 0.5948513562400668,
+        "brake_distribution_front": 0.688123642530445
+      }
+    ],
+    "power_limit_kw": {
+      "80kw": 80.0,
+      "32kw": 32.0
+    }
+  },
+  "track_lengths_m": {
+    "acceleration": 75.0,
+    "autocross": 791.0,
+    "skidpad": 57.33406592801372,
+    "michigan_endurance": 1069.968773
+  },
+  "run_contract": {
+    "schema": "lapsims.two-config-cg-production-run-contract.v1",
+    "ggv": {
+      "ay_points": 23,
+      "ay_max_g": 2.2,
+      "ax_search_points": 301,
+      "ax_binary_iterations": 10,
+      "top_speed_mps": 42.0539983361957,
+      "speed_step_mps": 2.0,
+      "qss_zero_proxy_mps": 0.1
+    },
+    "sampled_qss_audit": {
+      "maximum_binned_trace_samples_per_case": 36,
+      "speed_bins": 6,
+      "lateral_bins": 7,
+      "longitudinal_bins": 4,
+      "pure_lateral_speed_mps": 11.8,
+      "trim_max_nfev": 220,
+      "trim_tolerance": 1e-07
+    },
+    "acceptance": {
+      "maximum_final_speed_change_mps": 1e-06,
+      "maximum_trim_residual_norm": 0.0001,
+      "maximum_abs_beta_rad": 0.25,
+      "maximum_abs_steering_rad": 0.5,
+      "tir_valid_load_min_n": 100.0,
+      "tir_valid_load_max_n": 1800.0,
+      "normal_load_numerical_tolerance_n": 1e-05,
+      "lateral_equality_tolerance_mps2": 1e-09
+    }
+  },
+  "source_manifest": {
+    "bobsim:_0_Utils/dyn_py/__init__.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\dyn_py\\__init__.py",
+      "sha256": "84bcbc9f96da58dd25149137d1fc4d597cb5306144da53eb5d8174af72bb5e45"
+    },
+    "bobsim:_0_Utils/dyn_py/models.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\dyn_py\\models.py",
+      "sha256": "68d5c6144037ef67813d7edbbd2b1cb06dc80ad1677f59d0f20fd56edb16baba"
+    },
+    "bobsim:_0_Utils/dyn_py/parameters.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\dyn_py\\parameters.py",
+      "sha256": "754aaae71ddbb44b9d7ac16a11a0973b84725611103822909a07a00382f94704"
+    },
+    "bobsim:_0_Utils/dyn_py/qss.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\dyn_py\\qss.py",
+      "sha256": "4826626980e986c8608fa7e5029c63e94cf65b50ddd7dcbc5c40452a5edeaac5"
+    },
+    "bobsim:_0_Utils/dyn_py/suspension.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\dyn_py\\suspension.py",
+      "sha256": "45ca851ab82ead2db649c4f38a02a78b905418da9c929db828c248862e9c8f7b"
+    },
+    "bobsim:_0_Utils/dyn_py/transient.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\dyn_py\\transient.py",
+      "sha256": "6fb32e3c43a8c27fa286e703116a1b77230486a8520e9389fe038d8dca595912"
+    },
+    "bobsim:_0_Utils/kin_py/__init__.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\__init__.py",
+      "sha256": "b76a4a63c0c724e4905d7ee6f58cd9298f0f37890fd873d32d10815f0530ffe2"
+    },
+    "bobsim:_0_Utils/kin_py/kinematics.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\kinematics.py",
+      "sha256": "1791a5d1d1d91b28cd074f9f42ef5a85b7ffa9fb4f65688db0bcaa590191440c"
+    },
+    "bobsim:_0_Utils/kin_py/mf52.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\mf52.py",
+      "sha256": "d69601b7b1ab87b5cbf8e05138a8086a2fd23cd359905198f6107636bb334b7e"
+    },
+    "bobsim:_0_Utils/kin_py/misc_math.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\misc_math.py",
+      "sha256": "d391a0e9a1a57b60b6ed89eface7e57829e74ac7aa32811c0522860127b485e3"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/__init__.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension.py",
+      "sha256": "675967e5f830ca0b9ea027306635e7646d56cae9c26ecbf19b44089dd00d3fef"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_data.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_data.py",
+      "sha256": "215e122ef61913a8fb581b8a13dbd9ab889906cc7d657e0dcff1960673bdd280"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/_1_elements/__init__.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\_1_elements\\__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/_1_elements/link.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\_1_elements\\link.py",
+      "sha256": "9d874769c7ef3888d75d6787e411f0924d6ee15595a6a13a07a96d2241bb149f"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/_1_elements/node.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\_1_elements\\node.py",
+      "sha256": "e2411c1757a1908c0a557450b37be7626e53a59aa2d420531530d7da8913005e"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/_2_elements/__init__.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\_2_elements\\__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/_2_elements/bellcrank.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\_2_elements\\bellcrank.py",
+      "sha256": "6269e86c4ed036ecf5bfeb88a45bb3714ea54ddeb4937453a7517b55d5914dc7"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/_2_elements/damper.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\_2_elements\\damper.py",
+      "sha256": "acd48f5eefa14013d5e8f98f5ef0268d24dc2cf61a61f8b8e378f4a7241d8c88"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/_2_elements/spring.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\_2_elements\\spring.py",
+      "sha256": "641c471027bb34b652bfd5c6cbc69b5b48a89f42819c320a34d62fe0805117f2"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/_2_elements/stabar.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\_2_elements\\stabar.py",
+      "sha256": "a9c475fd081237e92a0c893493459e2562439d3b386c6a6b0b302dce3c76440d"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/_2_elements/stabar_slow.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\_2_elements\\stabar_slow.py",
+      "sha256": "933d0afd16434116a9b722845592b9176c48c16c30eda999eb97ecd2955519ed"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/_2_elements/tire.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\_2_elements\\tire.py",
+      "sha256": "a17491f1565f14fb3b35a82423ee8f612b580dd4003a13f558d94808655ae572"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/_2_elements/wishbone.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\_2_elements\\wishbone.py",
+      "sha256": "b04dc0571fe30f876dbeca19f1cb1cbb298d8126b63385eed7bc520251ae7da9"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/_3_elements/serial_link.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\_3_elements\\serial_link.py",
+      "sha256": "2c702458811341cccebe73b714e738e7fb840711f640509cb295adb83910a58f"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/_4_elements/push_pull_rod.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\_4_elements\\push_pull_rod.py",
+      "sha256": "761f4b89abf374dad2ef96cb6f18de87fe8e5fbc82aba91ebe83755f301f3b66"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/_5_elements/quarter_car.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\_5_elements\\quarter_car.py",
+      "sha256": "d4c384234bb1deaf940343d22caa847db307bad16b7b69b40de366ed73c7bc03"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/_5_elements/quarter_car_better_runtime.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\_5_elements\\quarter_car_better_runtime.py",
+      "sha256": "6936fe59a6b1b7339a1857f178f523bcd715bf80c695dc369a4f8fb444a98af4"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/_6_elements/axle.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\_6_elements\\axle.py",
+      "sha256": "ffd69b5be36d196597244c3d07e3f3b6d901e9f19125351b49b1c861c59894d9"
+    },
+    "bobsim:_0_Utils/kin_py/suspension_model/suspension_elements/__init__.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\suspension_model\\suspension_elements\\__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "bobsim:_0_Utils/kin_py/updateable.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\kin_py\\updateable.py",
+      "sha256": "e480e52928764e0844d0fa6f281c411cb9765262a62a60cb686f4dd78b1b56fb"
+    },
+    "bobsim:_0_Utils/tire_templates/16x7p5_10_12psi.tir": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\tire_templates\\16x7p5_10_12psi.tir",
+      "sha256": "328b9666c71a164685d7429ef00517fbe0a6f15d3f5d031714bae4ce642bc7b1"
+    },
+    "bobsim:_0_Utils/vehicle_io.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_0_Utils\\vehicle_io.py",
+      "sha256": "0756fcd9848ba9415362c45a217630f4905c5c7deaca6786f3365485a074210e"
+    },
+    "bobsim:_2_EnvelopeSim/GGV/ggv_config.yml": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_2_EnvelopeSim\\GGV\\ggv_config.yml",
+      "sha256": "8801797cfd82ffc219461492d777115e995713a4918066c4650876a483e79839"
+    },
+    "bobsim:_2_EnvelopeSim/GGV/ggv_generation.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_2_EnvelopeSim\\GGV\\ggv_generation.py",
+      "sha256": "fabddc7d17831eee74ef7c7055750384d93efb0e411abe91f4459da8c69ec349"
+    },
+    "bobsim:_2_EnvelopeSim/YMD/ymd_generation.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_2_EnvelopeSim\\YMD\\ymd_generation.py",
+      "sha256": "2b249fb87d80d5cfeaab9068ac0ad915f584e14faaac0acd5e3ad831b0f9f1ab"
+    },
+    "bobsim:_2_EnvelopeSim/vehicle_yaml.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_2_EnvelopeSim\\vehicle_yaml.py",
+      "sha256": "3cf38a7e3023a8b94872d9b96b6e69898056579a046b4f52393bd86613c34292"
+    },
+    "bobsim:_3_StandardSim/generated_results/four_post_eval_report_metrics.csv": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\_3_StandardSim\\generated_results\\four_post_eval_report_metrics.csv",
+      "sha256": "ab42f195305c605c19bf1390c795054c68de697aa63f687ae6365a1fe74fec87"
+    },
+    "bobsim:vehicle.yml": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\tmp\\bobsim-two-config-cg-9e1af8a\\vehicle.yml",
+      "sha256": "ef2daaf81289e59d063d33e3f140a498f7d39ce3515efc2e5809d297d5d8adab"
+    },
+    "lapsims:inputs/events/acceleration_openlap_track.csv": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\events\\acceleration_openlap_track.csv",
+      "sha256": "de4dbbc618a96f28c023ab878b2f6c3806ec3aa9797462b4a7b1db0b9d51e293"
+    },
+    "lapsims:inputs/events/autocross_openlap_track.csv": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\events\\autocross_openlap_track.csv",
+      "sha256": "7be39c4038579956696499a5cb305dd384fc0d0e7586b22f0dc9a2d812efc88d"
+    },
+    "lapsims:inputs/events/michigan_endurance_openlap_track.csv": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\events\\michigan_endurance_openlap_track.csv",
+      "sha256": "4ceef3949341337c46bc578de70d0a056c53f7dc0e94087719a0029de2978971"
+    },
+    "lapsims:inputs/events/openlap_event_suite_manifest.json": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\events\\openlap_event_suite_manifest.json",
+      "sha256": "c00920b2d4f03fd68c81e1448b1f4944d32c1b6023646d2427a9741cc15158ea"
+    },
+    "lapsims:inputs/events/skidpad_openlap_track.csv": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\events\\skidpad_openlap_track.csv",
+      "sha256": "107e583fd3b7ff0ae054ab6e8af2abcedf9e4e6a80b38023ac35e8a4f34cabf5"
+    },
+    "lapsims:inputs/fsae_ev_michigan_2026_scoring.json": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\fsae_ev_michigan_2026_scoring.json",
+      "sha256": "888c1627d6337c93848ea79c6cf5f0d903feefccf6f68b7ddba0ac24ab190174"
+    },
+    "lapsims:inputs/ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw.json": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw.json",
+      "sha256": "f4a9f1dd75eb71684748d3fc71b62b5e8d2a48b444dcf4c99e438cacb547c22f"
+    },
+    "lapsims:inputs/ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw.json": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw.json",
+      "sha256": "9cf39bcf506057f49c2538707bdbc3dd46f5237937e13d65c7728a87e570a05f"
+    },
+    "lapsims:inputs/ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_physical_tuning.json": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_physical_tuning.json",
+      "sha256": "0edc6f3ec3672cd300382ebba93837569e3d2ae4de3be93eb03eb488a3e1855e"
+    },
+    "lapsims:inputs/ggv_configuration_nominal54_vs_plus0p25_56p5_production_run_contract.json": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_production_run_contract.json",
+      "sha256": "eb606e60180178aa165f1a26454bf22395a39b851e2e7a199f884816dac23a54"
+    },
+    "lapsims:src/audit_two_config_cg_production.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\src\\audit_two_config_cg_production.py",
+      "sha256": "1bb0cec97b1d607d043aa80732d6668060fae02d17099fed7f2a80effe4d58d8"
+    },
+    "lapsims:src/audit_two_config_qss_samples.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\src\\audit_two_config_qss_samples.py",
+      "sha256": "de83557a04ae665df2e2b64a975a8e1c46763b5b60786db20f1d38181a904246"
+    },
+    "lapsims:src/battery_dynamic_points.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\src\\battery_dynamic_points.py",
+      "sha256": "d94a5a7b608c442094bf690c3c379a70690791cace65e061af71cd0b0b933341"
+    },
+    "lapsims:src/build_longitudinal_cg_mixed_power_report.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\src\\build_longitudinal_cg_mixed_power_report.py",
+      "sha256": "5e67752977bfe36c6ebd9db9ff5b3846b295de61e4eb4f0c99f9be9c427d41dd"
+    },
+    "lapsims:src/build_longitudinal_cg_points_correlation.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\src\\build_longitudinal_cg_points_correlation.py",
+      "sha256": "227fb15ab1e1e824dfb80e70e863fca21f424ff18adab37c1188d690b8bb322d"
+    },
+    "lapsims:src/build_reduced_dof_cg_comparison.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\src\\build_reduced_dof_cg_comparison.py",
+      "sha256": "9e9cf1cbc325002787ffacc1a381ae0b38f2a509fb4cf5a6401fa24f3c372c6f"
+    },
+    "lapsims:src/build_two_config_mixed_power_report.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\src\\build_two_config_mixed_power_report.py",
+      "sha256": "222efa88770888618e187eaf296bce4a180afa137519261f33dc232eb7fe8cdc"
+    },
+    "lapsims:src/ggv_lookup_solver.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\src\\ggv_lookup_solver.py",
+      "sha256": "4118ee51ef64584b6bdd335e7ee12d3c6c20219aac9ef20bcfe401c9a5dad272"
+    },
+    "lapsims:src/reduced_ggv_bridge.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\src\\reduced_ggv_bridge.py",
+      "sha256": "2fe6a1af84ba1e22f31bb6cd564a5b5f69849df414390a0b08c143d84aa55361"
+    },
+    "lapsims:src/run_ggv_cg_smoke.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\src\\run_ggv_cg_smoke.py",
+      "sha256": "0db63c876eb1dc54f7d99e50c24ac245ce89112a2767a3c9ee083fb3b59676be"
+    },
+    "lapsims:src/tune_dyn_py_cg_setups.py": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\src\\tune_dyn_py_cg_setups.py",
+      "sha256": "618407ba00e5b7fa96a07a8093950a7444560d2a018bc0978da7a7a78406b8ce"
+    }
+  }
+}

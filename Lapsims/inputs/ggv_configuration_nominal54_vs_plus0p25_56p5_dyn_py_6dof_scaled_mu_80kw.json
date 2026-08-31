@@ -1,0 +1,34 @@
+{
+  "study": "Scaled-mu dyn_py 6DOF physical vehicle-configuration comparison",
+  "model_dof": 6,
+  "sweep_axis": "configuration",
+  "reference_case": "config_nominal_54",
+  "aero_balance_front": 0.5,
+  "tire_mu_scale": 0.622543713077903,
+  "drive_power_limit_kw": 80.0,
+  "drive_model": "RWD with equal rear-wheel force split; no LSD model",
+  "cases": [
+    {
+      "name": "config_nominal_54",
+      "cg_height_in": 11.5,
+      "rear_static_weight_fraction": 0.54,
+      "front_static_weight_fraction": 0.45999999999999996,
+      "cg_x_m": -0.8366760000000001,
+      "total_mass_kg": 261.07265114,
+      "sprung_mass_kg": 230.72288407999997,
+      "front_antiroll_stiffness_fraction": 0.6515279307018157,
+      "brake_distribution_front": 0.6996272063175089
+    },
+    {
+      "name": "config_plus0p25_56p5",
+      "cg_height_in": 11.75,
+      "rear_static_weight_fraction": 0.565,
+      "front_static_weight_fraction": 0.435,
+      "cg_x_m": -0.8754109999999999,
+      "total_mass_kg": 261.07265114,
+      "sprung_mass_kg": 230.72288407999997,
+      "front_antiroll_stiffness_fraction": 0.5948513562400668,
+      "brake_distribution_front": 0.688123642530445
+    }
+  ]
+}

@@ -1,0 +1,358 @@
+{
+  "schema": "lapsims.two-config-mixed-power-report.v1",
+  "generated_utc": "2026-08-25T20:39:02.361172+00:00",
+  "configuration_order": [
+    "config_nominal_54",
+    "config_plus0p25_56p5"
+  ],
+  "configuration_labels": {
+    "config_nominal_54": "Config 1: nominal 54% rear",
+    "config_plus0p25_56p5": "Config 2: +0.25 in / 56.5% rear"
+  },
+  "event_source_mapping": {
+    "acceleration": "fresh_80kw_sprint",
+    "skidpad": "fresh_80kw_sprint",
+    "autocross": "fresh_80kw_sprint",
+    "michigan_endurance": "fresh_32kw_endurance"
+  },
+  "study_80kw": {
+    "root": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw",
+    "expected_power_w": 80000.0,
+    "event_results": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\event_results.csv",
+      "sha256": "6b915e31e2a5362c59db05885494796ff81a569d5352e0a932021a6174f36f6c"
+    },
+    "root_artifacts": {
+      "smoke_summary.json": {
+        "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\smoke_summary.json",
+        "sha256": "63f99bb43a314324c87ed22d30f48565e1593af39b4b6063e110e8427aae9b07"
+      }
+    },
+    "case_artifacts": {
+      "config_nominal_54": {
+        "case_metadata.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_nominal_54\\case_metadata.json",
+          "sha256": "adbc8da9cecb474b37e02e070cc2fcd4fd8476e7982933c134e09fde7d889865"
+        },
+        "ggv.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_nominal_54\\ggv.csv",
+          "sha256": "2c79bd51cc865d8ae70c60f77cabad38f0866fc944484ac65c1d8b56405fe06b"
+        },
+        "acceleration_summary.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_nominal_54\\acceleration_summary.json",
+          "sha256": "1b2e951344274fdf23766a88342a30c43a746f13c69a7c4e18fe8f85dd44f1f8"
+        },
+        "acceleration_trace.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_nominal_54\\acceleration_trace.csv",
+          "sha256": "218080a03d3a02d1fe241afe54289243b349d3a09230947e00d36205902b1bc6"
+        },
+        "skidpad_summary.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_nominal_54\\skidpad_summary.json",
+          "sha256": "be166b3c23ca47212892aa02b33431492edaebdefabf74d972dda81b0f91bba6"
+        },
+        "skidpad_trace.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_nominal_54\\skidpad_trace.csv",
+          "sha256": "a8c07c4ce907b5769411ab01d8025ffe9b6fe277a549692c26feffdd1be8ac9c"
+        },
+        "autocross_summary.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_nominal_54\\autocross_summary.json",
+          "sha256": "121cba816174a81b039edc7307df7ae1b89b2e5b0381704ba36fd9703cb0da21"
+        },
+        "autocross_trace.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_nominal_54\\autocross_trace.csv",
+          "sha256": "61185069a9d234013ceeb47b70332e89582ac96704ad31bd2d854d8b6477c368"
+        },
+        "michigan_endurance_summary.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_nominal_54\\michigan_endurance_summary.json",
+          "sha256": "1d610d15ee4682b6958ee3425db4883aa9c278916e928c4714ac8099cfb5cc50"
+        },
+        "michigan_endurance_trace.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_nominal_54\\michigan_endurance_trace.csv",
+          "sha256": "99bdeffaa70a23e5803a062d0565fa90139234c8513004ef32201ecfed8cb98e"
+        }
+      },
+      "config_plus0p25_56p5": {
+        "case_metadata.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_plus0p25_56p5\\case_metadata.json",
+          "sha256": "61ca98f7fc63baa3133b72246d04c46c9aebaddd6929014c9c4177b2b20d38b3"
+        },
+        "ggv.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_plus0p25_56p5\\ggv.csv",
+          "sha256": "6c2425a3c6880157027d6ca6802b9ce64c223f58e0f0694699eea32a46649661"
+        },
+        "acceleration_summary.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_plus0p25_56p5\\acceleration_summary.json",
+          "sha256": "034d47f209db574ab5fa7499f5927a596516008405ed7467bfe9b0f1b4daff88"
+        },
+        "acceleration_trace.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_plus0p25_56p5\\acceleration_trace.csv",
+          "sha256": "bba2ee5d644c81b96baae122d2a8b7e68628477d2e87299cad1c44aaa28cba4f"
+        },
+        "skidpad_summary.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_plus0p25_56p5\\skidpad_summary.json",
+          "sha256": "96811a86a44afcbbc067d8fa28bda28eeeef51c1fff3395e3432d0cd58cdd94b"
+        },
+        "skidpad_trace.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_plus0p25_56p5\\skidpad_trace.csv",
+          "sha256": "3947229b550b4944cbf0afd1d60d2f3b9abf9b1abcd4fa908e470435aeec5bec"
+        },
+        "autocross_summary.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_plus0p25_56p5\\autocross_summary.json",
+          "sha256": "b706c087dc6db06a4ec307f48180749137c07ffc80d3c1c8132352f63d217a7b"
+        },
+        "autocross_trace.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_plus0p25_56p5\\autocross_trace.csv",
+          "sha256": "ac89f9e0122655bb9d97dabf24fa40a7ca18433ecf5efebba14cdd16b2ae1663"
+        },
+        "michigan_endurance_summary.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_plus0p25_56p5\\michigan_endurance_summary.json",
+          "sha256": "f0cb1288f7d72c8b26a4269042d520d9be3e95bac17e65078d4f9b5b1bcc626c"
+        },
+        "michigan_endurance_trace.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_plus0p25_56p5\\michigan_endurance_trace.csv",
+          "sha256": "c86003f4ec7c5f048d62192ee22a34e1bfa06613b3608675b8384fa2bc5fc8e2"
+        }
+      }
+    }
+  },
+  "study_32kw": {
+    "root": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw",
+    "expected_power_w": 32000.0,
+    "event_results": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\event_results.csv",
+      "sha256": "92d7120e63bd526bb903708ffe15d0ad17452e020a5c3de75d596bde6b841934"
+    },
+    "root_artifacts": {
+      "smoke_summary.json": {
+        "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\smoke_summary.json",
+        "sha256": "7bc5a7a0b381fef17650156e005a9319d8f6a825744b63817e3c8d882660a853"
+      }
+    },
+    "case_artifacts": {
+      "config_nominal_54": {
+        "case_metadata.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_nominal_54\\case_metadata.json",
+          "sha256": "fc7598287afb00e0bd0c9df53964e8e9660e79d44ad16b695146de4e66004e32"
+        },
+        "ggv.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_nominal_54\\ggv.csv",
+          "sha256": "f0fece08057f627c1af0d11d685f9dc7d493e56c2ae90c63f414351ceea1ac01"
+        },
+        "acceleration_summary.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_nominal_54\\acceleration_summary.json",
+          "sha256": "d5c11493a841f7021b6fe3e977c208502a89c53d167759b4979355ef410b31e1"
+        },
+        "acceleration_trace.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_nominal_54\\acceleration_trace.csv",
+          "sha256": "50a3ad32300bf951ab15d44ed64e31b6f02d847da2b63a7731f9d3325a71b074"
+        },
+        "skidpad_summary.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_nominal_54\\skidpad_summary.json",
+          "sha256": "f1fed039e01b147c78c7d51938d7bbd21be105df78a3279b35e9381918388ea9"
+        },
+        "skidpad_trace.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_nominal_54\\skidpad_trace.csv",
+          "sha256": "c5a02908f608db4f7693b87c899044e7bf327579327ce8c422d275667cc4f6e7"
+        },
+        "autocross_summary.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_nominal_54\\autocross_summary.json",
+          "sha256": "d6771b948a3f531b5d69e638cf93b2c1562d62bf04d6afb52a113a917c2777e7"
+        },
+        "autocross_trace.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_nominal_54\\autocross_trace.csv",
+          "sha256": "815f149b8ebdcc557479b2b7b82048e816c356e8f9920f909de3dc318c1883f8"
+        },
+        "michigan_endurance_summary.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_nominal_54\\michigan_endurance_summary.json",
+          "sha256": "622118464b592ba4ba2bb0652c891fb6279917ff4e299638572013a8877d9abd"
+        },
+        "michigan_endurance_trace.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_nominal_54\\michigan_endurance_trace.csv",
+          "sha256": "696f8e416664c9dbf652871027e56326bdb168e06f7eb17ad1d6796eeb7473a5"
+        }
+      },
+      "config_plus0p25_56p5": {
+        "case_metadata.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_plus0p25_56p5\\case_metadata.json",
+          "sha256": "7b2e9c0b723a961757604256e302747318f4a441cd739192953e7bfb1a221365"
+        },
+        "ggv.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_plus0p25_56p5\\ggv.csv",
+          "sha256": "6b2acfb999d296f755672ebff7c14160c949b81505b6cee4a2cf1b8052621318"
+        },
+        "acceleration_summary.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_plus0p25_56p5\\acceleration_summary.json",
+          "sha256": "fc86ec256e687922e92be94a5ab8c319460944a7a1f8b23a23e1cd08066e13fe"
+        },
+        "acceleration_trace.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_plus0p25_56p5\\acceleration_trace.csv",
+          "sha256": "2dae990ea98492ece83b0d7edc32ba91703ddf81343ffc192a6b81c6037fa5c9"
+        },
+        "skidpad_summary.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_plus0p25_56p5\\skidpad_summary.json",
+          "sha256": "8f499ef58486188a5383ac005728668f6fae7e0e28cc094155da6379cea272d0"
+        },
+        "skidpad_trace.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_plus0p25_56p5\\skidpad_trace.csv",
+          "sha256": "a36ca3d8d1d6364321f079cddb87290050a4faf6d7785b534bceb690231cb413"
+        },
+        "autocross_summary.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_plus0p25_56p5\\autocross_summary.json",
+          "sha256": "68dbe6fe5352243a3e75b18e6773dff2ca872accf6e4faa26864d27e21ffcd29"
+        },
+        "autocross_trace.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_plus0p25_56p5\\autocross_trace.csv",
+          "sha256": "24eee6adcf12bb9bfef6070d0be55a25f8d21925eb7b783216a786ac94d5bc70"
+        },
+        "michigan_endurance_summary.json": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_plus0p25_56p5\\michigan_endurance_summary.json",
+          "sha256": "e834a2fccec2cb368abbf6ec57438bfa18aa2b725db8bacdfde483866522036d"
+        },
+        "michigan_endurance_trace.csv": {
+          "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_plus0p25_56p5\\michigan_endurance_trace.csv",
+          "sha256": "807b00033bfb7b4004094d5858be88148020777dce36294123076ea27ca7dd9b"
+        }
+      }
+    }
+  },
+  "controlled_metadata_comparison": [
+    {
+      "cg_case": "config_nominal_54",
+      "config_label": "Config 1: nominal 54% rear",
+      "controlled_metadata_match": true
+    },
+    {
+      "cg_case": "config_plus0p25_56p5",
+      "config_label": "Config 2: +0.25 in / 56.5% rear",
+      "controlled_metadata_match": true
+    }
+  ],
+  "scoring_reference": {
+    "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\inputs\\fsae_ev_michigan_2026_scoring.json",
+    "sha256": "888c1627d6337c93848ea79c6cf5f0d903feefccf6f68b7ddba0ac24ab190174"
+  },
+  "builder": {
+    "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\src\\build_two_config_mixed_power_report.py",
+    "sha256": "222efa88770888618e187eaf296bce4a180afa137519261f33dc232eb7fe8cdc"
+  },
+  "selected_rows": [
+    {
+      "cg_case": "config_nominal_54",
+      "event_slug": "acceleration",
+      "mixed_power_source": "fresh_80kw_sprint",
+      "mixed_power_source_root": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw",
+      "ggv_source_csv": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_nominal_54\\ggv.csv",
+      "ggv_source_sha256": "2c79bd51cc865d8ae70c60f77cabad38f0866fc944484ac65c1d8b56405fe06b",
+      "lap_time_s": 3.8582095407563175,
+      "common_projected_competition_time_s": 3.8582095407563175,
+      "common_projected_points": 88.029024100741
+    },
+    {
+      "cg_case": "config_nominal_54",
+      "event_slug": "autocross",
+      "mixed_power_source": "fresh_80kw_sprint",
+      "mixed_power_source_root": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw",
+      "ggv_source_csv": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_nominal_54\\ggv.csv",
+      "ggv_source_sha256": "2c79bd51cc865d8ae70c60f77cabad38f0866fc944484ac65c1d8b56405fe06b",
+      "lap_time_s": 55.35580486230231,
+      "common_projected_competition_time_s": 55.35580486230231,
+      "common_projected_points": 46.235354917131545
+    },
+    {
+      "cg_case": "config_nominal_54",
+      "event_slug": "skidpad",
+      "mixed_power_source": "fresh_80kw_sprint",
+      "mixed_power_source_root": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw",
+      "ggv_source_csv": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_nominal_54\\ggv.csv",
+      "ggv_source_sha256": "2c79bd51cc865d8ae70c60f77cabad38f0866fc944484ac65c1d8b56405fe06b",
+      "lap_time_s": 5.027785601458863,
+      "common_projected_competition_time_s": 5.027785601458863,
+      "common_projected_points": 56.05624821928335
+    },
+    {
+      "cg_case": "config_plus0p25_56p5",
+      "event_slug": "acceleration",
+      "mixed_power_source": "fresh_80kw_sprint",
+      "mixed_power_source_root": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw",
+      "ggv_source_csv": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_plus0p25_56p5\\ggv.csv",
+      "ggv_source_sha256": "6c2425a3c6880157027d6ca6802b9ce64c223f58e0f0694699eea32a46649661",
+      "lap_time_s": 3.8186350353811616,
+      "common_projected_competition_time_s": 3.8186350353811616,
+      "common_projected_points": 90.87411147862565
+    },
+    {
+      "cg_case": "config_plus0p25_56p5",
+      "event_slug": "autocross",
+      "mixed_power_source": "fresh_80kw_sprint",
+      "mixed_power_source_root": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw",
+      "ggv_source_csv": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_plus0p25_56p5\\ggv.csv",
+      "ggv_source_sha256": "6c2425a3c6880157027d6ca6802b9ce64c223f58e0f0694699eea32a46649661",
+      "lap_time_s": 55.749054161161126,
+      "common_projected_competition_time_s": 55.749054161161126,
+      "common_projected_points": 44.0975330122787
+    },
+    {
+      "cg_case": "config_plus0p25_56p5",
+      "event_slug": "skidpad",
+      "mixed_power_source": "fresh_80kw_sprint",
+      "mixed_power_source_root": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw",
+      "ggv_source_csv": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_80kw\\config_plus0p25_56p5\\ggv.csv",
+      "ggv_source_sha256": "6c2425a3c6880157027d6ca6802b9ce64c223f58e0f0694699eea32a46649661",
+      "lap_time_s": 5.095116269559222,
+      "common_projected_competition_time_s": 5.095116269559222,
+      "common_projected_points": 51.339106353725235
+    },
+    {
+      "cg_case": "config_nominal_54",
+      "event_slug": "michigan_endurance",
+      "mixed_power_source": "fresh_32kw_endurance",
+      "mixed_power_source_root": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw",
+      "ggv_source_csv": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_nominal_54\\ggv.csv",
+      "ggv_source_sha256": "f0fece08057f627c1af0d11d685f9dc7d493e56c2ae90c63f414351ceea1ac01",
+      "lap_time_s": 63.78114090989665,
+      "common_projected_competition_time_s": 1311.4262167515856,
+      "common_projected_points": 275.0
+    },
+    {
+      "cg_case": "config_plus0p25_56p5",
+      "event_slug": "michigan_endurance",
+      "mixed_power_source": "fresh_32kw_endurance",
+      "mixed_power_source_root": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw",
+      "ggv_source_csv": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_dyn_py_6dof_scaled_mu_32kw\\config_plus0p25_56p5\\ggv.csv",
+      "ggv_source_sha256": "6b2acfb999d296f755672ebff7c14160c949b81505b6cee4a2cf1b8052621318",
+      "lap_time_s": 64.28459690416078,
+      "common_projected_competition_time_s": 1321.777950515512,
+      "common_projected_points": 268.69115164925347
+    }
+  ],
+  "output_artifacts": {
+    "two_config_event_results.csv": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_mixed_80kw_sprint_32kw_endurance_report\\two_config_event_results.csv",
+      "sha256": "5fed2eee2049f15e9f125bb3141e2a984b317bf0efe23955d333f80540bf0146"
+    },
+    "two_config_case_points.csv": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_mixed_80kw_sprint_32kw_endurance_report\\two_config_case_points.csv",
+      "sha256": "f9142544ea9f5fc22ba7833886bc2df364bec5f0e63a3a4c724ca6055f08a2fa"
+    },
+    "two_config_event_deltas_vs_config1.csv": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_mixed_80kw_sprint_32kw_endurance_report\\two_config_event_deltas_vs_config1.csv",
+      "sha256": "3d32ca514ea1179aeb41d90d4da3e7d91f6f0cbbe8cfa632d3f646b806a7fba8"
+    },
+    "two_config_tuning_validity.csv": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_mixed_80kw_sprint_32kw_endurance_report\\two_config_tuning_validity.csv",
+      "sha256": "74b7de4cd2376df84a35cde920dbbbb2f0dfba1195e7b823b9e08a4f5477f871"
+    },
+    "two_config_event_points_delta_vs_config1.png": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_mixed_80kw_sprint_32kw_endurance_report\\two_config_event_points_delta_vs_config1.png",
+      "sha256": "dbe196beff8e8bcdf19642301e55342ff7868237280cf9b342f63db0716c5b71"
+    },
+    "two_config_raw_time_delta_vs_config1.png": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_mixed_80kw_sprint_32kw_endurance_report\\two_config_raw_time_delta_vs_config1.png",
+      "sha256": "e6453f5347ec40819bcef2d445d8ca0c50b2d2ddf193bed1ce63c9b81516d6ec"
+    },
+    "two_config_mixed_power_report.md": {
+      "path": "C:\\Users\\Abishek\\Documents\\LHR VMOD Stuff\\References\\lhre-simulation\\Lapsims\\outputs\\ggv_configuration_nominal54_vs_plus0p25_56p5_mixed_80kw_sprint_32kw_endurance_report\\two_config_mixed_power_report.md",
+      "sha256": "1af5760683cf4f65c36834b11e5ead915e3f065a161fa17ea244f4fb4032a77b"
+    }
+  }
+}

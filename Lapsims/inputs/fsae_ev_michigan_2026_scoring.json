@@ -1,0 +1,75 @@
+{
+  "competition": "Formula SAE Electric 2026 - Michigan June",
+  "source_pdf": "FSAE_2026_MI6_results.pdf",
+  "source_pdf_location": "workspace root",
+  "selection_policy": "Use each entrant's official Best Time for acceleration, skidpad, and autocross. Use the official Adjusted Time for classified 22-lap endurance finishers. Exclude DQ, DNF, DNA, and entries without a numeric scored time.",
+  "events": {
+    "acceleration": {
+      "rule_slug": "acceleration",
+      "source_pdf_page": 15,
+      "time_basis": "official Best Time, including penalties",
+      "simulation_time_conversion": "direct",
+      "winner_team": "University of Wisconsin - Madison",
+      "winner_car_number": 38,
+      "fastest_adjusted_time_s": 3.697,
+      "valid_adjusted_times_s": [
+        3.697, 3.716, 3.762, 3.779, 3.780, 3.820, 3.839, 3.925,
+        3.948, 3.989, 4.049, 4.180, 4.188, 4.280, 4.344, 4.375,
+        4.424, 4.466, 4.471, 4.521, 4.534, 4.560, 4.567, 4.688,
+        4.860, 4.999, 5.013, 5.552, 5.555, 5.796, 6.031, 6.044,
+        6.052, 7.039
+      ]
+    },
+    "skidpad": {
+      "rule_slug": "skidpad",
+      "source_pdf_page": 19,
+      "time_basis": "official paired-run Best Time, including penalties",
+      "simulation_time_conversion": "direct",
+      "winner_team": "Rochester Institute of Technology",
+      "winner_car_number": 8,
+      "fastest_adjusted_time_s": 4.782,
+      "valid_adjusted_times_s": [
+        4.782, 4.851, 4.873, 4.906, 5.020, 5.024, 5.027, 5.043,
+        5.077, 5.088, 5.091, 5.098, 5.102, 5.107, 5.178, 5.182,
+        5.207, 5.236, 5.276, 5.307, 5.312, 5.326, 5.347, 5.418,
+        5.445, 5.530, 5.544, 5.548, 5.555, 5.589, 5.620, 5.692,
+        5.933, 6.053, 6.258, 6.420, 6.487, 6.681
+      ]
+    },
+    "autocross": {
+      "rule_slug": "autocross",
+      "source_pdf_page": 22,
+      "time_basis": "official Best Time, including penalties",
+      "simulation_time_conversion": "direct",
+      "winner_team": "Rochester Institute of Technology",
+      "winner_car_number": 8,
+      "fastest_adjusted_time_s": 43.937,
+      "valid_adjusted_times_s": [
+        43.937, 44.011, 44.336, 44.664, 44.740, 44.832, 44.873,
+        45.121, 45.809, 46.010, 46.223, 46.734, 46.808, 46.839,
+        47.030, 47.315, 47.793, 49.541, 50.077, 50.647, 51.305,
+        52.076, 52.178, 52.706, 52.830, 54.407, 54.810, 55.339,
+        56.050, 56.921, 57.158, 65.958, 71.274, 75.671
+      ]
+    },
+    "michigan_endurance": {
+      "rule_slug": "endurance",
+      "source_pdf_page": 25,
+      "time_basis": "official Adjusted Time for classified 22-lap finishers",
+      "simulation_time_conversion": "distance_scaled",
+      "official_event_distance_m": 22000,
+      "simulation_assumption": "The modeled Michigan 2014 lap pace is extended to the official 22 km endurance distance with zero cone, off-course, or other time penalties.",
+      "winner_team": "Oregon State University",
+      "winner_car_number": 1,
+      "winner_raw_time_s": 1308.281,
+      "winner_penalty_time_s": 4.0,
+      "fastest_adjusted_time_s": 1312.281,
+      "valid_adjusted_times_s": [
+        1312.281, 1394.927, 1412.029, 1415.128, 1434.223, 1442.381,
+        1442.679, 1473.539, 1474.924, 1535.109, 1542.317, 1550.246,
+        1602.185, 1644.995, 1647.370, 1665.578, 1727.104, 1767.826,
+        1906.237, 1937.460, 1973.285, 1975.303, 2107.854
+      ]
+    }
+  }
+}
