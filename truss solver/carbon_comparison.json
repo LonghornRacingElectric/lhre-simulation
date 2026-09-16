@@ -1,0 +1,377 @@
+[
+  {
+    "material_case": "steel",
+    "carbon_links": [],
+    "carbon_properties": {
+      "source": "https://www.rockwestcomposites.com/45526.html",
+      "verified_date": "2026-09-15",
+      "OD_in": 0.707,
+      "ID_in": 0.625,
+      "area_in2": 0.08578432899892284,
+      "axial_E_psi": 13900000.0,
+      "EA_N": 5304069.12040041,
+      "qualification": "Manufacturer CLT reference estimates, not guaranteed properties"
+    },
+    "moment_per_wheel_Nm": 42,
+    "toe_deg": 0.012137689298407259,
+    "toe_deg_per_Nm": 0.00028899260234302996,
+    "rotational_stiffness_Nm_per_deg": 3460.2961871425855,
+    "equal_split_42Nm_axle_per_wheel_toe_deg": 0.0060688446492036295,
+    "q_translation_in_rotation_rad": [
+      -0.00045944372445464485,
+      -0.00011952500556439778,
+      0.0003813441674495613,
+      1.0965627880056395e-05,
+      -4.201957417184778e-06,
+      0.00021184264184128719
+    ],
+    "members": [
+      {
+        "link": "UCA_FORE",
+        "length_in": 14.218448368229213,
+        "stiffness_lbf_per_in": 135510.881616681,
+        "force_N_compression_positive": 153.12332668618242,
+        "extension_mm": -0.006452299016647171,
+        "toe_contribution_deg": 0.001347811579955945
+      },
+      {
+        "link": "UCA_AFT",
+        "length_in": 10.008484450704811,
+        "stiffness_lbf_per_in": 192512.11140806793,
+        "force_N_compression_positive": 202.3551844003136,
+        "extension_mm": -0.006002104864974361,
+        "toe_contribution_deg": 0.0016568807662673062
+      },
+      {
+        "link": "LCA_FORE",
+        "length_in": 14.965519737048895,
+        "stiffness_lbf_per_in": 214155.19584433723,
+        "force_N_compression_positive": -11.03980723865842,
+        "extension_mm": 0.00029436093597487727,
+        "toe_contribution_deg": 4.4331763490912354e-06
+      },
+      {
+        "link": "LCA_AFT",
+        "length_in": 11.791821063771275,
+        "stiffness_lbf_per_in": 271793.796129314,
+        "force_N_compression_positive": 156.7162796355444,
+        "extension_mm": -0.003292470361742279,
+        "toe_contribution_deg": 0.0007038973487079839
+      },
+      {
+        "link": "TOE_ROD",
+        "length_in": 12.624782730803723,
+        "stiffness_lbf_per_in": 208593.5966465815,
+        "force_N_compression_positive": -474.95942368947533,
+        "extension_mm": 0.013001780713283279,
+        "toe_contribution_deg": 0.008424277959044978
+      },
+      {
+        "link": "PULLROD",
+        "length_in": 10.481744368186051,
+        "stiffness_lbf_per_in": 251241.46746919176,
+        "force_N_compression_positive": -3.539671915618818,
+        "extension_mm": 8.044869233275089e-05,
+        "toe_contribution_deg": 3.8846808195442234e-07
+      }
+    ],
+    "validation": {
+      "saved_matrix_max_difference": 4.975861056522035e-09,
+      "equilibrium_residual": 1.1368683772161603e-13,
+      "mirrored_corner_yaw_deg": 0.012137689298407264,
+      "finite_compatibility_toe_deg": 0.012137831972859718,
+      "finite_compatibility_residual_in": 3.109762881231548e-15,
+      "pullrod_line_miss_UCA_in": 0.0004492626319734298
+    },
+    "inputs_sha256": {
+      "truss_solver.ipynb": "926db8f6369b33802b3faf4402bb87c359f3f43bcf93ea406151f4df2b1e644d",
+      "hardpoints.txt": "b86e5bb17554c626bc9bd146cead0997f3fd1c6adfa4f35135263bbf379539ac"
+    },
+    "limitations": "Axial tube stretch only; carbon_links use Rock West 45526 nominal properties, all other links retain notebook steel properties. Fixed inboards and pullrod inner point; rigid upright. No joints, bearings, chassis, rim, tire, arm bending, rocker/spring compliance, preload geometric stiffness or complete axle coupling. Geometry matches saved notebook, not current vehicle YAML. Toe is incremental yaw of initially x-aligned wheel."
+  },
+  {
+    "material_case": "carbon_arms_toe",
+    "carbon_links": [
+      "UCA_FORE",
+      "UCA_AFT",
+      "LCA_FORE",
+      "LCA_AFT",
+      "TOE_ROD"
+    ],
+    "carbon_properties": {
+      "source": "https://www.rockwestcomposites.com/45526.html",
+      "verified_date": "2026-09-15",
+      "OD_in": 0.707,
+      "ID_in": 0.625,
+      "area_in2": 0.08578432899892284,
+      "axial_E_psi": 13900000.0,
+      "EA_N": 5304069.12040041,
+      "qualification": "Manufacturer CLT reference estimates, not guaranteed properties"
+    },
+    "moment_per_wheel_Nm": 42,
+    "toe_deg": 0.025364623476786953,
+    "toe_deg_per_Nm": 0.0006039196065901655,
+    "rotational_stiffness_Nm_per_deg": 1655.849535414445,
+    "equal_split_42Nm_axle_per_wheel_toe_deg": 0.012682311738393477,
+    "q_translation_in_rotation_rad": [
+      -0.0011434336960579063,
+      -0.00047489654054652853,
+      0.0005303572455620266,
+      -8.225615980500331e-06,
+      7.494068472860045e-07,
+      0.00044269619319858383
+    ],
+    "members": [
+      {
+        "link": "UCA_FORE",
+        "length_in": 14.218448368229213,
+        "stiffness_lbf_per_in": 83863.03077552553,
+        "force_N_compression_positive": 153.12332668618242,
+        "extension_mm": -0.01042600917370462,
+        "toe_contribution_deg": 0.002177874252385166
+      },
+      {
+        "link": "UCA_AFT",
+        "length_in": 10.008484450704811,
+        "stiffness_lbf_per_in": 119139.1342973068,
+        "force_N_compression_positive": 202.3551844003136,
+        "extension_mm": -0.009698558641238765,
+        "toe_contribution_deg": 0.0026772866577119917
+      },
+      {
+        "link": "LCA_FORE",
+        "length_in": 14.965519737048895,
+        "stiffness_lbf_per_in": 79676.62961501406,
+        "force_N_compression_positive": -11.03980723865842,
+        "extension_mm": 0.0007911846195956984,
+        "toe_contribution_deg": 1.191551090751983e-05
+      },
+      {
+        "link": "LCA_AFT",
+        "length_in": 11.791821063771275,
+        "stiffness_lbf_per_in": 101121.12171957194,
+        "force_N_compression_positive": 156.7162796355444,
+        "extension_mm": -0.008849516332926393,
+        "toe_contribution_deg": 0.0018919383926659266
+      },
+      {
+        "link": "TOE_ROD",
+        "length_in": 12.624782730803723,
+        "stiffness_lbf_per_in": 94449.32229808887,
+        "force_N_compression_positive": -474.95942368947533,
+        "extension_mm": 0.028714744963805765,
+        "toe_contribution_deg": 0.01860522019503439
+      },
+      {
+        "link": "PULLROD",
+        "length_in": 10.481744368186051,
+        "stiffness_lbf_per_in": 251241.46746919176,
+        "force_N_compression_positive": -3.539671915618818,
+        "extension_mm": 8.044869233275089e-05,
+        "toe_contribution_deg": 3.8846808195442234e-07
+      }
+    ],
+    "validation": {
+      "saved_matrix_max_difference": 4.975861056522035e-09,
+      "equilibrium_residual": 1.1368683772161603e-13,
+      "mirrored_corner_yaw_deg": 0.02536462347678695,
+      "finite_compatibility_toe_deg": 0.025365308100322274,
+      "finite_compatibility_residual_in": 1.791210409163302e-15,
+      "pullrod_line_miss_UCA_in": 0.0004492626319734298
+    },
+    "inputs_sha256": {
+      "truss_solver.ipynb": "926db8f6369b33802b3faf4402bb87c359f3f43bcf93ea406151f4df2b1e644d",
+      "hardpoints.txt": "b86e5bb17554c626bc9bd146cead0997f3fd1c6adfa4f35135263bbf379539ac"
+    },
+    "limitations": "Axial tube stretch only; carbon_links use Rock West 45526 nominal properties, all other links retain notebook steel properties. Fixed inboards and pullrod inner point; rigid upright. No joints, bearings, chassis, rim, tire, arm bending, rocker/spring compliance, preload geometric stiffness or complete axle coupling. Geometry matches saved notebook, not current vehicle YAML. Toe is incremental yaw of initially x-aligned wheel."
+  },
+  {
+    "material_case": "carbon_all",
+    "carbon_links": [
+      "UCA_FORE",
+      "UCA_AFT",
+      "LCA_FORE",
+      "LCA_AFT",
+      "TOE_ROD",
+      "PULLROD"
+    ],
+    "carbon_properties": {
+      "source": "https://www.rockwestcomposites.com/45526.html",
+      "verified_date": "2026-09-15",
+      "OD_in": 0.707,
+      "ID_in": 0.625,
+      "area_in2": 0.08578432899892284,
+      "axial_E_psi": 13900000.0,
+      "EA_N": 5304069.12040041,
+      "qualification": "Manufacturer CLT reference estimates, not guaranteed properties"
+    },
+    "moment_per_wheel_Nm": 42,
+    "toe_deg": 0.025365092949793673,
+    "toe_deg_per_Nm": 0.000603930784518897,
+    "rotational_stiffness_Nm_per_deg": 1655.8188879154743,
+    "equal_split_42Nm_axle_per_wheel_toe_deg": 0.012682546474896837,
+    "q_translation_in_rotation_rad": [
+      -0.0011433720048085502,
+      -0.0004750883892003923,
+      0.0005374659380907016,
+      -8.118090183245877e-06,
+      7.367082543714811e-07,
+      0.00044270438704830035
+    ],
+    "members": [
+      {
+        "link": "UCA_FORE",
+        "length_in": 14.218448368229213,
+        "stiffness_lbf_per_in": 83863.03077552553,
+        "force_N_compression_positive": 153.12332668618242,
+        "extension_mm": -0.01042600917370462,
+        "toe_contribution_deg": 0.002177874252385166
+      },
+      {
+        "link": "UCA_AFT",
+        "length_in": 10.008484450704811,
+        "stiffness_lbf_per_in": 119139.1342973068,
+        "force_N_compression_positive": 202.3551844003136,
+        "extension_mm": -0.009698558641238765,
+        "toe_contribution_deg": 0.0026772866577119917
+      },
+      {
+        "link": "LCA_FORE",
+        "length_in": 14.965519737048895,
+        "stiffness_lbf_per_in": 79676.62961501406,
+        "force_N_compression_positive": -11.03980723865842,
+        "extension_mm": 0.0007911846195956984,
+        "toe_contribution_deg": 1.191551090751983e-05
+      },
+      {
+        "link": "LCA_AFT",
+        "length_in": 11.791821063771275,
+        "stiffness_lbf_per_in": 101121.12171957194,
+        "force_N_compression_positive": 156.7162796355444,
+        "extension_mm": -0.008849516332926393,
+        "toe_contribution_deg": 0.0018919383926659266
+      },
+      {
+        "link": "TOE_ROD",
+        "length_in": 12.624782730803723,
+        "stiffness_lbf_per_in": 94449.32229808887,
+        "force_N_compression_positive": -474.95942368947533,
+        "extension_mm": 0.028714744963805765,
+        "toe_contribution_deg": 0.01860522019503439
+      },
+      {
+        "link": "PULLROD",
+        "length_in": 10.481744368186051,
+        "stiffness_lbf_per_in": 113759.89827649097,
+        "force_N_compression_positive": -3.539671915618818,
+        "extension_mm": 0.00017767286912065362,
+        "toe_contribution_deg": 8.579410886774736e-07
+      }
+    ],
+    "validation": {
+      "saved_matrix_max_difference": 4.975861056522035e-09,
+      "equilibrium_residual": 1.1368683772161603e-13,
+      "mirrored_corner_yaw_deg": 0.02536509294979368,
+      "finite_compatibility_toe_deg": 0.025365780081008586,
+      "finite_compatibility_residual_in": 2.793433344881746e-15,
+      "pullrod_line_miss_UCA_in": 0.0004492626319734298
+    },
+    "inputs_sha256": {
+      "truss_solver.ipynb": "926db8f6369b33802b3faf4402bb87c359f3f43bcf93ea406151f4df2b1e644d",
+      "hardpoints.txt": "b86e5bb17554c626bc9bd146cead0997f3fd1c6adfa4f35135263bbf379539ac"
+    },
+    "limitations": "Axial tube stretch only; carbon_links use Rock West 45526 nominal properties, all other links retain notebook steel properties. Fixed inboards and pullrod inner point; rigid upright. No joints, bearings, chassis, rim, tire, arm bending, rocker/spring compliance, preload geometric stiffness or complete axle coupling. Geometry matches saved notebook, not current vehicle YAML. Toe is incremental yaw of initially x-aligned wheel."
+  },
+  {
+    "material_case": "carbon_toe_only",
+    "carbon_links": [
+      "TOE_ROD"
+    ],
+    "carbon_properties": {
+      "source": "https://www.rockwestcomposites.com/45526.html",
+      "verified_date": "2026-09-15",
+      "OD_in": 0.707,
+      "ID_in": 0.625,
+      "area_in2": 0.08578432899892284,
+      "axial_E_psi": 13900000.0,
+      "EA_N": 5304069.12040041,
+      "qualification": "Manufacturer CLT reference estimates, not guaranteed properties"
+    },
+    "moment_per_wheel_Nm": 42,
+    "toe_deg": 0.02231863153439667,
+    "toe_deg_per_Nm": 0.0005313959889142064,
+    "rotational_stiffness_Nm_per_deg": 1881.835807687004,
+    "equal_split_42Nm_axle_per_wheel_toe_deg": 0.011159315767198336,
+    "q_translation_in_rotation_rad": [
+      -0.0004395786541133065,
+      -8.214209999976163e-05,
+      0.0003918554057433776,
+      1.137197553473096e-05,
+      -5.37685708766875e-05,
+      0.000389533604814656
+    ],
+    "members": [
+      {
+        "link": "UCA_FORE",
+        "length_in": 14.218448368229213,
+        "stiffness_lbf_per_in": 135510.881616681,
+        "force_N_compression_positive": 153.12332668618242,
+        "extension_mm": -0.006452299016647171,
+        "toe_contribution_deg": 0.001347811579955945
+      },
+      {
+        "link": "UCA_AFT",
+        "length_in": 10.008484450704811,
+        "stiffness_lbf_per_in": 192512.11140806793,
+        "force_N_compression_positive": 202.3551844003136,
+        "extension_mm": -0.006002104864974361,
+        "toe_contribution_deg": 0.0016568807662673062
+      },
+      {
+        "link": "LCA_FORE",
+        "length_in": 14.965519737048895,
+        "stiffness_lbf_per_in": 214155.19584433723,
+        "force_N_compression_positive": -11.03980723865842,
+        "extension_mm": 0.00029436093597487727,
+        "toe_contribution_deg": 4.4331763490912354e-06
+      },
+      {
+        "link": "LCA_AFT",
+        "length_in": 11.791821063771275,
+        "stiffness_lbf_per_in": 271793.796129314,
+        "force_N_compression_positive": 156.7162796355444,
+        "extension_mm": -0.003292470361742279,
+        "toe_contribution_deg": 0.0007038973487079839
+      },
+      {
+        "link": "TOE_ROD",
+        "length_in": 12.624782730803723,
+        "stiffness_lbf_per_in": 94449.32229808887,
+        "force_N_compression_positive": -474.95942368947533,
+        "extension_mm": 0.028714744963805765,
+        "toe_contribution_deg": 0.01860522019503439
+      },
+      {
+        "link": "PULLROD",
+        "length_in": 10.481744368186051,
+        "stiffness_lbf_per_in": 251241.46746919176,
+        "force_N_compression_positive": -3.539671915618818,
+        "extension_mm": 8.044869233275089e-05,
+        "toe_contribution_deg": 3.8846808195442234e-07
+      }
+    ],
+    "validation": {
+      "saved_matrix_max_difference": 4.975861056522035e-09,
+      "equilibrium_residual": 1.1368683772161603e-13,
+      "mirrored_corner_yaw_deg": 0.022318631534396678,
+      "finite_compatibility_toe_deg": 0.02231899867990816,
+      "finite_compatibility_residual_in": 2.61184303351758e-15,
+      "pullrod_line_miss_UCA_in": 0.0004492626319734298
+    },
+    "inputs_sha256": {
+      "truss_solver.ipynb": "926db8f6369b33802b3faf4402bb87c359f3f43bcf93ea406151f4df2b1e644d",
+      "hardpoints.txt": "b86e5bb17554c626bc9bd146cead0997f3fd1c6adfa4f35135263bbf379539ac"
+    },
+    "limitations": "Axial tube stretch only; carbon_links use Rock West 45526 nominal properties, all other links retain notebook steel properties. Fixed inboards and pullrod inner point; rigid upright. No joints, bearings, chassis, rim, tire, arm bending, rocker/spring compliance, preload geometric stiffness or complete axle coupling. Geometry matches saved notebook, not current vehicle YAML. Toe is incremental yaw of initially x-aligned wheel."
+  }
+]

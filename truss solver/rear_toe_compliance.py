@@ -22,7 +22,7 @@ N_PER_LBF = 4.4482216152605
 NM_PER_LBFIN = N_PER_LBF * 0.0254
 
 
-def run():
+def run(material='steel'):
     nb_path = HERE / 'truss_solver.ipynb'
     hp_path = HERE / 'hardpoints.txt'
     nb = json.loads(nb_path.read_text(encoding='utf-8'))
@@ -42,6 +42,18 @@ def run():
     assert saved_error < 6e-9, 'Hardpoints do not match saved notebook matrix'
     lengths = np.array([ns['compute_length'](links)[n] for n in names])
     props = ns['rear_tube_properties']
+    carbon_area = np.pi/4*(0.707**2-0.625**2)
+    carbon_names = []
+    if material == 'carbon_arms_toe':
+        carbon_names = [n for n in names if n != 'PULLROD']
+    elif material == 'carbon_all':
+        carbon_names = names
+    elif material == 'carbon_toe_only':
+        carbon_names = ['TOE_ROD']
+    elif material != 'steel':
+        raise ValueError(material)
+    for n in carbon_names:
+        props[n] = dict(props[n], E=13.9e6, A=carbon_area)
     k = np.array([props[n]['E'] * props[n]['A'] for n in names]) / lengths
     # A maps compression-positive forces to upright wrench. A.T maps
     # upright translation/rotation q to positive member extension.
@@ -87,12 +99,18 @@ def run():
                  force_N_compression_positive=float(F[i]*N_PER_LBF),
                  extension_mm=float(extension[i]*25.4), toe_contribution_deg=float(contributions[i]))
             for i, n in enumerate(names)]
-    out = HERE/'rear_toe_results'
+    out = HERE/('rear_toe_results' if material == 'steel' else 'rear_toe_results_'+material)
     out.mkdir(exist_ok=True)
     with (out/'member_results.csv').open('w', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=rows[0].keys())
         writer.writeheader(); writer.writerows(rows)
-    result = dict(moment_per_wheel_Nm=42, toe_deg=toe, toe_deg_per_Nm=toe/42,
+    result = dict(material_case=material, carbon_links=carbon_names,
+                  carbon_properties=dict(source='https://www.rockwestcomposites.com/45526.html',
+                    verified_date='2026-09-15', OD_in=0.707, ID_in=0.625,
+                    area_in2=float(carbon_area), axial_E_psi=13.9e6,
+                    EA_N=float(carbon_area*13.9e6*N_PER_LBF),
+                    qualification='Manufacturer CLT reference estimates, not guaranteed properties'),
+                  moment_per_wheel_Nm=42, toe_deg=toe, toe_deg_per_Nm=toe/42,
                   rotational_stiffness_Nm_per_deg=42/toe,
                   equal_split_42Nm_axle_per_wheel_toe_deg=toe/2,
                   q_translation_in_rotation_rad=q.tolist(), members=rows,
@@ -103,13 +121,13 @@ def run():
                     finite_compatibility_residual_in=float(np.max(abs(compat(finite.x)))),
                     pullrod_line_miss_UCA_in=miss),
                   inputs_sha256={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in [nb_path,hp_path]},
-                  limitations='Axial tube stretch only; all six links use notebook steel properties. Fixed inboards and pullrod inner point; rigid upright. No joints, bearings, chassis, rim, tire, arm bending, rocker/spring compliance, preload geometric stiffness or complete axle coupling. Geometry matches saved notebook, not current vehicle YAML. Toe is incremental yaw of initially x-aligned wheel.')
+                  limitations='Axial tube stretch only; carbon_links use Rock West 45526 nominal properties, all other links retain notebook steel properties. Fixed inboards and pullrod inner point; rigid upright. No joints, bearings, chassis, rim, tire, arm bending, rocker/spring compliance, preload geometric stiffness or complete axle coupling. Geometry matches saved notebook, not current vehicle YAML. Toe is incremental yaw of initially x-aligned wheel.')
     (out/'results.json').write_text(json.dumps(result, indent=2)+'\n')
     fig, axes = plt.subplots(1,2,figsize=(10,4.3),layout='constrained')
     moments=np.linspace(-42,42,85)
     axes[0].plot(moments,moments*toe/42, color='#d36128')
     axes[0].scatter([21,42],[toe/2,toe],color='#223a5e')
-    axes[0].set(xlabel='Aligning moment at one rear wheel (N m)',ylabel='Incremental wheel yaw (deg)',title='Steel axial-link model')
+    axes[0].set(xlabel='Aligning moment at one rear wheel (N m)',ylabel='Incremental wheel yaw (deg)',title=material.replace('_',' '))
     axes[0].grid(alpha=.25)
     axes[1].barh(names,contributions,color='#223a5e')
     axes[1].set(xlabel='Toe contribution at +42 N m (deg)',title='Virtual-work decomposition')
@@ -117,7 +135,11 @@ def run():
     fig.savefig(out/'rear_toe_compliance.png',dpi=180)
     plt.close(fig)
     print(json.dumps(result,indent=2))
+    return result
 
 
 if __name__ == '__main__':
-    run()
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--material', choices=['steel','carbon_arms_toe','carbon_all','carbon_toe_only'],default='steel')
+    run(parser.parse_args().material)

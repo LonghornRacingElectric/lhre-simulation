@@ -70,3 +70,37 @@ preload-dependent geometric stiffness or combined cornering loads are
 included. The result is a model contribution, not measured full-wheel
 compliance or a validated design limit. No carbon properties are substituted
 from the separate earlier steel/carbon study.
+
+## Rock West 45526 carbon substitution
+
+Manufacturer page checked September 15, 2026:
+https://www.rockwestcomposites.com/45526.html
+
+Nominal OD 0.707 in, ID 0.625 in, wall 0.041 in; axial EX = 13.9 million psi.
+Area = pi/4 (OD^2-ID^2) = 0.08578566 in2; axial EA = 5.30407 MN.
+These are manufacturer CLT reference properties, not guaranteed test values.
+Use axial EX, not transverse EY or an isotropic carbon modulus.
+
+With the same geometry, 42 Nm per wheel and original boundary conditions:
+
+| Replacement | Toe change per wheel | Compliance deg/Nm | Change from steel |
+|---|---:|---:|---:|
+| Original steel | 0.01213769 deg | 0.000288993 | baseline |
+| Carbon toe rod only, steel arms/pullrod | 0.02231863 deg | 0.000531396 | +83.9% |
+| Carbon arms and toe rod, steel pullrod | 0.02536462 deg | 0.000603920 | +109.0% |
+| All six links carbon | 0.02536509 deg | 0.000603931 | +109.0% |
+
+Primary interpretation: four arm legs and toe rod become 45526, pullrod retains
+the notebook's steel properties. Carbon toe rod contributes 0.01860522 deg
+(73.35%) and carbon arms 0.00675901 deg (26.65%). Toe-rod extension is
+0.0287147 mm under the same 474.959 N tension. Forces do not change with EA
+in this statically determinate fixed-geometry model. Greater extension accounts
+for the increased toe; lower mass does not imply greater axial stiffness.
+
+Reproduce with `python rear_toe_compliance.py --material carbon_arms_toe`.
+Other options: `steel`, `carbon_toe_only`, `carbon_all`. Separate result folders
+preserve each case. `carbon_comparison.json` collects all four runs.
+All equilibrium, independent stiffness, energy, mirrored-corner and reversal
+checks pass. Finite-rotation compatibility gives 0.02536531 deg for the primary
+carbon case. All previously stated model limits still apply, including no
+bonded-insert/joint compliance, strength signoff or full vehicle validation.
