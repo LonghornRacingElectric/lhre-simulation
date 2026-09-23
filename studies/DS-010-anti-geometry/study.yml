@@ -1,0 +1,36 @@
+id: DS-010
+title: Anti-Dive / Anti-Squat Geometry
+status: planned
+vehicle: vehicles/current/vehicle.yml
+engine: BobSim/_0_Utils/dyn_py
+purpose: >
+  Select target anti-dive and anti-squat by trading aero platform control
+  against contact-patch load variation, using ride-height response per g as
+  the independent variable so results survive aero map revisions.
+
+principles:
+  - Independent variable is ride-height response per g, not a specific aero map.
+  - Aero enters through a parametric surrogate fitted from any CFD map.
+  - Grip objective is E[sum(mu(Fz) * Fz)]; aero gain and CPLV share units.
+  - Springs, dampers, tires, CG, brake bias, and regen split are frozen.
+  - Side-view swing-arm length is held constant across the sweep.
+  - Modelica is used only to validate chosen points and sweep extremes.
+
+stages:
+  - id: anti-squat
+    maneuver: rwd_acceleration
+    independent: [dz_rear_per_g]
+  - id: anti-dive
+    maneuver: braking
+    independent: [dz_front_per_g, dz_rear_per_g]
+    depends_on: anti-squat
+  - id: validation
+    engine: BobSim/_3_StandardSim/FourPostEval/four_post_eval_sim.py
+
+config:
+  model_dof: 14
+  cplv_method: linearized_frequency_domain
+
+outputs:
+  - RESULTS.md
+  - ../../reports/DS-010-anti-geometry.md
