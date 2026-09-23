@@ -5,7 +5,10 @@
 # All other fields are carried over from BobSim vehicle.yml at commit 74066d5
 # and are placeholders until the 2027 mass, aero, tire, spring/damper, brake,
 # steering-ratio, and powertrain definitions are source-verified.
-# SHARK defines no anti-roll-bar pickups, so both axles use bellcrank (no stabar).
+# SHARK defines no anti-roll-bar pickups. To match Orion's requested double-
+# wishbone/bellcrank/stabar structure, the stabar pickups, link endpoints, and
+# rates below are unverified Orion carryovers from vehicles/current/vehicle.yml;
+# they are placeholders and are not source-backed 2027 geometry or rates.
 # Front Z datum is resolved. Rear Z datum is unresolved; keep the accompanying
 # .datum.json sidecar and withhold rear z-dependent conclusions until confirmed.
 schema: boblib.vehicle.v1
@@ -13,8 +16,8 @@ vehicle:
   name: 2027 WIP FrontV19 RearV35
   version: 0.1.0
 architecture:
-  front: bellcrank
-  rear: bellcrank
+  front: bellcrank_stabar
+  rear: bellcrank_stabar
 paths:
   boblib: _0_Utils/external/BobLib/BobLib
   tire_templates: _0_Utils/tire_templates
@@ -149,9 +152,26 @@ front:
         - -0.074279999
         - 0.304130005
         - 0.438850006
+        # INFERRED/CARRYOVER: Orion value; absent from FrontV19 SHARK.
+        stabar:
+        - -0.029010173628
+        - 0.2971411507
+        - 0.37219698865
       order:
+      - stabar
       - rod
       - shock
+    # INFERRED/CARRYOVER: Orion geometry and 40 lb-in/deg rate; not verified 2027 data.
+    stabar:
+      arm_end_m:
+      - -0.03682914
+      - 0.2667
+      - 0.11597939
+      bar_end_m:
+      - -0.10664664
+      - 0.2667
+      - 0.11811
+      rate_n_m_per_rad: 258.942154
   masses:
     unsprung:
       mass_kg: 7.82268281
@@ -312,9 +332,26 @@ rear:
         - -1.46442749
         - 0.236143005
         - 0.409780853
+        # INFERRED/CARRYOVER: Orion value; absent from RearV35 SHARK.
+        stabar:
+        - -1.41346984
+        - 0.31057564
+        - 0.12306883
       order:
       - rod
       - shock
+      - stabar
+    # INFERRED/CARRYOVER: Orion geometry and 82.7 lb-in/deg rate; not verified 2027 data.
+    stabar:
+      arm_end_m:
+      - -1.43001283
+      - 0.3032125
+      - 0.4054766
+      bar_end_m:
+      - -1.3925183
+      - 0.3032125
+      - 0.41224196
+      rate_n_m_per_rad: 535.362904
   masses:
     unsprung:
       mass_kg: 7.35220072
