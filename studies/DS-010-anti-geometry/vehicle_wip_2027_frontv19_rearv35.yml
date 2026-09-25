@@ -417,6 +417,15 @@ rear:
       - - -6.025e-05
         - 0.0002161
         - 0.00154153
+# Orion 2026 FRH/RRH CFD map, already present on abatra/anti-studies at 2a844e6.
+# Source: aeromap_frh_rrh/master_report.pdf (21 converged of 23 processed cases).
+# 21 reported rows equal the stored force tables after 2x half-car scaling;
+# stored My = 2 * (reported My - reported Fz * 1 m). The CFD origin and
+# half-car symmetry assumptions require Aero confirmation before use.
+# Four of 25 table cells lack converged source rows: FRH/RRH in inches
+# (1.4,4.95), (2.1,2.5), (4.2,2.5), (4.2,3.3). See AEROMAP_VALIDATION.md.
+# The pitch-moment convention gives an aero CoP behind the rear axle across
+# the full grid in the current BobSim frame; do not use for anti selection yet.
 aero:
   reference_speed_m_per_s: 15
   aero_ref_m:

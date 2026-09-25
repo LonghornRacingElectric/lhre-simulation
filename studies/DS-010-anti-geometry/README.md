@@ -14,6 +14,13 @@ available grip, and which control-arm inboard hardpoints realize it?
 The aero map is still changing, so the study is split in two layers joined at
 the ride-height response.
 
+The Orion FRH/RRH table is already present in the WIP vehicle YAML. Its
+[source comparison and existing-frame sweep](AEROMAP_VALIDATION.md) match the
+21 accepted CFD rows but fail the pitch-moment/aero-balance frame check. Four
+table cells lack a converged source. Treat the map as an unvalidated surrogate
+until Aero confirms the CFD reference convention and Dynamics resolves the
+2027 ride-height datum.
+
 1. **Response -> grip.** Independent variables are front and rear ride-height
    change per g (`dz_f/g`, `dz_r/g` in braking; `dz_r/g` in RWD acceleration).
    Aero enters through a parametric quadratic surrogate of ClA and balance
