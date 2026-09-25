@@ -14,7 +14,7 @@ import yaml
 
 HERE = Path(__file__).resolve().parent
 SOURCE = HERE / "orion_2026_aeromap_converged.csv"
-VEHICLE = HERE / "vehicle_wip_2027_frontv19_rearv35.yml"
+VEHICLE = HERE / "orion_aeromap_precalibration_vehicle.yml"
 
 
 def main() -> None:

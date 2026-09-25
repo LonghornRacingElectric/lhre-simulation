@@ -14,12 +14,14 @@ available grip, and which control-arm inboard hardpoints realize it?
 The aero map is still changing, so the study is split in two layers joined at
 the ride-height response.
 
-The Orion FRH/RRH table is already present in the WIP vehicle YAML. Its
-[source comparison and existing-frame sweep](AEROMAP_VALIDATION.md) match the
-21 accepted CFD rows but fail the pitch-moment/aero-balance frame check. Four
-table cells lack a converged source. Treat the map as an unvalidated surrogate
-until Aero confirms the CFD reference convention and Dynamics resolves the
-2027 ride-height datum.
+The Orion FRH/RRH force table is already present in the WIP vehicle YAML. Its
+[source comparison and existing-frame sweep](AEROMAP_VALIDATION.md) matched the
+21 accepted CFD rows but failed the pitch-moment/aero-balance frame check.
+The [provisional CoP calibration](AEROMAP_COP_CALIBRATION.md) recenters the
+middle grid point at 50% front downforce and scales the original CoP migrations
+to keep the entire stored grid inside the wheelbase. Four cells still lack a
+converged source. Treat this as an assumption-driven surrogate until Aero
+confirms the CFD reference convention and Dynamics resolves the 2027 datum.
 
 1. **Response -> grip.** Independent variables are front and rear ride-height
    change per g (`dz_f/g`, `dz_r/g` in braking; `dz_r/g` in RWD acceleration).
@@ -78,8 +80,9 @@ Required `dyn_py` extensions before results are meaningful:
 
 ## Known Issues
 
-- The `my_table_nm` / `aero_ref_m` convention in the current CFD map yields an
-  implausible aero balance (CoP behind the rear axle over most of the grid).
-  The surrogate sidesteps this, but it must be resolved before validation.
+- The original `my_table_nm` / `aero_ref_m` convention yielded CoP behind the
+  rear axle throughout the grid. The calibrated map passes a static frame
+  sanity check by construction; CFD origin and dynamic vehicle validation
+  remain unresolved.
 - Roll has no aero effect in the current map (axle-averaged ride height, zero
   `mx`/`mz`), so roll-center / roll-gradient work is out of scope here.

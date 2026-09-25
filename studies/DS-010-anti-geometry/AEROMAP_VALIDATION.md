@@ -1,5 +1,9 @@
 # Orion FRH/RRH aero map audit — 2026-09-24
 
+> Historical audit of `orion_aeromap_precalibration_vehicle.yml`. The current
+> study vehicle's provisional moment calibration and rerun are documented in
+> [AEROMAP_COP_CALIBRATION.md](AEROMAP_COP_CALIBRATION.md).
+
 ## Source and scope
 
 The [Orion `aeromap_frh_rrh` SharePoint folder](https://utexas.sharepoint.com/:f:/r/sites/ENGR-LonghornRacing/LHR%20Electric/Design/%5BARCHIVE%5D%20Past%20Cars/Orion%202025-2026/_AER/Analysis/CFD%20Files/2026/Full%20Car%20Sims/aeromap_frh_rrh?d=webb79f21cedd4b8f8a31ad9ef16e6d58&csf=1&web=1&e=BHy6Cl) contains `master_report.pdf`, generated 17 April 2026, plus the underlying run outputs. The PDF lists 23 processed cases and accepts 21 under a 5% relative standard-deviation criterion over the final 20 iterations. `orion_2026_aeromap_converged.csv` transcribes only its accepted result table. This audit compares the source table with the aero block of `vehicle_wip_2027_frontv19_rearv35.yml` on `abatra/anti-studies` at `2a844e6`.
