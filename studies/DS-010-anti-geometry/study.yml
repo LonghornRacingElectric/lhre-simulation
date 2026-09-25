@@ -1,7 +1,7 @@
 id: DS-010
 title: Anti-Dive / Anti-Squat Geometry
 status: planned
-vehicle: vehicles/current/vehicle.yml
+vehicle: studies/DS-010-anti-geometry/vehicle_wip_2027_frontv19_rearv35.yml
 engine: BobSim/_0_Utils/dyn_py
 purpose: >
   Select target anti-dive and anti-squat by trading aero platform control

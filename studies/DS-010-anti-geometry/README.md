@@ -23,6 +23,20 @@ to keep the entire stored grid inside the wheelbase. Four cells still lack a
 converged source. Treat this as an assumption-driven surrogate until Aero
 confirms the CFD reference convention and Dynamics resolves the 2027 datum.
 
+The active `study.yml` vehicle is the front V19 / rear V35 SHARK-derived WIP
+definition. Run `verify_shark_vehicle.py` with the retained SHARK exports before
+using it. Its 28 represented suspension, steering, and actuation pickup points
+must match the two exports within 0.001 mm. The anti-roll-bar pickups and rates
+are Orion carryovers because SHARK does not define them. The existing
+`calibrate_orion_cop.py` regenerates the provisional aero moment rescaling for
+this same WIP vehicle; its before/after plot and per-cell data are
+`orion_cop_calibration.png` and `orion_cop_sweep.csv`.
+
+From this study directory, run
+`python verify_shark_vehicle.py <front-v19.shk> <rear-v35.shk>` in the BobSim
+Docker image (with the two SHARK files mounted). The checker fails on a changed
+source hash, wrong active manifest, wrong architecture, or a point mismatch.
+
 1. **Response -> grip.** Independent variables are front and rear ride-height
    change per g (`dz_f/g`, `dz_r/g` in braking; `dz_r/g` in RWD acceleration).
    Aero enters through a parametric quadratic surrogate of ClA and balance
@@ -84,5 +98,7 @@ Required `dyn_py` extensions before results are meaningful:
   rear axle throughout the grid. The calibrated map passes a static frame
   sanity check by construction; CFD origin and dynamic vehicle validation
   remain unresolved.
+- The rear SHARK vertical datum is unresolved. The ride-height reference points
+  and aero force tables are Orion carryovers, not a verified 2027 aero package.
 - Roll has no aero effect in the current map (axle-averaged ride height, zero
   `mx`/`mz`), so roll-center / roll-gradient work is out of scope here.
