@@ -62,12 +62,12 @@ From the `lhre-simulation` repository root, run with the existing BobSim Docker
 image. This standalone cross-repository checker has no suitable Make target.
 
 ```powershell
-docker run --rm --network none -v "${PWD}/studies/DS-010-anti-geometry:/study" -w /study bobdyn/bobsim:latest python check_orion_aeromap.py
-docker run --rm --network none -v "${PWD}/studies/DS-010-anti-geometry:/study" -w /study bobdyn/bobsim:latest python calibrate_orion_cop.py
+docker run --rm --network none -v "${PWD}:/repo" -w /repo/studies/DS-010-anti-geometry bobdyn/bobsim:latest python check_orion_aeromap.py
+docker run --rm --network none -v "${PWD}:/repo" -w /repo/studies/DS-010-anti-geometry bobdyn/bobsim:latest python calibrate_orion_cop.py
 ```
 
-The second command deterministically regenerates the WIP vehicle moment
-table, CSV, and PNG from the checked-in precalibration vehicle and 21-row
+The second command deterministically regenerates the design vehicle and
+matching study WIP copy's moment table, CSV, and PNG from the checked-in precalibration vehicle and 21-row
 source CSV. Review `git diff` after rerunning; source force tables must not
 change. The first command reproduces the historical failure, not a failed
 calibration.

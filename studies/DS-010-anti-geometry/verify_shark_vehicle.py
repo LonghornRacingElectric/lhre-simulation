@@ -15,7 +15,7 @@ import yaml
 
 STUDY = Path(__file__).resolve().parent
 REPO = STUDY.parents[1]
-VEHICLE = "studies/DS-010-anti-geometry/vehicle_wip_2027_frontv19_rearv35.yml"
+VEHICLE = "vehicles/design/vehicle.yml"
 SHA256 = {
     "front": "361e76f3bf94b01e5c8e9609d0e1790d47b25539fa754923b0f6a0e7e467ae02",
     "rear": "507d4b5b0c7a6006d02b08a08de180b65ae1595ae055af19bb255ef628ed92b0",
@@ -66,6 +66,10 @@ def main() -> None:
         raise SystemExit(f"FAIL: DS-010 selects {manifest['vehicle']}, expected {VEHICLE}")
     vehicle = yaml.safe_load((REPO / VEHICLE).read_text(encoding="utf-8"))
     failures = []
+    if (REPO / VEHICLE).read_bytes() != (STUDY / "vehicle_wip_2027_frontv19_rearv35.yml").read_bytes():
+        failures.append("design vehicle differs from study WIP copy")
+    if (REPO / "vehicles/design/vehicle.datum.json").read_bytes() != (STUDY / "vehicle_wip_2027_frontv19_rearv35.datum.json").read_bytes():
+        failures.append("design datum differs from study datum sidecar")
     for axle, source in (("front", args.front_v19), ("rear", args.rear_v35)):
         actual_hash = hashlib.sha256(source.read_bytes()).hexdigest()
         if actual_hash != SHA256[axle]:

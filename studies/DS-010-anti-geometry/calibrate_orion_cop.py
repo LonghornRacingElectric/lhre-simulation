@@ -20,7 +20,8 @@ import yaml
 
 HERE = Path(__file__).resolve().parent
 RAW = HERE / "orion_aeromap_precalibration_vehicle.yml"
-VEHICLE = HERE / "vehicle_wip_2027_frontv19_rearv35.yml"
+VEHICLE = HERE.parents[1] / "vehicles" / "design" / "vehicle.yml"
+STUDY_COPY = HERE / "vehicle_wip_2027_frontv19_rearv35.yml"
 SOURCE = HERE / "orion_2026_aeromap_converged.csv"
 PLOT = HERE / "orion_cop_calibration.png"
 CSV = HERE / "orion_cop_sweep.csv"
@@ -106,6 +107,7 @@ def main() -> None:
     output, count = re.subn(r"(?ms)^  my_table_nm:\n.*?(?=^  mz_table_nm:)", lambda _: block, raw_text)
     assert count == 1
     VEHICLE.write_text(output, encoding="utf-8")
+    STUDY_COPY.write_text(output, encoding="utf-8")
     loaded = yaml.safe_load(VEHICLE.read_text(encoding="utf-8"))
     assert np.allclose(loaded["aero"]["my_table_nm"], adjusted_my, atol=1e-9)
     for key in ("drag_table_n", "downforce_table_n", "aero_ref_m"):

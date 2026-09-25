@@ -23,13 +23,15 @@ to keep the entire stored grid inside the wheelbase. Four cells still lack a
 converged source. Treat this as an assumption-driven surrogate until Aero
 confirms the CFD reference convention and Dynamics resolves the 2027 datum.
 
-The active `study.yml` vehicle is the front V19 / rear V35 SHARK-derived WIP
-definition. Run `verify_shark_vehicle.py` with the retained SHARK exports before
+The active `study.yml` vehicle is `vehicles/design/vehicle.yml`, the front V19 /
+rear V35 SHARK-derived WIP definition. Its paired `vehicle.datum.json` records
+the unresolved rear vertical datum. The study-local WIP YAML and datum sidecar
+are matching provenance copies. Run `verify_shark_vehicle.py` with the retained SHARK exports before
 using it. Its 28 represented suspension, steering, and actuation pickup points
 must match the two exports within 0.001 mm. The anti-roll-bar pickups and rates
 are Orion carryovers because SHARK does not define them. The existing
 `calibrate_orion_cop.py` regenerates the provisional aero moment rescaling for
-this same WIP vehicle; its before/after plot and per-cell data are
+the design YAML and study copy; its before/after plot and per-cell data are
 `orion_cop_calibration.png` and `orion_cop_sweep.csv`.
 
 From this study directory, run
