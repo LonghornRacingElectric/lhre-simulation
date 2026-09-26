@@ -2,35 +2,45 @@ id: DS-010
 title: Anti-Dive / Anti-Squat Geometry
 status: planned
 vehicle: vehicles/design/vehicle.yml
-engine: BobSim/_0_Utils/dyn_py
-purpose: >
-  Select target anti-dive and anti-squat by trading aero platform control
-  against contact-patch load variation, using ride-height response per g as
-  the independent variable so results survive aero map revisions.
-
-principles:
-  - Independent variable is ride-height response per g, not a specific aero map.
-  - Aero enters through a parametric surrogate fitted from any CFD map.
-  - Grip objective is E[sum(mu(Fz) * Fz)]; aero gain and CPLV share units.
-  - Springs, dampers, tires, CG, brake bias, and regen split are frozen.
-  - Side-view swing-arm length is held constant across the sweep.
-  - Modelica is used only to validate chosen points and sweep extremes.
-
+engine: BobSim/_3_StandardSim/FourPostEval/four_post_eval_sim.py
 stages:
   - id: anti-squat
     maneuver: rwd_acceleration
     independent: [dz_rear_per_g]
+    sweep_anti_pct: {min: -20, max: 90, points: 7}   # AS_r
   - id: anti-dive
     maneuver: braking
     independent: [dz_front_per_g, dz_rear_per_g]
     depends_on: anti-squat
+    sweep_anti_pct: {min: -20, max: 90, points: 7}   # AD_f
+    rear_sensitivity_neighbors: 1     # chosen rear +/- 1 sweep step
   - id: validation
-    engine: BobSim/_3_StandardSim/FourPostEval/four_post_eval_sim.py
-
+    depends_on: anti-dive
 config:
-  model_dof: 14
-  cplv_method: linearized_frequency_domain
-
+  fourpost:
+    heave_magnitude_m: 0.03
+    roll_magnitude_rad: 0.035
+    force_magnitude_n: 1000.0
+  assumptions:                        # provisional, flagged in RESULTS.md
+    ride_frequency_hz: {front: 3.0, rear: 3.0}  # sets K; null = vehicle springs
+    static_ride_height_m: {front: 0.07112, rear: 0.08382}  # aero grid anchor
+    regen_share_of_rear_braking: 0.0
+    sigma_fx_fraction: 0.10           # sigma_Fx = 0.10 * |mean Fx| per wheel
+    scenarios:
+      rwd_acceleration:
+        speeds_m_per_s: [10, 15, 20, 25]
+        ax_g: [0.3, 0.6, 0.9]
+        weights: uniform
+      braking:
+        speeds_m_per_s: [10, 15, 20, 25]
+        ax_g: [0.5, 1.0, 1.4]
+        weights: uniform
+  constraints:                        # provisional placeholders
+    max_pickup_shift_mm: 30
+    max_abs_toe_gain_deg_per_m: 4.0   # about 0.1 deg per 25 mm
+    max_caster_change_deg: 2.0        # over the heave sweep
+    anti_pct_range: [-20, 100]        # at every heave pose
+  ic_check_tolerance: 0.02            # |c_rig - c_ic|
 outputs:
   - RESULTS.md
   - ../../reports/DS-010-anti-geometry.md

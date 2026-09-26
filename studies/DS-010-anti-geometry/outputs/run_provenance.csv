@@ -1,0 +1,13 @@
+key,value
+timestamp_utc,2026-09-26T02:04:26+00:00
+command,studies/DS-010-anti-geometry/run.py --stage validation --reuse
+stage,validation
+reuse,True
+study,studies/DS-010-anti-geometry/study.yml
+study_sha256,6b2e330920ecbc83c47c0276df60370c3ad1183020761e6fdfaf8baea29db9f4
+vehicle,vehicles/design/vehicle.yml
+vehicle_sha256,b0c6a5f916cf7cdfec750159e6a50dfd68000a382f1a09eff8e133260be6ae07
+bobsim_commit,c45940eaa54b93011230d91c8f1648a0ee0b37e9
+boblib_commit,849566d2bd1fff12e9a5a24d7132da309b9233af
+rig_c_sign_front,-1.0
+rig_c_sign_rear,1.0
