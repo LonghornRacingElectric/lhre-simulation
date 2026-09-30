@@ -1,0 +1,2 @@
+case,label,valid,settled,tire_domain_valid,final_ay_mps2,max_speed_error_mps,rise_10_90_s,overshoot_percent,min_tire_load_n
+case_000,baseline,True,True,True,2.2729587089404344,0.005160541990006706,0.10076816478728956,19.390439210605326,527.2482079591814
