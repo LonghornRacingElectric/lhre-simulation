@@ -1,0 +1,2 @@
+# Preserve evidence bytes, original whitespace and SHA-256 values across platforms.
+outputs/** -text -whitespace

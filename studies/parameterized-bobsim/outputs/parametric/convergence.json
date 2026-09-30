@@ -1,0 +1,11 @@
+{
+  "maximum_final_ay_difference_mps2": 2.6796556085173506E-09,
+  "max_common_time_difference": {
+    "ay_mps2": 5.363730306129355E-06,
+    "Fz_FL": 0.0003334382258799451,
+    "Fz_FR": 0.0003481153418078975,
+    "Fz_RL": 0.00037654850132184947,
+    "Fz_RR": 0.0003666901974384018
+  },
+  "maximum_interpolated_rise_time_difference_s": 0.0007248949596239118
+}

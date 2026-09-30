@@ -1,0 +1,64 @@
+{
+  "study": "coupled_rc_constant_steady_lltd",
+  "source_sha256": "ac1e8cb330c5558f3ab0c3fa57b2395dde7be48f3730122373d19b2de34fd1eb",
+  "sweep_code_sha256": "ae439d1eee8f61c1b82b450bdf542090ff4a47c5b87cd4bd5a2130d4121f4dcd",
+  "offsets_mm": [
+    0.0,
+    25,
+    50,
+    75,
+    100
+  ],
+  "speed_mps": 15,
+  "reference_ay_mps2": 8,
+  "target_front_lltd_fraction": 0.46737692823864024,
+  "dt_s": 0.005,
+  "rtol": 1e-08,
+  "varied_fields": [
+    "front.roll_center_height_m",
+    "rear.roll_center_height_m"
+  ],
+  "lltd_definition": "(Fz_FR-Fz_FL)/[(Fz_FR-Fz_FL)+(Fz_RR-Fz_RL)]",
+  "constraint": "Match baseline at reference Ay; other Ay and transient LLTD measured, not constrained.",
+  "vehicle_status": "Illustrative 280 kg parametric vehicle, uncorrelated to LHRe car.",
+  "cases": [
+    {
+      "pair": 0,
+      "front_rc_m": 0.02,
+      "rear_rc_m": 0.03,
+      "relative_path": "pair_000",
+      "valid": true
+    },
+    {
+      "pair": 1,
+      "front_rc_m": 0.045,
+      "rear_rc_m": 0.05262646517796596,
+      "relative_path": "pair_001",
+      "valid": true
+    },
+    {
+      "pair": 2,
+      "front_rc_m": 0.07,
+      "rear_rc_m": 0.0752529220675567,
+      "relative_path": "pair_002",
+      "valid": true
+    },
+    {
+      "pair": 3,
+      "front_rc_m": 0.095,
+      "rear_rc_m": 0.09787918867019096,
+      "relative_path": "pair_003",
+      "valid": true
+    },
+    {
+      "pair": 4,
+      "front_rc_m": 0.12000000000000001,
+      "rear_rc_m": 0.12050507774773009,
+      "relative_path": "pair_004",
+      "valid": true
+    }
+  ],
+  "max_steady_lltd_change_pp_over_ay_grid": 0.10694935384805704,
+  "max_transient_lltd_change_from_baseline_pp_at_common_time_ay_above_1": 8.758502308089199,
+  "all_cases_valid": true
+}
