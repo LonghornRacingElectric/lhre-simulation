@@ -1,0 +1,68 @@
+[
+  {
+    "case": "baseline",
+    "speed": 10,
+    "max_error_ay_mps2": 3.30762709443988e-08,
+    "max_error_yaw_rate_radps": 1.1521974987603253e-09,
+    "max_error_Fz_FL": 1.9826654806820443e-07,
+    "max_error_Fz_FR": 1.955799007191672e-07,
+    "max_error_Fz_RL": 4.5825549932487775e-07,
+    "max_error_Fz_RR": 4.6125012431730283e-07,
+    "t90_error_ms": 0.008300979152835453
+  },
+  {
+    "case": "baseline",
+    "speed": 15,
+    "max_error_ay_mps2": 1.4246305468645915e-08,
+    "max_error_yaw_rate_radps": 7.870488705208345e-10,
+    "max_error_Fz_FL": 1.9916211613235646e-07,
+    "max_error_Fz_FR": 1.7542572550155455e-07,
+    "max_error_Fz_RL": 3.22908817906864e-07,
+    "max_error_Fz_RR": 3.2325738175131846e-07,
+    "t90_error_ms": 0.013728730434905856
+  },
+  {
+    "case": "baseline",
+    "speed": 20,
+    "max_error_ay_mps2": 3.2847843556282896e-08,
+    "max_error_yaw_rate_radps": 2.2359088469592336e-09,
+    "max_error_Fz_FL": 5.8708258166007e-07,
+    "max_error_Fz_FR": 5.265728759695776e-07,
+    "max_error_Fz_RL": 8.731750540391658e-07,
+    "max_error_Fz_RR": 8.845013326208573e-07,
+    "t90_error_ms": 0.006078724065304186
+  },
+  {
+    "case": "fast",
+    "speed": 10,
+    "max_error_ay_mps2": 9.067399897588757e-08,
+    "max_error_yaw_rate_radps": 3.42952677367947e-09,
+    "max_error_Fz_FL": 2.8895175319121336e-07,
+    "max_error_Fz_FR": 3.0181001875462243e-07,
+    "max_error_Fz_RL": 1.3030590935159125e-06,
+    "max_error_Fz_RR": 1.2880609574494883e-06,
+    "t90_error_ms": 0.005601926583153727
+  },
+  {
+    "case": "fast",
+    "speed": 15,
+    "max_error_ay_mps2": 4.690560650999487e-08,
+    "max_error_yaw_rate_radps": 2.781019137199081e-09,
+    "max_error_Fz_FL": 3.900685214830446e-07,
+    "max_error_Fz_FR": 2.9043985705357045e-07,
+    "max_error_Fz_RL": 1.0195942650170764e-06,
+    "max_error_Fz_RR": 1.0084498853757395e-06,
+    "t90_error_ms": 0.004997765960183642
+  },
+  {
+    "case": "fast",
+    "speed": 20,
+    "max_error_ay_mps2": 2.5548879456493978e-08,
+    "max_error_yaw_rate_radps": 1.968501417426438e-09,
+    "max_error_Fz_FL": 3.465468694230367e-07,
+    "max_error_Fz_FR": 2.65279254563211e-07,
+    "max_error_Fz_RL": 6.905471536811092e-07,
+    "max_error_Fz_RR": 6.945738277863711e-07,
+    "t90_error_ms": 0.0050033550370756075
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "speed": 15.0,
+  "case": "long_AD0.25_AS0.50_drive",
+  "kind": "drive",
+  "anti_dive": 0.25,
+  "anti_squat": 0.5,
+  "front_arb_nm_per_rad": 4421.950180785536,
+  "rear_arb_nm_per_rad": 0.0,
+  "valid": true,
+  "min_fz_n": 424.32964691698123,
+  "max_fz_n": 878.4561904185271,
+  "peak_abs_travel_mm": 15.245548930533259,
+  "peak_front_bump_mm": 3.8073807053787823,
+  "peak_rear_bump_mm": 4.836345743041093,
+  "peak_pitch_deg": 0.7250772949733184,
+  "peak_roll_deg": 0.0009666264262611467,
+  "peak_abs_ax": 4.934633458584948
+}

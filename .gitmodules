@@ -4,4 +4,4 @@
 [submodule "BobSimParametric"]
 	path = BobSimParametric
 	url = https://github.com/LonghornRacingElectric/BobSim-Parametric.git
-	branch = codex/parameterized-suspension
+	branch = codex/2027-anti-targets

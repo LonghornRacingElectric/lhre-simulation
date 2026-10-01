@@ -1,0 +1,75 @@
+schema: bobsim.parametric.v1
+description: 2027 workbook projection; mechanical-only screening; provisional inherited
+  inertia
+tire_file: ../tire.tir
+vehicle:
+  mass_kg: 271.2482372600001
+  wheelbase_m: 1.5493999999999999
+  cg_from_front_axle_m: 0.85217
+  cg_height_m: 0.29209999999999997
+  inertia_kg_m2:
+  - - 27.02198405379293
+    - 0.3181862579259547
+    - -5.186467354414878
+  - - 0.3181862579259547
+    - 99.81875140520195
+    - -0.05311521255494056
+  - - -5.186467354414878
+    - -0.05311521255494056
+    - 110.62963131350179
+  sprung_inertia_kg_m2:
+  - - 14.922857206199353
+    - 0.3181862579259548
+    - -5.475202809722356
+  - - 0.3181862579259548
+    - 79.94466182373473
+    - -0.05311521255494055
+  - - -5.475202809722356
+    - -0.05311521255494055
+    - 79.89525433890545
+aero:
+  cl_area_m2: 0.0
+  cd_area_m2: 0.0
+  balance_front: 0.5
+powertrain:
+  peak_power_w: 80000.0
+  peak_force_n: 3560.8801955990225
+  maximum_speed_mps: 42.05399833619569
+  drive_front_fraction: 0.0
+  brake_front_fraction: 0.84
+front:
+  track_m: 1.2446
+  roll_center_height_m: 0.0254
+  static_camber_deg: 0.0
+  camber_gain_deg_per_m: -20
+  toe_in_deg: 0.0
+  longitudinal_jacking_coefficient: 0.0
+  motion_ratio_spring_per_wheel: 0.6482232010804013
+  spring_rate_n_per_m: 26269.025286971457
+  damper_n_s_per_m: 849.9999999999998
+  arb_roll_stiffness_nm_per_rad: 4421.950180785536
+  wheel_radius_m: 0.2045
+  wheel_inertia_kg_m2: 0.02
+  unsprung_mass_per_corner_kg: 7.71107029
+  tire_vertical_stiffness_n_per_m: 98946.66191425915
+  tire_vertical_damping_n_s_per_m: 115.844
+  travel_min_m: -0.03
+  travel_max_m: 0.03
+rear:
+  track_m: 1.1938
+  roll_center_height_m: 0.029972
+  static_camber_deg: 0.0
+  camber_gain_deg_per_m: -15.0
+  toe_in_deg: 0.0
+  longitudinal_jacking_coefficient: 0.0
+  motion_ratio_spring_per_wheel: 0.6096719087902003
+  spring_rate_n_per_m: 43781.70881161909
+  damper_n_s_per_m: 1299.9999999999998
+  arb_roll_stiffness_nm_per_rad: 0.0
+  wheel_radius_m: 0.2045
+  wheel_inertia_kg_m2: 0.02
+  unsprung_mass_per_corner_kg: 7.71107029
+  tire_vertical_stiffness_n_per_m: 98946.66191425915
+  tire_vertical_damping_n_s_per_m: 115.844
+  travel_min_m: -0.03
+  travel_max_m: 0.03

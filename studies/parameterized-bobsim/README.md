@@ -1,7 +1,7 @@
 # Parameterized BobSim suspension research
 
-This study publishes the hardpoint-free suspension fork, the initial five
-research runs, and the independent RC/ARB matrix from 2026-09-29. The implementation is the repository's
+This study publishes the hardpoint-free suspension fork, the 2027 mechanical
+target study, and the earlier illustrative RC/ARB studies. The implementation is the repository's
 [`BobSimParametric`](../../BobSimParametric) submodule, pinned to the
 [team-owned BobSim fork](https://github.com/LonghornRacingElectric/BobSim-Parametric).
 The original `BobSim` submodule remains available for existing studies.
@@ -28,7 +28,81 @@ units, sign conventions, force paths, assumptions and general parameter grids.
 Run commands from inside `BobSimParametric`; results go to its ignored
 `_3_StandardSim/generated_results/` directory.
 
-## Independent 10-60 mm RC matrix with balanced ARBs
+## 2027 car: conditional model-test targets
+
+The [2027 report](outputs/targets_2027/REPORT.md) uses the workbook block in the
+frozen `2027.yml`: 271.248 kg, 292.1 mm total CG height, 45% front static load,
+1549.4 mm wheelbase. It does not use the provisional hardpoints for kinematics.
+The executable [baseline](outputs/targets_2027/vehicle.yml),
+[25% anti candidate](outputs/targets_2027/candidate_nominal25.yml) and
+[50% anti candidate](outputs/targets_2027/candidate_nominal50.yml) need only the
+adjacent `tire.tir`; all suspension inputs are effective parameters.
+
+| Parameter | Next model-test setting |
+| --- | --- |
+| Front / rear RC | Start at 50 / 20 mm; screen 50-60 / 10-20 mm |
+| Front anti-dive / rear anti-squat | 25% and 50%, retaining zero controls |
+| Front / rear ARB at 50% anti | 3605.704 / 816.246 Nm/rad effective axle roll stiffness |
+| Reference balance | 50.646511% front LLTD at 15 m/s and Ay = 8 m/s2 |
+| Total ARB | 4421.950 Nm/rad, fixed at source total |
+| Wheel rates / spring-to-wheel MR | 11.038 / 16.274 N/mm; 0.6482 / 0.6097 |
+
+Anti percentages use total-car nominal flat-road transfer and the source 84%
+front brake bias and rear drive. They are not sprung-mass percentages. The
+translating-upright abstraction uses one reciprocal path under both drive and
+brake forces; rear brake anti-lift is anti-squat times 0.16. Real brake/halfshaft
+reaction paths remain unvalidated. Longitudinal anti and camber/toe migration
+are unidentified in the workbook; zero values are study controls.
+
+At 15 m/s the refined mean Ay/yaw t90 to a common baseline amplitude is
+182.864 ms for the projected control and 181.254 ms for 50/20 mm with 50% anti.
+Separate braking/drive pulses reduce front braking compression from 22.071 to
+10.730 mm and rear drive compression from 9.684 to 4.836 mm. The grid's fastest
+RC pair is 60/10 mm at 180.330 ms, a small boundary trend, not a demonstrated
+optimum. Zero anti already satisfies modeled travel bounds; 25-50% anti is a
+staged platform-control experiment, not an optimized grip target.
+
+There are 217 case records: seven pilots, 36 RC pairs, 100 independent AD/AS
+maneuvers, 46 validation runs and 28 refined runs. Seventeen RC pairs cannot
+match the LLTD target within the chosen nonnegative fixed-total ARB bracket.
+All checked 10 m/s setups fail the proposed 5% Ay overshoot gate (about 15-16%).
+The source aero moment table implies negative front aero load under BobSim's
+convention, so aero is explicitly withheld. Tire relaxation, wheel hop, rough
+road, compliance, finite chassis torsion and physical clearance validation
+remain open. **These settings are for model testing; no hardware targets pass
+all release gates.**
+
+![2027 RC matrix](outputs/targets_2027/roll_matrix.png)
+
+[Full comparison](outputs/targets_2027/candidate_comparison.csv) ·
+[Speed/response gates](outputs/targets_2027/steering_checks.csv) ·
+[Anti/platform curves](outputs/targets_2027/anti_platform.png) ·
+[Source projection audit](outputs/targets_2027/projection_audit.json) ·
+[Software checks](outputs/targets_2027/verification.json)
+
+Reproduce from `BobSimParametric` using Docker-backed Make:
+
+```bash
+make parametric-2027-targets PARAMETRIC_ARGS='--phase pilot'
+make parametric-2027-targets PARAMETRIC_ARGS='--phase roll'
+make parametric-2027-targets PARAMETRIC_ARGS='--phase longitudinal'
+make parametric-2027-targets PARAMETRIC_ARGS='--phase validation'
+make parametric-2027-targets PARAMETRIC_ARGS='--phase refinement'
+make parametric-2027-report
+make parametric-2027-test
+```
+
+This study uses a level-road trim adapter to remove fictitious steady damper
+velocity present in the legacy QSS helper. The shared model equations remain
+unchanged. Its new tests cover projection, force paths and trim. Docker Python
+suite: 407 passed, six skipped; lint/mypy passed. The original Modelica suite
+again passed 15 and failed the same two comparisons documented below.
+The 701 new evidence files (64,173,646 bytes) have separate SHA-256 records in
+[`targets-2027-artifact-index.json`](targets-2027-artifact-index.json); the older
+archive remains unchanged. Source snapshots use `.txt` suffixes to keep them
+out of Python discovery while preserving their exact bytes.
+
+## Earlier illustrative 280 kg car: independent RC matrix
 
 Front/rear RC heights were swept independently at 10 mm increments. Both ARB
 rates were solved to retain **46.737693% front LLTD at 15 m/s and Ay = 8 m/s2**.
