@@ -1,0 +1,230 @@
+{
+  "status": "conditional_model_test_window_only",
+  "hardware_release": false,
+  "all_speed_response_gates_pass": false,
+  "basis": "2027 workbook values, fixed-total ARB, rigid 6DOF, no aero, no rough-road/tire-relaxation validation",
+  "nominal_test_front_rc_mm": 50,
+  "nominal_test_rear_rc_mm": 20,
+  "test_front_rc_window_mm": [
+    50,
+    60
+  ],
+  "test_rear_rc_window_mm": [
+    10,
+    20
+  ],
+  "test_anti_dive_fraction": [
+    0.25,
+    0.5
+  ],
+  "test_anti_squat_fraction": [
+    0.25,
+    0.5
+  ],
+  "anti_reference": "total vehicle nominal flat-road geometric support / (m*abs(ax)*h/L)",
+  "window_selection": "RC rectangle is a compact subset near the fastest 15 m/s grid response, retaining baseline-like roll. Anti 25-50% is a staged platform-control experiment giving roughly 25-50% less axle compression. No modeled rough-road or aero tradeoff identifies an optimum anti percentage. Zero anti remains feasible.",
+  "grid_fastest": {
+    "speed": 15.0,
+    "case": "roll_F60_R10",
+    "kind": "steer",
+    "front_rc_mm": 60,
+    "rear_rc_mm": 10,
+    "tune": true,
+    "lltd": 0.5064651113965538,
+    "arb_total": 4421.950180785536,
+    "front_arb_nm_per_rad": 3157.711888324125,
+    "rear_arb_nm_per_rad": 1264.2382924614108,
+    "valid": true,
+    "min_fz_n": 417.23944128668427,
+    "max_fz_n": 899.1853320949723,
+    "peak_abs_travel_mm": 10.731347463526774,
+    "peak_front_bump_mm": 8.634393833532705,
+    "peak_rear_bump_mm": 8.71478455769703,
+    "peak_pitch_deg": 0.025529442746663616,
+    "peak_roll_deg": 0.8776001197017429,
+    "peak_abs_ax": 0.07841685668033055,
+    "ay_final": 5.176358427773022,
+    "ay_t90_s": 0.19283365707337063,
+    "ay_rise_10_90_s": 0.1752533247554029,
+    "ay_overshoot_pct": 0.4169561577928471,
+    "ay_settling_2pct_s": 0.25,
+    "yaw_final": 0.34575998383683204,
+    "yaw_t90_s": 0.1681054663649384,
+    "yaw_rise_10_90_s": 0.134148998378959,
+    "yaw_overshoot_pct": 0.17145012178101382,
+    "yaw_settling_2pct_s": 0.21999999999999997,
+    "turnin_mean_t90_ms": 180.4695617191545,
+    "yaw_t90_ms": 168.1054663649384,
+    "worst_overshoot_pct": 0.4169561577928471,
+    "worst_settling_ms": 250.0,
+    "max_speed_error_mps": 0.029050791487003735,
+    "common_reference_t90_ms": 180.525998968615,
+    "gain_difference_pct": 0.020686896113009112,
+    "response_gate_pass": true
+  },
+  "all_grid_pairs_within_1pct_of_best": [
+    [
+      60,
+      10
+    ],
+    [
+      50,
+      10
+    ],
+    [
+      60,
+      20
+    ],
+    [
+      40,
+      10
+    ],
+    [
+      50,
+      20
+    ],
+    [
+      30,
+      10
+    ],
+    [
+      60,
+      30
+    ],
+    [
+      40,
+      20
+    ],
+    [
+      50,
+      30
+    ],
+    [
+      20,
+      10
+    ],
+    [
+      30,
+      20
+    ],
+    [
+      60,
+      40
+    ]
+  ],
+  "source_audit": {
+    "basis": "frame_torsion_study workbook effective values, not provisional hardpoint kinematics",
+    "rates": [
+      {
+        "axle": "front",
+        "wheel_rate_n_per_m": 11038.06890696312,
+        "wheel_damping_ns_per_m": 357.164320656084,
+        "spring_per_wheel_mr": 0.6482232010804013
+      },
+      {
+        "axle": "rear",
+        "wheel_rate_n_per_m": 16273.65400118526,
+        "wheel_damping_ns_per_m": 483.20978727825207,
+        "spring_per_wheel_mr": 0.6096719087902003
+      }
+    ],
+    "total_mass_kg": 271.2482372600001,
+    "sprung_mass_kg": 240.40395610000002,
+    "total_cg_m": [
+      -0.8521699999999999,
+      0.0,
+      0.2921
+    ],
+    "sprung_cg_m": [
+      -0.8621095471698115,
+      -1.8472624870837662e-18,
+      0.3039705329056605
+    ],
+    "source_aero_front_balance_range": [
+      -1.1910956799233556,
+      -0.0026416857605460198
+    ],
+    "aero_status": "withheld: source moment convention produces negative front aerodynamic load throughout map",
+    "camber_toe_migration_status": "not identified from workbook; zero baseline and separate sensitivity required",
+    "longitudinal_anti_baseline_status": "not identified from workbook; zero reference is a study control, not measured car geometry",
+    "motion_ratio_status": "effective MR inferred from workbook roll stiffness and source spring; no extra tire compliance",
+    "chassis_torsion_status": "source finite torsion recorded, current 6DOF is rigid; not a chassis-stiffness target",
+    "source_chassis_torsion_nm_per_rad": 32082.932891947403,
+    "travel_status": "provisional +/-30 mm screening envelope, not verified hardware or ground clearance",
+    "powertrain_status": "source peak torque/power/speed and brake bias projected; no differential or rotor dynamics in 6DOF",
+    "source_sha256": "e2cc96490d0443e46e8b1f5ab59f39535e4e90daea11006c47d2e0ffb84a53ba",
+    "tire_sha256": "328b9666c71a164685d7429ef00517fbe0a6f15d3f5d031714bae4ce642bc7b1"
+  },
+  "runs": {
+    "pilot": {
+      "count": 7,
+      "domain_valid": 7
+    },
+    "roll": {
+      "count": 36,
+      "domain_valid": 19
+    },
+    "longitudinal": {
+      "count": 100,
+      "domain_valid": 100
+    },
+    "validation": {
+      "count": 46,
+      "domain_valid": 46
+    },
+    "refinement": {
+      "count": 28,
+      "domain_valid": 28
+    }
+  },
+  "maximum_refinement_t90_error_ms": 0.013728730434905856,
+  "open_gates": [
+    "10 m/s Ay overshoot >5% for all checked setups",
+    "source aero moment/height conventions unresolved",
+    "tire relaxation and unsprung/rough-road dynamics absent",
+    "ARB range and travel are not hardware-verified",
+    "camber/toe migration, full brake/drive torque path and chassis torsion not correlated"
+  ],
+  "comparison": [
+    {
+      "setup": "baseline",
+      "t90_ms": 182.86399441044222,
+      "brake_front_bump_mm": 22.071305248716367,
+      "drive_rear_bump_mm": 9.683921178665955,
+      "brake_pitch_deg": 1.4213924300018623,
+      "drive_pitch_deg": 0.9047358946229174,
+      "front_arb_nm_per_rad": 4421.950180785536,
+      "rear_arb_nm_per_rad": 0.0
+    },
+    {
+      "setup": "fast",
+      "t90_ms": 180.3297108720564,
+      "brake_front_bump_mm": 21.86222467114479,
+      "drive_rear_bump_mm": 9.706214278611569,
+      "brake_pitch_deg": 1.4147845013110643,
+      "drive_pitch_deg": 0.9019522699064865,
+      "front_arb_nm_per_rad": 3157.711888324125,
+      "rear_arb_nm_per_rad": 1264.2382924614108
+    },
+    {
+      "setup": "nominal25",
+      "t90_ms": 181.26328584235097,
+      "brake_front_bump_mm": 16.28963106287584,
+      "drive_rear_bump_mm": 7.237950747722266,
+      "brake_pitch_deg": 1.186837670164905,
+      "drive_pitch_deg": 0.8119821629500676,
+      "front_arb_nm_per_rad": 3621.3673508790976,
+      "rear_arb_nm_per_rad": 800.5828299064383
+    },
+    {
+      "setup": "nominal50",
+      "t90_ms": 181.25446219442887,
+      "brake_front_bump_mm": 10.729825850637587,
+      "drive_rear_bump_mm": 4.836027468691384,
+      "brake_pitch_deg": 0.95824235252952,
+      "drive_pitch_deg": 0.7219281190363005,
+      "front_arb_nm_per_rad": 3605.704273004073,
+      "rear_arb_nm_per_rad": 816.2459077814628
+    }
+  ]
+}

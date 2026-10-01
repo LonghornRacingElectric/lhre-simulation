@@ -1,0 +1,18 @@
+{
+  "speed": 15.0,
+  "case": "long_AD0.75_AS0.75_exit",
+  "kind": "exit",
+  "anti_dive": 0.75,
+  "anti_squat": 0.75,
+  "front_arb_nm_per_rad": 4421.950180785536,
+  "rear_arb_nm_per_rad": 0.0,
+  "valid": true,
+  "min_fz_n": 311.28821770467016,
+  "max_fz_n": 992.0945836969497,
+  "peak_abs_travel_mm": 19.42425581193413,
+  "peak_front_bump_mm": 14.015180624889545,
+  "peak_rear_bump_mm": 11.747309213973434,
+  "peak_pitch_deg": 0.38700159489055885,
+  "peak_roll_deg": 1.1929233826022385,
+  "peak_abs_ax": 2.882532760505034
+}

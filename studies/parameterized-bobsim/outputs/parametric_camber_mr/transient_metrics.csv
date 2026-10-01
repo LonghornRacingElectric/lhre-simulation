@@ -1,0 +1,6 @@
+case,label,valid,settled,tire_domain_valid,final_ay_mps2,max_speed_error_mps,rise_10_90_s,overshoot_percent,min_tire_load_n
+case_000,baseline,True,True,True,5.1716636980959825,0.02739466858863082,0.15999999999999992,0.5815125202282223,444.56292770970043
+case_001,"front.camber_gain_deg_per_m=-10, front.motion_ratio_spring_per_wheel=0.7",True,True,True,5.201046452485743,0.02797360119958725,0.15999999999999992,0.6619102636355345,462.92240235966915
+case_002,"front.camber_gain_deg_per_m=-10, front.motion_ratio_spring_per_wheel=0.9",True,True,True,5.146742831727989,0.026947400633067886,0.15999999999999992,0.5155931935403979,428.1406727749685
+case_003,"front.camber_gain_deg_per_m=-30, front.motion_ratio_spring_per_wheel=0.7",True,True,True,5.200107008771562,0.027964274652450882,0.15999999999999992,0.6606293185923429,462.9543507268426
+case_004,"front.camber_gain_deg_per_m=-30, front.motion_ratio_spring_per_wheel=0.9",True,True,True,5.145683669071198,0.026939722748677397,0.15999999999999992,0.5148660630714508,428.1799698004958

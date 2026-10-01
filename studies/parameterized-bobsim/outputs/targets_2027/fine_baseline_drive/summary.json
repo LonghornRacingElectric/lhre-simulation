@@ -1,0 +1,20 @@
+{
+  "speed": 15.0,
+  "anti_dive": 0,
+  "anti_squat": 0,
+  "dt": 0.00125,
+  "rtol": 1e-10,
+  "case": "fine_baseline_drive",
+  "kind": "drive",
+  "front_arb_nm_per_rad": 4421.950180785536,
+  "rear_arb_nm_per_rad": 0.0,
+  "valid": true,
+  "min_fz_n": 427.0054331129261,
+  "max_fz_n": 896.0988184946402,
+  "peak_abs_travel_mm": 14.95181838910925,
+  "peak_front_bump_mm": 3.538215751861473,
+  "peak_rear_bump_mm": 9.683921178665955,
+  "peak_pitch_deg": 0.9047358946229174,
+  "peak_roll_deg": 0.0012522944379180774,
+  "peak_abs_ax": 4.911906797016965
+}

@@ -1,0 +1,18 @@
+{
+  "speed": 15.0,
+  "case": "long_AD0.75_AS0.75_trail",
+  "kind": "trail",
+  "anti_dive": 0.75,
+  "anti_squat": 0.75,
+  "front_arb_nm_per_rad": 4421.950180785536,
+  "rear_arb_nm_per_rad": 0.0,
+  "valid": true,
+  "min_fz_n": 384.90666786212137,
+  "max_fz_n": 906.8713375732319,
+  "peak_abs_travel_mm": 19.106028797160945,
+  "peak_front_bump_mm": 12.451645974751068,
+  "peak_rear_bump_mm": 6.9229028786718665,
+  "peak_pitch_deg": 0.46403712837729866,
+  "peak_roll_deg": 0.878818599480456,
+  "peak_abs_ax": 5.057968532470976
+}

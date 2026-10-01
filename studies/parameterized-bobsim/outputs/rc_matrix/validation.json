@@ -1,0 +1,81 @@
+{
+  "speeds_mps": [
+    10,
+    15,
+    20
+  ],
+  "selected_cases": [
+    "F020_R030",
+    "F060_R010",
+    "F060_R020",
+    "F010_R060",
+    "F060_R060"
+  ],
+  "dt_s": 0.0025,
+  "rtol": 1e-09,
+  "all_valid": true,
+  "convergence_at_15_mps": [
+    {
+      "case": "original",
+      "max_abs_error_ay_mps2": 4.944555236363612e-07,
+      "max_abs_error_yaw_rate_radps": 3.999466896553727e-08,
+      "max_abs_error_Fz_FL": 2.1735994380378543e-05,
+      "max_abs_error_Fz_FR": 2.1482279180418118e-05,
+      "max_abs_error_Fz_RL": 2.4612280981273216e-05,
+      "max_abs_error_Fz_RR": 2.451343686971086e-05,
+      "turnin_mean_t90_error_ms": 0.0433901509281327
+    },
+    {
+      "case": "F020_R030",
+      "max_abs_error_ay_mps2": 7.055454362969726e-07,
+      "max_abs_error_yaw_rate_radps": 5.822199949934159e-08,
+      "max_abs_error_Fz_FL": 3.1021320751278836e-05,
+      "max_abs_error_Fz_FR": 3.0653018484372296e-05,
+      "max_abs_error_Fz_RL": 3.52502762552831e-05,
+      "max_abs_error_Fz_RR": 3.515120647534786e-05,
+      "turnin_mean_t90_error_ms": 0.05030716131292934
+    },
+    {
+      "case": "F060_R010",
+      "max_abs_error_ay_mps2": 5.189699257002189e-07,
+      "max_abs_error_yaw_rate_radps": 4.658080055008895e-08,
+      "max_abs_error_Fz_FL": 1.6847875883740926e-05,
+      "max_abs_error_Fz_FR": 1.3045182754467533e-05,
+      "max_abs_error_Fz_RL": 2.368863863466686e-05,
+      "max_abs_error_Fz_RR": 2.3851363380344992e-05,
+      "turnin_mean_t90_error_ms": 0.06394545475228597
+    },
+    {
+      "case": "F060_R020",
+      "max_abs_error_ay_mps2": 4.685246279834132e-07,
+      "max_abs_error_yaw_rate_radps": 4.240840328906259e-08,
+      "max_abs_error_Fz_FL": 1.5312674179313035e-05,
+      "max_abs_error_Fz_FR": 1.18817553129702e-05,
+      "max_abs_error_Fz_RL": 2.1674696654372383e-05,
+      "max_abs_error_Fz_RR": 2.2076560753703234e-05,
+      "turnin_mean_t90_error_ms": 0.07873758287769306
+    },
+    {
+      "case": "F010_R060",
+      "max_abs_error_ay_mps2": 3.379121844560018e-07,
+      "max_abs_error_yaw_rate_radps": 2.7331168050981347e-08,
+      "max_abs_error_Fz_FL": 1.6134261841216357e-05,
+      "max_abs_error_Fz_FR": 1.6370788443964557e-05,
+      "max_abs_error_Fz_RL": 1.7626301541895373e-05,
+      "max_abs_error_Fz_RR": 1.803716838821856e-05,
+      "turnin_mean_t90_error_ms": 0.023763992100242604
+    },
+    {
+      "case": "F060_R060",
+      "max_abs_error_ay_mps2": 6.448743850029359e-08,
+      "max_abs_error_yaw_rate_radps": 5.511367029420455e-09,
+      "max_abs_error_Fz_FL": 2.190894292652956e-06,
+      "max_abs_error_Fz_FR": 1.7816123545344453e-06,
+      "max_abs_error_Fz_RL": 3.096993964391004e-06,
+      "max_abs_error_Fz_RR": 3.261658207520668e-06,
+      "turnin_mean_t90_error_ms": 0.060968523600053004
+    }
+  ],
+  "scope": "Same ARB/RC setups retained at each speed; tuned at 15 m/s and Ay=8 only.",
+  "note": "Shortlist speed check, not a full additional matrix or physical correlation."
+}

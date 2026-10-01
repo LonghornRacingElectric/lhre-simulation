@@ -1,0 +1,49 @@
+{
+  "schema": "bobsim.parametric.study.v1",
+  "model_dof": 6,
+  "vehicle_sha256": "24e333478cdc8f86d7d861ee2018c13ddb8087b27c54cc7eba8f8842189a78ed",
+  "tire_sha256": "328b9666c71a164685d7429ef00517fbe0a6f15d3f5d031714bae4ce642bc7b1",
+  "code_sha256": {
+    "_0_Utils/dyn_py/models.py": "4e0f3fe2fcf5521855e9f08caf3a58eadccf55e2638aae99469af36d807f8bcf",
+    "_0_Utils/dyn_py/parametric.py": "9ed2d26b58a1931e670d7fcacd27ee228ae86d40ba7c7a4b145a694ef6f2aae2",
+    "_0_Utils/dyn_py/parameters.py": "2b02149f698d348a172a3d43bfc0c3fc6b28a35017bad70f28e1466ed5f6fc48",
+    "_0_Utils/dyn_py/qss.py": "420f3430a409a02700771829f2537cc277c53edde4b86c1fb8a9b31c0181767d",
+    "_0_Utils/dyn_py/transient.py": "50510ac3f6a65e7fb6c4df903282ca431de24d9dc0240e8939b57ce756caf12b",
+    "_0_Utils/dyn_py/vehicle.py": "03d1462ea7181c832b35768a6d9e3da67287a9d3feea9266959969a8b4fd1628",
+    "_3_StandardSim/ParametricEval/parametric_eval.py": "83442dc1eac86f548c93f7f510cd216fa2ca17ad62fd6d17dbc9cbe36c575a36"
+  },
+  "source_vehicle": "/workspace/_3_StandardSim/generated_results/rc_matrix/F020_R060/input.yml",
+  "tire_file": "/workspace/_3_StandardSim/generated_results/rc_matrix/tire.tir",
+  "speed_mps": 15,
+  "target_ays_mps2": [
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "roadwheel_step_deg": 2,
+  "step_start_s": 1.0,
+  "step_rise_s": 0.15,
+  "duration_s": 4,
+  "dt_s": 0.005,
+  "rtol": 1e-08,
+  "limitations": [
+    "Illustrative parameters; not correlated to an LHRe car or full BobLib.",
+    "6DOF body with algebraic uprights; no wheel hop or tire relaxation dynamics.",
+    "Nominal RC labels; migration follows prescribed corner paths, not a hardpoint linkage.",
+    "Simplified MF-derived tire projection; not full MF52 evaluation.",
+    "No steering jacking, caster/KPI, Ackermann, compliance or bump stops.",
+    "Linear wheel rates and constant motion ratios; rigid sprung body and flat road.",
+    "Travel-domain exceedance rejects a case; tire fit domain is checked at saved samples."
+  ],
+  "cases": [
+    {
+      "id": "case_000",
+      "label": "baseline",
+      "errors": [],
+      "valid": true
+    }
+  ],
+  "all_cases_valid": true
+}

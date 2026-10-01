@@ -1,0 +1,43 @@
+{
+  "basis": "frame_torsion_study workbook effective values, not provisional hardpoint kinematics",
+  "rates": [
+    {
+      "axle": "front",
+      "wheel_rate_n_per_m": 11038.06890696312,
+      "wheel_damping_ns_per_m": 357.164320656084,
+      "spring_per_wheel_mr": 0.6482232010804013
+    },
+    {
+      "axle": "rear",
+      "wheel_rate_n_per_m": 16273.65400118526,
+      "wheel_damping_ns_per_m": 483.20978727825207,
+      "spring_per_wheel_mr": 0.6096719087902003
+    }
+  ],
+  "total_mass_kg": 271.2482372600001,
+  "sprung_mass_kg": 240.40395610000002,
+  "total_cg_m": [
+    -0.8521699999999999,
+    0.0,
+    0.2921
+  ],
+  "sprung_cg_m": [
+    -0.8621095471698115,
+    -1.8472624870837662e-18,
+    0.3039705329056605
+  ],
+  "source_aero_front_balance_range": [
+    -1.1910956799233556,
+    -0.0026416857605460198
+  ],
+  "aero_status": "withheld: source moment convention produces negative front aerodynamic load throughout map",
+  "camber_toe_migration_status": "not identified from workbook; zero baseline and separate sensitivity required",
+  "longitudinal_anti_baseline_status": "not identified from workbook; zero reference is a study control, not measured car geometry",
+  "motion_ratio_status": "effective MR inferred from workbook roll stiffness and source spring; no extra tire compliance",
+  "chassis_torsion_status": "source finite torsion recorded, current 6DOF is rigid; not a chassis-stiffness target",
+  "source_chassis_torsion_nm_per_rad": 32082.932891947403,
+  "travel_status": "provisional +/-30 mm screening envelope, not verified hardware or ground clearance",
+  "powertrain_status": "source peak torque/power/speed and brake bias projected; no differential or rotor dynamics in 6DOF",
+  "source_sha256": "e2cc96490d0443e46e8b1f5ab59f39535e4e90daea11006c47d2e0ffb84a53ba",
+  "tire_sha256": "328b9666c71a164685d7429ef00517fbe0a6f15d3f5d031714bae4ce642bc7b1"
+}

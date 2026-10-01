@@ -1,3 +1,7 @@
 [submodule "BobSim"]
 	path = BobSim
 	url = https://github.com/BobDyn/BobSim.git
+[submodule "BobSimParametric"]
+	path = BobSimParametric
+	url = https://github.com/LonghornRacingElectric/BobSim-Parametric.git
+	branch = codex/2027-anti-targets

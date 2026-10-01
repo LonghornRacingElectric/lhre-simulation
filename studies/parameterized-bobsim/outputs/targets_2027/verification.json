@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-30",
+  "fork_commit": "b2d76b4b24751672bd3f25ea38a7d0d289c1846a",
+  "fork_url": "https://github.com/LonghornRacingElectric/BobSim-Parametric/tree/codex/2027-anti-targets",
+  "docker_image": "bobdyn/bobsim:latest",
+  "docker_image_id": "sha256:bfbc03acd890b9ecdd082e424699a6072827b44834c2556f3872397d7fe14e52",
+  "python_tests": {
+    "failed": 0,
+    "passed": 407,
+    "skipped": 6
+  },
+  "focused_2027_tests": {
+    "failed": 0,
+    "passed": 7
+  },
+  "lint": "passed",
+  "mypy": "passed",
+  "modelica_regression": {
+    "failed": 2,
+    "passed": 15,
+    "unchanged_discrepancies": [
+      "ramp_steer.steer_excess_fit_nrmse: 0.18652926851924925 versus 0.0876623086560855; tolerance 0.08",
+      "steady_state.n_cases: 22 versus 40"
+    ]
+  },
+  "validation_scope": "Numerical/software verification only; no physical correlation or hardware release",
+  "archived_generation": "All five phases rerun with retained source snapshots; report generated after phase completion"
+}

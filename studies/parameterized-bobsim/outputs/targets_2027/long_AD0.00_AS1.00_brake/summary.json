@@ -1,0 +1,18 @@
+{
+  "speed": 15.0,
+  "case": "long_AD0.00_AS1.00_brake",
+  "kind": "brake",
+  "anti_dive": 0.0,
+  "anti_squat": 1.0,
+  "front_arb_nm_per_rad": 4421.950180785536,
+  "rear_arb_nm_per_rad": 0.0,
+  "valid": true,
+  "min_fz_n": 466.4727276215424,
+  "max_fz_n": 852.9392159222256,
+  "peak_abs_travel_mm": 22.101735716953396,
+  "peak_front_bump_mm": 22.101735716953396,
+  "peak_rear_bump_mm": 3.0663024058693034,
+  "peak_pitch_deg": 1.3187546349644108,
+  "peak_roll_deg": 0.0018645117910464902,
+  "peak_abs_ax": 7.911895015812607
+}

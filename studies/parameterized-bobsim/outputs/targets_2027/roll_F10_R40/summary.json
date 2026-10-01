@@ -1,0 +1,12 @@
+{
+  "speed": 15.0,
+  "case": "roll_F10_R40",
+  "kind": "steer",
+  "front_rc_mm": 10,
+  "rear_rc_mm": 40,
+  "tune": true,
+  "lltd": 0.5064651113965538,
+  "arb_total": 4421.950180785536,
+  "valid": false,
+  "error": "Target LLTD needs ARB outside nonnegative fixed-total bracket"
+}

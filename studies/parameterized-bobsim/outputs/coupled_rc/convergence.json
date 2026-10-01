@@ -1,0 +1,67 @@
+{
+  "comparisons": [
+    {
+      "pair": 0,
+      "max_abs_ay_mps2_difference": 4.944555236363612e-07,
+      "max_abs_Fz_FL_difference": 2.1735994380378543e-05,
+      "max_abs_Fz_FR_difference": 2.1482279180418118e-05,
+      "max_abs_Fz_RL_difference": 2.4612280981273216e-05,
+      "max_abs_Fz_RR_difference": 2.451343675602402e-05,
+      "max_abs_lltd_difference_pp": 1.8718282746021941e-07,
+      "rise_10_90_s_difference": -6.697653724452302e-05,
+      "final_ay_mps2_difference": 6.618279257963877e-10,
+      "overshoot_percent_difference": -5.761762178480012e-08
+    },
+    {
+      "pair": 4,
+      "max_abs_ay_mps2_difference": 3.699210422425381e-07,
+      "max_abs_Fz_FL_difference": 6.054508105535206e-06,
+      "max_abs_Fz_FR_difference": 3.8633205576843466e-06,
+      "max_abs_Fz_RL_difference": 1.777599777597061e-05,
+      "max_abs_Fz_RR_difference": 2.224343938905804e-05,
+      "max_abs_lltd_difference_pp": 2.935490464039958e-06,
+      "rise_10_90_s_difference": -4.582457833970932e-05,
+      "final_ay_mps2_difference": 6.715987765915088e-10,
+      "overshoot_percent_difference": -8.323373281715618e-05
+    }
+  ],
+  "interpretation": "Numerical convergence only; illustrative uncorrelated vehicle.",
+  "endpoint_effect": {
+    "ay_mps2": {
+      "max_abs_difference": 0.08103749620885004,
+      "signed_difference": 0.08103749620885004,
+      "time_s": 1.07
+    },
+    "Fz_FL": {
+      "max_abs_difference": 10.270416443884073,
+      "signed_difference": -10.270416443884073,
+      "time_s": 1.045
+    },
+    "Fz_FR": {
+      "max_abs_difference": 12.093769986504299,
+      "signed_difference": 12.093769986504299,
+      "time_s": 1.065
+    },
+    "Fz_RL": {
+      "max_abs_difference": 8.509335626716279,
+      "signed_difference": 8.509335626716279,
+      "time_s": 1.155
+    },
+    "Fz_RR": {
+      "max_abs_difference": 5.277205231180801,
+      "signed_difference": -5.277205231180801,
+      "time_s": 1.235
+    },
+    "lltd": {
+      "max_abs_difference_pp": 8.758502308089199,
+      "signed_difference_pp": 8.758502308089199,
+      "time_s": 1.04,
+      "baseline_pct": 50.878193006781146,
+      "high_pct": 59.636695314870344,
+      "ay_mps2": 1.1604219925214694
+    },
+    "fine_max_abs_lltd_difference_pp": 9.307436996592784,
+    "coarse_rise_time_change_s": -0.00028336137451309695,
+    "fine_rise_time_change_s": -0.00030451333341791065
+  }
+}
