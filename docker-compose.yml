@@ -1,0 +1,14 @@
+services:
+  oval-study:
+    image: bobdyn/bobsim:latest
+    build:
+      context: BobSimParametric
+      dockerfile: Dockerfile
+    volumes:
+      - .:/workspace
+    working_dir: /workspace/BobSimParametric
+    network_mode: none
+    environment:
+      PYTHONPATH: /workspace/BobSimParametric
+      MPLCONFIGDIR: /tmp/matplotlib
+    command: python ../studies/parameterized-bobsim/asymmetric_oval/run.py

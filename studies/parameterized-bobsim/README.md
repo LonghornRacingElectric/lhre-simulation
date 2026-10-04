@@ -1,5 +1,10 @@
 # Parameterized BobSim suspension research
 
+The [asymmetric oval sweep](asymmetric_oval/README.md) carries the upstream
+anti-geometry track/grid definitions into this branch's 2027 parameterized
+6DOF model. Its current full-grid screening stops at the provisional travel
+boundary; see the study note before interpreting any lap result.
+
 This study publishes the hardpoint-free suspension fork, the 2027 mechanical
 target study, and the earlier illustrative RC/ARB studies. The implementation is the repository's
 [`BobSimParametric`](../../BobSimParametric) submodule, pinned to the
